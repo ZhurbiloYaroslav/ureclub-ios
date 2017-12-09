@@ -9,29 +9,44 @@
 import UIKit
 
 class MenuVC: UITableViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
     }
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 0
-    }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return 6
     }
-
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell", for: indexPath) as! MenuCell
+        cell.updateCellWith(indexPath: indexPath)
         return cell
+        
     }
-    */
-
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath {
+        case [0,0]:
+            performSegue(withIdentifier: "ShowProfileFromMenu", sender: nil)
+        case [0,1]:
+            performSegue(withIdentifier: "ShowEventsFromMenu", sender: nil)
+        case [0,2]:
+            performSegue(withIdentifier: "ShowNewsFromMenu", sender: nil)
+        case [0,3]:
+            performSegue(withIdentifier: "ShowMembersFromMenu", sender: nil)
+        case [0,4]:
+            performSegue(withIdentifier: "ShowContactsFromMenu", sender: nil)
+        case [0,5]:
+            performSegue(withIdentifier: "ShowSettingsFromMenu", sender: nil)
+        default:
+            print("selected undefined cell in menu")
+            break
+        }
+    }
+    
 }
+

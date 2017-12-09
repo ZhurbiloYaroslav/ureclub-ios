@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		A575E5EF19AB2E5627FF560A /* Pods_UREClub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F00CDDC75090A238545BF8D /* Pods_UREClub.framework */; };
 		C41CA3661FDBE3F000AB0D2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41CA3651FDBE3F000AB0D2D /* AppDelegate.swift */; };
-		C41CA3681FDBE3F000AB0D2D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41CA3671FDBE3F000AB0D2D /* ViewController.swift */; };
+		C41CA3681FDBE3F000AB0D2D /* EventsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41CA3671FDBE3F000AB0D2D /* EventsVC.swift */; };
 		C41CA36B1FDBE3F000AB0D2D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C41CA3691FDBE3F000AB0D2D /* Main.storyboard */; };
 		C41CA36E1FDBE3F000AB0D2D /* UREClub.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C41CA36C1FDBE3F000AB0D2D /* UREClub.xcdatamodeld */; };
 		C41CA3701FDBE3F000AB0D2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C41CA36F1FDBE3F000AB0D2D /* Assets.xcassets */; };
@@ -17,6 +17,20 @@
 		C41CA3821FDBEB8500AB0D2D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C41CA3811FDBEB8500AB0D2D /* Localizable.strings */; };
 		C41CA3861FDBECC100AB0D2D /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41CA3851FDBECC100AB0D2D /* LoginVC.swift */; };
 		C41CA3881FDBED0100AB0D2D /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41CA3871FDBED0100AB0D2D /* MenuVC.swift */; };
+		C41CA38A1FDBF29100AB0D2D /* Launch screen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C41CA3891FDBF29100AB0D2D /* Launch screen.jpg */; };
+		C41CA38C1FDBF6DC00AB0D2D /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41CA38B1FDBF6DC00AB0D2D /* MenuCell.swift */; };
+		C41CA38E1FDBFC7100AB0D2D /* String+localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41CA38D1FDBFC7100AB0D2D /* String+localized.swift */; };
+		C41CA3901FDBFC9B00AB0D2D /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41CA38F1FDBFC9B00AB0D2D /* UserDefaultsManager.swift */; };
+		C41CA3921FDBFCC300AB0D2D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41CA3911FDBFCC300AB0D2D /* Constants.swift */; };
+		C41CA3941FDBFCDB00AB0D2D /* Languages.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41CA3931FDBFCDB00AB0D2D /* Languages.swift */; };
+		C41CA3961FDBFDBD00AB0D2D /* Browser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41CA3951FDBFDBD00AB0D2D /* Browser.swift */; };
+		C41CA3981FDBFFFD00AB0D2D /* Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41CA3971FDBFFFD00AB0D2D /* Typealiases.swift */; };
+		C41CA39A1FDC010700AB0D2D /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41CA3991FDC010700AB0D2D /* ProfileVC.swift */; };
+		C44574601FDC18FB004A5305 /* NewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C445745F1FDC18FB004A5305 /* NewsVC.swift */; };
+		C44574621FDC192C004A5305 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44574611FDC192C004A5305 /* SettingsVC.swift */; };
+		C44574641FDC1AED004A5305 /* ContactsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44574631FDC1AED004A5305 /* ContactsVC.swift */; };
+		C44574661FDC1B97004A5305 /* MembersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44574651FDC1B97004A5305 /* MembersVC.swift */; };
+		C44574681FDC1D18004A5305 /* LeftMenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44574671FDC1D18004A5305 /* LeftMenuManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +39,7 @@
 		AE4E3DD1CDFA59C0049561D9 /* Pods-UREClub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UREClub.release.xcconfig"; path = "Pods/Target Support Files/Pods-UREClub/Pods-UREClub.release.xcconfig"; sourceTree = "<group>"; };
 		C41CA3621FDBE3F000AB0D2D /* UREClub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UREClub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C41CA3651FDBE3F000AB0D2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C41CA3671FDBE3F000AB0D2D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C41CA3671FDBE3F000AB0D2D /* EventsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsVC.swift; sourceTree = "<group>"; };
 		C41CA36A1FDBE3F000AB0D2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C41CA36D1FDBE3F000AB0D2D /* UREClub.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UREClub.xcdatamodel; sourceTree = "<group>"; };
 		C41CA36F1FDBE3F000AB0D2D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -34,6 +48,20 @@
 		C41CA3811FDBEB8500AB0D2D /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		C41CA3851FDBECC100AB0D2D /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		C41CA3871FDBED0100AB0D2D /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
+		C41CA3891FDBF29100AB0D2D /* Launch screen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Launch screen.jpg"; sourceTree = "<group>"; };
+		C41CA38B1FDBF6DC00AB0D2D /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
+		C41CA38D1FDBFC7100AB0D2D /* String+localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+localized.swift"; sourceTree = "<group>"; };
+		C41CA38F1FDBFC9B00AB0D2D /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		C41CA3911FDBFCC300AB0D2D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C41CA3931FDBFCDB00AB0D2D /* Languages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Languages.swift; sourceTree = "<group>"; };
+		C41CA3951FDBFDBD00AB0D2D /* Browser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Browser.swift; sourceTree = "<group>"; };
+		C41CA3971FDBFFFD00AB0D2D /* Typealiases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealiases.swift; sourceTree = "<group>"; };
+		C41CA3991FDC010700AB0D2D /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		C445745F1FDC18FB004A5305 /* NewsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsVC.swift; sourceTree = "<group>"; };
+		C44574611FDC192C004A5305 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		C44574631FDC1AED004A5305 /* ContactsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsVC.swift; sourceTree = "<group>"; };
+		C44574651FDC1B97004A5305 /* MembersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersVC.swift; sourceTree = "<group>"; };
+		C44574671FDC1D18004A5305 /* LeftMenuManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftMenuManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,9 +120,14 @@
 		C41CA37A1FDBEB0700AB0D2D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				C41CA3671FDBE3F000AB0D2D /* ViewController.swift */,
 				C41CA3841FDBEBAC00AB0D2D /* Auth */,
 				C41CA3871FDBED0100AB0D2D /* MenuVC.swift */,
+				C41CA3991FDC010700AB0D2D /* ProfileVC.swift */,
+				C41CA3671FDBE3F000AB0D2D /* EventsVC.swift */,
+				C445745F1FDC18FB004A5305 /* NewsVC.swift */,
+				C44574651FDC1B97004A5305 /* MembersVC.swift */,
+				C44574631FDC1AED004A5305 /* ContactsVC.swift */,
+				C44574611FDC192C004A5305 /* SettingsVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -104,6 +137,7 @@
 			children = (
 				C41CA3691FDBE3F000AB0D2D /* Main.storyboard */,
 				C41CA3711FDBE3F000AB0D2D /* LaunchScreen.storyboard */,
+				C41CA38B1FDBF6DC00AB0D2D /* MenuCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -112,6 +146,9 @@
 			isa = PBXGroup;
 			children = (
 				C41CA3831FDBEB9600AB0D2D /* Constants */,
+				C41CA38F1FDBFC9B00AB0D2D /* UserDefaultsManager.swift */,
+				C41CA3951FDBFDBD00AB0D2D /* Browser.swift */,
+				C44574671FDC1D18004A5305 /* LeftMenuManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -138,6 +175,7 @@
 		C41CA37F1FDBEB5900AB0D2D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				C41CA38D1FDBFC7100AB0D2D /* String+localized.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -145,6 +183,7 @@
 		C41CA3801FDBEB6800AB0D2D /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C41CA3891FDBF29100AB0D2D /* Launch screen.jpg */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -152,6 +191,9 @@
 		C41CA3831FDBEB9600AB0D2D /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				C41CA3911FDBFCC300AB0D2D /* Constants.swift */,
+				C41CA3931FDBFCDB00AB0D2D /* Languages.swift */,
+				C41CA3971FDBFFFD00AB0D2D /* Typealiases.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -236,6 +278,7 @@
 			files = (
 				C41CA3731FDBE3F000AB0D2D /* LaunchScreen.storyboard in Resources */,
 				C41CA3821FDBEB8500AB0D2D /* Localizable.strings in Resources */,
+				C41CA38A1FDBF29100AB0D2D /* Launch screen.jpg in Resources */,
 				C41CA3701FDBE3F000AB0D2D /* Assets.xcassets in Resources */,
 				C41CA36B1FDBE3F000AB0D2D /* Main.storyboard in Resources */,
 			);
@@ -297,10 +340,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				C41CA36E1FDBE3F000AB0D2D /* UREClub.xcdatamodeld in Sources */,
-				C41CA3681FDBE3F000AB0D2D /* ViewController.swift in Sources */,
+				C41CA38E1FDBFC7100AB0D2D /* String+localized.swift in Sources */,
+				C41CA3681FDBE3F000AB0D2D /* EventsVC.swift in Sources */,
+				C44574641FDC1AED004A5305 /* ContactsVC.swift in Sources */,
+				C44574601FDC18FB004A5305 /* NewsVC.swift in Sources */,
+				C41CA38C1FDBF6DC00AB0D2D /* MenuCell.swift in Sources */,
 				C41CA3861FDBECC100AB0D2D /* LoginVC.swift in Sources */,
 				C41CA3661FDBE3F000AB0D2D /* AppDelegate.swift in Sources */,
+				C41CA3901FDBFC9B00AB0D2D /* UserDefaultsManager.swift in Sources */,
+				C44574681FDC1D18004A5305 /* LeftMenuManager.swift in Sources */,
 				C41CA3881FDBED0100AB0D2D /* MenuVC.swift in Sources */,
+				C41CA39A1FDC010700AB0D2D /* ProfileVC.swift in Sources */,
+				C41CA3981FDBFFFD00AB0D2D /* Typealiases.swift in Sources */,
+				C44574661FDC1B97004A5305 /* MembersVC.swift in Sources */,
+				C41CA3961FDBFDBD00AB0D2D /* Browser.swift in Sources */,
+				C41CA3921FDBFCC300AB0D2D /* Constants.swift in Sources */,
+				C41CA3941FDBFCDB00AB0D2D /* Languages.swift in Sources */,
+				C44574621FDC192C004A5305 /* SettingsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,7 +496,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4PM46468DE;
-				INFOPLIST_FILE = UREClub/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/UREClub/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ureclub.UREClub;
@@ -457,7 +513,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4PM46468DE;
-				INFOPLIST_FILE = UREClub/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/UREClub/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ureclub.UREClub;
