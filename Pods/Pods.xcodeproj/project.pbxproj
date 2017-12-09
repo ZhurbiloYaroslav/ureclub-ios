@@ -7,105 +7,184 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0B52D898928089B02641857A46F65277 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC7524F0BE53ABC149C4387DFEFE2B51 /* Foundation.framework */; };
-		2E9B567258D02F6D0C54A3CCBE332E93 /* Pods-UREClub-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 628042D5FE7A19E4F44BC308871B0915 /* Pods-UREClub-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		40B56996B6CF5F78F16B542039D55361 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 744ABE771270A802B17AA91E0BFC1A15 /* SWRevealViewController.m */; };
-		570C57194758F9A710D9175AB35F9560 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8621F66D446C6F4AC0D7F817144EB150 /* CoreGraphics.framework */; };
-		71A293CA38A4B1DAEA40CA1F5E4750EE /* SWRevealViewController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 49CDBEAF066B98CA67C410DAEC88BD35 /* SWRevealViewController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7BB043F7DD732F5170C8D985ABD92D8F /* SWRevealViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A95697A69A4DB86E4C7BF35BC485CEC4 /* SWRevealViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		858EB85FAC5A2F8F36DFA90A0AA8D6B8 /* SWRevealViewController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C926A7FF96BB78067CD69FEACED8667 /* SWRevealViewController-dummy.m */; };
-		B3D439FFBFB7CFF3BA46CFFDDC2665DE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC7524F0BE53ABC149C4387DFEFE2B51 /* Foundation.framework */; };
-		B6AF04B3D96A2EBCD9791D887D2D3B0C /* Pods-UREClub-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8B62BBEE758B468E701EA3B0629401 /* Pods-UREClub-dummy.m */; };
+		00F58A3208C3427787B1527216185807 /* NSPersistentStoreCoordinator+INSPersistentStoreDescription.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D86A3B6ED7A7E9F9702298E5EE5F241 /* NSPersistentStoreCoordinator+INSPersistentStoreDescription.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		051C6276B07528AFC1E02490285DAB67 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BD48D26DF56B605663806BDACF07AAC /* CoreData.framework */; };
+		096B26D8B1730F9AC24F107F385164F1 /* NSManagedObjectContext+iOS10Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA216F26C32A2D1F3154B3C1961A3FD /* NSManagedObjectContext+iOS10Additions.m */; };
+		0FC9AA203DB785D7C0A17AB21D8BBE5F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C8ACBE79B953F6A0FB7D0C8D0CEB7C9 /* CoreGraphics.framework */; };
+		16AD00859B5E08CD63C7930077ECB4BD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A1036DFE37FB2E1CA092FCC618FE2B6 /* Foundation.framework */; };
+		32A64FCD3878FA732661EC4475929745 /* SWRevealViewController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 303F423DAA3D9F1EC857840A148E9FF7 /* SWRevealViewController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		397AB07FF706120031B872FB19AAD565 /* INSPersistentContainer-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E7663A53467A89212E59A7EF934ADA0B /* INSPersistentContainer-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3CA4A79FE5313C5C8DD6B7D1864CD9A0 /* SWRevealViewController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E55CB467027B4CBE15F111F37C37836 /* SWRevealViewController-dummy.m */; };
+		43DB3B606C01CEAA0A218D32D7D084C7 /* INSPersistentStoreDescription.h in Headers */ = {isa = PBXBuildFile; fileRef = 158980880926D91C787FD9E103C62857 /* INSPersistentStoreDescription.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		49DD355DA1986B50DD5468E79E809576 /* INSDataStackContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = 69BC7FD8B789F34C3B7B25D0C23ADCA3 /* INSDataStackContainer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		574CAEDE1F92878A70DA14F0C6E4EA67 /* INSPersistentContainer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E25B99343388C3A16A3A30EED24B3CBB /* INSPersistentContainer-dummy.m */; };
+		6496E10E9E40492D19B12FCE1D76E309 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 438EC2227938A46F0C9B2827F2256047 /* SWRevealViewController.m */; };
+		651936819F8C1690F5E077017E03A658 /* NSManagedObjectContext+iOS10Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = 34599B09AC1C4316EC74481675291954 /* NSManagedObjectContext+iOS10Additions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6820564A533BB1540162F62648519E77 /* INSDataStackContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 54578AA70245AE356CD3313FD36DF7BC /* INSDataStackContainer.m */; };
+		76F41F02E7E79DF747EA01EC44308702 /* INSPersistentContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = D4BF1BDD9655446DCD8CF95960F220F8 /* INSPersistentContainer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9D4FA98AAA956BABDF77A687EB4347A4 /* SWRevealViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B5F28D28564B064067BA231CA2ED75F /* SWRevealViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A23B19B15DF1B70B6FF2CC02D45C9D9E /* INSPersistentContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E1D7AE5FEF40B9083DB0E266BA460B0 /* INSPersistentContainer.m */; };
+		A27C408EEAB13F5C4C78CE5BB7C8628E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A1036DFE37FB2E1CA092FCC618FE2B6 /* Foundation.framework */; };
+		C7D93E27CC900FC5296C7322A9C1C9B3 /* INSPersistentContainerMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FA7167E51BDFB4699A1A0C406DB037F /* INSPersistentContainerMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CC9473F4F46CCB226D7BE6727EC06F36 /* Pods-UREClub-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 628042D5FE7A19E4F44BC308871B0915 /* Pods-UREClub-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CF9D2ED26235EFDC286C44E7A0F91132 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A1036DFE37FB2E1CA092FCC618FE2B6 /* Foundation.framework */; };
+		D17C188827A8B8E8C54818D9344C7EEA /* Pods-UREClub-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8B62BBEE758B468E701EA3B0629401 /* Pods-UREClub-dummy.m */; };
+		DE03E3D84AC2792B21EC91C0E1DCBA0B /* NSPersistentStoreCoordinator+INSPersistentStoreDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A62CD882518C21E69CED365C830682E /* NSPersistentStoreCoordinator+INSPersistentStoreDescription.m */; };
+		EF31F31E687FD85B5FBB8A9CC2DA30A6 /* INSPersistentStoreDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D417B833BE0239A6256D2D327E2934 /* INSPersistentStoreDescription.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		283881BAE9A90FB8DD6191A891600873 /* PBXContainerItemProxy */ = {
+		6729E2A7F87AC91B95D5A1BAB6BD00FB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = DE41F037718013DB356BB94454A369AF;
+			remoteGlobalIDString = 511C8C43974BF980E3DDFC85EA96E4F3;
+			remoteInfo = INSPersistentContainer;
+		};
+		CA18A2CED8BC999E700C79E04AAAE6F8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3AC4B3113A16F375DEC745BC92CF9CBB;
 			remoteInfo = SWRevealViewController;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		06F5003303B4663482FA587400042583 /* SWRevealViewController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SWRevealViewController-prefix.pch"; sourceTree = "<group>"; };
+		0ACACBDD31D8E6992985814DC3D61DF3 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0C8ACBE79B953F6A0FB7D0C8D0CEB7C9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		0E55CB467027B4CBE15F111F37C37836 /* SWRevealViewController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SWRevealViewController-dummy.m"; sourceTree = "<group>"; };
+		158980880926D91C787FD9E103C62857 /* INSPersistentStoreDescription.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = INSPersistentStoreDescription.h; path = "Source/Objective-C/INSPersistentStoreDescription.h"; sourceTree = "<group>"; };
 		180CAB72BD7CEAB4AD848B6C9271DA33 /* Pods-UREClub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-UREClub.debug.xcconfig"; sourceTree = "<group>"; };
+		1A20095BE3C6738B843F634AD856308C /* SWRevealViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SWRevealViewController.framework; path = SWRevealViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1CA216F26C32A2D1F3154B3C1961A3FD /* NSManagedObjectContext+iOS10Additions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSManagedObjectContext+iOS10Additions.m"; path = "Source/Objective-C/NSManagedObjectContext+iOS10Additions.m"; sourceTree = "<group>"; };
 		1D9D30BF747E58DE98096B246144BD8B /* Pods-UREClub.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-UREClub.modulemap"; sourceTree = "<group>"; };
+		2B77B4942331B0F0B064725F5F622407 /* SWRevealViewController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SWRevealViewController.xcconfig; sourceTree = "<group>"; };
 		2EC77F073CEB1CF3831B6E6EE0AA69D2 /* Pods-UREClub-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-UREClub-resources.sh"; sourceTree = "<group>"; };
-		3EAE3F67A191BF69699DEA983D05E778 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		49CDBEAF066B98CA67C410DAEC88BD35 /* SWRevealViewController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SWRevealViewController-umbrella.h"; sourceTree = "<group>"; };
+		303F423DAA3D9F1EC857840A148E9FF7 /* SWRevealViewController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SWRevealViewController-umbrella.h"; sourceTree = "<group>"; };
+		34599B09AC1C4316EC74481675291954 /* NSManagedObjectContext+iOS10Additions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSManagedObjectContext+iOS10Additions.h"; path = "Source/Objective-C/NSManagedObjectContext+iOS10Additions.h"; sourceTree = "<group>"; };
+		3A1036DFE37FB2E1CA092FCC618FE2B6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		3E1D7AE5FEF40B9083DB0E266BA460B0 /* INSPersistentContainer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = INSPersistentContainer.m; path = "Source/Objective-C/INSPersistentContainer.m"; sourceTree = "<group>"; };
+		437D1F67648767DC5D7AD2D23FDDD7F3 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		438EC2227938A46F0C9B2827F2256047 /* SWRevealViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = SWRevealViewController/SWRevealViewController.m; sourceTree = "<group>"; };
 		4B49D4ABF04245D2BA8B8CE8BD1E3CB2 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4C926A7FF96BB78067CD69FEACED8667 /* SWRevealViewController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SWRevealViewController-dummy.m"; sourceTree = "<group>"; };
+		4B5F28D28564B064067BA231CA2ED75F /* SWRevealViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = SWRevealViewController/SWRevealViewController.h; sourceTree = "<group>"; };
+		4D86A3B6ED7A7E9F9702298E5EE5F241 /* NSPersistentStoreCoordinator+INSPersistentStoreDescription.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSPersistentStoreCoordinator+INSPersistentStoreDescription.h"; path = "Source/Objective-C/NSPersistentStoreCoordinator+INSPersistentStoreDescription.h"; sourceTree = "<group>"; };
+		54578AA70245AE356CD3313FD36DF7BC /* INSDataStackContainer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = INSDataStackContainer.m; path = "Source/Objective-C/INSDataStackContainer.m"; sourceTree = "<group>"; };
 		5A8B62BBEE758B468E701EA3B0629401 /* Pods-UREClub-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-UREClub-dummy.m"; sourceTree = "<group>"; };
+		5FA7167E51BDFB4699A1A0C406DB037F /* INSPersistentContainerMacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = INSPersistentContainerMacros.h; path = "Source/Objective-C/INSPersistentContainerMacros.h"; sourceTree = "<group>"; };
 		628042D5FE7A19E4F44BC308871B0915 /* Pods-UREClub-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-UREClub-umbrella.h"; sourceTree = "<group>"; };
-		684213E519441074FE8338FBF49E75E9 /* SWRevealViewController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SWRevealViewController.xcconfig; sourceTree = "<group>"; };
-		744ABE771270A802B17AA91E0BFC1A15 /* SWRevealViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = SWRevealViewController/SWRevealViewController.m; sourceTree = "<group>"; };
-		78928DB357B1859FCFC1D7AE3F299BCC /* Pods_UREClub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_UREClub.framework; path = "Pods-UREClub.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8621F66D446C6F4AC0D7F817144EB150 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		67ED20BD8B6ABBB695D2CFD8C6EB4523 /* INSPersistentContainer.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = INSPersistentContainer.modulemap; sourceTree = "<group>"; };
+		69BC7FD8B789F34C3B7B25D0C23ADCA3 /* INSDataStackContainer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = INSDataStackContainer.h; path = "Source/Objective-C/INSDataStackContainer.h"; sourceTree = "<group>"; };
+		7BD48D26DF56B605663806BDACF07AAC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		94DAA7932531C07D97BFB594D27770DF /* SWRevealViewController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SWRevealViewController.modulemap; sourceTree = "<group>"; };
+		9A62CD882518C21E69CED365C830682E /* NSPersistentStoreCoordinator+INSPersistentStoreDescription.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSPersistentStoreCoordinator+INSPersistentStoreDescription.m"; path = "Source/Objective-C/NSPersistentStoreCoordinator+INSPersistentStoreDescription.m"; sourceTree = "<group>"; };
 		9F11C79D060E87E62E52242BA7D04055 /* Pods-UREClub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-UREClub.release.xcconfig"; sourceTree = "<group>"; };
 		9FE26470A98B284B694D3C9FD97B8075 /* Pods-UREClub-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-UREClub-frameworks.sh"; sourceTree = "<group>"; };
-		A27F618049BA9267BD7F4DE144D005E2 /* SWRevealViewController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SWRevealViewController.modulemap; sourceTree = "<group>"; };
-		A95697A69A4DB86E4C7BF35BC485CEC4 /* SWRevealViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = SWRevealViewController/SWRevealViewController.h; sourceTree = "<group>"; };
-		AC7524F0BE53ABC149C4387DFEFE2B51 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		BDEE451C9029B9170C9488A472B2F5A5 /* SWRevealViewController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SWRevealViewController-prefix.pch"; sourceTree = "<group>"; };
+		B3D417B833BE0239A6256D2D327E2934 /* INSPersistentStoreDescription.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = INSPersistentStoreDescription.m; path = "Source/Objective-C/INSPersistentStoreDescription.m"; sourceTree = "<group>"; };
+		C02EC7B79C673E88223E2EC0A9ADA105 /* Pods_UREClub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_UREClub.framework; path = "Pods-UREClub.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5029FCCFA51BE0D9DAFA5C96A2A893E /* INSPersistentContainer.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = INSPersistentContainer.xcconfig; sourceTree = "<group>"; };
 		CBAFC6AA8A0A221EBDA2623ADDB339D9 /* Pods-UREClub-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-UREClub-acknowledgements.plist"; sourceTree = "<group>"; };
-		D01F8A5D91AB06EA0530561541E48383 /* SWRevealViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SWRevealViewController.framework; path = SWRevealViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4BF1BDD9655446DCD8CF95960F220F8 /* INSPersistentContainer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = INSPersistentContainer.h; path = "Source/Objective-C/INSPersistentContainer.h"; sourceTree = "<group>"; };
 		E0A6DC001D54E3CC094180EE6B7888DA /* Pods-UREClub-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-UREClub-acknowledgements.markdown"; sourceTree = "<group>"; };
+		E25B99343388C3A16A3A30EED24B3CBB /* INSPersistentContainer-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "INSPersistentContainer-dummy.m"; sourceTree = "<group>"; };
+		E7663A53467A89212E59A7EF934ADA0B /* INSPersistentContainer-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "INSPersistentContainer-umbrella.h"; sourceTree = "<group>"; };
+		EDC73AFCA84BF2CA4B3651EB6BBA5AC8 /* INSPersistentContainer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = INSPersistentContainer.framework; path = INSPersistentContainer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDB24819D7C5BC09C02822B801521D7E /* INSPersistentContainer-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "INSPersistentContainer-prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		4DB1DC72D5CBC36FF28BB23ACD16B5DE /* Frameworks */ = {
+		15F7E57FA6AF00901B5C363E462D4CE7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3D439FFBFB7CFF3BA46CFFDDC2665DE /* Foundation.framework in Frameworks */,
+				0FC9AA203DB785D7C0A17AB21D8BBE5F /* CoreGraphics.framework in Frameworks */,
+				16AD00859B5E08CD63C7930077ECB4BD /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8CE4E187541C110D456DE2E5637E15B5 /* Frameworks */ = {
+		8562BE182FAFD740A7099C26E7A1BBB4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				570C57194758F9A710D9175AB35F9560 /* CoreGraphics.framework in Frameworks */,
-				0B52D898928089B02641857A46F65277 /* Foundation.framework in Frameworks */,
+				051C6276B07528AFC1E02490285DAB67 /* CoreData.framework in Frameworks */,
+				A27C408EEAB13F5C4C78CE5BB7C8628E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB5F5314DE63B65C4E1603BA9DD1D93F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF9D2ED26235EFDC286C44E7A0F91132 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2A13413360E4B4F80D82A8FD3341A361 /* SWRevealViewController */ = {
+		1118E4ADB54DCF4DC96C1FD715D0C3F4 /* INSPersistentContainer */ = {
 			isa = PBXGroup;
 			children = (
-				A95697A69A4DB86E4C7BF35BC485CEC4 /* SWRevealViewController.h */,
-				744ABE771270A802B17AA91E0BFC1A15 /* SWRevealViewController.m */,
-				46F8018B70DD7A4DF0CC3B567B149909 /* Support Files */,
+				69BC7FD8B789F34C3B7B25D0C23ADCA3 /* INSDataStackContainer.h */,
+				54578AA70245AE356CD3313FD36DF7BC /* INSDataStackContainer.m */,
+				D4BF1BDD9655446DCD8CF95960F220F8 /* INSPersistentContainer.h */,
+				3E1D7AE5FEF40B9083DB0E266BA460B0 /* INSPersistentContainer.m */,
+				5FA7167E51BDFB4699A1A0C406DB037F /* INSPersistentContainerMacros.h */,
+				158980880926D91C787FD9E103C62857 /* INSPersistentStoreDescription.h */,
+				B3D417B833BE0239A6256D2D327E2934 /* INSPersistentStoreDescription.m */,
+				34599B09AC1C4316EC74481675291954 /* NSManagedObjectContext+iOS10Additions.h */,
+				1CA216F26C32A2D1F3154B3C1961A3FD /* NSManagedObjectContext+iOS10Additions.m */,
+				4D86A3B6ED7A7E9F9702298E5EE5F241 /* NSPersistentStoreCoordinator+INSPersistentStoreDescription.h */,
+				9A62CD882518C21E69CED365C830682E /* NSPersistentStoreCoordinator+INSPersistentStoreDescription.m */,
+				4AEE3D27C0AE2D61C351DC35791AFF74 /* Support Files */,
+			);
+			name = INSPersistentContainer;
+			path = INSPersistentContainer;
+			sourceTree = "<group>";
+		};
+		122DA2E5084A4393C29BE363C764795C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B9DB3A3F8E1748B5C892EF629B60F62B /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		181D5A9133F91B59E8F4EAECB338DFA0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1118E4ADB54DCF4DC96C1FD715D0C3F4 /* INSPersistentContainer */,
+				3B522CEF176726BAA02D9B1FE96D30FC /* SWRevealViewController */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		3B522CEF176726BAA02D9B1FE96D30FC /* SWRevealViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4B5F28D28564B064067BA231CA2ED75F /* SWRevealViewController.h */,
+				438EC2227938A46F0C9B2827F2256047 /* SWRevealViewController.m */,
+				B78FA4A735C72CD64FE1003567D54CC3 /* Support Files */,
 			);
 			name = SWRevealViewController;
 			path = SWRevealViewController;
 			sourceTree = "<group>";
 		};
-		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
+		4AEE3D27C0AE2D61C351DC35791AFF74 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				C93AA53D048424A67CC426E3C9422A44 /* iOS */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		46F8018B70DD7A4DF0CC3B567B149909 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				3EAE3F67A191BF69699DEA983D05E778 /* Info.plist */,
-				A27F618049BA9267BD7F4DE144D005E2 /* SWRevealViewController.modulemap */,
-				684213E519441074FE8338FBF49E75E9 /* SWRevealViewController.xcconfig */,
-				4C926A7FF96BB78067CD69FEACED8667 /* SWRevealViewController-dummy.m */,
-				BDEE451C9029B9170C9488A472B2F5A5 /* SWRevealViewController-prefix.pch */,
-				49CDBEAF066B98CA67C410DAEC88BD35 /* SWRevealViewController-umbrella.h */,
+				437D1F67648767DC5D7AD2D23FDDD7F3 /* Info.plist */,
+				67ED20BD8B6ABBB695D2CFD8C6EB4523 /* INSPersistentContainer.modulemap */,
+				C5029FCCFA51BE0D9DAFA5C96A2A893E /* INSPersistentContainer.xcconfig */,
+				E25B99343388C3A16A3A30EED24B3CBB /* INSPersistentContainer-dummy.m */,
+				FDB24819D7C5BC09C02822B801521D7E /* INSPersistentContainer-prefix.pch */,
+				E7663A53467A89212E59A7EF934ADA0B /* INSPersistentContainer-umbrella.h */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/SWRevealViewController";
+			path = "../Target Support Files/INSPersistentContainer";
 			sourceTree = "<group>";
 		};
 		57D80C4096726DE90C2D82747C3D840C /* Targets Support Files */ = {
@@ -116,41 +195,49 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		7A4E1B53341CA13B657C9088E8C9CD4B /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				78928DB357B1859FCFC1D7AE3F299BCC /* Pods_UREClub.framework */,
-				D01F8A5D91AB06EA0530561541E48383 /* SWRevealViewController.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
-				EF919DCAD7230EFA1F7FA3DC5EA3DDED /* Pods */,
-				7A4E1B53341CA13B657C9088E8C9CD4B /* Products */,
+				122DA2E5084A4393C29BE363C764795C /* Frameworks */,
+				181D5A9133F91B59E8F4EAECB338DFA0 /* Pods */,
+				A23ECEDEADB120BBA887B71ECB5BB4B7 /* Products */,
 				57D80C4096726DE90C2D82747C3D840C /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		C93AA53D048424A67CC426E3C9422A44 /* iOS */ = {
+		A23ECEDEADB120BBA887B71ECB5BB4B7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8621F66D446C6F4AC0D7F817144EB150 /* CoreGraphics.framework */,
-				AC7524F0BE53ABC149C4387DFEFE2B51 /* Foundation.framework */,
+				EDC73AFCA84BF2CA4B3651EB6BBA5AC8 /* INSPersistentContainer.framework */,
+				C02EC7B79C673E88223E2EC0A9ADA105 /* Pods_UREClub.framework */,
+				1A20095BE3C6738B843F634AD856308C /* SWRevealViewController.framework */,
 			);
-			name = iOS;
+			name = Products;
 			sourceTree = "<group>";
 		};
-		EF919DCAD7230EFA1F7FA3DC5EA3DDED /* Pods */ = {
+		B78FA4A735C72CD64FE1003567D54CC3 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				2A13413360E4B4F80D82A8FD3341A361 /* SWRevealViewController */,
+				0ACACBDD31D8E6992985814DC3D61DF3 /* Info.plist */,
+				94DAA7932531C07D97BFB594D27770DF /* SWRevealViewController.modulemap */,
+				2B77B4942331B0F0B064725F5F622407 /* SWRevealViewController.xcconfig */,
+				0E55CB467027B4CBE15F111F37C37836 /* SWRevealViewController-dummy.m */,
+				06F5003303B4663482FA587400042583 /* SWRevealViewController-prefix.pch */,
+				303F423DAA3D9F1EC857840A148E9FF7 /* SWRevealViewController-umbrella.h */,
 			);
-			name = Pods;
+			name = "Support Files";
+			path = "../Target Support Files/SWRevealViewController";
+			sourceTree = "<group>";
+		};
+		B9DB3A3F8E1748B5C892EF629B60F62B /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				7BD48D26DF56B605663806BDACF07AAC /* CoreData.framework */,
+				0C8ACBE79B953F6A0FB7D0C8D0CEB7C9 /* CoreGraphics.framework */,
+				3A1036DFE37FB2E1CA092FCC618FE2B6 /* Foundation.framework */,
+			);
+			name = iOS;
 			sourceTree = "<group>";
 		};
 		FF47F6918B33443745528B81890BD73E /* Pods-UREClub */ = {
@@ -174,51 +261,47 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		418D2E3E68FBA35065222F84173CFF6A /* Headers */ = {
+		15637D2FE15515756BC5D6DD75A4750A /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E9B567258D02F6D0C54A3CCBE332E93 /* Pods-UREClub-umbrella.h in Headers */,
+				49DD355DA1986B50DD5468E79E809576 /* INSDataStackContainer.h in Headers */,
+				397AB07FF706120031B872FB19AAD565 /* INSPersistentContainer-umbrella.h in Headers */,
+				76F41F02E7E79DF747EA01EC44308702 /* INSPersistentContainer.h in Headers */,
+				C7D93E27CC900FC5296C7322A9C1C9B3 /* INSPersistentContainerMacros.h in Headers */,
+				43DB3B606C01CEAA0A218D32D7D084C7 /* INSPersistentStoreDescription.h in Headers */,
+				651936819F8C1690F5E077017E03A658 /* NSManagedObjectContext+iOS10Additions.h in Headers */,
+				00F58A3208C3427787B1527216185807 /* NSPersistentStoreCoordinator+INSPersistentStoreDescription.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		565FB9FA4DA8CB88883D43CCA3FDE22A /* Headers */ = {
+		EE734B7E0BA8177FF8C1741525A597E3 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71A293CA38A4B1DAEA40CA1F5E4750EE /* SWRevealViewController-umbrella.h in Headers */,
-				7BB043F7DD732F5170C8D985ABD92D8F /* SWRevealViewController.h in Headers */,
+				32A64FCD3878FA732661EC4475929745 /* SWRevealViewController-umbrella.h in Headers */,
+				9D4FA98AAA956BABDF77A687EB4347A4 /* SWRevealViewController.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F07F982B424373483ACA5A94DE8692F4 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CC9473F4F46CCB226D7BE6727EC06F36 /* Pods-UREClub-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		B2E30BED69A480F3FB091227DF20F595 /* Pods-UREClub */ = {
+		3AC4B3113A16F375DEC745BC92CF9CBB /* SWRevealViewController */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6D65B2ADDB10F6DF6AE0D1E9BBD86208 /* Build configuration list for PBXNativeTarget "Pods-UREClub" */;
+			buildConfigurationList = 349025A56616AE1790891107DE678D76 /* Build configuration list for PBXNativeTarget "SWRevealViewController" */;
 			buildPhases = (
-				F3EE8E59542C8A6AB960AE9FD7BC2D68 /* Sources */,
-				4DB1DC72D5CBC36FF28BB23ACD16B5DE /* Frameworks */,
-				418D2E3E68FBA35065222F84173CFF6A /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				B979EC0643F5772F446DD5A38153846C /* PBXTargetDependency */,
-			);
-			name = "Pods-UREClub";
-			productName = "Pods-UREClub";
-			productReference = 78928DB357B1859FCFC1D7AE3F299BCC /* Pods_UREClub.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		DE41F037718013DB356BB94454A369AF /* SWRevealViewController */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DFF0434EB341D874CA84A9134616034D /* Build configuration list for PBXNativeTarget "SWRevealViewController" */;
-			buildPhases = (
-				A0C34828934A1BFB9227A417295D7DB8 /* Sources */,
-				8CE4E187541C110D456DE2E5637E15B5 /* Frameworks */,
-				565FB9FA4DA8CB88883D43CCA3FDE22A /* Headers */,
+				E1779DB40EFADD7DD92456BEECAEC6BB /* Sources */,
+				15F7E57FA6AF00901B5C363E462D4CE7 /* Frameworks */,
+				EE734B7E0BA8177FF8C1741525A597E3 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -226,7 +309,43 @@
 			);
 			name = SWRevealViewController;
 			productName = SWRevealViewController;
-			productReference = D01F8A5D91AB06EA0530561541E48383 /* SWRevealViewController.framework */;
+			productReference = 1A20095BE3C6738B843F634AD856308C /* SWRevealViewController.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		511C8C43974BF980E3DDFC85EA96E4F3 /* INSPersistentContainer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA4314412A22D92632B903EAF4523F42 /* Build configuration list for PBXNativeTarget "INSPersistentContainer" */;
+			buildPhases = (
+				AFD699B2860C44C561FE798EB45C929B /* Sources */,
+				8562BE182FAFD740A7099C26E7A1BBB4 /* Frameworks */,
+				15637D2FE15515756BC5D6DD75A4750A /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = INSPersistentContainer;
+			productName = INSPersistentContainer;
+			productReference = EDC73AFCA84BF2CA4B3651EB6BBA5AC8 /* INSPersistentContainer.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		67A377020C411C3540AB6039FCF75957 /* Pods-UREClub */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9123EF938CAEEF57E9A83FEBDB293CEC /* Build configuration list for PBXNativeTarget "Pods-UREClub" */;
+			buildPhases = (
+				E7AB8FE9A76567A89F8A9E655556C668 /* Sources */,
+				FB5F5314DE63B65C4E1603BA9DD1D93F /* Frameworks */,
+				F07F982B424373483ACA5A94DE8692F4 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7E411FE2DAE24AF5657CF832050FC29A /* PBXTargetDependency */,
+				BC45AD38EA990A251353D40FBAE445D4 /* PBXTargetDependency */,
+			);
+			name = "Pods-UREClub";
+			productName = "Pods-UREClub";
+			productReference = C02EC7B79C673E88223E2EC0A9ADA105 /* Pods_UREClub.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -246,56 +365,112 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 7A4E1B53341CA13B657C9088E8C9CD4B /* Products */;
+			productRefGroup = A23ECEDEADB120BBA887B71ECB5BB4B7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B2E30BED69A480F3FB091227DF20F595 /* Pods-UREClub */,
-				DE41F037718013DB356BB94454A369AF /* SWRevealViewController */,
+				511C8C43974BF980E3DDFC85EA96E4F3 /* INSPersistentContainer */,
+				67A377020C411C3540AB6039FCF75957 /* Pods-UREClub */,
+				3AC4B3113A16F375DEC745BC92CF9CBB /* SWRevealViewController */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		A0C34828934A1BFB9227A417295D7DB8 /* Sources */ = {
+		AFD699B2860C44C561FE798EB45C929B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				858EB85FAC5A2F8F36DFA90A0AA8D6B8 /* SWRevealViewController-dummy.m in Sources */,
-				40B56996B6CF5F78F16B542039D55361 /* SWRevealViewController.m in Sources */,
+				6820564A533BB1540162F62648519E77 /* INSDataStackContainer.m in Sources */,
+				574CAEDE1F92878A70DA14F0C6E4EA67 /* INSPersistentContainer-dummy.m in Sources */,
+				A23B19B15DF1B70B6FF2CC02D45C9D9E /* INSPersistentContainer.m in Sources */,
+				EF31F31E687FD85B5FBB8A9CC2DA30A6 /* INSPersistentStoreDescription.m in Sources */,
+				096B26D8B1730F9AC24F107F385164F1 /* NSManagedObjectContext+iOS10Additions.m in Sources */,
+				DE03E3D84AC2792B21EC91C0E1DCBA0B /* NSPersistentStoreCoordinator+INSPersistentStoreDescription.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F3EE8E59542C8A6AB960AE9FD7BC2D68 /* Sources */ = {
+		E1779DB40EFADD7DD92456BEECAEC6BB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6AF04B3D96A2EBCD9791D887D2D3B0C /* Pods-UREClub-dummy.m in Sources */,
+				3CA4A79FE5313C5C8DD6B7D1864CD9A0 /* SWRevealViewController-dummy.m in Sources */,
+				6496E10E9E40492D19B12FCE1D76E309 /* SWRevealViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E7AB8FE9A76567A89F8A9E655556C668 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D17C188827A8B8E8C54818D9344C7EEA /* Pods-UREClub-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		B979EC0643F5772F446DD5A38153846C /* PBXTargetDependency */ = {
+		7E411FE2DAE24AF5657CF832050FC29A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = INSPersistentContainer;
+			target = 511C8C43974BF980E3DDFC85EA96E4F3 /* INSPersistentContainer */;
+			targetProxy = 6729E2A7F87AC91B95D5A1BAB6BD00FB /* PBXContainerItemProxy */;
+		};
+		BC45AD38EA990A251353D40FBAE445D4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SWRevealViewController;
-			target = DE41F037718013DB356BB94454A369AF /* SWRevealViewController */;
-			targetProxy = 283881BAE9A90FB8DD6191A891600873 /* PBXContainerItemProxy */;
+			target = 3AC4B3113A16F375DEC745BC92CF9CBB /* SWRevealViewController */;
+			targetProxy = CA18A2CED8BC999E700C79E04AAAE6F8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		1F3DE6EB890F200E6B76A4C47B8B452A /* Debug */ = {
+		024F74E4524BC06FCDB7A01A4C1EFC16 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 684213E519441074FE8338FBF49E75E9 /* SWRevealViewController.xcconfig */;
+			baseConfigurationReference = 9F11C79D060E87E62E52242BA7D04055 /* Pods-UREClub.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-UREClub/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-UREClub/Pods-UREClub.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_UREClub;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		26C44AEEF4D804124E9581323F583697 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B77B4942331B0F0B064725F5F622407 /* SWRevealViewController.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -308,7 +483,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/SWRevealViewController/SWRevealViewController.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = SWRevealViewController;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -317,7 +492,40 @@
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
+		};
+		305EFEBBA6B34D3EA58FFB8F33A2E25A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C5029FCCFA51BE0D9DAFA5C96A2A893E /* INSPersistentContainer.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/INSPersistentContainer/INSPersistentContainer-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/INSPersistentContainer/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/INSPersistentContainer/INSPersistentContainer.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = INSPersistentContainer;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
 		};
 		4E487F173E6C9664F4E9E26B9635D23C /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -367,75 +575,6 @@
 			};
 			name = Debug;
 		};
-		868C1BC88067F014CDD69A1AC2EBF080 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 684213E519441074FE8338FBF49E75E9 /* SWRevealViewController.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/SWRevealViewController/SWRevealViewController-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SWRevealViewController/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SWRevealViewController/SWRevealViewController.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = SWRevealViewController;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		8DB570798B30D597057E1F0BEBF87FD7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9F11C79D060E87E62E52242BA7D04055 /* Pods-UREClub.release.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-UREClub/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-UREClub/Pods-UREClub.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_UREClub;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		BDD0139D6EB93FA375F887ABD62DAB2E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -480,7 +619,7 @@
 			};
 			name = Release;
 		};
-		CAB05F9C0D18BCF6EF60B3BC504E57FB /* Debug */ = {
+		C7705D1D8973F571D77ED22DB19BC16B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 180CAB72BD7CEAB4AD848B6C9271DA33 /* Pods-UREClub.debug.xcconfig */;
 			buildSettings = {
@@ -516,6 +655,72 @@
 			};
 			name = Debug;
 		};
+		D4B6C490C9FA53398E2FF4EF7EB5B73C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C5029FCCFA51BE0D9DAFA5C96A2A893E /* INSPersistentContainer.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/INSPersistentContainer/INSPersistentContainer-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/INSPersistentContainer/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/INSPersistentContainer/INSPersistentContainer.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = INSPersistentContainer;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		E805BD39A2220C0FA4D3458F15DC5B29 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B77B4942331B0F0B064725F5F622407 /* SWRevealViewController.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SWRevealViewController/SWRevealViewController-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SWRevealViewController/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SWRevealViewController/SWRevealViewController.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = SWRevealViewController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -528,20 +733,29 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6D65B2ADDB10F6DF6AE0D1E9BBD86208 /* Build configuration list for PBXNativeTarget "Pods-UREClub" */ = {
+		349025A56616AE1790891107DE678D76 /* Build configuration list for PBXNativeTarget "SWRevealViewController" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CAB05F9C0D18BCF6EF60B3BC504E57FB /* Debug */,
-				8DB570798B30D597057E1F0BEBF87FD7 /* Release */,
+				E805BD39A2220C0FA4D3458F15DC5B29 /* Debug */,
+				26C44AEEF4D804124E9581323F583697 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DFF0434EB341D874CA84A9134616034D /* Build configuration list for PBXNativeTarget "SWRevealViewController" */ = {
+		9123EF938CAEEF57E9A83FEBDB293CEC /* Build configuration list for PBXNativeTarget "Pods-UREClub" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1F3DE6EB890F200E6B76A4C47B8B452A /* Debug */,
-				868C1BC88067F014CDD69A1AC2EBF080 /* Release */,
+				C7705D1D8973F571D77ED22DB19BC16B /* Debug */,
+				024F74E4524BC06FCDB7A01A4C1EFC16 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DA4314412A22D92632B903EAF4523F42 /* Build configuration list for PBXNativeTarget "INSPersistentContainer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4B6C490C9FA53398E2FF4EF7EB5B73C /* Debug */,
+				305EFEBBA6B34D3EA58FFB8F33A2E25A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

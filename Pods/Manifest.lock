@@ -1,12 +1,15 @@
 PODS:
+  - INSPersistentContainer (1.0.2)
   - SWRevealViewController (2.3.0)
 
 DEPENDENCIES:
+  - INSPersistentContainer
   - SWRevealViewController
 
 SPEC CHECKSUMS:
+  INSPersistentContainer: 7e04a0d332ba075441ce0ee73d584ce84d76ac23
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
 
-PODFILE CHECKSUM: d7cef54de64a9509b82febd41c8f81facb61ef06
+PODFILE CHECKSUM: 8565ee6312e9d64b2ec66915002f918c1907a7d2
 
 COCOAPODS: 1.2.1
