@@ -14,6 +14,7 @@
 		C41CA36E1FDBE3F000AB0D2D /* UREClub.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C41CA36C1FDBE3F000AB0D2D /* UREClub.xcdatamodeld */; };
 		C41CA3701FDBE3F000AB0D2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C41CA36F1FDBE3F000AB0D2D /* Assets.xcassets */; };
 		C41CA3731FDBE3F000AB0D2D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C41CA3711FDBE3F000AB0D2D /* LaunchScreen.storyboard */; };
+		C41CA3821FDBEB8500AB0D2D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C41CA3811FDBEB8500AB0D2D /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		C41CA36F1FDBE3F000AB0D2D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C41CA3721FDBE3F000AB0D2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C41CA3741FDBE3F000AB0D2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C41CA3811FDBEB8500AB0D2D /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,12 @@
 		C41CA3641FDBE3F000AB0D2D /* UREClub */ = {
 			isa = PBXGroup;
 			children = (
+				C41CA37F1FDBEB5900AB0D2D /* Extensions */,
+				C41CA37E1FDBEB4E00AB0D2D /* Protocols */,
+				C41CA37D1FDBEB4500AB0D2D /* Resources */,
+				C41CA37C1FDBEB1800AB0D2D /* Model */,
+				C41CA37B1FDBEB1300AB0D2D /* View */,
+				C41CA37A1FDBEB0700AB0D2D /* Controller */,
 				C41CA3651FDBE3F000AB0D2D /* AppDelegate.swift */,
 				C41CA3671FDBE3F000AB0D2D /* ViewController.swift */,
 				C41CA3691FDBE3F000AB0D2D /* Main.storyboard */,
@@ -81,6 +89,73 @@
 				C41CA36C1FDBE3F000AB0D2D /* UREClub.xcdatamodeld */,
 			);
 			path = UREClub;
+			sourceTree = "<group>";
+		};
+		C41CA37A1FDBEB0700AB0D2D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C41CA3841FDBEBAC00AB0D2D /* Auth */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C41CA37B1FDBEB1300AB0D2D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C41CA37C1FDBEB1800AB0D2D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C41CA3831FDBEB9600AB0D2D /* Constants */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C41CA37D1FDBEB4500AB0D2D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C41CA3801FDBEB6800AB0D2D /* Images */,
+				C41CA3811FDBEB8500AB0D2D /* Localizable.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C41CA37E1FDBEB4E00AB0D2D /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		C41CA37F1FDBEB5900AB0D2D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C41CA3801FDBEB6800AB0D2D /* Images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		C41CA3831FDBEB9600AB0D2D /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		C41CA3841FDBEBAC00AB0D2D /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		FD075F6F2AB0F20A8B6678B7 /* Frameworks */ = {
@@ -154,6 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C41CA3731FDBE3F000AB0D2D /* LaunchScreen.storyboard in Resources */,
+				C41CA3821FDBEB8500AB0D2D /* Localizable.strings in Resources */,
 				C41CA3701FDBE3F000AB0D2D /* Assets.xcassets in Resources */,
 				C41CA36B1FDBE3F000AB0D2D /* Main.storyboard in Resources */,
 			);
