@@ -4,5 +4,7 @@ use_frameworks!
 target 'UREClub' do
 
   pod ‘SWRevealViewController’
+  
+  pod 'INSPersistentContainer'
 
 end
