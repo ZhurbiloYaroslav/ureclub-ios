@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A575E5EF19AB2E5627FF560A /* Pods_UREClub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F00CDDC75090A238545BF8D /* Pods_UREClub.framework */; };
 		C41CA3661FDBE3F000AB0D2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41CA3651FDBE3F000AB0D2D /* AppDelegate.swift */; };
 		C41CA3681FDBE3F000AB0D2D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41CA3671FDBE3F000AB0D2D /* ViewController.swift */; };
 		C41CA36B1FDBE3F000AB0D2D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C41CA3691FDBE3F000AB0D2D /* Main.storyboard */; };
@@ -16,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B1637C256ED0A1500AE327F /* Pods-UREClub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UREClub.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UREClub/Pods-UREClub.debug.xcconfig"; sourceTree = "<group>"; };
+		6F00CDDC75090A238545BF8D /* Pods_UREClub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UREClub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE4E3DD1CDFA59C0049561D9 /* Pods-UREClub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UREClub.release.xcconfig"; path = "Pods/Target Support Files/Pods-UREClub/Pods-UREClub.release.xcconfig"; sourceTree = "<group>"; };
 		C41CA3621FDBE3F000AB0D2D /* UREClub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UREClub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C41CA3651FDBE3F000AB0D2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C41CA3671FDBE3F000AB0D2D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -31,17 +35,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A575E5EF19AB2E5627FF560A /* Pods_UREClub.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AC5A18E05BD7D025F7CBBBAF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1B1637C256ED0A1500AE327F /* Pods-UREClub.debug.xcconfig */,
+				AE4E3DD1CDFA59C0049561D9 /* Pods-UREClub.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		C41CA3591FDBE3F000AB0D2D = {
 			isa = PBXGroup;
 			children = (
 				C41CA3641FDBE3F000AB0D2D /* UREClub */,
 				C41CA3631FDBE3F000AB0D2D /* Products */,
+				AC5A18E05BD7D025F7CBBBAF /* Pods */,
+				FD075F6F2AB0F20A8B6678B7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +83,14 @@
 			path = UREClub;
 			sourceTree = "<group>";
 		};
+		FD075F6F2AB0F20A8B6678B7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6F00CDDC75090A238545BF8D /* Pods_UREClub.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +98,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C41CA3771FDBE3F000AB0D2D /* Build configuration list for PBXNativeTarget "UREClub" */;
 			buildPhases = (
+				A73AD02A71CB5C2EE7659E96 /* [CP] Check Pods Manifest.lock */,
 				C41CA35E1FDBE3F000AB0D2D /* Sources */,
 				C41CA35F1FDBE3F000AB0D2D /* Frameworks */,
 				C41CA3601FDBE3F000AB0D2D /* Resources */,
+				BEC7995719D9C41A1F3C95A0 /* [CP] Embed Pods Frameworks */,
+				81545BAB76EA284DD18ED921 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -133,6 +160,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		81545BAB76EA284DD18ED921 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UREClub/Pods-UREClub-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A73AD02A71CB5C2EE7659E96 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BEC7995719D9C41A1F3C95A0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UREClub/Pods-UREClub-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C41CA35E1FDBE3F000AB0D2D /* Sources */ = {
@@ -276,6 +351,7 @@
 		};
 		C41CA3781FDBE3F000AB0D2D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1B1637C256ED0A1500AE327F /* Pods-UREClub.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -291,6 +367,7 @@
 		};
 		C41CA3791FDBE3F000AB0D2D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AE4E3DD1CDFA59C0049561D9 /* Pods-UREClub.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
