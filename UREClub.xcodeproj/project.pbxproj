@@ -81,12 +81,6 @@
 				C41CA37B1FDBEB1300AB0D2D /* View */,
 				C41CA37A1FDBEB0700AB0D2D /* Controller */,
 				C41CA3651FDBE3F000AB0D2D /* AppDelegate.swift */,
-				C41CA3671FDBE3F000AB0D2D /* ViewController.swift */,
-				C41CA3691FDBE3F000AB0D2D /* Main.storyboard */,
-				C41CA36F1FDBE3F000AB0D2D /* Assets.xcassets */,
-				C41CA3711FDBE3F000AB0D2D /* LaunchScreen.storyboard */,
-				C41CA3741FDBE3F000AB0D2D /* Info.plist */,
-				C41CA36C1FDBE3F000AB0D2D /* UREClub.xcdatamodeld */,
 			);
 			path = UREClub;
 			sourceTree = "<group>";
@@ -94,6 +88,7 @@
 		C41CA37A1FDBEB0700AB0D2D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C41CA3671FDBE3F000AB0D2D /* ViewController.swift */,
 				C41CA3841FDBEBAC00AB0D2D /* Auth */,
 			);
 			path = Controller;
@@ -102,6 +97,8 @@
 		C41CA37B1FDBEB1300AB0D2D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C41CA3691FDBE3F000AB0D2D /* Main.storyboard */,
+				C41CA3711FDBE3F000AB0D2D /* LaunchScreen.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -117,8 +114,11 @@
 		C41CA37D1FDBEB4500AB0D2D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C41CA3801FDBEB6800AB0D2D /* Images */,
+				C41CA36F1FDBE3F000AB0D2D /* Assets.xcassets */,
+				C41CA3741FDBE3F000AB0D2D /* Info.plist */,
+				C41CA36C1FDBE3F000AB0D2D /* UREClub.xcdatamodeld */,
 				C41CA3811FDBEB8500AB0D2D /* Localizable.strings */,
+				C41CA3801FDBEB6800AB0D2D /* Images */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
