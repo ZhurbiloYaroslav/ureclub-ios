@@ -15,6 +15,8 @@
 		C41CA3701FDBE3F000AB0D2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C41CA36F1FDBE3F000AB0D2D /* Assets.xcassets */; };
 		C41CA3731FDBE3F000AB0D2D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C41CA3711FDBE3F000AB0D2D /* LaunchScreen.storyboard */; };
 		C41CA3821FDBEB8500AB0D2D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C41CA3811FDBEB8500AB0D2D /* Localizable.strings */; };
+		C41CA3861FDBECC100AB0D2D /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41CA3851FDBECC100AB0D2D /* LoginVC.swift */; };
+		C41CA3881FDBED0100AB0D2D /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41CA3871FDBED0100AB0D2D /* MenuVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		C41CA3721FDBE3F000AB0D2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C41CA3741FDBE3F000AB0D2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C41CA3811FDBEB8500AB0D2D /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		C41CA3851FDBECC100AB0D2D /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		C41CA3871FDBED0100AB0D2D /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +94,7 @@
 			children = (
 				C41CA3671FDBE3F000AB0D2D /* ViewController.swift */,
 				C41CA3841FDBEBAC00AB0D2D /* Auth */,
+				C41CA3871FDBED0100AB0D2D /* MenuVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -154,6 +159,7 @@
 		C41CA3841FDBEBAC00AB0D2D /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				C41CA3851FDBECC100AB0D2D /* LoginVC.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -292,7 +298,9 @@
 			files = (
 				C41CA36E1FDBE3F000AB0D2D /* UREClub.xcdatamodeld in Sources */,
 				C41CA3681FDBE3F000AB0D2D /* ViewController.swift in Sources */,
+				C41CA3861FDBECC100AB0D2D /* LoginVC.swift in Sources */,
 				C41CA3661FDBE3F000AB0D2D /* AppDelegate.swift in Sources */,
+				C41CA3881FDBED0100AB0D2D /* MenuVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
