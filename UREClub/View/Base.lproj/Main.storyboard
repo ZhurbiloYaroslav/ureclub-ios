@@ -74,7 +74,6 @@
                                         <rect key="frame" x="0.0" y="80.5" width="173.5" height="30"/>
                                         <state key="normal" title="Email us"/>
                                         <connections>
-                                            <action selector="callButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Eub-e4-z9R"/>
                                             <action selector="emailButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DCY-hi-a6f"/>
                                         </connections>
                                     </button>
