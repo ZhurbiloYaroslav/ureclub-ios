@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BDL-Qa-VTy">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="AvenirNext.ttc">
+            <string>AvenirNext-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Reveal View Controller-->
+        <scene sceneID="cWO-YX-5xK">
+            <objects>
+                <viewController storyboardIdentifier="SWRevealViewController" id="BDL-Qa-VTy" customClass="SWRevealViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CCv-4n-DXk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="VdI-mB-IOR"/>
+                    </view>
+                    <connections>
+                        <segue destination="G3G-g3-7UE" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="h1V-gV-62k"/>
+                        <segue destination="RhV-ft-OSi" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="izK-pf-PJk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dM5-Xc-hPk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1159" y="256"/>
+        </scene>
+        <!--MenuVC-->
+        <scene sceneID="KYz-QW-3cd">
+            <objects>
+                <tableViewController storyboardIdentifier="MenuVC" id="G3G-g3-7UE" customClass="MenuVC" customModule="UREClub" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="dcI-uQ-BAy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="sectionIndexBackgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MenuCell" rowHeight="80" id="5mB-EP-6F5" customClass="MenuCell" customModule="UREClub" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="80"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5mB-EP-6F5" id="hI4-dW-QvO">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-contacts" translatesAutoresizingMaskIntoConstraints="NO" id="SEv-ZT-8Gv">
+                                            <rect key="frame" x="15" y="27.5" width="25" height="25"/>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="25" id="JKs-id-Gby"/>
+                                                <constraint firstAttribute="width" constant="25" id="oHh-HQ-OWd"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3l-dK-CF3">
+                                            <rect key="frame" x="50" y="28.5" width="289" height="23.5"/>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="I3l-dK-CF3" secondAttribute="trailing" constant="20" id="Bcr-zk-cd4"/>
+                                        <constraint firstItem="I3l-dK-CF3" firstAttribute="leading" secondItem="SEv-ZT-8Gv" secondAttribute="trailing" constant="10" id="Q56-aW-C6l"/>
+                                        <constraint firstItem="I3l-dK-CF3" firstAttribute="centerY" secondItem="hI4-dW-QvO" secondAttribute="centerY" id="g80-xX-a6Q"/>
+                                        <constraint firstItem="SEv-ZT-8Gv" firstAttribute="leading" secondItem="hI4-dW-QvO" secondAttribute="leading" constant="15" id="qWp-GW-n5C"/>
+                                        <constraint firstItem="SEv-ZT-8Gv" firstAttribute="centerY" secondItem="hI4-dW-QvO" secondAttribute="centerY" id="zxg-dx-XXj"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="menuItemImageIcon" destination="SEv-ZT-8Gv" id="FnK-ft-6zP"/>
+                                    <outlet property="menuItemTitleLabel" destination="I3l-dK-CF3" id="HdQ-gg-jWA"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="G3G-g3-7UE" id="O49-Gm-ZD8"/>
+                            <outlet property="delegate" destination="G3G-g3-7UE" id="NVk-rz-2Bb"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <segue destination="RhV-ft-OSi" kind="custom" identifier="ShowProfileFromMenu" customClass="SWRevealViewControllerSeguePushController" id="PKx-pt-1zN"/>
+                        <segue destination="j5B-Ff-2oD" kind="custom" identifier="ShowEventsFromMenu" customClass="SWRevealViewControllerSeguePushController" id="kCs-Zy-XXe"/>
+                        <segue destination="KJq-Aj-myp" kind="custom" identifier="ShowNewsFromMenu" customClass="SWRevealViewControllerSeguePushController" id="lLK-HM-KLC"/>
+                        <segue destination="9M5-d2-rEw" kind="custom" identifier="ShowMembersFromMenu" customClass="SWRevealViewControllerSeguePushController" id="5kc-ok-jcM"/>
+                        <segue destination="ysS-ob-R4p" kind="custom" identifier="ShowContactsFromMenu" customClass="SWRevealViewControllerSeguePushController" id="I8r-Yg-hbD"/>
+                        <segue destination="MWV-Kc-AMX" kind="custom" identifier="ShowSettingsFromMenu" customClass="SWRevealViewControllerSeguePushController" id="7kE-0b-w5s"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pgk-ua-8cf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1158" y="1191"/>
+        </scene>
+        <!--ProfileNavBar-->
+        <scene sceneID="Eru-qn-zFM">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="ProfileNavBar" storyboardName="Profile" referencedIdentifier="ProfileNavBar" id="RhV-ft-OSi" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="84n-te-ZRT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1976" y="981"/>
+        </scene>
+        <!--EventsNavBar-->
+        <scene sceneID="SrA-y4-Dw2">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="EventsNavBar" storyboardName="Events" referencedIdentifier="EventsNavBar" id="j5B-Ff-2oD" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WBZ-a2-SJx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1978" y="1052"/>
+        </scene>
+        <!--NewsNavBar-->
+        <scene sceneID="LOK-2M-92O">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="NewsNavBar" storyboardName="News" referencedIdentifier="NewsNavBar" id="KJq-Aj-myp" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vlz-6T-nyW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1970" y="1121"/>
+        </scene>
+        <!--MembersNavBar-->
+        <scene sceneID="lI7-Uo-CDJ">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="MembersNavBar" storyboardName="Members" referencedIdentifier="MembersNavBar" id="9M5-d2-rEw" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oFe-xq-7ew" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1990" y="1175"/>
+        </scene>
+        <!--ContactsNavBar-->
+        <scene sceneID="FTI-3F-CoZ">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="ContactsNavBar" storyboardName="Contacts" referencedIdentifier="ContactsNavBar" id="ysS-ob-R4p" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ECc-oV-Xg5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1990" y="1269"/>
+        </scene>
+        <!--SettingsNavBar-->
+        <scene sceneID="UnW-Pi-pEJ">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="SettingsNavBar" storyboardName="Settings" referencedIdentifier="SettingsNavBar" id="MWV-Kc-AMX" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="in0-BI-8zp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1986" y="1337"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="icon-contacts" width="25" height="25"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="PKx-pt-1zN"/>
+    </inferredMetricsTieBreakers>
+</document>
