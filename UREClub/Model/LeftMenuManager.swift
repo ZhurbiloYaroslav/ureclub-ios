@@ -10,6 +10,10 @@ import UIKit
 import Foundation
 import SWRevealViewController
 
+protocol LMM {
+    
+}
+
 class LeftMenuManager {
     
     var menuButton: UIBarButtonItem!
