@@ -16,6 +16,7 @@ class EventsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setCustomBackground()
         setupLeftMenu()
     }
     

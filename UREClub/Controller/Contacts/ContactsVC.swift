@@ -16,6 +16,7 @@ class ContactsVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.setCustomBackground()
         setupLeftMenu()
     }
     

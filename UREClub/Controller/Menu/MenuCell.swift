@@ -20,28 +20,16 @@ class MenuCell: UITableViewCell {
     
     func updateCellWith(indexPath: IndexPath) {
         
-        switch indexPath {
-        case [0,0]:
-            updateLabelsWith(image: "menu", andTitle: "My Profile")
-        case [0,1]:
-            updateLabelsWith(image: "menu", andTitle: "Events")
-        case [0,2]:
-            updateLabelsWith(image: "menu", andTitle: "News")
-        case [0,3]:
-            updateLabelsWith(image: "menu", andTitle: "Members")
-        case [0,4]:
-            updateLabelsWith(image: "menu", andTitle: "Contacts")
-        case [0,5]:
-            updateLabelsWith(image: "menu", andTitle: "Options")
-        default:
-            break
-        }
+        let menuItem = Menu().items[indexPath.row]
+        updateLabelsWith(title: menuItem.title, andImage: menuItem.iconName)
         
     }
     
-    private func updateLabelsWith(image: String, andTitle title: String) {
-        menuItemImageIcon.image = UIImage(named: image)?.withRenderingMode(.alwaysTemplate)
+    private func updateLabelsWith(title: String, andImage image: String?) {
         menuItemTitleLabel.text = title
+        if let imageName = image {
+            menuItemImageIcon.image = UIImage(named: imageName)?.withRenderingMode(.alwaysTemplate)
+        }
     }
     
 }

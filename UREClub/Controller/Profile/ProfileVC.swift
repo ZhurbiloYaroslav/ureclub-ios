@@ -16,6 +16,7 @@ class ProfileVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setCustomBackground()
         updateUILabelsWithLocalizedText()
         setupLeftMenu()
     }

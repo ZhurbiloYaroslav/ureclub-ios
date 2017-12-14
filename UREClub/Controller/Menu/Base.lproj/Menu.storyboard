@@ -12,7 +12,7 @@
     </dependencies>
     <customFonts key="customFonts">
         <array key="AvenirNext.ttc">
-            <string>AvenirNext-Regular</string>
+            <string>AvenirNext-DemiBold</string>
         </array>
     </customFonts>
     <scenes>
@@ -45,11 +45,11 @@
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="sectionIndexBackgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MenuCell" rowHeight="80" id="5mB-EP-6F5" customClass="MenuCell" customModule="UREClub" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="80"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="MenuCell" id="5mB-EP-6F5" customClass="MenuCell" customModule="UREClub" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5mB-EP-6F5" id="hI4-dW-QvO">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-contacts" translatesAutoresizingMaskIntoConstraints="NO" id="SEv-ZT-8Gv">
@@ -60,20 +60,25 @@
                                                 <constraint firstAttribute="width" constant="25" id="oHh-HQ-OWd"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3l-dK-CF3">
-                                            <rect key="frame" x="50" y="28.5" width="289" height="23.5"/>
-                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3l-dK-CF3">
+                                            <rect key="frame" x="50" y="8.5" width="209" height="27.5"/>
+                                            <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
+                                            <color key="textColor" red="0.81176470590000005" green="0.92156862750000001" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailingMargin" secondItem="I3l-dK-CF3" secondAttribute="trailing" constant="20" id="Bcr-zk-cd4"/>
-                                        <constraint firstItem="I3l-dK-CF3" firstAttribute="leading" secondItem="SEv-ZT-8Gv" secondAttribute="trailing" constant="10" id="Q56-aW-C6l"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="I3l-dK-CF3" secondAttribute="trailing" constant="100" id="Bcr-zk-cd4"/>
+                                        <constraint firstItem="I3l-dK-CF3" firstAttribute="leading" secondItem="hI4-dW-QvO" secondAttribute="leading" constant="50" id="UuK-7g-yyt"/>
                                         <constraint firstItem="I3l-dK-CF3" firstAttribute="centerY" secondItem="hI4-dW-QvO" secondAttribute="centerY" id="g80-xX-a6Q"/>
                                         <constraint firstItem="SEv-ZT-8Gv" firstAttribute="leading" secondItem="hI4-dW-QvO" secondAttribute="leading" constant="15" id="qWp-GW-n5C"/>
                                         <constraint firstItem="SEv-ZT-8Gv" firstAttribute="centerY" secondItem="hI4-dW-QvO" secondAttribute="centerY" id="zxg-dx-XXj"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="subviews">
+                                            <exclude reference="SEv-ZT-8Gv"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -89,25 +94,35 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <segue destination="RhV-ft-OSi" kind="custom" identifier="ShowProfileFromMenu" customClass="SWRevealViewControllerSeguePushController" id="PKx-pt-1zN"/>
-                        <segue destination="j5B-Ff-2oD" kind="custom" identifier="ShowEventsFromMenu" customClass="SWRevealViewControllerSeguePushController" id="kCs-Zy-XXe"/>
-                        <segue destination="KJq-Aj-myp" kind="custom" identifier="ShowNewsFromMenu" customClass="SWRevealViewControllerSeguePushController" id="lLK-HM-KLC"/>
-                        <segue destination="9M5-d2-rEw" kind="custom" identifier="ShowMembersFromMenu" customClass="SWRevealViewControllerSeguePushController" id="5kc-ok-jcM"/>
-                        <segue destination="ysS-ob-R4p" kind="custom" identifier="ShowContactsFromMenu" customClass="SWRevealViewControllerSeguePushController" id="I8r-Yg-hbD"/>
-                        <segue destination="MWV-Kc-AMX" kind="custom" identifier="ShowSettingsFromMenu" customClass="SWRevealViewControllerSeguePushController" id="7kE-0b-w5s"/>
+                        <segue destination="RhV-ft-OSi" kind="custom" identifier="ShowMain" customClass="SWRevealViewControllerSeguePushController" id="PKx-pt-1zN"/>
+                        <segue destination="j5B-Ff-2oD" kind="custom" identifier="ShowEvents" customClass="SWRevealViewControllerSeguePushController" id="kCs-Zy-XXe"/>
+                        <segue destination="KJq-Aj-myp" kind="custom" identifier="ShowNews" customClass="SWRevealViewControllerSeguePushController" id="lLK-HM-KLC"/>
+                        <segue destination="9M5-d2-rEw" kind="custom" identifier="ShowMembers" customClass="SWRevealViewControllerSeguePushController" id="5kc-ok-jcM"/>
+                        <segue destination="ysS-ob-R4p" kind="custom" identifier="ShowContacts" customClass="SWRevealViewControllerSeguePushController" id="I8r-Yg-hbD"/>
+                        <segue destination="MWV-Kc-AMX" kind="custom" identifier="ShowSettings" customClass="SWRevealViewControllerSeguePushController" id="7kE-0b-w5s"/>
+                        <segue destination="FHq-J8-nTT" kind="custom" identifier="ShowCodex" customClass="SWRevealViewControllerSeguePushController" id="g1V-if-1PK"/>
+                        <segue destination="FQC-lj-VIK" kind="custom" identifier="ShowProfile" customClass="SWRevealViewControllerSeguePushController" id="3X1-vN-jSR"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pgk-ua-8cf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1158" y="1191"/>
         </scene>
-        <!--ProfileNavBar-->
+        <!--MainNavBar-->
         <scene sceneID="Eru-qn-zFM">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="ProfileNavBar" storyboardName="Profile" referencedIdentifier="ProfileNavBar" id="RhV-ft-OSi" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="ProfileNavBar" storyboardName="Main" referencedIdentifier="MainNavBar" id="RhV-ft-OSi" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="84n-te-ZRT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1976" y="981"/>
+            <point key="canvasLocation" x="1978" y="977"/>
+        </scene>
+        <!--ProfileNavBar-->
+        <scene sceneID="Rxx-ux-cEk">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Profile" referencedIdentifier="ProfileNavBar" id="FQC-lj-VIK" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wxm-ev-5Yw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1978" y="1021"/>
         </scene>
         <!--EventsNavBar-->
         <scene sceneID="SrA-y4-Dw2">
@@ -115,7 +130,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="EventsNavBar" storyboardName="Events" referencedIdentifier="EventsNavBar" id="j5B-Ff-2oD" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WBZ-a2-SJx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1978" y="1052"/>
+            <point key="canvasLocation" x="1977" y="1073"/>
         </scene>
         <!--NewsNavBar-->
         <scene sceneID="LOK-2M-92O">
@@ -123,7 +138,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="NewsNavBar" storyboardName="News" referencedIdentifier="NewsNavBar" id="KJq-Aj-myp" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vlz-6T-nyW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1970" y="1121"/>
+            <point key="canvasLocation" x="1970" y="1114"/>
         </scene>
         <!--MembersNavBar-->
         <scene sceneID="lI7-Uo-CDJ">
@@ -131,7 +146,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="MembersNavBar" storyboardName="Members" referencedIdentifier="MembersNavBar" id="9M5-d2-rEw" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oFe-xq-7ew" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1990" y="1175"/>
+            <point key="canvasLocation" x="1987" y="1222"/>
         </scene>
         <!--ContactsNavBar-->
         <scene sceneID="FTI-3F-CoZ">
@@ -139,7 +154,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="ContactsNavBar" storyboardName="Contacts" referencedIdentifier="ContactsNavBar" id="ysS-ob-R4p" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ECc-oV-Xg5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1990" y="1269"/>
+            <point key="canvasLocation" x="1988" y="1279"/>
         </scene>
         <!--SettingsNavBar-->
         <scene sceneID="UnW-Pi-pEJ">
@@ -148,6 +163,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="in0-BI-8zp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1986" y="1337"/>
+        </scene>
+        <!--CodexNavBar-->
+        <scene sceneID="JQo-ba-WI5">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Codex" referencedIdentifier="CodexNavBar" id="FHq-J8-nTT" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="03b-lt-vgw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1974" y="1166"/>
         </scene>
     </scenes>
     <resources>

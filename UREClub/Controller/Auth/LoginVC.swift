@@ -24,6 +24,16 @@ class LoginVC: UIViewController {
         super.viewDidLoad()
 
         initializeDelegates()
+        setFieldsStyles()
+    }
+    
+    func setFieldsStyles() {
+        let attributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        let emailPlaceholder = NSAttributedString(string: "your@email.com", attributes: attributes)
+        let passwordPlaceholder = NSAttributedString(string: "******", attributes: attributes)
+        
+        emailField.attributedPlaceholder = emailPlaceholder
+        passwordField.attributedPlaceholder = passwordPlaceholder
     }
     
     func initializeDelegates() {

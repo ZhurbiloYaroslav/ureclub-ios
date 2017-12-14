@@ -16,6 +16,7 @@ class SettingsVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setCustomBackground()
         setupLeftMenu()
     }
     
