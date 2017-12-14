@@ -111,7 +111,7 @@
         <!--MainNavBar-->
         <scene sceneID="Eru-qn-zFM">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="ProfileNavBar" storyboardName="Main" referencedIdentifier="MainNavBar" id="RhV-ft-OSi" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="MainNavBar" storyboardName="Main" referencedIdentifier="MainNavBar" id="RhV-ft-OSi" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="84n-te-ZRT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1978" y="977"/>
@@ -177,6 +177,6 @@
         <image name="icon-contacts" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="PKx-pt-1zN"/>
+        <segue reference="izK-pf-PJk"/>
     </inferredMetricsTieBreakers>
 </document>

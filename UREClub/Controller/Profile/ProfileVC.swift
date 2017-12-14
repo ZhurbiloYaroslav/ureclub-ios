@@ -23,7 +23,7 @@ class ProfileVC: UITableViewController {
     
     func updateUILabelsWithLocalizedText() {
         
-        navigationItem.title = "Profile"
+        navigationItem.title = "My Profile"
         
     }
     

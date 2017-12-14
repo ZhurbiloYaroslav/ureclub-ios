@@ -48,6 +48,8 @@
 		C4C203E91FE2938500272679 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4C203E81FE2938500272679 /* Main.storyboard */; };
 		C4C203EB1FE2939B00272679 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C203EA1FE2939B00272679 /* MainVC.swift */; };
 		C4C203ED1FE2959300272679 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C203EC1FE2959300272679 /* Menu.swift */; };
+		C4C203EF1FE2A5F700272679 /* Codex.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C203EE1FE2A5F700272679 /* Codex.swift */; };
+		C4C203F41FE2ADD100272679 /* CodexCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C203F31FE2ADD100272679 /* CodexCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +98,8 @@
 		C4C203E81FE2938500272679 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		C4C203EA1FE2939B00272679 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		C4C203EC1FE2959300272679 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		C4C203EE1FE2A5F700272679 /* Codex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codex.swift; sourceTree = "<group>"; };
+		C4C203F31FE2ADD100272679 /* CodexCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodexCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +196,7 @@
 		C41CA37D1FDBEB4500AB0D2D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C4C203F21FE2AA3F00272679 /* Fonts */,
 				C41CA36F1FDBE3F000AB0D2D /* Assets.xcassets */,
 				C41CA3741FDBE3F000AB0D2D /* Info.plist */,
 				C41CA36C1FDBE3F000AB0D2D /* UREClub.xcdatamodeld */,
@@ -307,6 +312,8 @@
 			children = (
 				C4C203E21FE2869C00272679 /* Codex.storyboard */,
 				C4C203E41FE2871500272679 /* CodexVC.swift */,
+				C4C203EE1FE2A5F700272679 /* Codex.swift */,
+				C4C203F31FE2ADD100272679 /* CodexCell.swift */,
 			);
 			path = Codex;
 			sourceTree = "<group>";
@@ -335,6 +342,13 @@
 				C4C203DE1FE27F2B00272679 /* NavBarVC.swift */,
 			);
 			path = NavBar;
+			sourceTree = "<group>";
+		};
+		C4C203F21FE2AA3F00272679 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		FD075F6F2AB0F20A8B6678B7 /* Frameworks */ = {
@@ -492,6 +506,7 @@
 				C4C203E11FE283C300272679 /* UINavigationBar+Style.swift in Sources */,
 				C41CA3661FDBE3F000AB0D2D /* AppDelegate.swift in Sources */,
 				C4C203DC1FE266C100272679 /* UIButton+IBInspectable.swift in Sources */,
+				C4C203EF1FE2A5F700272679 /* Codex.swift in Sources */,
 				C41CA3901FDBFC9B00AB0D2D /* UserDefaultsManager.swift in Sources */,
 				C44574681FDC1D18004A5305 /* MenuManager.swift in Sources */,
 				C41CA3881FDBED0100AB0D2D /* MenuVC.swift in Sources */,
@@ -499,6 +514,7 @@
 				C4C203DF1FE27F2B00272679 /* NavBarVC.swift in Sources */,
 				C41CA3981FDBFFFD00AB0D2D /* Typealiases.swift in Sources */,
 				C44574661FDC1B97004A5305 /* MembersVC.swift in Sources */,
+				C4C203F41FE2ADD100272679 /* CodexCell.swift in Sources */,
 				C41CA3961FDBFDBD00AB0D2D /* Browser.swift in Sources */,
 				C41CA3921FDBFCC300AB0D2D /* Constants.swift in Sources */,
 				C4C203ED1FE2959300272679 /* Menu.swift in Sources */,
