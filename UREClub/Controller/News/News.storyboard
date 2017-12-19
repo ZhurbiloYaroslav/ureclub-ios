@@ -17,19 +17,72 @@
                     <view key="view" contentMode="scaleToFill" id="9Np-YU-eBo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HoL-jI-QlC">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NewsCell" id="man-80-7a6">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="man-80-7a6" id="ZC7-Av-lBI">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="HoL-jI-QlC" firstAttribute="trailing" secondItem="M6l-oQ-vNP" secondAttribute="trailing" id="djC-Mp-kkg"/>
+                            <constraint firstItem="HoL-jI-QlC" firstAttribute="top" secondItem="M6l-oQ-vNP" secondAttribute="top" id="nVa-05-Euf"/>
+                            <constraint firstItem="HoL-jI-QlC" firstAttribute="leading" secondItem="M6l-oQ-vNP" secondAttribute="leading" id="oCq-YO-pHO"/>
+                            <constraint firstItem="HoL-jI-QlC" firstAttribute="bottom" secondItem="M6l-oQ-vNP" secondAttribute="bottom" id="yKT-HY-nWv"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="M6l-oQ-vNP"/>
                     </view>
                     <navigationItem key="navigationItem" title="News" id="oQg-bb-r8q">
                         <barButtonItem key="leftBarButtonItem" image="menu" id="cm8-XE-gIL"/>
+                        <barButtonItem key="rightBarButtonItem" image="icon-filter" id="Mzr-1a-xxq">
+                            <connections>
+                                <action selector="filterButtonPressed:" destination="3n2-Uz-D02" id="y8C-ai-KKN"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="menuButton" destination="cm8-XE-gIL" id="Zo1-Fa-Okf"/>
+                        <outlet property="tableView" destination="HoL-jI-QlC" id="kVI-tD-aL2"/>
+                        <segue destination="A6K-NC-vjw" kind="show" identifier="ShowNewsDesc" id="kr9-Ls-Lbg"/>
+                        <segue destination="uDA-oy-M2u" kind="show" identifier="ShowFilter" id="u5R-hm-N6G"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9gX-N0-eRn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4285.6000000000004" y="1983.9580209895055"/>
+        </scene>
+        <!--FilterVC-->
+        <scene sceneID="y0W-e0-onO">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Filter" referencedIdentifier="FilterVC" id="uDA-oy-M2u" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bVi-a7-H4y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5031" y="1763"/>
+        </scene>
+        <!--News description-->
+        <scene sceneID="3JJ-CR-4k9">
+            <objects>
+                <viewController storyboardIdentifier="NewsDescVC" title="News description" id="A6K-NC-vjw" customClass="NewsDescVC" customModule="UREClub" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PdI-j8-CaT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="vfr-Mb-b3S"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hBh-rC-8Uf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5777" y="1984"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="CAB-MO-O1B">
@@ -51,6 +104,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icon-filter" width="29" height="29"/>
         <image name="menu" width="22" height="22"/>
     </resources>
 </document>

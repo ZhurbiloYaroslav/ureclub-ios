@@ -16,7 +16,7 @@ class SettingsVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.setCustomBackground()
+        self.setDefaultBackground()
         setupLeftMenu()
     }
     
@@ -28,6 +28,16 @@ class SettingsVC: UITableViewController {
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
             
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsCell", for: indexPath) as? UITableViewCell
+            else { return UITableViewCell() }
+        return cell
     }
 
 }

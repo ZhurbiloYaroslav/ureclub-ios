@@ -16,7 +16,7 @@ class ContactsVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.setCustomBackground()
+        self.setDefaultBackground()
         setupLeftMenu()
     }
     
@@ -31,7 +31,13 @@ class ContactsVC: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return 3
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ContactsCell", for: indexPath) as? UITableViewCell
+            else { return UITableViewCell() }
+        return cell
     }
 
 }

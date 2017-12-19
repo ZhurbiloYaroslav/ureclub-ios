@@ -10,13 +10,13 @@ import UIKit
 import SWRevealViewController
 
 class ProfileVC: UITableViewController {
-
+    
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.setCustomBackground()
+        self.setDefaultBackground()
         updateUILabelsWithLocalizedText()
         setupLeftMenu()
     }
@@ -37,12 +37,14 @@ class ProfileVC: UITableViewController {
         }
     }
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 0
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath) as? UITableViewCell
+            else { return UITableViewCell() }
+        return cell
     }
     
 }

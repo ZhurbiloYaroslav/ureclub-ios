@@ -17,19 +17,79 @@
                     <view key="view" contentMode="scaleToFill" id="fUy-yH-E0t">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ij6-Oj-dGQ">
+                                <rect key="frame" x="0.0" y="627" width="375" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="WKa-dL-YFZ"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="People"/>
+                                    <segment title="Companies"/>
+                                </segments>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GPz-Q2-peJ">
+                                <rect key="frame" x="0.0" y="64" width="375" height="563"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" red="0.82352941180000006" green="0.41960784309999999" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MembersCell" id="M5t-n5-hX9">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="M5t-n5-hX9" id="KYw-9o-cNP">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="GPz-Q2-peJ" firstAttribute="top" secondItem="Xtj-HF-Saq" secondAttribute="top" id="B3A-FQ-T6l"/>
+                            <constraint firstItem="GPz-Q2-peJ" firstAttribute="leading" secondItem="Xtj-HF-Saq" secondAttribute="leading" id="SWP-tw-0nh"/>
+                            <constraint firstItem="ij6-Oj-dGQ" firstAttribute="leading" secondItem="Xtj-HF-Saq" secondAttribute="leading" id="Tra-BN-8pZ"/>
+                            <constraint firstItem="ij6-Oj-dGQ" firstAttribute="trailing" secondItem="Xtj-HF-Saq" secondAttribute="trailing" id="gew-rc-XGL"/>
+                            <constraint firstItem="ij6-Oj-dGQ" firstAttribute="top" secondItem="GPz-Q2-peJ" secondAttribute="bottom" id="h7K-jZ-wZv"/>
+                            <constraint firstItem="GPz-Q2-peJ" firstAttribute="trailing" secondItem="Xtj-HF-Saq" secondAttribute="trailing" id="trG-AJ-Os9"/>
+                            <constraint firstItem="Xtj-HF-Saq" firstAttribute="bottom" secondItem="ij6-Oj-dGQ" secondAttribute="bottom" id="uUK-HF-Pie"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Xtj-HF-Saq"/>
                     </view>
                     <navigationItem key="navigationItem" title="Members" id="6Yt-aT-6vK">
                         <barButtonItem key="leftBarButtonItem" image="menu" id="tT6-Um-d1u"/>
+                        <barButtonItem key="rightBarButtonItem" image="icon-filter" id="gyY-L0-YWd">
+                            <connections>
+                                <action selector="filterButtonPressed:" destination="xQc-ew-vjU" id="LHz-E1-ieZ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="menuButton" destination="tT6-Um-d1u" id="Xts-lz-7FZ"/>
+                        <outlet property="tableView" destination="GPz-Q2-peJ" id="hPr-pZ-asn"/>
+                        <segue destination="oR9-Q6-z9X" kind="show" identifier="ShowFilter" id="Z9D-Xz-7u1"/>
+                        <segue destination="POc-qy-ccg" kind="show" identifier="ShowProfile" id="NZ1-zv-5cR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qLX-xs-lNf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4286" y="2799"/>
+            <point key="canvasLocation" x="4285.6000000000004" y="2798.9505247376314"/>
+        </scene>
+        <!--FilterVC-->
+        <scene sceneID="ek3-qg-oOi">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Filter" referencedIdentifier="FilterVC" id="oR9-Q6-z9X" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dwn-tE-Q46" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5038" y="2737"/>
+        </scene>
+        <!--ProfileVC-->
+        <scene sceneID="cuM-YV-1aF">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Profile" referencedIdentifier="ProfileVC" id="POc-qy-ccg" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bUW-Fa-paW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5044" y="2847"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="F3F-PR-3aP">
@@ -51,6 +111,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icon-filter" width="29" height="29"/>
         <image name="menu" width="22" height="22"/>
     </resources>
 </document>

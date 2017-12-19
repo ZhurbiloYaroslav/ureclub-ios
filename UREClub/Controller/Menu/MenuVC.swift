@@ -13,6 +13,7 @@ class MenuVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setCustomStyle()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -37,6 +38,10 @@ class MenuVC: UITableViewController {
         let someExtraSpace: CGFloat = 60
         let heightOfTable = Int(self.view.frame.size.height - someExtraSpace)
         return CGFloat((heightOfTable) / Menu().numberOfItems)
+    }
+    
+    func setCustomStyle() {
+        self.view.backgroundColor = Constants.Color.coalLight
     }
     
 }

@@ -50,6 +50,13 @@
 		C4C203ED1FE2959300272679 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C203EC1FE2959300272679 /* Menu.swift */; };
 		C4C203EF1FE2A5F700272679 /* Codex.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C203EE1FE2A5F700272679 /* Codex.swift */; };
 		C4C203F41FE2ADD100272679 /* CodexCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C203F31FE2ADD100272679 /* CodexCell.swift */; };
+		C4E521F41FE9012B00C3DE2E /* NewsDescVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E521F31FE9012B00C3DE2E /* NewsDescVC.swift */; };
+		C4E521F81FE9027B00C3DE2E /* UISegmentedControl+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E521F71FE9027B00C3DE2E /* UISegmentedControl+Style.swift */; };
+		C4E521FC1FE90BD700C3DE2E /* Filter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4E521FB1FE90BD700C3DE2E /* Filter.storyboard */; };
+		C4E521FE1FE90BFE00C3DE2E /* FilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E521FD1FE90BFE00C3DE2E /* FilterVC.swift */; };
+		C4E522001FE90D4A00C3DE2E /* UITableViewController+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E521FF1FE90D4A00C3DE2E /* UITableViewController+Style.swift */; };
+		C4E522021FE90EC700C3DE2E /* EventsSegmCont.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E522011FE90EC700C3DE2E /* EventsSegmCont.swift */; };
+		C4E522041FE914AD00C3DE2E /* TableViewCell+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E522031FE914AD00C3DE2E /* TableViewCell+Style.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +107,13 @@
 		C4C203EC1FE2959300272679 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		C4C203EE1FE2A5F700272679 /* Codex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codex.swift; sourceTree = "<group>"; };
 		C4C203F31FE2ADD100272679 /* CodexCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodexCell.swift; sourceTree = "<group>"; };
+		C4E521F31FE9012B00C3DE2E /* NewsDescVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDescVC.swift; sourceTree = "<group>"; };
+		C4E521F71FE9027B00C3DE2E /* UISegmentedControl+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISegmentedControl+Style.swift"; sourceTree = "<group>"; };
+		C4E521FB1FE90BD700C3DE2E /* Filter.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Filter.storyboard; sourceTree = "<group>"; };
+		C4E521FD1FE90BFE00C3DE2E /* FilterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterVC.swift; sourceTree = "<group>"; };
+		C4E521FF1FE90D4A00C3DE2E /* UITableViewController+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewController+Style.swift"; sourceTree = "<group>"; };
+		C4E522011FE90EC700C3DE2E /* EventsSegmCont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsSegmCont.swift; sourceTree = "<group>"; };
+		C4E522031FE914AD00C3DE2E /* TableViewCell+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableViewCell+Style.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +172,7 @@
 		C41CA37A1FDBEB0700AB0D2D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C4E521FA1FE90BB300C3DE2E /* Filter */,
 				C41CA3841FDBEBAC00AB0D2D /* Auth */,
 				C4C203DD1FE27EF700272679 /* NavBar */,
 				C47FA73A1FE1D39E003D393E /* Menu */,
@@ -176,9 +191,13 @@
 		C41CA37B1FDBEB1300AB0D2D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C4E521F91FE9055500C3DE2E /* StarredCategories */,
 				C41CA3711FDBE3F000AB0D2D /* LaunchScreen.storyboard */,
 				C4C203E01FE283C300272679 /* UINavigationBar+Style.swift */,
 				C4C203E61FE288B000272679 /* UIViewController+Style.swift */,
+				C4E521F71FE9027B00C3DE2E /* UISegmentedControl+Style.swift */,
+				C4E521FF1FE90D4A00C3DE2E /* UITableViewController+Style.swift */,
+				C4E522031FE914AD00C3DE2E /* TableViewCell+Style.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -276,6 +295,7 @@
 			children = (
 				C47FA7451FE1D6D8003D393E /* Events.storyboard */,
 				C41CA3671FDBE3F000AB0D2D /* EventsVC.swift */,
+				C4E522011FE90EC700C3DE2E /* EventsSegmCont.swift */,
 			);
 			path = Events;
 			sourceTree = "<group>";
@@ -285,6 +305,7 @@
 			children = (
 				C47FA7471FE1D712003D393E /* News.storyboard */,
 				C445745F1FDC18FB004A5305 /* NewsVC.swift */,
+				C4E521F31FE9012B00C3DE2E /* NewsDescVC.swift */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -349,6 +370,22 @@
 			children = (
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		C4E521F91FE9055500C3DE2E /* StarredCategories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = StarredCategories;
+			sourceTree = "<group>";
+		};
+		C4E521FA1FE90BB300C3DE2E /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				C4E521FB1FE90BD700C3DE2E /* Filter.storyboard */,
+				C4E521FD1FE90BFE00C3DE2E /* FilterVC.swift */,
+			);
+			path = Filter;
 			sourceTree = "<group>";
 		};
 		FD075F6F2AB0F20A8B6678B7 /* Frameworks */ = {
@@ -423,6 +460,7 @@
 			files = (
 				C47FA7391FE1D2FB003D393E /* Auth.storyboard in Resources */,
 				C41CA3731FDBE3F000AB0D2D /* LaunchScreen.storyboard in Resources */,
+				C4E521FC1FE90BD700C3DE2E /* Filter.storyboard in Resources */,
 				C47FA74A1FE1D75C003D393E /* Members.storyboard in Resources */,
 				C47FA74E1FE1D7CE003D393E /* Settings.storyboard in Resources */,
 				C41CA3821FDBEB8500AB0D2D /* Localizable.strings in Resources */,
@@ -497,14 +535,18 @@
 				C41CA36E1FDBE3F000AB0D2D /* UREClub.xcdatamodeld in Sources */,
 				C4C203DA1FE2669600272679 /* UIView+IBInspectable.swift in Sources */,
 				C41CA38E1FDBFC7100AB0D2D /* String+localized.swift in Sources */,
+				C4E522021FE90EC700C3DE2E /* EventsSegmCont.swift in Sources */,
 				C41CA3681FDBE3F000AB0D2D /* EventsVC.swift in Sources */,
 				C44574641FDC1AED004A5305 /* ContactsVC.swift in Sources */,
+				C4E521F41FE9012B00C3DE2E /* NewsDescVC.swift in Sources */,
 				C4C203EB1FE2939B00272679 /* MainVC.swift in Sources */,
+				C4E521F81FE9027B00C3DE2E /* UISegmentedControl+Style.swift in Sources */,
 				C44574601FDC18FB004A5305 /* NewsVC.swift in Sources */,
 				C41CA38C1FDBF6DC00AB0D2D /* MenuCell.swift in Sources */,
 				C41CA3861FDBECC100AB0D2D /* LoginVC.swift in Sources */,
 				C4C203E11FE283C300272679 /* UINavigationBar+Style.swift in Sources */,
 				C41CA3661FDBE3F000AB0D2D /* AppDelegate.swift in Sources */,
+				C4E522041FE914AD00C3DE2E /* TableViewCell+Style.swift in Sources */,
 				C4C203DC1FE266C100272679 /* UIButton+IBInspectable.swift in Sources */,
 				C4C203EF1FE2A5F700272679 /* Codex.swift in Sources */,
 				C41CA3901FDBFC9B00AB0D2D /* UserDefaultsManager.swift in Sources */,
@@ -514,7 +556,9 @@
 				C4C203DF1FE27F2B00272679 /* NavBarVC.swift in Sources */,
 				C41CA3981FDBFFFD00AB0D2D /* Typealiases.swift in Sources */,
 				C44574661FDC1B97004A5305 /* MembersVC.swift in Sources */,
+				C4E522001FE90D4A00C3DE2E /* UITableViewController+Style.swift in Sources */,
 				C4C203F41FE2ADD100272679 /* CodexCell.swift in Sources */,
+				C4E521FE1FE90BFE00C3DE2E /* FilterVC.swift in Sources */,
 				C41CA3961FDBFDBD00AB0D2D /* Browser.swift in Sources */,
 				C41CA3921FDBFCC300AB0D2D /* Constants.swift in Sources */,
 				C4C203ED1FE2959300272679 /* Menu.swift in Sources */,

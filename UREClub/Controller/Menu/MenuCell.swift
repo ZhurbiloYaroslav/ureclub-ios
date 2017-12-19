@@ -16,6 +16,11 @@ class MenuCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        setCustomStyle()
+    }
+    
+    func setCustomStyle() {
+        self.backgroundColor = Constants.Color.coalLight
     }
     
     func updateCellWith(indexPath: IndexPath) {

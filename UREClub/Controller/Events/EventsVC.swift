@@ -11,13 +11,22 @@ import SWRevealViewController
 
 class EventsVC: UIViewController {
     
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var menuButton: UIBarButtonItem!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.setCustomBackground()
+        self.tableView.backgroundColor = Constants.Color.skyLight
+
+        setDelegates()
+        self.setDefaultBackground()
         setupLeftMenu()
+    }
+    
+    func setDelegates() {
+        tableView.delegate = self
+        tableView.dataSource = self
     }
     
     func setupLeftMenu() {
@@ -29,6 +38,21 @@ class EventsVC: UIViewController {
             
         }
     }
-
+    
+    @IBAction func filterButtonPressed(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "ShowFilter", sender: nil)
+    }
+    
 }
 
+extension EventsVC: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "EventsCell", for: indexPath) as? UITableViewCell
+            else { return UITableViewCell() }
+        return cell
+    }
+}

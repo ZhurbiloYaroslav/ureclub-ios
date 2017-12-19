@@ -17,7 +17,29 @@
                     <view key="view" contentMode="scaleToFill" id="HLM-j9-HIQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8fu-X9-2sK">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MainCell" id="Jnh-ae-F8S">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jnh-ae-F8S" id="w1U-vf-jw7">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8fu-X9-2sK" firstAttribute="trailing" secondItem="TD8-mb-ybM" secondAttribute="trailing" id="5BN-dc-267"/>
+                            <constraint firstItem="8fu-X9-2sK" firstAttribute="bottom" secondItem="TD8-mb-ybM" secondAttribute="bottom" id="dcV-6c-lzb"/>
+                            <constraint firstItem="8fu-X9-2sK" firstAttribute="leading" secondItem="TD8-mb-ybM" secondAttribute="leading" id="oIO-om-jJb"/>
+                            <constraint firstItem="8fu-X9-2sK" firstAttribute="top" secondItem="TD8-mb-ybM" secondAttribute="top" id="pxO-SB-eWt"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="TD8-mb-ybM"/>
                     </view>
                     <navigationItem key="navigationItem" title="Main" id="qZf-cP-zJ6">
@@ -25,6 +47,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="menuButton" destination="bGs-Jc-Wb9" id="fkt-Ss-hH9"/>
+                        <outlet property="tableView" destination="8fu-X9-2sK" id="GMX-t9-Smi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PtK-MQ-qCq" userLabel="First Responder" sceneMemberID="firstResponder"/>
