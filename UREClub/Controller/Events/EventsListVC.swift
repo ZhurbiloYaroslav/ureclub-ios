@@ -1,5 +1,5 @@
 //
-//  EventsVC.swift
+//  EventsListVC.swift
 //  UREClub
 //
 //  Created by Yaroslav Zhurbilo on 09.12.17.
@@ -9,7 +9,7 @@
 import UIKit
 import SWRevealViewController
 
-class EventsVC: UIViewController {
+class EventsListVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var menuButton: UIBarButtonItem!
@@ -45,14 +45,42 @@ class EventsVC: UIViewController {
     
 }
 
-extension EventsVC: UITableViewDelegate, UITableViewDataSource {
+extension EventsListVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 15
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "EventsCell", for: indexPath) as? UITableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath) as? EventCell
             else { return UITableViewCell() }
+        let event = Event()
+        cell.updateCellWith(event)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "ShowEvent", sender: nil)
+    }
+}
+
+//MARK: SEGUES
+extension EventsListVC {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let segueID = segue.identifier else {
+            return
+        }
+        
+        switch segueID {
+        case "ShowEvent":
+            guard let eventDescVC = segue.destination as? EventDescVC else {
+                return
+            }
+            eventDescVC.currentEvent = Event()
+        case "ShowFilter":
+            break
+        default:
+            print("Was used undefined segue")
+            return
+        }
     }
 }

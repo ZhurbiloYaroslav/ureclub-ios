@@ -131,7 +131,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="mbU-hy-hdp">
-                                <rect key="frame" x="62" y="601" width="251" height="36"/>
+                                <rect key="frame" x="113" y="601" width="149" height="36"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Want to be a member?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GFF-2f-52t">
                                         <rect key="frame" x="0.0" y="0.0" width="248" height="23.5"/>
@@ -163,15 +163,15 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gce-jn-gIQ">
-                                        <rect key="frame" x="51" y="0.0" width="149" height="36"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="149" height="36"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
                                         <state key="normal" title="Become a member">
                                             <color key="titleColor" red="0.81176470590000005" green="0.92156862750000001" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="fo9-4Q-Tzb">
-                                        <rect key="frame" x="0.0" y="0.0" width="251" height="36"/>
+                                        <rect key="frame" x="0.0" y="51" width="251" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jCv-iD-LuJ">
                                                 <rect key="frame" x="0.0" y="0.0" width="183" height="36"/>
@@ -195,7 +195,7 @@
                                         <exclude reference="GFF-2f-52t"/>
                                         <exclude reference="c1N-1H-IeL"/>
                                         <exclude reference="oPJ-rI-cs5"/>
-                                        <exclude reference="gce-jn-gIQ"/>
+                                        <exclude reference="fo9-4Q-Tzb"/>
                                     </mask>
                                 </variation>
                             </stackView>

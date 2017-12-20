@@ -13,6 +13,7 @@ class FilterVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setDefaultBackground()
         
     }
 

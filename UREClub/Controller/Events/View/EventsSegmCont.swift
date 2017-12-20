@@ -11,14 +11,16 @@ import UIKit
 class EventsSegmCont: UISegmentedControl {
     
     override func awakeFromNib() {
+        super.awakeFromNib()
+        
         setStyleForEvents()
     }
     
     func setStyleForEvents() {
         self.borderWidth = 1
-        self.borderColor = Constants.Color.skyDark
-        self.backgroundColor = Constants.Color.skyDark
-        self.tintColor = Constants.Color.skyDark
+        self.borderColor = Constants.Color.blueDark
+        self.backgroundColor = UIColor.clear
+        self.tintColor = Constants.Color.blueDark
     }
 
 }

@@ -10,26 +10,14 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--FilterVC-->
+        <!--Filter-->
         <scene sceneID="Qoc-m0-wr7">
             <objects>
-                <viewController storyboardIdentifier="FilterVC" id="c6t-mb-Yf3" customClass="FilterVC" customModule="UREClub" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FilterVC" title="Filter" id="c6t-mb-Yf3" customClass="FilterVC" customModule="UREClub" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="h5k-4Z-d1K">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1Nl-1T-Zjw">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="1Nl-1T-Zjw" firstAttribute="trailing" secondItem="dKx-38-SXL" secondAttribute="trailing" id="2xA-Ma-BOV"/>
-                            <constraint firstItem="1Nl-1T-Zjw" firstAttribute="leading" secondItem="dKx-38-SXL" secondAttribute="leading" id="7vB-4a-vy5"/>
-                            <constraint firstItem="1Nl-1T-Zjw" firstAttribute="bottom" secondItem="dKx-38-SXL" secondAttribute="bottom" id="Hum-is-WjH"/>
-                            <constraint firstItem="1Nl-1T-Zjw" firstAttribute="top" secondItem="h5k-4Z-d1K" secondAttribute="top" id="aRk-06-24r"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="dKx-38-SXL"/>
                     </view>
                 </viewController>

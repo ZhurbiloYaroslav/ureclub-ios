@@ -119,7 +119,7 @@
         <!--ProfileNavBar-->
         <scene sceneID="Rxx-ux-cEk">
             <objects>
-                <viewControllerPlaceholder storyboardName="Profile" referencedIdentifier="ProfileNavBar" id="FQC-lj-VIK" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="ProfileNavBar" storyboardName="Profile" referencedIdentifier="ProfileNavBar" id="FQC-lj-VIK" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wxm-ev-5Yw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1978" y="1021"/>
