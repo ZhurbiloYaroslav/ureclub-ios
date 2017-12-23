@@ -1,18 +1,21 @@
 PODS:
   - Alamofire (4.5.1)
   - INSPersistentContainer (1.0.2)
+  - SwiftSoup (1.5.5)
   - SWRevealViewController (2.3.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.5)
   - INSPersistentContainer
+  - SwiftSoup
   - SWRevealViewController
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
   INSPersistentContainer: 7e04a0d332ba075441ce0ee73d584ce84d76ac23
+  SwiftSoup: 6a31eb02551c9c523eea14aef9d9e70f1466ff99
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
 
-PODFILE CHECKSUM: be980b12cfad2490bfee331deaff65b4ba797865
+PODFILE CHECKSUM: 16c9117d7345c87a82a1997918e19ee037c20d14
 
 COCOAPODS: 1.2.1
