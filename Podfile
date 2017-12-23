@@ -7,4 +7,6 @@ target 'UREClub' do
   
   pod 'INSPersistentContainer'
 
+  pod 'Alamofire', '~> 4.5'
+
 end
