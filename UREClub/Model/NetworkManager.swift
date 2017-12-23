@@ -7,21 +7,54 @@
 //
 
 import Foundation
+import Alamofire
 
-class NetrowkManager {
+class NetworkManager {
     
     private var arrayWithEvents: [Event]!
     private var arrayWithPlaces: [Place]!
     
-    func getResult() {
+    func retrieveInfoForPath(_ path: RequestAddress.ServerPath, completionHandler: @escaping (_ errorMessages: [NetworkError]?)->())  {
+        
+        var errorMessages = [NetworkError]()
+        guard let url = URL(string: path.address()) else { return errorMessages.append(.badURL) }
+        
+        Alamofire.request(url).responseJSON { (response) in
+            if let errorMessages = self.parseResultDataWith(response, andPath: path) {
+                completionHandler(errorMessages)
+            } else {
+                completionHandler(nil)
+            }
+        }
         
     }
     
-    func makeURLWithAddress(_ address: RequestAddress.ServerPath) -> URL? {
-        guard let url = URL(string: address.address()) else {
+    func parseResultDataWith(_ response: DataResponse<Any>, andPath path: RequestAddress.ServerPath) -> [NetworkError]? {
+        var errorMessages = [NetworkError]()
+        
+        switch path {
+        case .events_all:
+            parseEventsWith(response)
             return nil
+        default:
+            errorMessages.append(NetworkError.undefinedPath)
+            return errorMessages
         }
-        return url
+    }
+    
+    func parseEventsWith(_ response: DataResponse<Any>) {
+        
+        arrayWithEvents = [Event]()
+        guard let arrayWithEventsResult = response.result.value as? [(Dictionary<String, Any>)]  else {
+            return
+        }
+        
+        for dictWithResult in arrayWithEventsResult {
+            let event = Event(withResult: dictWithResult)
+            print(event.title, event.description)
+            arrayWithEvents.append(event)
+        }
+        
     }
     
     struct RequestAddress {
@@ -32,7 +65,8 @@ class NetrowkManager {
         }
         
         enum ServerPath: String {
-            case events_all = "wp-json/ee/v4.8.36/events"
+            case events_all = "wp-json/ee/v4.8.36/events?include=EVT_name,EVT_desc"
+//            case events_all = "wp-json/ee/v4.8.36/events"
             case news_all = "wp-json/wp/v2/posts"
             case users_all = "wp-json/wp/v2/users"
             case tags_all = "wp-json/wp/v2/tags"
@@ -49,4 +83,49 @@ class NetrowkManager {
         //place Page: https://jsonblob.com/1f72f941-e58c-11e7-ab8b-ff8f492747ba
     }
     
+    enum NetworkError: String {
+        case undefinedPath = "Undefined path"
+        case badURL = "Bad URL"
+        case cantCreateDictionary = "Result data error"
+        case noConnection = "Network Error, check your connection"
+        case invalidResultData = "Data Error, check your data"
+        case undefined = "Undefined Error"
+    }
+    
+}
+
+//MARK: Auth methods
+extension NetworkManager {
+    
+    struct RegisterUserData {
+        let pageAddress: String = "https://serwer1651270.home.pl/admin/api/register"
+        let name: String
+        let phone: String
+        let email: String
+        let password: String
+        
+        func getURL() -> URL? {
+            var result = "\(pageAddress)"
+            result += "?name=\(name)"
+            result += "&phone=\(phone)"
+            result += "&email=\(email)"
+            result += "&pass=\(password)"
+            result = result.replacingOccurrences(of: " ", with: "%20")
+            return URL(string: result)
+        }
+    }
+    
+    struct LoginUserData {
+        let pageAddress: String = "https://serwer1651270.home.pl/admin/api/login"
+        let email: String
+        let password: String
+        
+        func getURL() -> URL? {
+            var result = "\(pageAddress)"
+            result += "?email=\(email)"
+            result += "&pass=\(password)"
+            result = result.replacingOccurrences(of: " ", with: "%20")
+            return URL(string: result)
+        }
+    }
 }

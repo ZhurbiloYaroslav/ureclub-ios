@@ -25,6 +25,15 @@ class LoginVC: UIViewController {
 
         initializeDelegates()
         setFieldsStyles()
+        testing()
+    }
+    
+    func testing() {
+        NetworkManager().retrieveInfoForPath(.events_all) { (arrayWithErrors) in
+            if let arrayWithErrors = arrayWithErrors {
+                print(arrayWithErrors[0].rawValue)
+            }
+        }
     }
     
     func setFieldsStyles() {
