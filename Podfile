@@ -9,4 +9,6 @@ target 'UREClub' do
 
   pod 'Alamofire', '~> 4.5'
 
+  pod "SwiftSoup"
+
 end
