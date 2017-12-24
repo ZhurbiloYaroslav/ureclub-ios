@@ -48,12 +48,40 @@ class NewsVC: UIViewController {
 
 extension NewsVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 15
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCell", for: indexPath) as? UITableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCell", for: indexPath) as? NewsCell
             else { return UITableViewCell() }
+        let news = News()
+        cell.updateCellWith(news)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "ShowNewsDesc", sender: nil)
+    }
+}
+
+//MARK: SEGUES
+extension EventsListVC {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let segueID = segue.identifier else {
+            return
+        }
+        
+        switch segueID {
+        case "ShowNewsDesc":
+            guard let newsDescVC = segue.destination as? NewsDescVC else {
+                return
+            }
+            eventDescVC.currentEvent = Event()
+        case "ShowFilter":
+            break
+        default:
+            print("Was used undefined segue")
+            return
+        }
     }
 }

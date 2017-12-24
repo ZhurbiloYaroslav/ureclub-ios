@@ -10,11 +10,11 @@ import UIKit
 
 class EventCell: UITableViewCell {
 
-    @IBOutlet weak var eventImageView: UIImageView!
-    @IBOutlet weak var eventTitleLabel: UILabel!
-    @IBOutlet weak var eventDateLabel: UILabel!
-    @IBOutlet weak var eventTimeLabel: UILabel!
-    @IBOutlet weak var eventAddressLabel: UILabel!
+    @IBOutlet weak var eventImage: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,10 +22,10 @@ class EventCell: UITableViewCell {
     }
     
     func updateCellWith(_ event: Event) {
-        eventImageView.downloadedFrom(link: event.imageLinks[0])
-        eventTitleLabel.text = event.title
-        eventDateLabel.text = event.date.getDate()
-        eventTimeLabel.text = event.date.getTimePeriod()
-        eventAddressLabel.text = event.place.getAddressAndCity()
+        eventImage.downloadedFrom(link: event.imageLinks[0])
+        titleLabel.text = event.title
+        dateLabel.text = event.date.getDate()
+        timeLabel.text = event.date.getTimePeriod()
+        addressLabel.text = event.place.getAddressAndCity()
     }
 }

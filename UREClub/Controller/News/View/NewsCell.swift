@@ -10,9 +10,9 @@ import UIKit
 
 class NewsCell: UITableViewCell {
     
-    @IBOutlet weak var newsImageView: UIImageView!
-    @IBOutlet weak var newsTitleLabel: UILabel!
-    @IBOutlet weak var newsDateLabel: UILabel!
+    @IBOutlet weak var newsImage: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -20,7 +20,7 @@ class NewsCell: UITableViewCell {
     }
     
     func updateCellWith(_ news: News) {
-        newsImageView.downloadedFrom(link: news.imageLinks[0])
-        newsTitleLabel.text = news.title
+        newsImage.downloadedFrom(link: news.imageLinks[0])
+        titleLabel.text = news.title
     }
 }
