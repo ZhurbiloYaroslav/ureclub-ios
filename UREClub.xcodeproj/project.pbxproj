@@ -66,6 +66,7 @@
 		C4B54B2F1FEEFA3C008D531E /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B54B2E1FEEFA3C008D531E /* CurrentUser.swift */; };
 		C4B54B311FEF01AC008D531E /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B54B301FEF01AC008D531E /* News.swift */; };
 		C4B54B341FEF17C9008D531E /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B54B331FEF17C9008D531E /* NewsCell.swift */; };
+		C4B54B361FEF2A3B008D531E /* Array+uniq.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B54B351FEF2A3B008D531E /* Array+uniq.swift */; };
 		C4C203DA1FE2669600272679 /* UIView+IBInspectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C203D91FE2669600272679 /* UIView+IBInspectable.swift */; };
 		C4C203DC1FE266C100272679 /* UIButton+IBInspectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C203DB1FE266C100272679 /* UIButton+IBInspectable.swift */; };
 		C4C203DF1FE27F2B00272679 /* NavBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C203DE1FE27F2B00272679 /* NavBarVC.swift */; };
@@ -151,6 +152,7 @@
 		C4B54B2E1FEEFA3C008D531E /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		C4B54B301FEF01AC008D531E /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		C4B54B331FEF17C9008D531E /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
+		C4B54B351FEF2A3B008D531E /* Array+uniq.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+uniq.swift"; sourceTree = "<group>"; };
 		C4C203D91FE2669600272679 /* UIView+IBInspectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+IBInspectable.swift"; sourceTree = "<group>"; };
 		C4C203DB1FE266C100272679 /* UIButton+IBInspectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+IBInspectable.swift"; sourceTree = "<group>"; };
 		C4C203DE1FE27F2B00272679 /* NavBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarVC.swift; sourceTree = "<group>"; };
@@ -298,6 +300,7 @@
 				C4C203D91FE2669600272679 /* UIView+IBInspectable.swift */,
 				C4C203DB1FE266C100272679 /* UIButton+IBInspectable.swift */,
 				C4662AE51FEAB6A0001848C8 /* UIImageView+downloadedFromURL.swift */,
+				C4B54B351FEF2A3B008D531E /* Array+uniq.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -681,6 +684,7 @@
 				C44574601FDC18FB004A5305 /* NewsVC.swift in Sources */,
 				C41CA38C1FDBF6DC00AB0D2D /* MenuCell.swift in Sources */,
 				C41CA3861FDBECC100AB0D2D /* LoginVC.swift in Sources */,
+				C4B54B361FEF2A3B008D531E /* Array+uniq.swift in Sources */,
 				C4C203E11FE283C300272679 /* UINavigationBar+Style.swift in Sources */,
 				C41CA3661FDBE3F000AB0D2D /* AppDelegate.swift in Sources */,
 				C4662AB91FEAA251001848C8 /* Place.swift in Sources */,

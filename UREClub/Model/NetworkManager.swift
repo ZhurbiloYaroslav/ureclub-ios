@@ -9,9 +9,18 @@
 import Foundation
 import Alamofire
 
+protocol NetworkManagerDelegate: class {
+    func didLoad(arrayWithEvents:[Event])
+    func didLoad(arrayWithNews:[News])
+    func didLoad(arrayWithPlaces:[Place])
+}
+
 class NetworkManager {
     
+    weak var delegate: NetworkManagerDelegate?
+    
     private var arrayWithEvents: [Event]!
+    private var arrayWithNews: [News]!
     private var arrayWithPlaces: [Place]!
     
     func retrieveInfoForPath(_ path: RequestAddress.ServerPath, completionHandler: @escaping (_ errorMessages: [NetworkError]?)->())  {
@@ -26,7 +35,6 @@ class NetworkManager {
                 completionHandler(nil)
             }
         }
-        
     }
     
     func parseResultDataWith(_ response: DataResponse<Any>, andPath path: RequestAddress.ServerPath) -> [NetworkError]? {
@@ -35,6 +43,9 @@ class NetworkManager {
         switch path {
         case .events_all:
             parseEventsWith(response)
+            return nil
+        case .news_all:
+            parseNewsWith(response)
             return nil
         default:
             errorMessages.append(NetworkError.undefinedPath)
@@ -51,8 +62,21 @@ class NetworkManager {
         
         for dictWithResult in arrayWithEventsResult {
             let event = Event(withResult: dictWithResult)
-            print(event.title, event.description)
             arrayWithEvents.append(event)
+        }
+        
+    }
+    
+    func parseNewsWith(_ response: DataResponse<Any>) {
+        
+        arrayWithNews = [News]()
+        guard let arrayWithNewsResult = response.result.value as? [(Dictionary<String, Any>)]  else {
+            return
+        }
+        
+        for dictWithResult in arrayWithNewsResult {
+            let news = News(withResult: dictWithResult)
+            arrayWithNews.append(news)
         }
         
     }
@@ -65,8 +89,8 @@ class NetworkManager {
         }
         
         enum ServerPath: String {
-            case events_all = "wp-json/ee/v4.8.36/events?include=EVT_name,EVT_desc"
-//            case events_all = "wp-json/ee/v4.8.36/events"
+            //case events_all = "wp-json/ee/v4.8.36/events?include=EVT_name,EVT_desc"
+            case events_all = "wp-json/ee/v4.8.36/events"
             case news_all = "wp-json/wp/v2/posts"
             case users_all = "wp-json/wp/v2/users"
             case tags_all = "wp-json/wp/v2/tags"

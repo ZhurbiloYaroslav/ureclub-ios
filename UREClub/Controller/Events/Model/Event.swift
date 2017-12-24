@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftSoup
 
 class Event {
     var id: Int
@@ -15,20 +16,33 @@ class Event {
     var description: String
     var place: Place
     var date: EventDate
-    var imageLinks: [String]
+    var imageLinks: [String]! {
+        do{
+            var arrayWithImageLinks = [String]()
+            let doc: Document = try! SwiftSoup.parse(htmlContent)
+            
+            description = try! doc.body()?.text() ?? ""
+            
+            for link in try! doc.select("img").array() {
+                arrayWithImageLinks.append(try! link.attr("src"))
+            }
+            arrayWithImageLinks.uniqInPlace()
+            
+            return arrayWithImageLinks
+        }
+    }
     
-    init(id: Int, title: String, description: String, htmlContent: String, place: Place, date: EventDate, imageLinks: [String]) {
+    init(id: Int, title: String, description: String, htmlContent: String, place: Place, date: EventDate) {
         self.id = id
         self.title = title
         self.htmlContent = htmlContent
         self.description = description
         self.place = place
         self.date = date
-        self.imageLinks = imageLinks
     }
     
     convenience init() {
-        self.init(id: 0, title: "", description: "", htmlContent: "", place: Place(), date: EventDate(), imageLinks: [""])
+        self.init(id: 0, title: "", description: "", htmlContent: "", place: Place(), date: EventDate())
     }
     
     convenience init(withResult resultDictionary: [String: Any]) {
@@ -39,8 +53,7 @@ class Event {
         let description = htmlContent
         let place = Place()
         let date = EventDate()
-        let imageLinks = [String]()
         
-        self.init(id: id, title: title, description: description, htmlContent: htmlContent, place: place, date: date, imageLinks: imageLinks)
+        self.init(id: id, title: title, description: description, htmlContent: htmlContent, place: place, date: date)
     }
 }

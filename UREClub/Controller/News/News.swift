@@ -7,36 +7,47 @@
 //
 
 import Foundation
+import SwiftSoup
 
 class News {
     var id: Int
     var title: String
     var htmlContent: String
     var description: String
-    var imageLinks: [String]
+    var imageLinks: [String]! {
+        do{
+            var arrayWithImageLinks = [String]()
+            let doc: Document = try! SwiftSoup.parse(htmlContent)
+            
+            description = try! doc.body()?.text() ?? ""
+            
+            for link in try! doc.select("img").array() {
+                arrayWithImageLinks.append(try! link.attr("src"))
+            }
+            arrayWithImageLinks.uniqInPlace()
+            
+            return arrayWithImageLinks
+        }
+    }
     
-    init(id: Int, title: String, description: String, content: String, place: Place, date: EventDate, imageLinks: [String]) {
+    init(id: Int, title: String, description: String, htmlContent: String) {
         self.id = id
         self.title = title
-        self.htmlContent = content
+        self.htmlContent = htmlContent
         self.description = description
-        self.imageLinks = imageLinks
     }
     
     convenience init() {
-        self.init(id: 0, title: "", description: "", content: "", place: Place(), date: EventDate(), imageLinks: [""])
+        self.init(id: 0, title: "", description: "", htmlContent: "")
     }
     
     convenience init(withResult resultDictionary: [String: Any]) {
         
-        let id = resultDictionary["EVT_ID"] as? Int ?? 0
-        let title = resultDictionary["EVT_name"] as? String ?? ""
-        let content = (resultDictionary["EVT_desc"] as? [String: String] ?? ["rendered":""])["rendered"] ?? ""
-        let description = content
-        let place = Place()
-        let date = EventDate()
-        let imageLinks = [String]()
+        let id = resultDictionary["id"] as? Int ?? 0
+        let title = (resultDictionary["title"] as? [String: String] ?? ["rendered":""])["rendered"] ?? ""
+        let htmlContent = (resultDictionary["content"] as? [String: String] ?? ["rendered":""])["rendered"] ?? ""
+        let description = htmlContent
         
-        self.init(id: id, title: title, description: description, content: content, place: place, date: date, imageLinks: imageLinks)
+        self.init(id: id, title: title, description: description, htmlContent: htmlContent)
     }
 }
