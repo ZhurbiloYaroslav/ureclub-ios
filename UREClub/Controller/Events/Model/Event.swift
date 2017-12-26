@@ -9,51 +9,32 @@
 import Foundation
 import SwiftSoup
 
-class Event {
-    var id: Int
-    var title: String
-    var htmlContent: String
-    var description: String
+class Event: Article {
     var place: Place
     var date: EventDate
-    var imageLinks: [String]! {
-        do{
-            var arrayWithImageLinks = [String]()
-            let doc: Document = try! SwiftSoup.parse(htmlContent)
-            
-            description = try! doc.body()?.text() ?? ""
-            
-            for link in try! doc.select("img").array() {
-                arrayWithImageLinks.append(try! link.attr("src"))
-            }
-            arrayWithImageLinks.uniqInPlace()
-            
-            return arrayWithImageLinks
-        }
-    }
     
-    init(id: Int, title: String, description: String, htmlContent: String, place: Place, date: EventDate) {
-        self.id = id
-        self.title = title
-        self.htmlContent = htmlContent
-        self.description = description
+    init(id: Int, title: String, textContent: String, htmlContent: String, place: Place, date: EventDate) {
         self.place = place
         self.date = date
+        
+        super.init(id: id, title: title, textContent: textContent, htmlContent: htmlContent)
     }
     
     convenience init() {
-        self.init(id: 0, title: "", description: "", htmlContent: "", place: Place(), date: EventDate())
+        self.init(id: 0, title: "", textContent: "", htmlContent: "", place: Place(), date: EventDate())
     }
     
     convenience init(withResult resultDictionary: [String: Any]) {
         
-        let id = resultDictionary["EVT_ID"] as? Int ?? 0
-        let title = resultDictionary["EVT_name"] as? String ?? ""
-        let htmlContent = (resultDictionary["EVT_desc"] as? [String: String] ?? ["rendered":""])["rendered"] ?? ""
-        let description = htmlContent
+        let title = resultDictionary["EVT_name"] as? String  ?? ""
+        let renderedContent = resultDictionary["EVT_desc"] as? [String: Any] ?? [String: Any]()
+        let htmlContent = renderedContent["rendered"] as? String  ?? ""
+        let textContent = htmlContent
+        
         let place = Place()
         let date = EventDate()
+        let id = resultDictionary["EVT_ID"] as? Int ?? 0
         
-        self.init(id: id, title: title, description: description, htmlContent: htmlContent, place: place, date: date)
+        self.init(id: id, title: title, textContent: textContent, htmlContent: htmlContent, place: place, date: date)
     }
 }

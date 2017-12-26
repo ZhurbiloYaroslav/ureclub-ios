@@ -9,13 +9,12 @@
 import Foundation
 import Alamofire
 
-protocol NetworkManagerDelegate: class {
-    func didLoad(arrayWithEvents:[Event])
-    func didLoad(arrayWithNews:[News])
-    func didLoad(arrayWithPlaces:[Place])
+@objc protocol NetworkManagerDelegate {
+    @objc optional func didLoad(arrayWithNews:[News])
+    @objc optional func didLoad(arrayWithEvents:[Event])
 }
 
-class NetworkManager {
+class NetworkManager: NSObject {
     
     weak var delegate: NetworkManagerDelegate?
     
@@ -29,6 +28,7 @@ class NetworkManager {
         guard let url = URL(string: path.address()) else { return errorMessages.append(.badURL) }
         
         Alamofire.request(url).responseJSON { (response) in
+            
             if let errorMessages = self.parseResultDataWith(response, andPath: path) {
                 completionHandler(errorMessages)
             } else {
@@ -65,6 +65,8 @@ class NetworkManager {
             arrayWithEvents.append(event)
         }
         
+        delegate?.didLoad?(arrayWithEvents: arrayWithEvents)
+        
     }
     
     func parseNewsWith(_ response: DataResponse<Any>) {
@@ -78,6 +80,8 @@ class NetworkManager {
             let news = News(withResult: dictWithResult)
             arrayWithNews.append(news)
         }
+        
+        delegate?.didLoad?(arrayWithNews: arrayWithNews)
         
     }
     

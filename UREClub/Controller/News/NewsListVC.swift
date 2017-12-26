@@ -1,5 +1,5 @@
 //
-//  NewsVC.swift
+//  NewsListVC.swift
 //  UREClub
 //
 //  Created by Yaroslav Zhurbilo on 09.12.17.
@@ -9,25 +9,43 @@
 import UIKit
 import SWRevealViewController
 
-class NewsVC: UIViewController {
+class NewsListVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    
     @IBOutlet weak var menuButton: UIBarButtonItem!
+    
+    var arrayWithNews = [News]()
+    var networkManager = NetworkManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView.backgroundColor = Constants.Color.skyLight
-
-        setDelegates()
         self.setDefaultBackground()
+        
+        tableView.estimatedRowHeight = 100
+        tableView.rowHeight = UITableViewAutomaticDimension
+
+        getArrayWithNews()
+        setDelegates()
+        registerNibs()
         setupLeftMenu()
+    }
+    
+    func getArrayWithNews() {
+        networkManager.retrieveInfoForPath(.news_all) { (errors) in
+            print(errors)
+        }
     }
     
     func setDelegates() {
         tableView.delegate = self
         tableView.dataSource = self
+        networkManager.delegate = self
+    }
+    
+    func registerNibs() {
+        tableView.register(UINib(nibName: "ArticleCell", bundle: nil), forCellReuseIdentifier: "ArticleCell")
     }
     
     func setupLeftMenu() {
@@ -46,26 +64,37 @@ class NewsVC: UIViewController {
 
 }
 
-extension NewsVC: UITableViewDelegate, UITableViewDataSource {
+extension NewsListVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 15
+        if arrayWithNews.count > 0 {
+            return arrayWithNews.count
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCell", for: indexPath) as? NewsCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ArticleCell", for: indexPath) as? ArticleCell
             else { return UITableViewCell() }
-        let news = News()
+        let news = arrayWithNews[indexPath.row]
         cell.updateCellWith(news)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "ShowNewsDesc", sender: nil)
+        self.performSegue(withIdentifier: "ShowNewsDesc", sender: indexPath)
+    }
+}
+
+extension NewsListVC: NetworkManagerDelegate {
+    func didLoad(arrayWithNews: [News]) {
+        self.arrayWithNews = arrayWithNews
+        tableView.reloadData()
     }
 }
 
 //MARK: SEGUES
-extension EventsListVC {
+extension NewsListVC {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let segueID = segue.identifier else {
             return
@@ -76,7 +105,10 @@ extension EventsListVC {
             guard let newsDescVC = segue.destination as? NewsDescVC else {
                 return
             }
-            eventDescVC.currentEvent = Event()
+            if let indexPath = sender as? IndexPath {
+                newsDescVC.currentNews = arrayWithNews[indexPath.row]
+            }
+            
         case "ShowFilter":
             break
         default:

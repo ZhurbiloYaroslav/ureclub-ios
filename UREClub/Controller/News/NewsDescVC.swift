@@ -15,7 +15,7 @@ class NewsDescVC: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var contentLabel: UILabel!
     
-    var currentEvent: Event?
+    var currentNews: News?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,16 +25,16 @@ class NewsDescVC: UIViewController {
     }
     
     func updateUIWithValues() {
-        guard let event = currentEvent else {
+        guard let news = currentNews else {
             return
         }
+        if news.imageLinks.count > 0 {
+            imageView.downloadedFrom(link: news.imageLinks[0])
+        }
         
-        imageView.downloadedFrom(link: event.imageLinks[0])
-        titleLabel.text = event.title
-        dateLabel.text = event.date.getDate()
-        contentLabel.text = """
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        """
+        titleLabel.text = news.title
+        dateLabel.text = news.date
+        contentLabel.text = news.textContent
         
     }
     

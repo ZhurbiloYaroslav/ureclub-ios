@@ -26,7 +26,7 @@
 		C41CA3961FDBFDBD00AB0D2D /* Browser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41CA3951FDBFDBD00AB0D2D /* Browser.swift */; };
 		C41CA3981FDBFFFD00AB0D2D /* Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41CA3971FDBFFFD00AB0D2D /* Typealiases.swift */; };
 		C41CA39A1FDC010700AB0D2D /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41CA3991FDC010700AB0D2D /* ProfileVC.swift */; };
-		C44574601FDC18FB004A5305 /* NewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C445745F1FDC18FB004A5305 /* NewsVC.swift */; };
+		C44574601FDC18FB004A5305 /* NewsListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C445745F1FDC18FB004A5305 /* NewsListVC.swift */; };
 		C44574621FDC192C004A5305 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44574611FDC192C004A5305 /* SettingsVC.swift */; };
 		C44574641FDC1AED004A5305 /* ContactsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44574631FDC1AED004A5305 /* ContactsVC.swift */; };
 		C44574661FDC1B97004A5305 /* MembersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44574651FDC1B97004A5305 /* MembersVC.swift */; };
@@ -53,7 +53,7 @@
 		C4662AE01FEAAE38001848C8 /* Montserrat-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C4662ACE1FEAAE33001848C8 /* Montserrat-BoldItalic.ttf */; };
 		C4662AE11FEAAE38001848C8 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C4662ACF1FEAAE34001848C8 /* Montserrat-Regular.ttf */; };
 		C4662AE21FEAAE38001848C8 /* Montserrat-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C4662AD01FEAAE36001848C8 /* Montserrat-ExtraLight.ttf */; };
-		C4662AE41FEAB4F5001848C8 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4662AE31FEAB4F5001848C8 /* EventCell.swift */; };
+		C4662AE41FEAB4F5001848C8 /* ArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4662AE31FEAB4F5001848C8 /* ArticleCell.swift */; };
 		C4662AE61FEAB6A0001848C8 /* UIImageView+downloadedFromURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4662AE51FEAB6A0001848C8 /* UIImageView+downloadedFromURL.swift */; };
 		C4662AE81FEAC8EC001848C8 /* EventDescVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4662AE71FEAC8EC001848C8 /* EventDescVC.swift */; };
 		C47FA7391FE1D2FB003D393E /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C47FA7371FE1D2FB003D393E /* Auth.storyboard */; };
@@ -79,6 +79,9 @@
 		C4C203ED1FE2959300272679 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C203EC1FE2959300272679 /* Menu.swift */; };
 		C4C203EF1FE2A5F700272679 /* Codex.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C203EE1FE2A5F700272679 /* Codex.swift */; };
 		C4C203F41FE2ADD100272679 /* CodexCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C203F31FE2ADD100272679 /* CodexCell.swift */; };
+		C4D8D32B1FF2351A0003DA36 /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4D8D32A1FF2351A0003DA36 /* NewsCell.xib */; };
+		C4D8D32D1FF2BC7F0003DA36 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D8D32C1FF2BC7F0003DA36 /* Article.swift */; };
+		C4D8D3311FF2CC000003DA36 /* ArticleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4D8D3301FF2CC000003DA36 /* ArticleCell.xib */; };
 		C4E521F41FE9012B00C3DE2E /* NewsDescVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E521F31FE9012B00C3DE2E /* NewsDescVC.swift */; };
 		C4E521F81FE9027B00C3DE2E /* UISegmentedControl+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E521F71FE9027B00C3DE2E /* UISegmentedControl+Style.swift */; };
 		C4E521FC1FE90BD700C3DE2E /* Filter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4E521FB1FE90BD700C3DE2E /* Filter.storyboard */; };
@@ -112,7 +115,7 @@
 		C41CA3951FDBFDBD00AB0D2D /* Browser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Browser.swift; sourceTree = "<group>"; };
 		C41CA3971FDBFFFD00AB0D2D /* Typealiases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealiases.swift; sourceTree = "<group>"; };
 		C41CA3991FDC010700AB0D2D /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
-		C445745F1FDC18FB004A5305 /* NewsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsVC.swift; sourceTree = "<group>"; };
+		C445745F1FDC18FB004A5305 /* NewsListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListVC.swift; sourceTree = "<group>"; };
 		C44574611FDC192C004A5305 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		C44574631FDC1AED004A5305 /* ContactsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsVC.swift; sourceTree = "<group>"; };
 		C44574651FDC1B97004A5305 /* MembersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersVC.swift; sourceTree = "<group>"; };
@@ -139,7 +142,7 @@
 		C4662ACE1FEAAE33001848C8 /* Montserrat-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-BoldItalic.ttf"; sourceTree = "<group>"; };
 		C4662ACF1FEAAE34001848C8 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		C4662AD01FEAAE36001848C8 /* Montserrat-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraLight.ttf"; sourceTree = "<group>"; };
-		C4662AE31FEAB4F5001848C8 /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
+		C4662AE31FEAB4F5001848C8 /* ArticleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCell.swift; sourceTree = "<group>"; };
 		C4662AE51FEAB6A0001848C8 /* UIImageView+downloadedFromURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+downloadedFromURL.swift"; sourceTree = "<group>"; };
 		C4662AE71FEAC8EC001848C8 /* EventDescVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDescVC.swift; sourceTree = "<group>"; };
 		C47FA7381FE1D2FB003D393E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Auth.storyboard; sourceTree = "<group>"; };
@@ -165,6 +168,9 @@
 		C4C203EC1FE2959300272679 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		C4C203EE1FE2A5F700272679 /* Codex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codex.swift; sourceTree = "<group>"; };
 		C4C203F31FE2ADD100272679 /* CodexCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodexCell.swift; sourceTree = "<group>"; };
+		C4D8D32A1FF2351A0003DA36 /* NewsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
+		C4D8D32C1FF2BC7F0003DA36 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		C4D8D3301FF2CC000003DA36 /* ArticleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleCell.xib; sourceTree = "<group>"; };
 		C4E521F31FE9012B00C3DE2E /* NewsDescVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDescVC.swift; sourceTree = "<group>"; };
 		C4E521F71FE9027B00C3DE2E /* UISegmentedControl+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISegmentedControl+Style.swift"; sourceTree = "<group>"; };
 		C4E521FB1FE90BD700C3DE2E /* Filter.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Filter.storyboard; sourceTree = "<group>"; };
@@ -269,6 +275,7 @@
 				C4662AB61FEA98F7001848C8 /* NetworkManager.swift */,
 				C4662AB81FEAA251001848C8 /* Place.swift */,
 				C4B54B2E1FEEFA3C008D531E /* CurrentUser.swift */,
+				C4D8D32C1FF2BC7F0003DA36 /* Article.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -369,7 +376,8 @@
 		C4662AEA1FEAC90A001848C8 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C4662AE31FEAB4F5001848C8 /* EventCell.swift */,
+				C4D8D3301FF2CC000003DA36 /* ArticleCell.xib */,
+				C4662AE31FEAB4F5001848C8 /* ArticleCell.swift */,
 				C4E522011FE90EC700C3DE2E /* EventsSegmCont.swift */,
 			);
 			path = View;
@@ -412,9 +420,9 @@
 			isa = PBXGroup;
 			children = (
 				C47FA7471FE1D712003D393E /* News.storyboard */,
-				C445745F1FDC18FB004A5305 /* NewsVC.swift */,
+				C445745F1FDC18FB004A5305 /* NewsListVC.swift */,
 				C4E521F31FE9012B00C3DE2E /* NewsDescVC.swift */,
-				C4B54B301FEF01AC008D531E /* News.swift */,
+				C4D8D32E1FF2C1640003DA36 /* Model */,
 				C4B54B321FEF17A3008D531E /* View */,
 			);
 			path = News;
@@ -471,6 +479,7 @@
 			isa = PBXGroup;
 			children = (
 				C4B54B331FEF17C9008D531E /* NewsCell.swift */,
+				C4D8D32A1FF2351A0003DA36 /* NewsCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -489,6 +498,14 @@
 				C4662ABE1FEAACBC001848C8 /* Montserrat */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		C4D8D32E1FF2C1640003DA36 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C4B54B301FEF01AC008D531E /* News.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		C4E521F91FE9055500C3DE2E /* StarredCategories */ = {
@@ -595,6 +612,7 @@
 				C4662ADF1FEAAE38001848C8 /* Montserrat-ThinItalic.ttf in Resources */,
 				C4C203E91FE2938500272679 /* Main.storyboard in Resources */,
 				C4662AE01FEAAE38001848C8 /* Montserrat-BoldItalic.ttf in Resources */,
+				C4D8D3311FF2CC000003DA36 /* ArticleCell.xib in Resources */,
 				C47FA7481FE1D712003D393E /* News.storyboard in Resources */,
 				C4662ADA1FEAAE38001848C8 /* Montserrat-Light.ttf in Resources */,
 				C41CA3701FDBE3F000AB0D2D /* Assets.xcassets in Resources */,
@@ -605,6 +623,7 @@
 				C4662ADE1FEAAE38001848C8 /* Montserrat-SemiBold.ttf in Resources */,
 				C41CA36B1FDBE3F000AB0D2D /* Menu.storyboard in Resources */,
 				C4662ADC1FEAAE38001848C8 /* Montserrat-Bold.ttf in Resources */,
+				C4D8D32B1FF2351A0003DA36 /* NewsCell.xib in Resources */,
 				C4662AE21FEAAE38001848C8 /* Montserrat-ExtraLight.ttf in Resources */,
 				C4662AD41FEAAE38001848C8 /* Montserrat-ExtraBold.ttf in Resources */,
 				C4662AD51FEAAE38001848C8 /* Montserrat-SemiBoldItalic.ttf in Resources */,
@@ -675,13 +694,14 @@
 				C4E522021FE90EC700C3DE2E /* EventsSegmCont.swift in Sources */,
 				C41CA3681FDBE3F000AB0D2D /* EventsListVC.swift in Sources */,
 				C44574641FDC1AED004A5305 /* ContactsVC.swift in Sources */,
-				C4662AE41FEAB4F5001848C8 /* EventCell.swift in Sources */,
+				C4662AE41FEAB4F5001848C8 /* ArticleCell.swift in Sources */,
 				C4E521F41FE9012B00C3DE2E /* NewsDescVC.swift in Sources */,
 				C4C203EB1FE2939B00272679 /* MainVC.swift in Sources */,
+				C4D8D32D1FF2BC7F0003DA36 /* Article.swift in Sources */,
 				C4B54B341FEF17C9008D531E /* NewsCell.swift in Sources */,
 				C4E521F81FE9027B00C3DE2E /* UISegmentedControl+Style.swift in Sources */,
 				C4662AE81FEAC8EC001848C8 /* EventDescVC.swift in Sources */,
-				C44574601FDC18FB004A5305 /* NewsVC.swift in Sources */,
+				C44574601FDC18FB004A5305 /* NewsListVC.swift in Sources */,
 				C41CA38C1FDBF6DC00AB0D2D /* MenuCell.swift in Sources */,
 				C41CA3861FDBECC100AB0D2D /* LoginVC.swift in Sources */,
 				C4B54B361FEF2A3B008D531E /* Array+uniq.swift in Sources */,
