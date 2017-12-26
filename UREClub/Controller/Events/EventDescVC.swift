@@ -30,8 +30,10 @@ class EventDescVC: UIViewController {
         guard let event = currentEvent else {
             return
         }
+        if event.imageLinks.count > 0 {
+            eventImageView.downloadedFrom(link: event.imageLinks[0])
+        }
         
-        eventImageView.downloadedFrom(link: event.imageLinks[0])
         eventTitleLabel.text = event.title
         eventDateLabel.text = event.date.getDate()
         eventTimePeriodLabel.text = event.date.getTimePeriod()

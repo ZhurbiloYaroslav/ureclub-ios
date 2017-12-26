@@ -17,10 +17,20 @@ class NewsCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        setDefaultImage()
+    }
+    
+    func setDefaultImage() {
+        newsImage.image = #imageLiteral(resourceName: "image-placeHolder")
     }
     
     func updateCellWith(_ news: News) {
-        newsImage.downloadedFrom(link: news.imageLinks[0])
+        setDefaultImage()
+        if news.imageLinks.count > 0 {
+            newsImage.downloadedFrom(link: news.imageLinks[0])
+        }
+        
         titleLabel.text = news.title
+        dateLabel.text = news.date
     }
 }

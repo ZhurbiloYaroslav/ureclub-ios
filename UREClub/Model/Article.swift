@@ -1,0 +1,55 @@
+//
+//  Article.swift
+//  UREClub
+//
+//  Created by Yaroslav Zhurbilo on 26.12.17.
+//  Copyright © 2017 Yaroslav Zhurbilo. All rights reserved.
+//
+
+import UIKit
+import Foundation
+import SwiftSoup
+
+class Article: NSObject {
+    var recordID: Int
+    var title: String
+    var htmlContent: String
+    var textContent: String
+    let defaultImage: [UIImage] = [#imageLiteral(resourceName: "image-placeHolder")]
+    var imageLinks: [String] {
+        return parseImagesAndContentFromHTML()
+    }
+    
+    init(id: Int, title: String, textContent: String, htmlContent: String) {
+        
+        self.recordID = id
+        self.title = title
+        self.htmlContent = htmlContent
+        self.textContent = textContent
+    }
+    
+    convenience override init() {
+        self.init(id: 0, title: "", textContent: "", htmlContent: "")
+    }
+    
+    func parseImagesAndContentFromHTML() -> [String] {
+        do {
+            var arrayWithImageLinks = [String]()
+            
+            let doc: Document = try! SwiftSoup.parse(htmlContent)
+            textContent = try doc.body()?.text() ?? ""
+            
+            let els: Elements = try SwiftSoup.parse(htmlContent).select("img")
+            for link: Element in els.array(){
+                let linkSrc: String = try link.attr("src")
+                arrayWithImageLinks.append(linkSrc)
+            }
+            
+            arrayWithImageLinks.uniqInPlace()
+            
+            return arrayWithImageLinks
+        } catch {
+            return [String]()
+        }
+    }
+}
