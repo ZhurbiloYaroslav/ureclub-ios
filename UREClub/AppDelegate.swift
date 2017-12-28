@@ -16,8 +16,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+
+        downloadTranslationStringsFromPOET()
+        
         return true
+    }
+    
+    func downloadTranslationStringsFromPOET() {
+        let poet = POEditorManager(withProject: POEditorManager.Project(apiToken: "d7c45190f324d895d65fe9456c79165d", id: "154559"))
+        poet.getAppleStringsForLanguage(.EN)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

@@ -1,0 +1,36 @@
+
+/* Class = "UIButton"; normalTitle = "Sign Up"; ObjectID = "4dl-gk-hLp"; */
+"4dl-gk-hLp.normalTitle" = "Sign Up";
+
+/* Class = "UILabel"; text = "Want to be a member?"; ObjectID = "GFF-2f-52t"; */
+"GFF-2f-52t.text" = "Want to be a member?";
+
+/* Class = "UIButton"; normalTitle = "Restore your password"; ObjectID = "PLr-ps-Vqf"; */
+"PLr-ps-Vqf.normalTitle" = "Restore your password";
+
+/* Class = "UILabel"; text = "Enter your password"; ObjectID = "UFK-OQ-GCQ"; */
+"UFK-OQ-GCQ.text" = "Enter your password";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "VxO-wp-3qD"; */
+"VxO-wp-3qD.placeholder" = "Password";
+
+/* Class = "UIButton"; normalTitle = "Call us"; ObjectID = "c1N-1H-IeL"; */
+"c1N-1H-IeL.normalTitle" = "Call us";
+
+/* Class = "UILabel"; text = "Enter your email"; ObjectID = "dih-wL-avx"; */
+"dih-wL-avx.text" = "Enter your email";
+
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "gRN-Ee-QwA"; */
+"gRN-Ee-QwA.placeholder" = "Email";
+
+/* Class = "UIButton"; normalTitle = "Become a member"; ObjectID = "gce-jn-gIQ"; */
+"gce-jn-gIQ.normalTitle" = "Become a member";
+
+/* Class = "UIButton"; normalTitle = "Don’t have an account?"; ObjectID = "jCv-iD-LuJ"; */
+"jCv-iD-LuJ.normalTitle" = "Don’t have an account?";
+
+/* Class = "UIButton"; normalTitle = "Email us"; ObjectID = "oPJ-rI-cs5"; */
+"oPJ-rI-cs5.normalTitle" = "Email us";
+
+/* Class = "UIButton"; normalTitle = "Login"; ObjectID = "scj-q2-3nV"; */
+"scj-q2-3nV.normalTitle" = "Login";
