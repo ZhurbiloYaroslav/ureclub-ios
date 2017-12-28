@@ -1,7 +1,27 @@
-/* 
-  Localizable.strings
-  UREClub
 
-  Created by Yaroslav Zhurbilo on 28.12.17.
-  Copyright © 2017 Yaroslav Zhurbilo. All rights reserved.
-*/
+/*auth, button*/
+"button_login" = "Sign in";
+
+/*menu, label*/
+"menu_item_profile" = "My Profile";
+"button_register" = "Register";
+"menu_item_codex" = "Code of ethics";
+"menu_item_settings" = "Settings";
+"menu_item_events" = "Events";
+"menu_item_news" = "News";
+"profile_navbar_title" = "Profile";
+"news_navbar_title" = "News";
+"events_navbar_title" = "Events";
+"email_enter_title" = "Enter your email";
+"password_enter_title" = "Enter your password";
+
+/*auth, button*/
+"no_account" = "Don't have an account?";
+
+/*auth, button*/
+"button_signup" = "Sign Up";
+
+/*sample text*/
+"lorem_ipsum_text" = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+"profile_section_contacts" = "Contacts";
+"profile_section_about" = "About";

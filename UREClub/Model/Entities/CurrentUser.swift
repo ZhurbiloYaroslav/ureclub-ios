@@ -103,6 +103,11 @@ extension CurrentUser {
         }
     }
     
+    static var company: CurrentUserCompany {
+        let company = Company(name: "Arhimatika")
+        return CurrentUserCompany(company: company, position: "Founder & Partner", date: "2 years with URE Club")
+    }
+    
     static var lastName: String {
         get {
             return defaults.object(forKey: "currentUserLastName") as? String ?? ""

@@ -16,14 +16,38 @@ class ProfileVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.setDefaultBackground()
-        updateUILabelsWithLocalizedText()
         setupLeftMenu()
+        self.setDefaultBackground()
+        
+        updateUILabelsWithLocalizedText()
+        setupTableView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.makeTransparent()
+    }
+    
+    func setupTableView() {
+        let navBarHeight = self.navigationController?.navigationBar.frame.height
+        let height = UIApplication.shared.statusBarFrame.height + navBarHeight!
+        tableView.contentInset = UIEdgeInsetsMake(CGFloat(-(Int(height))), 0, 0, 0)
+        
+        tableView.estimatedRowHeight = 200
+        tableView.rowHeight = UITableViewAutomaticDimension
+        
+        registerCustomCells()
+    }
+    
+    func registerCustomCells() {
+        let customCellsIdFromNibs = ["ProfileHeaderCell","ProfileFieldCell"]
+        for cellID in customCellsIdFromNibs {
+            tableView.register(UINib(nibName: cellID, bundle: nil), forCellReuseIdentifier: cellID)
+        }
     }
     
     func updateUILabelsWithLocalizedText() {
-        
-        navigationItem.title = "My Profile"
         
     }
     
@@ -37,14 +61,83 @@ class ProfileVC: UITableViewController {
         }
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    @IBAction func notificationsButtonPressed(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "ShowNotifications", sender: nil)
+    }
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
     
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch section {
+        case 0:
+            return 1
+        case 1:
+            return 2
+        case 2:
+            return 1
+        default:
+            return 0
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath) as? UITableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileFieldCell", for: indexPath) as? ProfileFieldCell
             else { return UITableViewCell() }
-        return cell
+        
+        switch indexPath {
+        case [0,0]:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileHeaderCell", for: indexPath) as? ProfileHeaderCell
+                else { return UITableViewCell() }
+            return cell
+        case [1,0]:
+            cell.configureCellWithType(.Email)
+            return cell
+        case [1,1]:
+            cell.configureCellWithType(.Call)
+            return cell
+        case [2,0]:
+            cell.configureCellWithType(.Text)
+            return cell
+        default:
+            return UITableViewCell()
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        var headerTitleText = ""
+        
+        switch section {
+        case 0:
+        let headerView = UIView()
+        headerView.backgroundColor = UIColor.clear
+        return headerView
+        case 1:
+            headerTitleText = "profile_section_contacts".localized()
+        case 2:
+            headerTitleText = "profile_section_about".localized() + " " + CurrentUser.firstName
+        default:
+            break
+        }
+        
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 36))
+        headerView.backgroundColor = Constants.Color.blueLight
+        
+        let headerTitleLabel = UILabel(frame: CGRect(x: 16, y: 0, width: tableView.frame.size.width, height: 36))
+        headerTitleLabel.text = headerTitleText
+        headerTitleLabel.font = UIFont(name: "Montserrat-Medium", size: 18)
+        headerTitleLabel.textColor = Constants.Color.skyDark
+        
+        headerView.addSubview(headerTitleLabel)
+        
+        return headerView
+        
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 36
     }
     
 }

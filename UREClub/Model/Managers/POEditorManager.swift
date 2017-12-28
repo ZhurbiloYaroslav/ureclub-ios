@@ -10,6 +10,7 @@
 //import Alamofire
 //
 //class POEditorManager {
+//    // https://poeditor.com/api_reference/
 //
 //    private let headers: HTTPHeaders = HTTPHeaders()
 //    private let apiAddress: URL? = URL(string: "https://poeditor.com/api/")

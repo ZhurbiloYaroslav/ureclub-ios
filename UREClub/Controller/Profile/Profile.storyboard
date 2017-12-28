@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -13,35 +14,46 @@
         <scene sceneID="OGN-5b-wDn">
             <objects>
                 <tableViewController storyboardIdentifier="ProfileVC" title="Profile" id="4Wk-iU-QtO" customClass="ProfileVC" customModule="UREClub" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="RQ5-50-Agd">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="RQ5-50-Agd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProfileCell" id="JNo-Qj-ZsO">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JNo-Qj-ZsO" id="Afq-vT-FAg">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <connections>
                             <outlet property="dataSource" destination="4Wk-iU-QtO" id="7KA-wW-ASX"/>
                             <outlet property="delegate" destination="4Wk-iU-QtO" id="UU1-N2-RWy"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Profile" id="py8-Af-ICY">
+                    <navigationItem key="navigationItem" id="py8-Af-ICY">
                         <barButtonItem key="leftBarButtonItem" image="menu" id="Zbf-tD-L7G"/>
+                        <barButtonItem key="rightBarButtonItem" image="icon-alarm-3" id="KAZ-MS-Sal">
+                            <connections>
+                                <action selector="notificationsButtonPressed:" destination="4Wk-iU-QtO" id="HxO-uM-oX0"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="menuButton" destination="Zbf-tD-L7G" id="k5I-7c-ri8"/>
+                        <segue destination="F62-NP-W0d" kind="show" identifier="ShowNotifications" id="2Xm-8g-XCz"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="voo-fl-a9l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4326" y="114"/>
+        </scene>
+        <!--Notifications-->
+        <scene sceneID="HkZ-g0-2aX">
+            <objects>
+                <viewController storyboardIdentifier="NotificationsVC" title="Notifications" id="F62-NP-W0d" customClass="NotificationsVC" customModule="UREClub" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="b5B-0o-12p">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="ECL-64-lSP"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Muf-2A-ugR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5490" y="114"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fG8-Vj-sVE">
@@ -63,6 +75,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icon-alarm-3" width="28" height="32"/>
         <image name="menu" width="22" height="22"/>
     </resources>
 </document>
