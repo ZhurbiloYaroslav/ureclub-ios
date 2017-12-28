@@ -111,15 +111,6 @@ class NetworkManager: NSObject {
         //place Page: https://jsonblob.com/1f72f941-e58c-11e7-ab8b-ff8f492747ba
     }
     
-    enum NetworkError: String {
-        case undefinedPath = "Undefined path"
-        case badURL = "Bad URL"
-        case cantCreateDictionary = "Result data error"
-        case noConnection = "Network Error, check your connection"
-        case invalidResultData = "Data Error, check your data"
-        case undefined = "Undefined Error"
-    }
-    
 }
 
 //MARK: Auth methods

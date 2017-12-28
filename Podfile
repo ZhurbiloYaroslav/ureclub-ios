@@ -9,6 +9,20 @@ target 'UREClub' do
 
   pod 'Alamofire', '~> 4.5'
 
-  pod "SwiftSoup"
+  pod 'SwiftSoup'
+  
+  pod 'SDWebImage', '~> 4.0'
 
+end
+
+post_install do |installer|
+    myTargets = ['POEditorAPI'] # 'Alamofire'
+    
+    installer.pods_project.targets.each do |target|
+        if myTargets.include? target.name
+            target.build_configurations.each do |config|
+                config.build_settings['SWIFT_VERSION'] = '3.2'
+            end
+        end
+    end
 end
