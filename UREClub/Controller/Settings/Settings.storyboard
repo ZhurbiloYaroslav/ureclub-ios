@@ -34,6 +34,11 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="zIO-Mb-8MD">
                         <barButtonItem key="leftBarButtonItem" image="menu" id="9Ce-5H-aE9"/>
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="ekg-WT-F0T">
+                            <connections>
+                                <action selector="EditButtonPressed:" destination="zgP-sv-hlG" id="ttt-K5-Vja"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="menuButton" destination="9Ce-5H-aE9" id="TJS-Ny-brg"/>

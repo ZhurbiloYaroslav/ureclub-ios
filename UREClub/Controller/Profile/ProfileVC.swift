@@ -29,6 +29,16 @@ class ProfileVC: UITableViewController {
         navigationController?.makeTransparent()
     }
     
+    func setupLeftMenu() {
+        if revealViewController() != nil {
+            menuButton.target = revealViewController()
+            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
+            
+            view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            
+        }
+    }
+    
     func setupTableView() {
         let navBarHeight = self.navigationController?.navigationBar.frame.height
         let height = UIApplication.shared.statusBarFrame.height + navBarHeight!
@@ -41,7 +51,7 @@ class ProfileVC: UITableViewController {
     }
     
     func registerCustomCells() {
-        let customCellsIdFromNibs = ["ProfileHeaderCell","ProfileFieldCell"]
+        let customCellsIdFromNibs = ["ProfileHeaderCell","FieldCell"]
         for cellID in customCellsIdFromNibs {
             tableView.register(UINib(nibName: cellID, bundle: nil), forCellReuseIdentifier: cellID)
         }
@@ -49,16 +59,6 @@ class ProfileVC: UITableViewController {
     
     func updateUILabelsWithLocalizedText() {
         
-    }
-    
-    func setupLeftMenu() {
-        if revealViewController() != nil {
-            menuButton.target = revealViewController()
-            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
-            
-            view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-            
-        }
     }
     
     @IBAction func notificationsButtonPressed(_ sender: UIBarButtonItem) {
@@ -83,7 +83,7 @@ class ProfileVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileFieldCell", for: indexPath) as? ProfileFieldCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "FieldCell", for: indexPath) as? FieldCell
             else { return UITableViewCell() }
         
         switch indexPath {
@@ -92,13 +92,16 @@ class ProfileVC: UITableViewController {
                 else { return UITableViewCell() }
             return cell
         case [1,0]:
-            cell.configureCellWithType(.Email)
+            let cellData = FieldCell.CellData(type: .Email, icon: UIImage(), title: "Email:", value: CurrentUser.email)
+            cell.configureWith(cellData)
             return cell
         case [1,1]:
-            cell.configureCellWithType(.Call)
+            let cellData = FieldCell.CellData(type: .Phone, icon: UIImage(), title: "Phone:", value: CurrentUser.phone)
+            cell.configureWith(cellData)
             return cell
         case [2,0]:
-            cell.configureCellWithType(.Text)
+            let cellData = FieldCell.CellData(type: .Text, icon: UIImage(), title: "", value: "lorem_ipsum_text".localized())
+            cell.configureWith(cellData)
             return cell
         default:
             return UITableViewCell()
