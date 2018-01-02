@@ -8,6 +8,12 @@
 
 import UIKit
 
+extension FieldCell: GenericCell {
+    func getCell() -> Self {
+        return self
+    }
+}
+
 class FieldCell: UITableViewCell {
     
     @IBOutlet weak var cellImage: UIImageView!
@@ -32,7 +38,9 @@ class FieldCell: UITableViewCell {
         textArea.isHidden = true
     }
     
-    func configureWith(_ cellData: CellData) {
+    func configureWith(_ genericCellData: GenericCellData) {
+        
+        guard let cellData = genericCellData as? CellData else { return }
         
         cellImage.image = cellData.icon
         cellTitle.text = cellData.title
@@ -60,11 +68,15 @@ class FieldCell: UITableViewCell {
         }
     }
     
-    struct CellData {
+    struct CellData: GenericCellData {
         let type: CellType
         let icon: UIImage
         let title: String
         let value: String
+        
+        func getCellData() -> FieldCell.CellData {
+            return self
+        }
     }
     
 }

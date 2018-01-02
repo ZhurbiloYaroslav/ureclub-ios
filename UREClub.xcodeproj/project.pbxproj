@@ -100,6 +100,9 @@
 		C4E522041FE914AD00C3DE2E /* TableViewCell+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E522031FE914AD00C3DE2E /* TableViewCell+Style.swift */; };
 		C4F4DB5E1FF5369500AA607C /* FieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4F4DB5C1FF535BC00AA607C /* FieldCell.xib */; };
 		C4F4DB5F1FF5369B00AA607C /* FieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F4DB5D1FF535BC00AA607C /* FieldCell.swift */; };
+		C4FA7D281FF7616300F03846 /* SettingsCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FA7D271FF7616300F03846 /* SettingsCells.swift */; };
+		C4FA7D2A1FF7654100F03846 /* GenericCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FA7D291FF7654100F03846 /* GenericCell.swift */; };
+		C4FA7D2D1FF7712B00F03846 /* Enum-TableSectionNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FA7D2C1FF7712B00F03846 /* Enum-TableSectionNumber.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -204,6 +207,9 @@
 		C4E522031FE914AD00C3DE2E /* TableViewCell+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableViewCell+Style.swift"; sourceTree = "<group>"; };
 		C4F4DB5C1FF535BC00AA607C /* FieldCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FieldCell.xib; sourceTree = "<group>"; };
 		C4F4DB5D1FF535BC00AA607C /* FieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldCell.swift; sourceTree = "<group>"; };
+		C4FA7D271FF7616300F03846 /* SettingsCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCells.swift; sourceTree = "<group>"; };
+		C4FA7D291FF7654100F03846 /* GenericCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericCell.swift; sourceTree = "<group>"; };
+		C4FA7D2C1FF7712B00F03846 /* Enum-TableSectionNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enum-TableSectionNumber.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -537,6 +543,8 @@
 		C4AA3CEB1FF6672A008B00B4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C4FA7D271FF7616300F03846 /* SettingsCells.swift */,
+				C4FA7D2C1FF7712B00F03846 /* Enum-TableSectionNumber.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -551,8 +559,9 @@
 		C4AA3CEF1FF678D1008B00B4 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				C4F4DB5B1FF5359B00AA607C /* FieldCell */,
 				C4E522031FE914AD00C3DE2E /* TableViewCell+Style.swift */,
+				C4F4DB5B1FF5359B00AA607C /* FieldCell */,
+				C4FA7D2B1FF7659D00F03846 /* Protocols */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -631,6 +640,14 @@
 				C4F4DB5C1FF535BC00AA607C /* FieldCell.xib */,
 			);
 			path = FieldCell;
+			sourceTree = "<group>";
+		};
+		C4FA7D2B1FF7659D00F03846 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				C4FA7D291FF7654100F03846 /* GenericCell.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		FD075F6F2AB0F20A8B6678B7 /* Frameworks */ = {
@@ -813,6 +830,7 @@
 				C4E521F41FE9012B00C3DE2E /* NewsDescVC.swift in Sources */,
 				C463F8841FF5108B001FBBC1 /* ProfileHeaderCell.swift in Sources */,
 				C4C203EB1FE2939B00272679 /* MainVC.swift in Sources */,
+				C4FA7D2D1FF7712B00F03846 /* Enum-TableSectionNumber.swift in Sources */,
 				C4D8D32D1FF2BC7F0003DA36 /* Article.swift in Sources */,
 				C4B54B341FEF17C9008D531E /* NewsCell.swift in Sources */,
 				C4E521F81FE9027B00C3DE2E /* UISegmentedControl+Style.swift in Sources */,
@@ -831,6 +849,7 @@
 				C4C203DC1FE266C100272679 /* UIButton+IBInspectable.swift in Sources */,
 				C4662AB71FEA98F7001848C8 /* NetworkManager.swift in Sources */,
 				C4C203EF1FE2A5F700272679 /* Codex.swift in Sources */,
+				C4FA7D281FF7616300F03846 /* SettingsCells.swift in Sources */,
 				C41CA3901FDBFC9B00AB0D2D /* UserDefaultsManager.swift in Sources */,
 				C44574681FDC1D18004A5305 /* MenuManager.swift in Sources */,
 				C41CA3881FDBED0100AB0D2D /* MenuVC.swift in Sources */,
@@ -843,6 +862,7 @@
 				C44574661FDC1B97004A5305 /* MembersVC.swift in Sources */,
 				C4662ABD1FEAA57E001848C8 /* EventDate.swift in Sources */,
 				C4E522001FE90D4A00C3DE2E /* UITableViewController+Style.swift in Sources */,
+				C4FA7D2A1FF7654100F03846 /* GenericCell.swift in Sources */,
 				C4C203F41FE2ADD100272679 /* CodexCell.swift in Sources */,
 				C4E521FE1FE90BFE00C3DE2E /* FilterVC.swift in Sources */,
 				C41CA3961FDBFDBD00AB0D2D /* Browser.swift in Sources */,

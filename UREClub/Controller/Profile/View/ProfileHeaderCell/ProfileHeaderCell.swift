@@ -8,6 +8,12 @@
 
 import UIKit
 
+extension ProfileHeaderCell: GenericCell {
+    func getCell() -> Self {
+        return self
+    }
+}
+
 class ProfileHeaderCell: UITableViewCell {
     
     @IBOutlet weak var profileImage: UIImageView!

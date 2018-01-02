@@ -13,6 +13,8 @@ class SettingsVC: UITableViewController {
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
+    var settingsCells = SettingsCells()
+    
     var isUnderEditing: Bool = false
 
     override func viewDidLoad() {
@@ -60,24 +62,11 @@ class SettingsVC: UITableViewController {
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 5
+        return settingsCells.numberOfCells
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0:
-            return 5
-        case 1:
-            return 3
-        case 2:
-            return 1
-        case 3:
-            return 1
-        case 4:
-            return 1
-        default:
-            return 0
-        }
+        return settingsCells.getNumberOfCellsInSection(section)
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -86,43 +75,47 @@ class SettingsVC: UITableViewController {
         
         cell.isUnderEditing = isUnderEditing
         
-        switch indexPath {
-        case [0,0]:
-            let cellData = FieldCell.CellData(type: .NameFull, icon: UIImage(), title: "Full name:", value: CurrentUser.fullName)
-            cell.configureWith(cellData)
-        case [0,1]:
-            let cellData = FieldCell.CellData(type: .CompanyName, icon: UIImage(), title: "Company:", value: CurrentUser.company.company.name)
-            cell.configureWith(cellData)
-        case [0,2]:
-            let cellData = FieldCell.CellData(type: .UserPosition, icon: UIImage(), title: "Position:", value: CurrentUser.company.position)
-            cell.configureWith(cellData)
-        case [0,3]:
-            let cellData = FieldCell.CellData(type: .Email, icon: UIImage(), title: "Email:", value: CurrentUser.email)
-            cell.configureWith(cellData)
-        case [0,4]:
-            let cellData = FieldCell.CellData(type: .Phone, icon: UIImage(), title: "Mobile:", value: CurrentUser.phone)
-            cell.configureWith(cellData)
-        case [1,0]:
-            let cellData = FieldCell.CellData(type: .LinkedIn, icon: #imageLiteral(resourceName: "icon-facebook"), title: "", value: "LinkedIn")
-            cell.configureWith(cellData)
-        case [1,1]:
-            let cellData = FieldCell.CellData(type: .Facebook, icon: #imageLiteral(resourceName: "icon-facebook"), title: "", value: "Facebook")
-            cell.configureWith(cellData)
-        case [1,2]:
-            let cellData = FieldCell.CellData(type: .Twitter, icon: #imageLiteral(resourceName: "icon-facebook"), title: "", value: "Twitter")
-            cell.configureWith(cellData)
-        case [2,0]:
-            let cellData = FieldCell.CellData(type: .Text, icon: UIImage(), title: "", value: "lorem_ipsum_text".localized())
-            cell.configureWith(cellData)
-        case [3,0]:
-            let cellData = FieldCell.CellData(type: .Password, icon: UIImage(), title: "Change password", value: "")
-            cell.configureWith(cellData)
-        case [4,0]:
-            let cellData = FieldCell.CellData(type: .UserPosition, icon: UIImage(), title: "", value: "English")
-            cell.configureWith(cellData)
-        default:
+//        switch indexPath {
+//        case [0,0]:
+//            let cellData = FieldCell.CellData(type: .NameFull, icon: UIImage(), title: "Full name:", value: CurrentUser.fullName)
+//            cell.configureWith(cellData)
+//        case [0,1]:
+//            let cellData = FieldCell.CellData(type: .CompanyName, icon: UIImage(), title: "Company:", value: CurrentUser.company.company.name)
+//            cell.configureWith(cellData)
+//        case [0,2]:
+//            let cellData = FieldCell.CellData(type: .UserPosition, icon: UIImage(), title: "Position:", value: CurrentUser.company.position)
+//            cell.configureWith(cellData)
+//        case [0,3]:
+//            let cellData = FieldCell.CellData(type: .Email, icon: UIImage(), title: "Email:", value: CurrentUser.email)
+//            cell.configureWith(cellData)
+//        case [0,4]:
+//            let cellData = FieldCell.CellData(type: .Phone, icon: UIImage(), title: "Mobile:", value: CurrentUser.phone)
+//            cell.configureWith(cellData)
+//        case [1,0]:
+//            let cellData = FieldCell.CellData(type: .LinkedIn, icon: #imageLiteral(resourceName: "icon-facebook"), title: "", value: "LinkedIn")
+//            cell.configureWith(cellData)
+//        case [1,1]:
+//            let cellData = FieldCell.CellData(type: .Facebook, icon: #imageLiteral(resourceName: "icon-facebook"), title: "", value: "Facebook")
+//            cell.configureWith(cellData)
+//        case [1,2]:
+//            let cellData = FieldCell.CellData(type: .Twitter, icon: #imageLiteral(resourceName: "icon-facebook"), title: "", value: "Twitter")
+//            cell.configureWith(cellData)
+//        case [2,0]:
+//            let cellData = FieldCell.CellData(type: .Text, icon: UIImage(), title: "", value: "lorem_ipsum_text".localized())
+//            cell.configureWith(cellData)
+//        case [3,0]:
+//            let cellData = FieldCell.CellData(type: .Password, icon: UIImage(), title: "Change password", value: "")
+//            cell.configureWith(cellData)
+//        case [4,0]:
+//            let cellData = FieldCell.CellData(type: .UserPosition, icon: UIImage(), title: "", value: "English")
+//            cell.configureWith(cellData)
+//        default:
+//            return UITableViewCell()
+//        }
+        guard let cellData = settingsCells.getCellDataForIndexPath(indexPath) else {
             return UITableViewCell()
         }
+        cell.configureWith(cellData)
         return cell
     }
     
