@@ -30,4 +30,29 @@
 "settings_section_about" = "About";
 "settings_section_security" = "Security";
 "settings_section_language" = "Language";
+"placeholder_email" = "your@email.com";
+"placeholder_password" = "******";
+"enter_email" = "Enter your email";
+"enter_password" = "Enter your password";
+"button_log_in" = "Log in";
+"button_password_restore" = "Restore your password";
+"menu_item_main" = "Main";
+"menu_item_profile" = "My Profile";
+"menu_item_members" = "Members";
+"menu_item_contacts" = "Contacts";
+"screen_events_title" = "Events";
+"screen_news_title" = "News";
+"control_event_upcoming" = "Upcoming";
+"control_event_past" = "Past";
+"control_event_calendar" = "Calendar";
+"control_event_list" = "List";
+"screen_newsDescription_title" = "News description";
+"screen_eventDescription_title" = "Event description";
+"settings_cell_language_title" = "Language";
 
+/*cell title*/
+"settings_cell_password_change" = "Change password";
+"screen_members_title" = "Members";
+"screen_codex_title" = "Code of ethics";
+"screen_contacts_title" = "Contacts";
+"screen_main_title" = "Main";
