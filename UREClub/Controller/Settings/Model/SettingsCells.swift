@@ -9,24 +9,43 @@
 import UIKit
 import Foundation
 
-
 /// Struct that stores cells data
 struct SettingsCells {
     
-    public var numberOfCells: Int {
-        return mapWithCells.count
+    public var numberOfSections: Int {
+        return 1
     }
     
     public func getNumberOfCellsInSection(_ section: Int) -> Int {
         guard let sectionEnum = TableSectionNumber(rawValue: section) else { return 0 }
-        guard let numberOfCells = mapWithCells[sectionEnum]?.count else { return 0 }
-        return numberOfCells
+        switch sectionEnum {
+        case .Section1:
+            return 2
+        default:
+            return 0
+        }
     }
     
-    public func getCellDataForIndexPath(_ indexPath: IndexPath) -> GenericCellData? {
-        guard let sectionEnum = TableSectionNumber(rawValue: indexPath.section) else { return nil }
-        guard let genericCellData = mapWithCells[sectionEnum]?[indexPath.row] else { return nil }
-        return genericCellData
+    public func getCellForTable(_ tableView: UITableView, andIndexPath indexPath: IndexPath) -> UITableViewCell {
+        guard let sectionEnum = TableSectionNumber(rawValue: indexPath.section) else { return UITableViewCell() }
+        switch sectionEnum {
+        case .Section1:
+            switch indexPath.row {
+            case 0:
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "ChangePasswordCell", for: indexPath) as? ChangePasswordCell
+                    else { return UITableViewCell() }
+                return cell
+            case 1:
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "ChangeLanguageCell", for: indexPath) as? ChangeLanguageCell
+                    else { return UITableViewCell() }
+                return cell
+            default:
+                return UITableViewCell()
+            }
+            
+        default:
+            return UITableViewCell()
+        }
     }
     
     /// Dictionary with Array of Cells Data
@@ -35,49 +54,7 @@ struct SettingsCells {
             FieldCell.CellData(type: .NameFull,
                                icon: UIImage(),
                                title: "Full name:",
-                               value: CurrentUser.fullName),
-            FieldCell.CellData(type: .CompanyName,
-                               icon: UIImage(),
-                               title: "Company:",
-                               value: CurrentUser.company.company.name),
-            FieldCell.CellData(type: .UserPosition,
-                               icon: UIImage(),
-                               title: "Position:",
-                               value: CurrentUser.company.position),
-            FieldCell.CellData(type: .Email,
-                               icon: UIImage(),
-                               title: "Email:",
-                               value: CurrentUser.email),
-            FieldCell.CellData(type: .Phone,
-                               icon: UIImage(),
-                               title: "Mobile:",
-                               value: CurrentUser.phone)
-        ],
-        .Section2 : [
-            FieldCell.CellData(type: .LinkedIn,
-                               icon: #imageLiteral(resourceName: "icon-facebook"),
-                               title: "",
-                               value: "LinkedIn"),
-            FieldCell.CellData(type: .Facebook,
-                               icon: #imageLiteral(resourceName: "icon-facebook"),
-                               title: "",
-                               value: "Facebook"),
-            FieldCell.CellData(type: .Twitter,
-                               icon: #imageLiteral(resourceName: "icon-facebook"),
-                               title: "",
-                               value: "Twitter")
-        ],
-        .Section3 : [
-            FieldCell.CellData(type: .Text,
-                               icon: UIImage(),
-                               title: "",
-                               value: "lorem_ipsum_text".localized())
-        ],
-        .Section4 : [
-            FieldCell.CellData(type: .Password, icon: UIImage(), title: "Change password", value: "")
-        ],
-        .Section5 : [
-            FieldCell.CellData(type: .UserPosition, icon: UIImage(), title: "", value: "English")
+                               value: CurrentUser.fullName)
         ]
     ]
 }

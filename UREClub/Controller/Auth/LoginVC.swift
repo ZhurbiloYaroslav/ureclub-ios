@@ -10,6 +10,9 @@ import UIKit
 
 class LoginVC: UIViewController {
     
+    @IBOutlet weak var enterEmailLabel: UILabel!
+    @IBOutlet weak var enterPasswordLabel: UILabel!
+    
     //TextFields
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
@@ -17,6 +20,7 @@ class LoginVC: UIViewController {
     //Buttons
     @IBOutlet weak var logInButton: UIButton!
     @IBOutlet weak var callUsButton: UIButton!
+    @IBOutlet weak var restorePasswordButton: UIButton!
     
     private var activeTextField = UITextField()
 
@@ -26,6 +30,7 @@ class LoginVC: UIViewController {
         initializeDelegates()
         setFieldsStyles()
         testing()
+        updateUILabelsWithLocalizedText()
     }
     
     func testing() {
@@ -38,8 +43,12 @@ class LoginVC: UIViewController {
     
     func setFieldsStyles() {
         let attributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
-        let emailPlaceholder = NSAttributedString(string: "your@email.com", attributes: attributes)
-        let passwordPlaceholder = NSAttributedString(string: "******", attributes: attributes)
+        
+        let placeholderEmail = "placeholder_email".localized()
+        let emailPlaceholder = NSAttributedString(string: placeholderEmail, attributes: attributes)
+        
+        let placeholderPassword = "placeholder_password".localized()
+        let passwordPlaceholder = NSAttributedString(string: placeholderPassword, attributes: attributes)
         
         emailField.attributedPlaceholder = emailPlaceholder
         passwordField.attributedPlaceholder = passwordPlaceholder
@@ -48,6 +57,14 @@ class LoginVC: UIViewController {
     func initializeDelegates() {
         emailField.delegate = self
         passwordField.delegate = self
+    }
+    
+    func updateUILabelsWithLocalizedText() {
+        enterEmailLabel.text = "enter_email".localized()
+        enterPasswordLabel.text = "enter_password".localized()
+        
+        logInButton.setTitle("button_log_in".localized(), for: .normal)
+        restorePasswordButton.setTitle("button_password_restore".localized(), for: .normal)
     }
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {

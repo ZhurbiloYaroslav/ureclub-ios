@@ -18,6 +18,7 @@ class ContactsVC: UITableViewController {
 
         self.setDefaultBackground()
         setupLeftMenu()
+        updateUILabelsWithLocalizedText()
     }
     
     func setupLeftMenu() {
@@ -28,6 +29,12 @@ class ContactsVC: UITableViewController {
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
             
         }
+    }
+    
+    func updateUILabelsWithLocalizedText() {
+        
+        navigationItem.title = "screen_contacts_title".localized()
+        
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

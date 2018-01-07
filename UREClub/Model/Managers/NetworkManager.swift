@@ -95,7 +95,7 @@ class NetworkManager: NSObject {
         enum ServerPath: String {
             //case events_all = "wp-json/ee/v4.8.36/events?include=EVT_name,EVT_desc"
             case events_all = "wp-json/ee/v4.8.36/events"
-            case news_all = "wp-json/wp/v2/posts"
+            case news_all = "wp-json/s4s-ureclub-mobile-rest-api/v1/news"
             case users_all = "wp-json/wp/v2/users"
             case tags_all = "wp-json/wp/v2/tags"
             case categories_all = "wp-json/wp/v2/categories"

@@ -23,6 +23,7 @@ class MembersVC: UIViewController {
         setDelegates()
         self.setDefaultBackground()
         setupLeftMenu()
+        updateUILabelsWithLocalizedText()
     }
     
     func setDelegates() {
@@ -38,6 +39,12 @@ class MembersVC: UIViewController {
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
             
         }
+    }
+    
+    func updateUILabelsWithLocalizedText() {
+        
+        navigationItem.title = "screen_members_title".localized()
+        
     }
     
     @IBAction func filterButtonPressed(_ sender: UIBarButtonItem) {

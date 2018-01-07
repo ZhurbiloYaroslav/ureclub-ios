@@ -13,6 +13,8 @@ class EventsListVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var menuButton: UIBarButtonItem!
+    @IBOutlet weak var eventsPeriodControl: EventsSegmCont!
+    @IBOutlet weak var eventsListTypeControl: UISegmentedControl!
     
     var arrayWithEvents = [Event]()
     var networkManager = NetworkManager()
@@ -30,6 +32,7 @@ class EventsListVC: UIViewController {
         setDelegates()
         registerNibs()
         setupLeftMenu()
+        updateUILabelsWithLocalizedText()
     }
     
     func getArrayWithEvents() {
@@ -56,6 +59,18 @@ class EventsListVC: UIViewController {
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
             
         }
+    }
+    
+    func updateUILabelsWithLocalizedText() {
+        
+        navigationItem.title = "screen_events_title".localized()
+        
+        eventsPeriodControl.setTitle("control_event_upcoming".localized(), forSegmentAt: 0)
+        eventsPeriodControl.setTitle("control_event_past".localized(), forSegmentAt: 1)
+        
+        eventsListTypeControl.setTitle("control_event_calendar".localized(), forSegmentAt: 0)
+        eventsListTypeControl.setTitle("control_event_list".localized(), forSegmentAt: 1)
+        
     }
     
     @IBAction func filterButtonPressed(_ sender: UIBarButtonItem) {

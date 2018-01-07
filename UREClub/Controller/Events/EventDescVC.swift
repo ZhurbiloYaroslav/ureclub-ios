@@ -24,6 +24,13 @@ class EventDescVC: UIViewController {
         
         self.setDefaultBackground()
         updateUIWithValues()
+        updateUILabelsWithLocalizedText()
+    }
+    
+    func updateUILabelsWithLocalizedText() {
+        
+        navigationItem.title = "screen_eventDescription_title".localized()
+        
     }
     
     func updateUIWithValues() {

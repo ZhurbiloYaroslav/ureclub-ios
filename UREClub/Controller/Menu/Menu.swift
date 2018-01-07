@@ -16,14 +16,14 @@ struct Menu {
     }
     
     let items: [Item] = [
-        Item(title: "Main", segue: "ShowMain", section: 1, iconName: nil),
-        Item(title: "My Profile", segue: "ShowProfile", section: 1, iconName: nil),
-        Item(title: "Events", segue: "ShowEvents", section: 1, iconName: nil),
-        Item(title: "News", segue: "ShowNews", section: 1, iconName: nil),
-        Item(title: "Code of ethics", segue: "ShowCodex", section: 1, iconName: nil),
-        Item(title: "Members", segue: "ShowMembers", section: 1, iconName: nil),
-        Item(title: "Contacts", segue: "ShowContacts", section: 1, iconName: nil),
-        Item(title: "Settings", segue: "ShowSettings", section: 1, iconName: nil),
+        Item(title: "menu_item_main".localized(), segue: "ShowMain", section: 1, iconName: nil),
+        Item(title: "menu_item_profile", segue: "ShowProfile", section: 1, iconName: nil),
+        Item(title: "menu_item_events", segue: "ShowEvents", section: 1, iconName: nil),
+        Item(title: "menu_item_news", segue: "ShowNews", section: 1, iconName: nil),
+        Item(title: "menu_item_codex", segue: "ShowCodex", section: 1, iconName: nil),
+        Item(title: "menu_item_members", segue: "ShowMembers", section: 1, iconName: nil),
+        Item(title: "menu_item_contacts", segue: "ShowContacts", section: 1, iconName: nil),
+        Item(title: "menu_item_settings", segue: "ShowSettings", section: 1, iconName: nil),
     ]
     
     struct Item {

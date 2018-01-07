@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -106,7 +106,7 @@
                                             <constraint firstAttribute="height" constant="40" id="s3d-xr-bfK"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
-                                        <state key="normal" title="Login">
+                                        <state key="normal" title="Log in">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -229,8 +229,11 @@
                     <connections>
                         <outlet property="callUsButton" destination="c1N-1H-IeL" id="xnx-ST-SfY"/>
                         <outlet property="emailField" destination="gRN-Ee-QwA" id="woQ-sa-oGP"/>
+                        <outlet property="enterEmailLabel" destination="dih-wL-avx" id="BP8-M6-Oq0"/>
+                        <outlet property="enterPasswordLabel" destination="UFK-OQ-GCQ" id="jIK-fz-4dY"/>
                         <outlet property="logInButton" destination="scj-q2-3nV" id="eEZ-7E-Vax"/>
                         <outlet property="passwordField" destination="VxO-wp-3qD" id="RM8-5e-iOU"/>
+                        <outlet property="restorePasswordButton" destination="PLr-ps-Vqf" id="amT-RK-rW5"/>
                         <segue destination="5Fi-dc-FuT" kind="show" identifier="EnterFromLogin" id="FYp-VU-Dzf"/>
                     </connections>
                 </viewController>

@@ -31,7 +31,7 @@ class MainVC: UIViewController {
     
     func updateUILabelsWithLocalizedText() {
         
-        navigationItem.title = "Main"
+        navigationItem.title = "screen_main_title".localized()
         
     }
     

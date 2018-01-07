@@ -21,6 +21,7 @@ class CodexVC: UIViewController {
         updateUILabelsWithLocalizedText()
         setupLeftMenu()
         setDelegates()
+        updateUILabelsWithLocalizedText()
     }
     
     func setStyle() {
@@ -36,7 +37,7 @@ class CodexVC: UIViewController {
     
     func updateUILabelsWithLocalizedText() {
         
-        navigationItem.title = "Code of ethics"
+        navigationItem.title = "screen_codex_title"
         
     }
     

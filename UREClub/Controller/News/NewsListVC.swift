@@ -30,6 +30,7 @@ class NewsListVC: UIViewController {
         setDelegates()
         registerNibs()
         setupLeftMenu()
+        updateUILabelsWithLocalizedText()
     }
     
     func getArrayWithNews() {
@@ -56,6 +57,12 @@ class NewsListVC: UIViewController {
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
             
         }
+    }
+    
+    func updateUILabelsWithLocalizedText() {
+        
+        navigationItem.title = "screen_news_title".localized()
+        
     }
     
     @IBAction func filterButtonPressed(_ sender: UIBarButtonItem) {
