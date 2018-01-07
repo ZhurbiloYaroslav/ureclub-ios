@@ -583,8 +583,8 @@
 		C4AA3CEC1FF66736008B00B4 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C40C84952002BF810011AF01 /* ChangeLanguageCell */,
 				C40C84942002BF770011AF01 /* ChangePasswordCell */,
+				C40C84952002BF810011AF01 /* ChangeLanguageCell */,
 			);
 			path = View;
 			sourceTree = "<group>";

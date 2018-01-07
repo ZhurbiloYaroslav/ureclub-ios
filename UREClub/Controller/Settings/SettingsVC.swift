@@ -15,8 +15,6 @@ class SettingsVC: UITableViewController {
     
     var settingsCells = SettingsCells()
     
-    var isUnderEditing: Bool = false
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,11 +23,6 @@ class SettingsVC: UITableViewController {
         
         updateUILabelsWithLocalizedText()
         setupTableView()
-    }
-    
-    @IBAction func EditButtonPressed(_ sender: UIBarButtonItem) {
-        isUnderEditing = true
-        tableView.reloadData()
     }
     
     func setupLeftMenu() {
@@ -59,6 +52,7 @@ class SettingsVC: UITableViewController {
     
     func updateUILabelsWithLocalizedText() {
         
+        navigationItem.title = "screen_settings_title".localized()
     }
 
 }

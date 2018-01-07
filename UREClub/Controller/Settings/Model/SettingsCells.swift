@@ -13,14 +13,16 @@ import Foundation
 struct SettingsCells {
     
     public var numberOfSections: Int {
-        return 1
+        return 2
     }
     
     public func getNumberOfCellsInSection(_ section: Int) -> Int {
         guard let sectionEnum = TableSectionNumber(rawValue: section) else { return 0 }
         switch sectionEnum {
         case .Section1:
-            return 2
+            return 1
+        case .Section2:
+            return 1
         default:
             return 0
         }
@@ -35,14 +37,18 @@ struct SettingsCells {
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: "ChangePasswordCell", for: indexPath) as? ChangePasswordCell
                     else { return UITableViewCell() }
                 return cell
-            case 1:
+            default:
+                return UITableViewCell()
+            }
+        case .Section2:
+            switch indexPath.row {
+            case 0:
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: "ChangeLanguageCell", for: indexPath) as? ChangeLanguageCell
                     else { return UITableViewCell() }
                 return cell
             default:
                 return UITableViewCell()
             }
-            
         default:
             return UITableViewCell()
         }

@@ -37,7 +37,7 @@ class CodexVC: UIViewController {
     
     func updateUILabelsWithLocalizedText() {
         
-        navigationItem.title = "screen_codex_title"
+        navigationItem.title = "screen_codex_title".localized()
         
     }
     

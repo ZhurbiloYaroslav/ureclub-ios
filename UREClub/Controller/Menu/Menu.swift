@@ -17,13 +17,13 @@ struct Menu {
     
     let items: [Item] = [
         Item(title: "menu_item_main".localized(), segue: "ShowMain", section: 1, iconName: nil),
-        Item(title: "menu_item_profile", segue: "ShowProfile", section: 1, iconName: nil),
-        Item(title: "menu_item_events", segue: "ShowEvents", section: 1, iconName: nil),
-        Item(title: "menu_item_news", segue: "ShowNews", section: 1, iconName: nil),
-        Item(title: "menu_item_codex", segue: "ShowCodex", section: 1, iconName: nil),
-        Item(title: "menu_item_members", segue: "ShowMembers", section: 1, iconName: nil),
-        Item(title: "menu_item_contacts", segue: "ShowContacts", section: 1, iconName: nil),
-        Item(title: "menu_item_settings", segue: "ShowSettings", section: 1, iconName: nil),
+        Item(title: "menu_item_profile".localized(), segue: "ShowProfile", section: 1, iconName: nil),
+        Item(title: "menu_item_events".localized(), segue: "ShowEvents", section: 1, iconName: nil),
+        Item(title: "menu_item_news".localized(), segue: "ShowNews", section: 1, iconName: nil),
+        Item(title: "menu_item_codex".localized(), segue: "ShowCodex", section: 1, iconName: nil),
+        Item(title: "menu_item_members".localized(), segue: "ShowMembers", section: 1, iconName: nil),
+        Item(title: "menu_item_contacts".localized(), segue: "ShowContacts", section: 1, iconName: nil),
+        Item(title: "menu_item_settings".localized(), segue: "ShowSettings", section: 1, iconName: nil),
     ]
     
     struct Item {
