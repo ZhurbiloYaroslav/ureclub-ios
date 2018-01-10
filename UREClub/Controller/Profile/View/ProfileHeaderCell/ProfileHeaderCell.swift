@@ -30,7 +30,7 @@ class ProfileHeaderCell: UITableViewCell {
     
     func updateCell() {
         fullNameLabel.text = CurrentUser.fullName
-        companyNameLabel.text = CurrentUser.company.company.name
+        companyNameLabel.text = CurrentUser.company.companyName
         positionLabel.text = CurrentUser.company.position
         periodLabel.text = CurrentUser.company.date
     }

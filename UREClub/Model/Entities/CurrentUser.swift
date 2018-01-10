@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftSoup
 //import KeychainSwift
 
 class CurrentUser {
@@ -31,6 +32,10 @@ class CurrentUser {
                 lastName += partOfName + " "
             }
         }
+    }
+    
+    static func getBearerToken() -> String {
+        return "Bearer " + authToken
     }
     
     static func resetUserDataWhenLogOut() {
@@ -79,6 +84,46 @@ extension CurrentUser {
         }
     }
     
+    static var linkImage: String {
+        get {
+            return defaults.object(forKey: "currentUser_ProfileImage_Link") as? String ?? ""
+        }
+        set {
+            defaults.set(newValue, forKey: "currentUser_ProfileImage_Link")
+            defaults.synchronize()
+        }
+    }
+    
+    static var linkedIn_link: String {
+        get {
+            return defaults.object(forKey: "currentUser_LinkedIn_Link") as? String ?? ""
+        }
+        set {
+            defaults.set(newValue, forKey: "currentUser_LinkedIn_Link")
+            defaults.synchronize()
+        }
+    }
+    
+    static var facebook_link: String {
+        get {
+            return defaults.object(forKey: "currentUser_Facebook_Link") as? String ?? ""
+        }
+        set {
+            defaults.set(newValue, forKey: "currentUser_Facebook_Link")
+            defaults.synchronize()
+        }
+    }
+    
+    static var textContent: String {
+        get {
+            return defaults.object(forKey: "currentUser_TextContent") as? String ?? ""
+        }
+        set {
+            defaults.set(newValue, forKey: "currentUser_TextContent")
+            defaults.synchronize()
+        }
+    }
+    
     static var fullName: String {
         var fullName = ""
         if firstName != "" {
@@ -95,25 +140,22 @@ extension CurrentUser {
     
     static var firstName: String {
         get {
-            return defaults.object(forKey: "currentUserFirstName") as? String ?? ""
+            return defaults.object(forKey: "currentUser_FirstName") as? String ?? ""
         }
         set {
-            defaults.set(newValue, forKey: "currentUserFirstName")
+            defaults.set(newValue, forKey: "currentUser_FirstName")
             defaults.synchronize()
         }
     }
     
-    static var company: CurrentUserCompany {
-        let company = Company(name: "Arhimatika")
-        return CurrentUserCompany(company: company, position: "Founder & Partner", date: "2 years with URE Club")
-    }
+    static var company = CurrentUserCompany.shared
     
     static var lastName: String {
         get {
-            return defaults.object(forKey: "currentUserLastName") as? String ?? ""
+            return defaults.object(forKey: "currentUser_LastName") as? String ?? ""
         }
         set {
-            defaults.set(newValue, forKey: "currentUserLastName")
+            defaults.set(newValue, forKey: "currentUser_LastName")
             defaults.synchronize()
         }
     }

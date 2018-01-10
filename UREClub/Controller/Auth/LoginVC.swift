@@ -29,7 +29,6 @@ class LoginVC: UIViewController {
 
         initializeDelegates()
         setFieldsStyles()
-        testing()
         updateUILabelsWithLocalizedText()
     }
     
@@ -68,7 +67,45 @@ class LoginVC: UIViewController {
     }
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
-        performSegue(withIdentifier: "EnterFromLogin", sender: nil)
+        
+        var errorMessages = [String]()
+        var email = ""
+        var password = ""
+        
+        if let unwrappedEmail = emailField.text, Validator.isEmailValid(unwrappedEmail) {
+            email = unwrappedEmail
+        } else {
+            errorMessages.append("Email is invalid")
+        }
+        
+        if let unwrappedPassword = passwordField.text, Validator.isPasswordValid(unwrappedPassword) {
+            password = unwrappedPassword
+        } else {
+            errorMessages.append("Password is invalid")
+        }
+        
+        if errorMessages.count > 0 {
+            Alert().presentAlertWith(title: "Login Error", andMessages: errorMessages, completionHandler: { (alertContoller) in
+                self.present(alertContoller, animated: true, completion: nil)
+            })
+            return
+        }
+        
+        let loginData = NetworkManager.LoginRequestData(
+            username: email,
+            password: password
+        )
+        
+        NetworkManager().loginWith(loginData) { errorMessages in
+            if let errorMessages = errorMessages {
+                print(errorMessages)
+            } else {
+                print("firstName: ", CurrentUser.firstName)
+                print("email: ", CurrentUser.email)
+                print("getBearerToken: ", CurrentUser.getBearerToken())
+                self.performSegue(withIdentifier: "EnterFromLogin", sender: nil)
+            }
+        }
     }
     
     @IBAction func callButtonPressed(_ sender: UIButton) {

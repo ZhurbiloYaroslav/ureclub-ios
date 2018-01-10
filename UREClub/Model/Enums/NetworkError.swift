@@ -15,4 +15,8 @@ enum NetworkError: String {
     case noConnection = "Network Error, check your connection"
     case invalidResultData = "Data Error, check your data"
     case undefined = "Undefined Error"
+    
+    var description: String {
+        return self.rawValue
+    }
 }

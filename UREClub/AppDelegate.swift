@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import INSPersistentContainer
+import SWRevealViewController
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,16 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-
-        DefaultDataManager().setDefaultData()
-        downloadTranslationStringsFromPOET()
         
+        chooseViewControllerToPresent()
         return true
-    }
-    
-    func downloadTranslationStringsFromPOET() {
-//        let poet = POEditorManager(withProject: POEditorManager.Project(apiToken: "d7c45190f324d895d65fe9456c79165d", id: "154559"))
-//        poet.getAppleStringsForLanguage(.EN)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -97,5 +91,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
+}
+
+//MARK: Auth
+extension AppDelegate {
+    
+    func chooseViewControllerToPresent() {
+        
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        
+        if CurrentUser.isLoggedIn {
+            let overviewVC = UIStoryboard(name: "Menu", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+            self.window?.rootViewController = overviewVC
+        } else {
+            let loginVC = UIStoryboard(name: "Auth", bundle: nil).instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
+            self.window?.rootViewController = loginVC
+        }
+        
+        self.window?.makeKeyAndVisible()
+        
+    }
 }
 
