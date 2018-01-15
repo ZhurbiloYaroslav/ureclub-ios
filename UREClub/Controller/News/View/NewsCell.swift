@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class NewsCell: UITableViewCell {
     
@@ -27,7 +28,7 @@ class NewsCell: UITableViewCell {
     func updateCellWith(_ news: News) {
         setDefaultImage()
         if news.imageLinks.count > 0 {
-            newsImage.downloadedFrom(link: news.imageLinks[0])
+            newsImage.sd_setImage(with: URL(string: news.imageLinks[0]), placeholderImage: #imageLiteral(resourceName: "image-placeHolder"))
         }
         
         titleLabel.text = news.title

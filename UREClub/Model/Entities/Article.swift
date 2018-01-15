@@ -11,25 +11,27 @@ import Foundation
 import SwiftSoup
 
 class Article: NSObject {
-    var recordID: Int
+    var recordID: String
     var title: String
     var htmlContent: String
     var textContent: String
+    var categories: [Category]
     let defaultImage: [UIImage] = [#imageLiteral(resourceName: "image-placeHolder")]
     var imageLinks: [String] {
         return parseImagesAndContentFromHTML()
     }
     
-    init(id: Int, title: String, textContent: String, htmlContent: String) {
+    init(id: String, title: String, textContent: String, htmlContent: String, categories: [Category]) {
         
         self.recordID = id
         self.title = title
         self.htmlContent = htmlContent
         self.textContent = textContent
+        self.categories = categories
     }
     
     convenience override init() {
-        self.init(id: 0, title: "", textContent: "", htmlContent: "")
+        self.init(id: "0", title: "", textContent: "", htmlContent: "", categories: [Category]())
     }
     
     func parseImagesAndContentFromHTML() -> [String] {

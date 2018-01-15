@@ -104,6 +104,7 @@
 		C4E522041FE914AD00C3DE2E /* TableViewCell+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E522031FE914AD00C3DE2E /* TableViewCell+Style.swift */; };
 		C4F4DB5E1FF5369500AA607C /* FieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4F4DB5C1FF535BC00AA607C /* FieldCell.xib */; };
 		C4F4DB5F1FF5369B00AA607C /* FieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F4DB5D1FF535BC00AA607C /* FieldCell.swift */; };
+		C4F62CBC200D1BE90082DFBC /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F62CBB200D1BE90082DFBC /* Category.swift */; };
 		C4FA7D281FF7616300F03846 /* SettingsCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FA7D271FF7616300F03846 /* SettingsCells.swift */; };
 		C4FA7D2A1FF7654100F03846 /* GenericCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FA7D291FF7654100F03846 /* GenericCell.swift */; };
 		C4FA7D2D1FF7712B00F03846 /* TableSectionNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FA7D2C1FF7712B00F03846 /* TableSectionNumber.swift */; };
@@ -215,6 +216,7 @@
 		C4E522031FE914AD00C3DE2E /* TableViewCell+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableViewCell+Style.swift"; sourceTree = "<group>"; };
 		C4F4DB5C1FF535BC00AA607C /* FieldCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FieldCell.xib; sourceTree = "<group>"; };
 		C4F4DB5D1FF535BC00AA607C /* FieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldCell.swift; sourceTree = "<group>"; };
+		C4F62CBB200D1BE90082DFBC /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		C4FA7D271FF7616300F03846 /* SettingsCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCells.swift; sourceTree = "<group>"; };
 		C4FA7D291FF7654100F03846 /* GenericCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericCell.swift; sourceTree = "<group>"; };
 		C4FA7D2C1FF7712B00F03846 /* TableSectionNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableSectionNumber.swift; sourceTree = "<group>"; };
@@ -428,6 +430,7 @@
 				C4662AB81FEAA251001848C8 /* Place.swift */,
 				C4B54B2E1FEEFA3C008D531E /* CurrentUser.swift */,
 				C463F88B1FF52DC5001FBBC1 /* CurrentUserCompany.swift */,
+				C4F62CBB200D1BE90082DFBC /* Category.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -469,8 +472,6 @@
 		C4662AEA1FEAC90A001848C8 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C4D8D3301FF2CC000003DA36 /* ArticleCell.xib */,
-				C4662AE31FEAB4F5001848C8 /* ArticleCell.swift */,
 				C4E522011FE90EC700C3DE2E /* EventsSegmCont.swift */,
 			);
 			path = View;
@@ -594,6 +595,7 @@
 			isa = PBXGroup;
 			children = (
 				C4E522031FE914AD00C3DE2E /* TableViewCell+Style.swift */,
+				C4F62CBA200CE2FD0082DFBC /* ArticleCell */,
 				C4F4DB5B1FF5359B00AA607C /* FieldCell */,
 				C4FA7D2B1FF7659D00F03846 /* Protocols */,
 			);
@@ -676,6 +678,15 @@
 				C4F4DB5C1FF535BC00AA607C /* FieldCell.xib */,
 			);
 			path = FieldCell;
+			sourceTree = "<group>";
+		};
+		C4F62CBA200CE2FD0082DFBC /* ArticleCell */ = {
+			isa = PBXGroup;
+			children = (
+				C4D8D3301FF2CC000003DA36 /* ArticleCell.xib */,
+				C4662AE31FEAB4F5001848C8 /* ArticleCell.swift */,
+			);
+			path = ArticleCell;
 			sourceTree = "<group>";
 		};
 		C4FA7D2B1FF7659D00F03846 /* Protocols */ = {
@@ -900,6 +911,7 @@
 				C4662ABD1FEAA57E001848C8 /* EventDate.swift in Sources */,
 				C4E522001FE90D4A00C3DE2E /* UITableViewController+Style.swift in Sources */,
 				C4FA7D2A1FF7654100F03846 /* GenericCell.swift in Sources */,
+				C4F62CBC200D1BE90082DFBC /* Category.swift in Sources */,
 				C4C203F41FE2ADD100272679 /* CodexCell.swift in Sources */,
 				C4E521FE1FE90BFE00C3DE2E /* FilterVC.swift in Sources */,
 				C41CA3961FDBFDBD00AB0D2D /* Browser.swift in Sources */,

@@ -36,8 +36,8 @@ class EventsListVC: UIViewController {
     }
     
     func getArrayWithEvents() {
-        networkManager.retrieveInfoForPath(.events_all) { (errors) in
-            print(errors)
+        networkManager.retrieveInfoForPath(.events) { (errors) in
+            print("---Errors in events", errors)
         }
     }
     

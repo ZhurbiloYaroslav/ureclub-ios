@@ -74,7 +74,7 @@ class ProfileVC: UITableViewController {
         case 0:
             return 1
         case 1:
-            return 2
+            return 4
         case 2:
             return 1
         default:
@@ -92,15 +92,23 @@ class ProfileVC: UITableViewController {
                 else { return UITableViewCell() }
             return cell
         case [1,0]:
-            let cellData = FieldCell.CellData(type: .Email, icon: UIImage(), title: "Email:", value: CurrentUser.email)
+            let cellData = FieldCell.CellData(type: .Email, icon: #imageLiteral(resourceName: "icon-gmail"), title: "Email:", value: CurrentUser.email)
             cell.configureWith(cellData)
             return cell
         case [1,1]:
-            let cellData = FieldCell.CellData(type: .Phone, icon: UIImage(), title: "Phone:", value: CurrentUser.phone)
+            let cellData = FieldCell.CellData(type: .Phone, icon: #imageLiteral(resourceName: "icon-phone"), title: "Phone:", value: CurrentUser.phone)
+            cell.configureWith(cellData)
+            return cell
+        case [1,2]:
+            let cellData = FieldCell.CellData(type: .Facebook, icon: #imageLiteral(resourceName: "icon-facebook-large"), title: "Facebook:", value: CurrentUser.facebook_link)
+            cell.configureWith(cellData)
+            return cell
+        case [1,3]:
+            let cellData = FieldCell.CellData(type: .LinkedIn, icon: #imageLiteral(resourceName: "icon-linkedin"), title: "LinkedIn:", value: CurrentUser.linkedIn_link)
             cell.configureWith(cellData)
             return cell
         case [2,0]:
-            let cellData = FieldCell.CellData(type: .Text, icon: UIImage(), title: "", value: "lorem_ipsum_text".localized())
+            let cellData = FieldCell.CellData(type: .Text, icon: UIImage(), title: "", value: CurrentUser.textContent)
             cell.configureWith(cellData)
             return cell
         default:
@@ -137,6 +145,17 @@ class ProfileVC: UITableViewController {
         
         return headerView
         
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath {
+        case [1,0]: Browser.openURLWith(.Mail_User_Email)
+        case [1,1]: Browser.openURLWith(.Call_User_Phone)
+        case [1,2]: Browser.openURLWith(.Surf_User_Facebook)
+        case [1,3]: Browser.openURLWith(.Surf_User_LinkedIn)
+        default:
+            break
+        }
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

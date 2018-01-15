@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ArticleCell: UITableViewCell {
 
@@ -33,7 +34,7 @@ class ArticleCell: UITableViewCell {
         
         titleLabel.text = article.title
         if article.imageLinks.count > 0 {
-            articleImage.downloadedFrom(link: article.imageLinks[0], contentMode: .scaleAspectFill)
+            articleImage.sd_setImage(with: URL(string: article.imageLinks[0]), placeholderImage: #imageLiteral(resourceName: "image-placeHolder"))
         }
         
         if let eventEntity = article as? Event {

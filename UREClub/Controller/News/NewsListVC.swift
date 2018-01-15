@@ -9,6 +9,13 @@
 import UIKit
 import SWRevealViewController
 
+extension NewsListVC: NetworkManagerDelegate {
+    func didLoad(arrayWithNews: [News]) {
+        self.arrayWithNews = arrayWithNews
+        tableView.reloadData()
+    }
+}
+
 class NewsListVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
@@ -34,8 +41,8 @@ class NewsListVC: UIViewController {
     }
     
     func getArrayWithNews() {
-        networkManager.retrieveInfoForPath(.news_all) { (errors) in
-            print(errors)
+        networkManager.retrieveInfoForPath(.news) { (errors) in
+            print("---Errors in news", errors)
         }
     }
     
@@ -90,13 +97,6 @@ extension NewsListVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.performSegue(withIdentifier: "ShowNewsDesc", sender: indexPath)
-    }
-}
-
-extension NewsListVC: NetworkManagerDelegate {
-    func didLoad(arrayWithNews: [News]) {
-        self.arrayWithNews = arrayWithNews
-        tableView.reloadData()
     }
 }
 

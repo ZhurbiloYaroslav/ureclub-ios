@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 extension ProfileHeaderCell: GenericCell {
     func getCell() -> Self {
@@ -29,6 +30,8 @@ class ProfileHeaderCell: UITableViewCell {
     }
     
     func updateCell() {
+        
+        profileImage.sd_setImage(with: URL(string: CurrentUser.linkImage), placeholderImage: #imageLiteral(resourceName: "icon-user_circle"))
         fullNameLabel.text = CurrentUser.fullName
         companyNameLabel.text = CurrentUser.company.companyName
         positionLabel.text = CurrentUser.company.position

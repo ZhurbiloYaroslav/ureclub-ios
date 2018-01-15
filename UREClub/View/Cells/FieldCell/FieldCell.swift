@@ -20,7 +20,6 @@ class FieldCell: UITableViewCell {
     @IBOutlet weak var cellTitle: UILabel!
     @IBOutlet weak var cellText: UILabel!
     @IBOutlet weak var cellField: UITextField!
-    @IBOutlet weak var textArea: UITextView!
     
     var isUnderEditing: Bool = false
     
@@ -35,7 +34,6 @@ class FieldCell: UITableViewCell {
         cellField.text = ""
         cellText.isHidden = false
         cellField.isHidden = true
-        textArea.isHidden = true
     }
     
     func configureWith(_ genericCellData: GenericCellData) {
@@ -46,7 +44,6 @@ class FieldCell: UITableViewCell {
         cellTitle.text = cellData.title
         cellText.text = cellData.value
         cellField.text = cellData.value
-        textArea.text = cellData.value
         
         switch cellData.type {
         case .Text:
@@ -58,13 +55,10 @@ class FieldCell: UITableViewCell {
             cellText.numberOfLines = 0
             cellText.isHidden = isUnderEditing
             
-            textArea.isHidden = !isUnderEditing
-            textArea.isUserInteractionEnabled = isUnderEditing
         default:
             cellText.isHidden = isUnderEditing
             cellField.isHidden = !isUnderEditing
             cellField.isUserInteractionEnabled = isUnderEditing
-            textArea.isHidden = true
         }
     }
     

@@ -32,14 +32,6 @@ class LoginVC: UIViewController {
         updateUILabelsWithLocalizedText()
     }
     
-    func testing() {
-        NetworkManager().retrieveInfoForPath(.events_all) { (arrayWithErrors) in
-            if let arrayWithErrors = arrayWithErrors {
-                print(arrayWithErrors[0].rawValue)
-            }
-        }
-    }
-    
     func setFieldsStyles() {
         let attributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         

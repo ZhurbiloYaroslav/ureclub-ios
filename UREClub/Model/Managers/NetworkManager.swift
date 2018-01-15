@@ -16,8 +16,6 @@ import Alamofire
 
 class NetworkManager: NSObject {
     
-    let headers: HTTPHeaders = HTTPHeaders()
-    
     weak var delegate: NetworkManagerDelegate?
     
     private var arrayWithEvents: [Event]!
@@ -27,15 +25,37 @@ class NetworkManager: NSObject {
     func retrieveInfoForPath(_ path: RequestAddress.ServerPath, completionHandler: @escaping (_ errorMessages: [NetworkError]?)->())  {
         
         var errorMessages = [NetworkError]()
-        guard let url = URL(string: path.address()) else { return errorMessages.append(.badURL) }
+        var headers: HTTPHeaders!
+        var parameters: Parameters!
+        var url: URL!
         
-        Alamofire.request(url).responseJSON { (response) in
-            
+        switch path {
+        case .events:
+            let requestData = EventsRequestData()
+            headers = requestData.getHeaders()
+            parameters = requestData.getParams()
+            url = requestData.getURL()
+        case .news:
+            let requestData = NewsRequestData()
+            headers = requestData.getHeaders()
+            parameters = requestData.getParams()
+            url = requestData.getURL()
+        default:
+            let requestData = EventsRequestData()
+            headers = requestData.getHeaders()
+            parameters = requestData.getParams()
+            url = requestData.getURL()
+            print("Undefined RequestAddress.ServerPath")
+        }
+        
+        Alamofire.request(url, method:.get, parameters:parameters, headers:headers).responseJSON { (response) in
+                        
             if let errorMessages = self.parseResultDataWith(response, andPath: path) {
                 completionHandler(errorMessages)
             } else {
                 completionHandler(nil)
             }
+            
         }
     }
     
@@ -43,10 +63,10 @@ class NetworkManager: NSObject {
         var errorMessages = [NetworkError]()
         
         switch path {
-        case .events_all:
+        case .events:
             parseEventsWith(response)
             return nil
-        case .news_all:
+        case .news:
             parseNewsWith(response)
             return nil
         default:
@@ -55,29 +75,42 @@ class NetworkManager: NSObject {
         }
     }
     
+    class RequestData {
+        let bearerToken = CurrentUser.authToken
+        func getParams() -> Parameters {
+            return [
+                "Authorization": bearerToken
+            ]
+        }
+    }
+    
     struct RequestAddress {
-        
-        enum ServerPath: String {
-            
+        enum ServerPath {
             //TODO: Change Server!!!
-            fileprivate var currentServer: Server {
-                return .test
-            }
+            fileprivate var currentServer: Server { return .test }
             
-            //case events_all = "wp-json/ee/v4.8.36/events?include=EVT_name,EVT_desc"
-            case login = "wp-json/jwt-auth/v1/token"
-            case register = "wp-json/s4s_ureclub_rest/v1/register"
-            case events_all = "wp-json/s4s_ureclub_rest/v1/events"
-            case news_all = "wp-json/s4s_ureclub_rest/v1/news"
-            case user_info = "wp-json/s4s_ureclub_rest/v1/user"
-            case tags_all = "wp-json/wp/v2/tags"
-            case categories_all = "wp-json/wp/v2/categories"
+            case login
+            case register
+            case people
+            case events
+            case news
+            case user
+            case filter
             
             func address() -> String {
-                return currentServer.rawValue + self.rawValue
+                var resultAddress = currentServer.rawValue
+                switch self {
+                case .login: resultAddress += "wp-json/jwt-auth/v1/token"
+                case .register: resultAddress += "wp-json/s4s_ureclub_rest/v1/register"
+                case .people: resultAddress += "wp-json/s4s_ureclub_rest/v1/people"
+                case .events: resultAddress += "wp-json/s4s_ureclub_rest/v1/events"
+                case .news: resultAddress += "wp-json/s4s_ureclub_rest/v1/news"
+                case .user: resultAddress += "wp-json/s4s_ureclub_rest/v1/user"
+                case .filter: resultAddress += "wp-json/wp/v2/categories"
+                }
+                return resultAddress
             }
         }
-        
         fileprivate enum Server: String {
             case production = ""
             case test = "http://urec.1gb.ua/"
@@ -102,7 +135,7 @@ extension NetworkManager {
         
         let parameters = userData.getParams()
         
-        Alamofire.request(url, method:.post, parameters:parameters, headers:headers).responseJSON { (response) in
+        Alamofire.request(url, method:.post, parameters:parameters).responseJSON { (response) in
             
             if let errorMessages = self.parseLoginResultDataWith(response) {
                 completionHandler(errorMessages)
@@ -134,26 +167,26 @@ extension NetworkManager {
     }
     
     private func parseLoginResultDataWith(_ response: DataResponse<Any>) -> [String]? {
-
+        
         print("response", response)
         let userDataDict = makeDictionaryFrom(response)
         print("userDataDict", userDataDict)
         
         CurrentUser.getFirstAndLastNameFromString(userDataDict["user_display_name"] as? String ?? "")
         
-        CurrentUser.id = userDataDict["user_id"] as? String ?? ""
-        CurrentUser.email = userDataDict["user_email"] as? String ?? ""
-        CurrentUser.phone = userDataDict["user_phone"] as? String ?? ""
-        CurrentUser.firstName = userDataDict["user_first_name"] as? String ?? ""
-        CurrentUser.lastName = userDataDict["user_last_name"] as? String ?? ""
-        CurrentUser.textContent = userDataDict["user_description"] as? String ?? ""
+        CurrentUser.id = userDataDict["id"] as? String ?? ""
+        CurrentUser.email = userDataDict["email"] as? String ?? ""
+        CurrentUser.phone = userDataDict["phone"] as? String ?? ""
+        CurrentUser.firstName = userDataDict["first_name"] as? String ?? ""
+        CurrentUser.lastName = userDataDict["last_name"] as? String ?? ""
+        CurrentUser.textContent = userDataDict["description"] as? String ?? ""
         CurrentUser.authToken = userDataDict["token"] as? String ?? ""
-        CurrentUser.company.companyId = userDataDict["user_company_id"] as? String ?? ""
-        CurrentUser.company.companyName = userDataDict["user_company_name"] as? String ?? ""
-        CurrentUser.linkImage = userDataDict["user_link_image"] as? String ?? ""
-        CurrentUser.company.position = userDataDict["user_job_position"] as? String ?? ""
-        CurrentUser.linkedIn_link = userDataDict["user_linkedIn_link"] as? String ?? ""
-        CurrentUser.facebook_link = userDataDict["user_facebook_link"] as? String ?? ""
+        CurrentUser.company.companyId = userDataDict["company_id"] as? String ?? ""
+        CurrentUser.company.companyName = userDataDict["company_name"] as? String ?? ""
+        CurrentUser.linkImage = userDataDict["image_link"] as? String ?? ""
+        CurrentUser.company.position = userDataDict["job_position"] as? String ?? ""
+        CurrentUser.linkedIn_link = userDataDict["linkedIn_link"] as? String ?? ""
+        CurrentUser.facebook_link = userDataDict["facebook_link"] as? String ?? ""
         CurrentUser.isLoggedIn = true
         
         return nil
@@ -191,16 +224,65 @@ extension NetworkManager {
     
 }
 
+//MARK: Events
+extension NetworkManager {
+    
+    private func parseEventsWith(_ response: DataResponse<Any>) {
+        
+        guard let arrayWithEventsResult = response.result.value as? [(Dictionary<String, Any>)]  else {
+            return
+        }
+        
+        arrayWithEvents = [Event]()
+        for dictWithResult in arrayWithEventsResult {
+            let event = Event(withResult: dictWithResult)
+            arrayWithEvents.append(event)
+        }
+        
+        delegate?.didLoad?(arrayWithEvents: arrayWithEvents)
+        
+    }
+    
+    struct EventsRequestData {
+        
+        private var currentPath: RequestAddress.ServerPath {
+            return .events
+        }
+        private let pageAddress: String = RequestAddress.ServerPath.events.address()
+        public let language = "en"
+        public let bearerToken = CurrentUser.getBearerToken()
+        
+        func getParams() -> Parameters {
+            return [
+                "Authorization": bearerToken
+            ]
+        }
+        
+        func getHeaders() -> HTTPHeaders {
+            return [
+                "Authorization": bearerToken
+            ]
+        }
+        
+        func getURL() -> URL? {
+            var result = "\(pageAddress)"
+            result = result.replacingOccurrences(of: " ", with: "%20")
+            return URL(string: result)
+        }
+    }
+    
+}
+
 //MARK: News
 extension NetworkManager {
     
     private func parseNewsWith(_ response: DataResponse<Any>) {
         
-        arrayWithNews = [News]()
         guard let arrayWithNewsResult = response.result.value as? [(Dictionary<String, Any>)]  else {
             return
         }
         
+        arrayWithNews = [News]()
         for dictWithResult in arrayWithNewsResult {
             let news = News(withResult: dictWithResult)
             arrayWithNews.append(news)
@@ -210,25 +292,32 @@ extension NetworkManager {
         
     }
     
-}
-
-//MARK: Events
-extension NetworkManager {
-    
-    private func parseEventsWith(_ response: DataResponse<Any>) {
+    struct NewsRequestData {
         
-        arrayWithEvents = [Event]()
-        guard let arrayWithEventsResult = response.result.value as? [(Dictionary<String, Any>)]  else {
-            return
+        private var currentPath: RequestAddress.ServerPath {
+            return .news
+        }
+        private let pageAddress: String = RequestAddress.ServerPath.news.address()
+        public let language = "en"
+        public let bearerToken = CurrentUser.getBearerToken()
+        
+        func getParams() -> Parameters {
+            return [
+                "Authorization": bearerToken
+            ]
         }
         
-        for dictWithResult in arrayWithEventsResult {
-            let event = Event(withResult: dictWithResult)
-            arrayWithEvents.append(event)
+        func getHeaders() -> HTTPHeaders {
+            return [
+                "Authorization": bearerToken
+            ]
         }
         
-        delegate?.didLoad?(arrayWithEvents: arrayWithEvents)
-        
+        func getURL() -> URL? {
+            var result = "\(pageAddress)"
+            result = result.replacingOccurrences(of: " ", with: "%20")
+            return URL(string: result)
+        }
     }
     
 }

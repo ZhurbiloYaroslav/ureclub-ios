@@ -12,28 +12,30 @@ import SwiftSoup
 class News: Article {
     var date: String
     
-    init(id: Int, title: String, textContent: String, htmlContent: String, date: String) {
+    init(id: String, title: String, textContent: String, htmlContent: String, categories: [Category], date: String) {
         self.date = date
         
-        super.init(id: id, title: title, textContent: textContent, htmlContent: htmlContent)
+        super.init(id: id, title: title, textContent: textContent, htmlContent: htmlContent, categories: categories)
     }
     
     convenience init() {
-        self.init(id: 0, title: "", textContent: "", htmlContent: "", date: "")
+        self.init(id: "0", title: "", textContent: "", htmlContent: "", categories: [Category](), date: "")
     }
     
     convenience init(withResult resultDictionary: [String: Any]) {
-        
-        let renderedIitle = resultDictionary["title"] as? [String: Any] ?? [String: Any]()
-        let title = renderedIitle["rendered"] as? String  ?? ""
-        let renderedContent = resultDictionary["content"] as? [String: Any] ?? [String: Any]()
-        let htmlContent = renderedContent["rendered"] as? String  ?? ""
-        
-        let id = resultDictionary["id"] as? Int ?? 0
-        
+                
+        let id = resultDictionary["id"] as? String ?? "0"
+        let dateString = resultDictionary["date"] as? String ?? ""
+        let title = resultDictionary["title"] as? String  ?? ""
+        let htmlContent = resultDictionary["content"] as? String  ?? ""
         let textContent = htmlContent
-        let newsDateString = resultDictionary["date"] as? String ?? ""
+        let arrayWithCategories = resultDictionary["categories"] as? [[String: Any]] ?? [[String: Any]]()
         
-        self.init(id: id, title: title, textContent: textContent, htmlContent: htmlContent, date: newsDateString)
+        var categories = [Category]()
+        for dictWithCategory in arrayWithCategories {
+            let newCategory = Category(withResult: dictWithCategory)
+            categories.append(newCategory)
+        }
+        self.init(id: id, title: title, textContent: textContent, htmlContent: htmlContent, categories: categories, date: dateString)
     }
 }
