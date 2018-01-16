@@ -22,7 +22,7 @@ struct EventDate {
     }
     
     func getDate() -> String {
-        return "20.12.2017"
+        return date_beg
     }
     
     func getTimePeriod() -> String {

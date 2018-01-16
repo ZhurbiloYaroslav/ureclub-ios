@@ -10,7 +10,11 @@ import Foundation
 import SwiftSoup
 
 class News: Article {
-    var date: String
+    private var date: String
+    
+    func getDate() -> String {
+        return Formatter.getOnlyDateFrom(dateString: date)
+    }
     
     init(id: String, title: String, textContent: String, htmlContent: String, categories: [Category], date: String) {
         self.date = date

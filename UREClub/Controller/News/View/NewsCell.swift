@@ -32,6 +32,6 @@ class NewsCell: UITableViewCell {
         }
         
         titleLabel.text = news.title
-        dateLabel.text = news.date
+        dateLabel.text = news.getDate()
     }
 }

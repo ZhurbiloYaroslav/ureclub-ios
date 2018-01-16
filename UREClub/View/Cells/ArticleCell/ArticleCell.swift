@@ -15,6 +15,8 @@ class ArticleCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
+    
+    @IBOutlet weak var addressStack: UIStackView!
     @IBOutlet weak var geoImage: UIImageView!
     @IBOutlet weak var addressLabel: UILabel!
     
@@ -32,7 +34,9 @@ class ArticleCell: UITableViewCell {
     
     func updateCellWith(_ article: Article) {
         
+        titleLabel.numberOfLines = 3
         titleLabel.text = article.title
+        
         if article.imageLinks.count > 0 {
             articleImage.sd_setImage(with: URL(string: article.imageLinks[0]), placeholderImage: #imageLiteral(resourceName: "image-placeHolder"))
         }
@@ -45,11 +49,11 @@ class ArticleCell: UITableViewCell {
             
         } else if let newsEntity = article as? News {
             
-            dateLabel.text = newsEntity.date
+            titleLabel.numberOfLines = 4
+            dateLabel.text = newsEntity.getDate()
             
-            geoImage.isHidden = true
             timeLabel.isHidden = true
-            addressLabel.isHidden = true
+            addressStack.isHidden = true
         }
     }
     
