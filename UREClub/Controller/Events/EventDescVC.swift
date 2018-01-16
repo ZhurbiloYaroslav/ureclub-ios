@@ -9,13 +9,38 @@
 import UIKit
 import SDWebImage
 
+extension EventDescVC: UIWebViewDelegate {
+    
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        webView.frame.size.height = 1
+        webView.frame.size = webView.sizeThatFits(.zero)
+        webView.scrollView.isScrollEnabled = false
+        webViewHeightConstraint.constant = webView.scrollView.contentSize.height
+        webView.scalesPageToFit = true
+    }
+    
+    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        if let url = request.url, navigationType == UIWebViewNavigationType.linkClicked {
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            } else {
+                UIApplication.shared.openURL(url)
+            }
+            return false
+        }
+        return true
+    }
+}
+
 class EventDescVC: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var timePeriodLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
-    @IBOutlet weak var contentLabel: UILabel!
+    //@IBOutlet weak var contentLabel: UILabel!
+    @IBOutlet weak var contentWebView: UIWebView!
+    @IBOutlet weak var webViewHeightConstraint: NSLayoutConstraint!
     
     @IBOutlet var slideshow: ImageSlideshow!
     
@@ -25,9 +50,14 @@ class EventDescVC: UIViewController {
         super.viewDidLoad()
         
         self.setDefaultBackground()
+        setDelegates()
         updateUILabelsWithLocalizedText()
         setupImageSlider()
         updateUIWithValues()
+    }
+    
+    func setDelegates() {
+        contentWebView.delegate = self
     }
     
     func updateUILabelsWithLocalizedText() {
@@ -55,8 +85,12 @@ class EventDescVC: UIViewController {
         dateLabel.text = event.date.getDate()
         timePeriodLabel.text = event.date.getTimePeriod()
         addressLabel.text = event.place.getAddressAndCity()
-        contentLabel.numberOfLines = 0
-        contentLabel.text = event.textContent
+                
+        contentWebView.loadHTMLString(event.getHTMLContent(), baseURL: Bundle.main.bundleURL)
+        contentWebView.scrollView.isScrollEnabled = true
+        contentWebView.scrollView.bounces = true
+        contentWebView.backgroundColor = UIColor.clear
+        contentWebView.sizeToFit()
     }
     
     func setupImageSlider() {

@@ -149,24 +149,24 @@
             <objects>
                 <viewController storyboardIdentifier="EventDescVC" title="Details" id="hpo-A6-tVV" customClass="EventDescVC" customModule="UREClub" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XtJ-5B-SLT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Me-7y-ndE">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="1436"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Di-pc-eoL" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1805"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KTw-xB-v6F" customClass="ImageSlideshow" customModule="UREClub" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="KTw-xB-v6F" secondAttribute="height" multiplier="3:2" id="Y34-C3-abq"/>
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="DKg-B0-qTf">
-                                                <rect key="frame" x="15" y="265" width="345" height="125.5"/>
+                                                <rect key="frame" x="15" y="265" width="345" height="95"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xQa-MJ-21z">
                                                         <rect key="frame" x="0.0" y="0.0" width="345" height="30"/>
@@ -293,24 +293,29 @@
                                                             </view>
                                                         </subviews>
                                                     </stackView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5dw-pU-isE">
-                                                        <rect key="frame" x="0.0" y="105" width="345" height="20.5"/>
-                                                        <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
                                                 </subviews>
                                             </stackView>
+                                            <webView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="No0-Jm-n6O">
+                                                <rect key="frame" x="15" y="375" width="345" height="1400"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1400" id="WCo-FV-GWe"/>
+                                                </constraints>
+                                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
+                                            </webView>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="KTw-xB-v6F" firstAttribute="top" secondItem="8Di-pc-eoL" secondAttribute="top" id="1gZ-HK-MwP"/>
                                             <constraint firstItem="KTw-xB-v6F" firstAttribute="leading" secondItem="8Di-pc-eoL" secondAttribute="leading" id="2Ut-hw-xF2"/>
+                                            <constraint firstAttribute="trailing" secondItem="No0-Jm-n6O" secondAttribute="trailing" constant="15" id="9Pk-5Y-XAA"/>
                                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="DKg-B0-qTf" secondAttribute="bottom" constant="15" id="ArF-yy-cP7"/>
+                                            <constraint firstItem="No0-Jm-n6O" firstAttribute="top" secondItem="DKg-B0-qTf" secondAttribute="bottom" constant="15" id="FXI-hM-jpa"/>
                                             <constraint firstAttribute="trailing" secondItem="DKg-B0-qTf" secondAttribute="trailing" constant="15" id="OCq-eR-3Pk"/>
                                             <constraint firstItem="DKg-B0-qTf" firstAttribute="leading" secondItem="8Di-pc-eoL" secondAttribute="leading" constant="15" id="Qi7-eF-e9U"/>
+                                            <constraint firstAttribute="bottom" secondItem="No0-Jm-n6O" secondAttribute="bottom" constant="30" id="SWF-eL-8ca"/>
                                             <constraint firstAttribute="trailing" secondItem="KTw-xB-v6F" secondAttribute="trailing" id="oT3-kL-aWD"/>
+                                            <constraint firstItem="No0-Jm-n6O" firstAttribute="leading" secondItem="8Di-pc-eoL" secondAttribute="leading" constant="15" id="qCG-0g-4u8"/>
                                             <constraint firstItem="DKg-B0-qTf" firstAttribute="top" secondItem="KTw-xB-v6F" secondAttribute="bottom" constant="15" id="wwD-4k-flF"/>
                                         </constraints>
                                     </view>
@@ -328,24 +333,27 @@
                             <constraint firstItem="5Me-7y-ndE" firstAttribute="trailing" secondItem="UZB-V2-JLF" secondAttribute="trailing" id="UK6-aH-9Z0"/>
                             <constraint firstItem="5Me-7y-ndE" firstAttribute="top" secondItem="UZB-V2-JLF" secondAttribute="top" id="V74-Ti-9Mz"/>
                             <constraint firstItem="8Di-pc-eoL" firstAttribute="width" secondItem="XtJ-5B-SLT" secondAttribute="width" id="VUe-HH-lIU"/>
+                            <constraint firstItem="No0-Jm-n6O" firstAttribute="height" secondItem="XtJ-5B-SLT" secondAttribute="height" priority="750" constant="-100" id="Vl9-wu-Tqh"/>
                             <constraint firstItem="8Di-pc-eoL" firstAttribute="height" secondItem="XtJ-5B-SLT" secondAttribute="height" priority="250" id="cAA-ei-hed"/>
                             <constraint firstItem="5Me-7y-ndE" firstAttribute="bottom" secondItem="UZB-V2-JLF" secondAttribute="bottom" id="ei2-Ma-Qab"/>
                             <constraint firstItem="5Me-7y-ndE" firstAttribute="leading" secondItem="UZB-V2-JLF" secondAttribute="leading" id="hog-wq-DUc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UZB-V2-JLF"/>
                     </view>
+                    <size key="freeformSize" width="375" height="1500"/>
                     <connections>
                         <outlet property="addressLabel" destination="VkJ-m4-1X4" id="ozu-hB-ySR"/>
-                        <outlet property="contentLabel" destination="5dw-pU-isE" id="vf0-bZ-6UE"/>
+                        <outlet property="contentWebView" destination="No0-Jm-n6O" id="qlc-NO-Q2q"/>
                         <outlet property="dateLabel" destination="y8L-z5-xTe" id="g3e-aK-CgO"/>
                         <outlet property="slideshow" destination="KTw-xB-v6F" id="OTo-ud-i1m"/>
                         <outlet property="timePeriodLabel" destination="JDZ-zk-goQ" id="tzr-TA-Gnk"/>
                         <outlet property="titleLabel" destination="VK9-So-faA" id="OVk-nM-doV"/>
+                        <outlet property="webViewHeightConstraint" destination="WCo-FV-GWe" id="nxh-k6-d0i"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kLA-pO-sHf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5616.8000000000002" y="1079.9100449775112"/>
+            <point key="canvasLocation" x="5616.8000000000002" y="1079.4602698650676"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="RPQ-O9-6IZ">

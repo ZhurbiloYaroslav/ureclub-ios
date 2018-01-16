@@ -1,0 +1,28 @@
+body {
+    background-color: #d8e9f0;
+    font-family: Helvetica;
+    font-size: 20px;
+    color: #333;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.66;
+    word-wrap: break-word;
+}
+
+strong, b {
+    font-weight: bold;
+}
+
+p {
+    margin-bottom: 24px;
+    line-height: 26px;
+    display: block;
+    padding: 0;
+}
+
+img {
+    height: auto;
+    width: inherit;
+    max-width: 100%;
+}
+

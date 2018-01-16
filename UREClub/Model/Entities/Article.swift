@@ -21,6 +21,16 @@ class Article: NSObject {
         return parseImagesAndContentFromHTML()
     }
     
+    func getHTMLContent() -> String {
+        
+        guard let path = Bundle.main.path(forResource: "ArticleStyles", ofType: "css") else { return "" }
+        let cssString = try! String(contentsOfFile: path).trimmingCharacters(in: .whitespacesAndNewlines)
+        let doc: Document = try! SwiftSoup.parse(htmlContent)
+        try! doc.head()?.append("<style>\(cssString)</style>")
+        
+        return try! doc.html()
+    }
+    
     init(id: String, title: String, textContent: String, htmlContent: String, categories: [Category]) {
         
         self.recordID = id
