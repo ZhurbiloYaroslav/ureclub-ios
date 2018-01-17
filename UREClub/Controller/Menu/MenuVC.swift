@@ -16,22 +16,48 @@ class MenuVC: UITableViewController {
         setCustomStyle()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.view.frame.size.width = self.revealViewController().rearViewRevealWidth
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Menu().numberOfItems
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellID = Menu().items[indexPath.row].cellID
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! MenuCell
-        cell.updateCellWith(indexPath: indexPath)
-        return cell
+        
+        switch cellID {
+        case "MenuCell":
+            let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! MenuCell
+            cell.updateCellWith(indexPath: indexPath)
+            return cell
+        case "LogOutCell":
+            let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! LogOutCell
+            cell.updateCellWith(indexPath: indexPath)
+            return cell
+        default:
+            return UITableViewCell()
+        }
+        
         
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let menuItem = Menu().items[indexPath.row]
-        performSegue(withIdentifier: menuItem.segue, sender: nil)
+        
+        switch menuItem.segue {
+        case "LogOut":
+            CurrentUser.logOut {
+                self.performSegue(withIdentifier: menuItem.segue, sender: nil)
+            }
+        default:
+            performSegue(withIdentifier: menuItem.segue, sender: nil)
+        }
+        
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

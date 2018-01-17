@@ -11,8 +11,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="AvenirNext.ttc">
-            <string>AvenirNext-DemiBold</string>
+        <array key="Montserrat-Medium.ttf">
+            <string>Montserrat-Medium</string>
+        </array>
+        <array key="Montserrat-Regular.ttf">
+            <string>Montserrat-Regular</string>
         </array>
     </customFonts>
     <scenes>
@@ -61,15 +64,15 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3l-dK-CF3">
-                                            <rect key="frame" x="50" y="8.5" width="209" height="27.5"/>
-                                            <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
-                                            <color key="textColor" red="0.81176470590000005" green="0.92156862750000001" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <rect key="frame" x="15" y="10" width="329" height="24.5"/>
+                                            <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="20"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailingMargin" secondItem="I3l-dK-CF3" secondAttribute="trailing" constant="100" id="Bcr-zk-cd4"/>
-                                        <constraint firstItem="I3l-dK-CF3" firstAttribute="leading" secondItem="hI4-dW-QvO" secondAttribute="leading" constant="50" id="UuK-7g-yyt"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="I3l-dK-CF3" secondAttribute="trailing" constant="15" id="Bcr-zk-cd4"/>
+                                        <constraint firstItem="I3l-dK-CF3" firstAttribute="leading" secondItem="hI4-dW-QvO" secondAttribute="leading" constant="15" id="UuK-7g-yyt"/>
                                         <constraint firstItem="I3l-dK-CF3" firstAttribute="centerY" secondItem="hI4-dW-QvO" secondAttribute="centerY" id="g80-xX-a6Q"/>
                                         <constraint firstItem="SEv-ZT-8Gv" firstAttribute="leading" secondItem="hI4-dW-QvO" secondAttribute="leading" constant="15" id="qWp-GW-n5C"/>
                                         <constraint firstItem="SEv-ZT-8Gv" firstAttribute="centerY" secondItem="hI4-dW-QvO" secondAttribute="centerY" id="zxg-dx-XXj"/>
@@ -84,6 +87,53 @@
                                 <connections>
                                     <outlet property="menuItemImageIcon" destination="SEv-ZT-8Gv" id="FnK-ft-6zP"/>
                                     <outlet property="menuItemTitleLabel" destination="I3l-dK-CF3" id="HdQ-gg-jWA"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="LogOutCell" rowHeight="74" id="idi-7l-vZA" userLabel="LogOutCell" customClass="LogOutCell" customModule="UREClub" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="375" height="74"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="idi-7l-vZA" id="WKm-jb-Eey">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="74"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="guf-5M-haJ">
+                                            <rect key="frame" x="15" y="13" width="266" height="49.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YCZ-z0-a2t">
+                                                    <rect key="frame" x="0.0" y="0.0" width="266" height="24.5"/>
+                                                    <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="20"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Mn-ET-LNX">
+                                                    <rect key="frame" x="0.0" y="29.5" width="266" height="20"/>
+                                                    <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="16"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4iB-YF-xCW">
+                                            <rect key="frame" x="296" y="5" width="64" height="64"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="64" id="F8O-Ie-xog"/>
+                                                <constraint firstAttribute="height" constant="64" id="PzK-ci-uFM"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="4iB-YF-xCW" firstAttribute="leading" secondItem="guf-5M-haJ" secondAttribute="trailing" constant="15" id="4mf-Xb-UFO"/>
+                                        <constraint firstAttribute="trailing" secondItem="4iB-YF-xCW" secondAttribute="trailing" constant="15" id="8UJ-XQ-IRU"/>
+                                        <constraint firstItem="guf-5M-haJ" firstAttribute="leading" secondItem="WKm-jb-Eey" secondAttribute="leading" constant="15" id="CuJ-Ae-jwr"/>
+                                        <constraint firstItem="4iB-YF-xCW" firstAttribute="centerY" secondItem="WKm-jb-Eey" secondAttribute="centerY" id="EOx-DA-t3H"/>
+                                        <constraint firstItem="guf-5M-haJ" firstAttribute="centerY" secondItem="WKm-jb-Eey" secondAttribute="centerY" id="Q1N-eq-WPX"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="logOutLabel" destination="YCZ-z0-a2t" id="gG0-XH-1W5"/>
+                                    <outlet property="profileImage" destination="4iB-YF-xCW" id="5ap-Dc-6G2"/>
+                                    <outlet property="userNameLabel" destination="2Mn-ET-LNX" id="dfw-aA-gTD"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -102,11 +152,12 @@
                         <segue destination="MWV-Kc-AMX" kind="custom" identifier="ShowSettings" customClass="SWRevealViewControllerSeguePushController" id="7kE-0b-w5s"/>
                         <segue destination="FHq-J8-nTT" kind="custom" identifier="ShowCodex" customClass="SWRevealViewControllerSeguePushController" id="g1V-if-1PK"/>
                         <segue destination="FQC-lj-VIK" kind="custom" identifier="ShowProfile" customClass="SWRevealViewControllerSeguePushController" id="3X1-vN-jSR"/>
+                        <segue destination="9yD-xc-8wl" kind="custom" identifier="LogOut" customClass="SWRevealViewControllerSeguePushController" id="KRH-BX-rYm"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pgk-ua-8cf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1158" y="1191"/>
+            <point key="canvasLocation" x="1157.5999999999999" y="1190.5547226386807"/>
         </scene>
         <!--MainNavBar-->
         <scene sceneID="Eru-qn-zFM">
@@ -164,6 +215,14 @@
             </objects>
             <point key="canvasLocation" x="1986" y="1337"/>
         </scene>
+        <!--LoginVC-->
+        <scene sceneID="Gmk-ak-sIJ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Auth" referencedIdentifier="LoginVC" id="9yD-xc-8wl" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GZF-Ij-XJD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1974" y="1404"/>
+        </scene>
         <!--CodexNavBar-->
         <scene sceneID="JQo-ba-WI5">
             <objects>
@@ -177,6 +236,6 @@
         <image name="icon-contacts" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="9dN-4v-9mM"/>
+        <segue reference="kCs-Zy-XXe"/>
     </inferredMetricsTieBreakers>
 </document>

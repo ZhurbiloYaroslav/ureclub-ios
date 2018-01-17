@@ -58,6 +58,9 @@ class NewsListVC: UIViewController {
     
     func setupLeftMenu() {
         if revealViewController() != nil {
+            
+            self.revealViewController().rearViewRevealWidth = self.view.frame.width - 64
+            
             menuButton.target = revealViewController()
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             

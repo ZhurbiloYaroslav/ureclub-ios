@@ -42,8 +42,13 @@ class CurrentUser {
         isLoggedIn = false
         isUserActive = false
         id = ""
+        linkImage = ""
+        linkedIn_link = ""
+        facebook_link = ""
+        textContent = ""
         firstName = ""
         lastName = ""
+        company = CurrentUserCompany()
         email = ""
         password = ""
         phone = ""
@@ -148,8 +153,6 @@ extension CurrentUser {
         }
     }
     
-    static var company = CurrentUserCompany.shared
-    
     static var lastName: String {
         get {
             return defaults.object(forKey: "currentUser_LastName") as? String ?? ""
@@ -159,6 +162,8 @@ extension CurrentUser {
             defaults.synchronize()
         }
     }
+    
+    static var company = CurrentUserCompany.shared
     
     static var email: String {
         get {
