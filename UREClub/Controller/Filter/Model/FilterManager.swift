@@ -22,6 +22,6 @@ class FilterManager {
     enum FilterType {
         case Event(arrayWithEvents: [Event])
         case News(arrayWithNews: [News])
-        case Member(arrayWithMembers: [Member])
+        case Member(arrayWithMembers: [Contact])
     }
 }

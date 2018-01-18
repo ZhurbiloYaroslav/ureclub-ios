@@ -26,16 +26,25 @@ class ProfileHeaderCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        updateCell()
     }
     
-    func updateCell() {
+    func updateCellWith(_ contact: GenericContact?) {
         
-        profileImage.sd_setImage(with: URL(string: CurrentUser.linkImage), placeholderImage: #imageLiteral(resourceName: "icon-user_circle"))
-        fullNameLabel.text = CurrentUser.fullName
-        companyNameLabel.text = CurrentUser.company.companyName
-        positionLabel.text = CurrentUser.company.position
-        periodLabel.text = CurrentUser.company.date
+        if let contact = contact as? Person {
+            profileImage.sd_setImage(with: URL(string: contact.getImageLink()), placeholderImage: #imageLiteral(resourceName: "icon-user_circle"))
+            fullNameLabel.text = contact.firstName + " " + contact.lastName
+            companyNameLabel.text = contact.company.name
+            positionLabel.text = contact.position
+            periodLabel.text = CurrentUser.company.date
+        } else {
+            profileImage.sd_setImage(with: URL(string: CurrentUser.linkImage), placeholderImage: #imageLiteral(resourceName: "icon-user_circle"))
+            fullNameLabel.text = CurrentUser.fullName
+            companyNameLabel.text = CurrentUser.company.companyName
+            positionLabel.text = CurrentUser.company.position
+            periodLabel.text = CurrentUser.company.date
+        }
+        
+        
     }
     
 }

@@ -17,4 +17,8 @@ class PersonCollectionCell: UICollectionViewCell {
         self.backgroundColor = Constants.Color.skyLight
     }
     
+    func updateCellWith(_ person: Person) {
+        personImageView.sd_setImage(with: URL(string: person.getImageLink()), placeholderImage: #imageLiteral(resourceName: "icon-user_circle"))
+    }
+    
 }

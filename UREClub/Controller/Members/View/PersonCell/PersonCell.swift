@@ -20,15 +20,15 @@ class PersonCell: UITableViewCell {
         super.awakeFromNib()
 
         setDefaultStyle()
-        updateCell()
     }
     
-    func updateCell() {
+    func updateCellWith(_ person: Person) {
         memberImageView.setRadius(64, withWidth: 1, andColor: UIColor.clear)
-        memberImageView.sd_setImage(with: URL(string: CurrentUser.linkImage), placeholderImage: #imageLiteral(resourceName: "icon-user_circle"))
-        fullNameLabel.text = CurrentUser.fullName
-        companyLabel.text = CurrentUser.company.companyName
-        positionLabel.text = CurrentUser.company.position
+        memberImageView.sd_setImage(with: URL(string: person.getImageLink()), placeholderImage: #imageLiteral(resourceName: "icon-user_circle"))
+        
+        fullNameLabel.text = person.fullName
+        companyLabel.text = person.company.name
+        positionLabel.text = person.position
     }
     
 }

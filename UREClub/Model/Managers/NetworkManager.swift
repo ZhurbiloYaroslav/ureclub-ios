@@ -24,7 +24,7 @@ class NetworkManager: NSObject {
     
     func retrieveInfoForPath(_ path: RequestAddress.ServerPath, completionHandler: @escaping (_ errorMessages: [NetworkError]?)->())  {
         
-        var errorMessages = [NetworkError]()
+        //var errorMessages = [NetworkError]()
         var headers: HTTPHeaders!
         var parameters: Parameters!
         var url: URL!
@@ -91,7 +91,7 @@ class NetworkManager: NSObject {
             
             case login
             case register
-            case people
+            case contacts
             case events
             case news
             case user
@@ -102,7 +102,7 @@ class NetworkManager: NSObject {
                 switch self {
                 case .login: resultAddress += "wp-json/jwt-auth/v1/token"
                 case .register: resultAddress += "wp-json/s4s_ureclub_rest/v1/register"
-                case .people: resultAddress += "wp-json/s4s_ureclub_rest/v1/people"
+                case .contacts: resultAddress += "wp-json/s4s_ureclub_rest/v1/contacts"
                 case .events: resultAddress += "wp-json/s4s_ureclub_rest/v1/events"
                 case .news: resultAddress += "wp-json/s4s_ureclub_rest/v1/news"
                 case .user: resultAddress += "wp-json/s4s_ureclub_rest/v1/user"

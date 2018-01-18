@@ -17,14 +17,13 @@ class CompanyCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        updateCell()
         collectionView.backgroundColor = Constants.Color.skyDark
         collectionView.setRadius(15, withWidth: 1, andColor: UIColor.clear)
     }
     
-    func updateCell() {
-        companyNameLabel.text = CurrentUser.company.companyName
-        companyImageView.image = UIImage(named: "logo-ureclub")
+    func updateCellWith(_ company: Company) {
+        companyNameLabel.text = company.name
+        companyImageView.sd_setImage(with: URL(string: company.getImageLink()), placeholderImage: #imageLiteral(resourceName: "icon-user_circle"))
     }
     
 }

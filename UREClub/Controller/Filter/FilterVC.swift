@@ -16,5 +16,11 @@ class FilterVC: UIViewController {
         self.setDefaultBackground()
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.setDefaultStyle()
+    }
 
 }

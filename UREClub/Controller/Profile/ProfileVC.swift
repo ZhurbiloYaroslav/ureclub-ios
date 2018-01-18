@@ -12,15 +12,20 @@ import SWRevealViewController
 class ProfileVC: UITableViewController {
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
+    @IBOutlet weak var notificationsButton: UIBarButtonItem!
+    public var publicContactToShow: Contact?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupLeftMenu()
         self.setDefaultBackground()
-        
+        swithPrivateAndPublicProfile()
         updateUILabelsWithLocalizedText()
         setupTableView()
+    }
+    
+    @objc func goBackToMembersList(sender: UIBarButtonItem) {
+        self.navigationController?.popViewController(animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,6 +41,7 @@ class ProfileVC: UITableViewController {
             
             menuButton.target = revealViewController()
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
+            menuButton.image = UIImage(named: "menu")
             
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
             
@@ -93,6 +99,7 @@ class ProfileVC: UITableViewController {
         case [0,0]:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileHeaderCell", for: indexPath) as? ProfileHeaderCell
                 else { return UITableViewCell() }
+            cell.updateCellWith(publicContactToShow)
             return cell
         case [1,0]:
             let cellData = FieldCell.CellData(type: .Email, icon: #imageLiteral(resourceName: "icon-gmail"), title: "Email:", value: CurrentUser.email)
@@ -103,11 +110,11 @@ class ProfileVC: UITableViewController {
             cell.configureWith(cellData)
             return cell
         case [1,2]:
-            let cellData = FieldCell.CellData(type: .Facebook, icon: #imageLiteral(resourceName: "icon-facebook-large"), title: "Facebook:", value: CurrentUser.facebook_link)
+            let cellData = FieldCell.CellData(type: .Facebook, icon: #imageLiteral(resourceName: "icon-facebook-large"), title: "Facebook", value: "")
             cell.configureWith(cellData)
             return cell
         case [1,3]:
-            let cellData = FieldCell.CellData(type: .LinkedIn, icon: #imageLiteral(resourceName: "icon-linkedin"), title: "LinkedIn:", value: CurrentUser.linkedIn_link)
+            let cellData = FieldCell.CellData(type: .LinkedIn, icon: #imageLiteral(resourceName: "icon-linkedin"), title: "LinkedIn", value: "")
             cell.configureWith(cellData)
             return cell
         case [2,0]:
@@ -165,4 +172,29 @@ class ProfileVC: UITableViewController {
         return 36
     }
     
+}
+
+// Methods that determine Public or Private Profile
+extension ProfileVC {
+    
+    func swithPrivateAndPublicProfile() {
+        
+        if publicContactToShow == nil {
+            showThisViewAsPrivateProfile()
+        } else {
+            showThisViewAsPublicProfile()
+        }
+    }
+    
+    func showThisViewAsPrivateProfile() {
+        setupLeftMenu()
+    }
+    
+    func showThisViewAsPublicProfile() {
+        menuButton.target = self
+        menuButton.action = #selector(goBackToMembersList(sender:))
+        menuButton.image = UIImage(named: "icon-back")
+        notificationsButton.tintColor = UIColor.clear
+        notificationsButton.isEnabled = false
+    }
 }

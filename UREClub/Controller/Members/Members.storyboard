@@ -26,17 +26,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ij6-Oj-dGQ">
-                                <rect key="frame" x="0.0" y="627" width="375" height="41"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="WKa-dL-YFZ"/>
-                                </constraints>
-                                <segments>
-                                    <segment title="People"/>
-                                    <segment title="Companies"/>
-                                </segments>
-                            </segmentedControl>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="107" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GPz-Q2-peJ">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="107" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GPz-Q2-peJ">
                                 <rect key="frame" x="0.0" y="64" width="375" height="563"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" red="0.82352941180000006" green="0.41960784309999999" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -147,22 +137,22 @@
                                                             </constraints>
                                                         </imageView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="aPT-ub-J5N">
-                                                            <rect key="frame" x="143" y="29.5" width="200" height="69"/>
+                                                            <rect key="frame" x="143" y="28" width="200" height="72"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AI5-b8-zrC" userLabel="Full name">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="200" height="21"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="200" height="22"/>
                                                                     <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="18"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Company" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ahr-Qe-NPc">
-                                                                    <rect key="frame" x="0.0" y="26" width="200" height="19"/>
+                                                                    <rect key="frame" x="0.0" y="27" width="200" height="20"/>
                                                                     <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="16"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Position" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QkN-ix-sF4" userLabel="Position">
-                                                                    <rect key="frame" x="0.0" y="50" width="200" height="19"/>
+                                                                    <rect key="frame" x="0.0" y="52" width="200" height="20"/>
                                                                     <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="16"/>
                                                                     <color key="textColor" red="0.0" green="0.63137254899999995" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
@@ -188,6 +178,19 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ij6-Oj-dGQ">
+                                <rect key="frame" x="0.0" y="627" width="375" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="WKa-dL-YFZ"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="People"/>
+                                    <segment title="Companies"/>
+                                </segments>
+                                <connections>
+                                    <action selector="memberTypeSwitcherChanged:" destination="xQc-ew-vjU" eventType="valueChanged" id="kz9-ui-pxy"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -210,6 +213,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="memberTypeSwitcher" destination="ij6-Oj-dGQ" id="RYC-S7-EjD"/>
                         <outlet property="menuButton" destination="tT6-Um-d1u" id="Xts-lz-7FZ"/>
                         <outlet property="tableView" destination="GPz-Q2-peJ" id="hPr-pZ-asn"/>
                         <segue destination="oR9-Q6-z9X" kind="show" identifier="ShowFilter" id="Z9D-Xz-7u1"/>
@@ -234,7 +238,7 @@
                 <viewControllerPlaceholder storyboardName="Profile" referencedIdentifier="ProfileVC" id="POc-qy-ccg" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bUW-Fa-paW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5044" y="2847"/>
+            <point key="canvasLocation" x="5044" y="2855"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="F3F-PR-3aP">
