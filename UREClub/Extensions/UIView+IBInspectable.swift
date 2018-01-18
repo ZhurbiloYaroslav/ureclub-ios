@@ -10,6 +10,12 @@ import UIKit
 
 extension UIView {
     
+    func setRadius(_ radius: CGFloat, withWidth width: CGFloat?, andColor color: UIColor?) {
+        layer.cornerRadius = radius
+        layer.borderWidth = width ?? 1
+        layer.borderColor = color?.cgColor
+    }
+    
     @IBInspectable var cornerRadius: CGFloat {
         set { layer.cornerRadius = newValue  }
         get { return layer.cornerRadius }
