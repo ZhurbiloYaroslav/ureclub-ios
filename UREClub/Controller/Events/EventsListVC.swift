@@ -16,18 +16,13 @@ class EventsListVC: UIViewController {
     @IBOutlet weak var eventsPeriodControl: EventsSegmCont!
     @IBOutlet weak var eventsListTypeControl: UISegmentedControl!
     
-    var arrayWithEvents = [Event]()
-    var networkManager = NetworkManager()
+    var eventsManager = EventsManager.shared
+    var eventsFilter = EventsFilter.shared
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.backgroundColor = Constants.Color.skyLight
-        self.setDefaultBackground()
-        
-        tableView.estimatedRowHeight = 200
-        tableView.rowHeight = UITableViewAutomaticDimension
-        
+        setupTableView()
         getArrayWithEvents()
         setDelegates()
         registerNibs()
@@ -35,20 +30,44 @@ class EventsListVC: UIViewController {
         updateUILabelsWithLocalizedText()
     }
     
+    func setupTableView() {
+        self.tableView.backgroundColor = Constants.Color.skyLight
+        self.setDefaultBackground()
+        
+        tableView.estimatedRowHeight = 200
+        tableView.rowHeight = UITableViewAutomaticDimension
+    }
+    
+    @IBAction func eventViewTypeSwitcherChanged(_ sender: UISegmentedControl) {
+        eventsFilter.setEventViewTypeFrom(value: sender.selectedSegmentIndex)
+        reloadCurrentView()
+    }
+    
+    @IBAction func eventPeriodSwitcherChanged(_ sender: UISegmentedControl) {
+        eventsFilter.setEventPeriodFrom(value: sender.selectedSegmentIndex)
+        reloadCurrentView()
+    }
+    
+    func reloadCurrentView() {
+        tableView.reloadData()
+    }
+    
     func getArrayWithEvents() {
-        networkManager.retrieveInfoForPath(.contacts) { (errors) in
-            print("---Errors in events", errors)
+        eventsManager.getArrayWithEvents { (errors) in
+            if errors == nil {
+                self.tableView.reloadData()
+            }
         }
     }
     
     func setDelegates() {
         tableView.delegate = self
         tableView.dataSource = self
-        networkManager.delegate = self
     }
     
     func registerNibs() {
         tableView.register(UINib(nibName: "ArticleCell", bundle: nil), forCellReuseIdentifier: "ArticleCell")
+        tableView.register(UINib(nibName: "CalendarCell", bundle: nil), forCellReuseIdentifier: "CalendarCell")
     }
     
     func setupLeftMenu() {
@@ -83,31 +102,37 @@ class EventsListVC: UIViewController {
 }
 
 extension EventsListVC: UITableViewDelegate, UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return eventsManager.getNumberOfSections()
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if arrayWithEvents.count > 0 {
-            return arrayWithEvents.count
-        } else {
-            return 0
-        }
+        return eventsManager.getNumberOfEvents()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ArticleCell", for: indexPath) as? ArticleCell
-            else { return UITableViewCell() }
-        let event = arrayWithEvents[indexPath.row]
-        cell.updateCellWith(event)
-        return cell
+        
+        let eventViewType = eventsFilter.getEventViewTypeFrom()
+        switch eventViewType {
+        case .Calendar:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "CalendarCell", for: indexPath) as? CalendarCell
+                else { return UITableViewCell() }
+            let event = eventsManager.getEventFor(indexPath)
+            cell.updateCellWith(event)
+            return cell
+            
+        case .List:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "ArticleCell", for: indexPath) as? ArticleCell
+                else { return UITableViewCell() }
+            let event = eventsManager.getEventFor(indexPath)
+            cell.updateCellWith(event)
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.performSegue(withIdentifier: "ShowEventDesc", sender: indexPath)
-    }
-}
-
-extension EventsListVC: NetworkManagerDelegate {
-    func didLoad(arrayWithEvents: [Event]) {
-        self.arrayWithEvents = arrayWithEvents
-        tableView.reloadData()
     }
 }
 
@@ -124,7 +149,7 @@ extension EventsListVC {
                 return
             }
             if let indexPath = sender as? IndexPath {
-                eventDescVC.currentEvent = arrayWithEvents[indexPath.row]
+                eventDescVC.currentEvent = eventsManager.getEventFor(indexPath)
             }
         case "ShowFilter":
             break

@@ -168,9 +168,7 @@ extension NetworkManager {
     
     private func parseLoginResultDataWith(_ response: DataResponse<Any>) -> [String]? {
         
-        print("response", response)
         let userDataDict = makeDictionaryFrom(response)
-        print("userDataDict", userDataDict)
         
         CurrentUser.getFirstAndLastNameFromString(userDataDict["user_display_name"] as? String ?? "")
         

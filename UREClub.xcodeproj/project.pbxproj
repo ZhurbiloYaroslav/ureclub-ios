@@ -88,6 +88,10 @@
 		C47FA74A1FE1D75C003D393E /* Members.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C47FA7491FE1D75C003D393E /* Members.storyboard */; };
 		C47FA74C1FE1D795003D393E /* Contacts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C47FA74B1FE1D795003D393E /* Contacts.storyboard */; };
 		C47FA74E1FE1D7CE003D393E /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C47FA74D1FE1D7CE003D393E /* Settings.storyboard */; };
+		C48D0DA52012817E009347DE /* EventsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48D0DA42012817E009347DE /* EventsManager.swift */; };
+		C48D0DA72012889F009347DE /* EventsFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48D0DA62012889F009347DE /* EventsFilter.swift */; };
+		C48D0DAB20129C79009347DE /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48D0DA920129C79009347DE /* CalendarCell.swift */; };
+		C48D0DAC20129C79009347DE /* CalendarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C48D0DAA20129C79009347DE /* CalendarCell.xib */; };
 		C4959EE1200F1DDB0063D436 /* FilterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4959EE0200F1DDB0063D436 /* FilterManager.swift */; };
 		C4959EE3200F20AC0063D436 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4959EE2200F20AC0063D436 /* Contact.swift */; };
 		C4959EE9200F292F0063D436 /* LogOutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4959EE7200F292F0063D436 /* LogOutCell.swift */; };
@@ -224,6 +228,10 @@
 		C47FA7491FE1D75C003D393E /* Members.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Members.storyboard; sourceTree = "<group>"; };
 		C47FA74B1FE1D795003D393E /* Contacts.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Contacts.storyboard; sourceTree = "<group>"; };
 		C47FA74D1FE1D7CE003D393E /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		C48D0DA42012817E009347DE /* EventsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsManager.swift; sourceTree = "<group>"; };
+		C48D0DA62012889F009347DE /* EventsFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsFilter.swift; sourceTree = "<group>"; };
+		C48D0DA920129C79009347DE /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
+		C48D0DAA20129C79009347DE /* CalendarCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarCell.xib; sourceTree = "<group>"; };
 		C4959EE0200F1DDB0063D436 /* FilterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterManager.swift; sourceTree = "<group>"; };
 		C4959EE2200F20AC0063D436 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		C4959EE7200F292F0063D436 /* LogOutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutCell.swift; sourceTree = "<group>"; };
@@ -354,8 +362,8 @@
 		C41CA37A1FDBEB0700AB0D2D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				C4E521FA1FE90BB300C3DE2E /* Filter */,
 				C41CA3841FDBEBAC00AB0D2D /* Auth */,
+				C4E521FA1FE90BB300C3DE2E /* Filter */,
 				C4C203DD1FE27EF700272679 /* NavBar */,
 				C47FA73A1FE1D39E003D393E /* Menu */,
 				C47FA73B1FE1D3AC003D393E /* Profile */,
@@ -363,9 +371,9 @@
 				C47FA73D1FE1D3B8003D393E /* News */,
 				C47FA7421FE1D468003D393E /* Settings */,
 				C47FA73E1FE1D3C0003D393E /* Members */,
-				C47FA7401FE1D3EA003D393E /* Codex */,
 				C47FA7411FE1D410003D393E /* Contacts */,
 				C47FA73F1FE1D3DB003D393E /* Main */,
+				C47FA7401FE1D3EA003D393E /* Codex */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -592,6 +600,8 @@
 			children = (
 				C4662ABA1FEAA501001848C8 /* Event.swift */,
 				C4662ABC1FEAA57E001848C8 /* EventDate.swift */,
+				C48D0DA42012817E009347DE /* EventsManager.swift */,
+				C48D0DA62012889F009347DE /* EventsFilter.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -600,6 +610,7 @@
 			isa = PBXGroup;
 			children = (
 				C4E522011FE90EC700C3DE2E /* EventsSegmCont.swift */,
+				C48D0DAD20129C81009347DE /* CalendarCell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -701,6 +712,15 @@
 				C4AA3CEB1FF6672A008B00B4 /* Model */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		C48D0DAD20129C81009347DE /* CalendarCell */ = {
+			isa = PBXGroup;
+			children = (
+				C48D0DA920129C79009347DE /* CalendarCell.swift */,
+				C48D0DAA20129C79009347DE /* CalendarCell.xib */,
+			);
+			path = CalendarCell;
 			sourceTree = "<group>";
 		};
 		C4959EDF200F1DC20063D436 /* Model */ = {
@@ -977,6 +997,7 @@
 				C4662AD31FEAAE38001848C8 /* Montserrat-MediumItalic.ttf in Resources */,
 				C430EC0A200E30F2001E818B /* ArticleStyles.css in Resources */,
 				C47FA74A1FE1D75C003D393E /* Members.storyboard in Resources */,
+				C48D0DAC20129C79009347DE /* CalendarCell.xib in Resources */,
 				C47FA74E1FE1D7CE003D393E /* Settings.storyboard in Resources */,
 				C4662AD91FEAAE38001848C8 /* Montserrat-LightItalic.ttf in Resources */,
 				C463F87D1FF50710001FBBC1 /* Localizable.strings in Resources */,
@@ -1070,6 +1091,7 @@
 				C463F88C1FF52DC5001FBBC1 /* CurrentUserCompany.swift in Sources */,
 				C4C203E71FE288B000272679 /* UIViewController+Style.swift in Sources */,
 				C41CA36E1FDBE3F000AB0D2D /* UREClub.xcdatamodeld in Sources */,
+				C48D0DA52012817E009347DE /* EventsManager.swift in Sources */,
 				C4C203DA1FE2669600272679 /* UIView+IBInspectable.swift in Sources */,
 				C41CA38E1FDBFC7100AB0D2D /* String+localized.swift in Sources */,
 				C430EBFC200E1265001E818B /* ImageSlideshowItem.swift in Sources */,
@@ -1090,6 +1112,7 @@
 				C4FA7D2D1FF7712B00F03846 /* TableSectionNumber.swift in Sources */,
 				C4D8D32D1FF2BC7F0003DA36 /* Article.swift in Sources */,
 				C4AA29AE2005FA3F009FE92C /* Alert.swift in Sources */,
+				C48D0DA72012889F009347DE /* EventsFilter.swift in Sources */,
 				C4B54B341FEF17C9008D531E /* NewsCell.swift in Sources */,
 				C4E521F81FE9027B00C3DE2E /* UISegmentedControl+Style.swift in Sources */,
 				C4662AE81FEAC8EC001848C8 /* EventDescVC.swift in Sources */,
@@ -1145,6 +1168,7 @@
 				C41CA3941FDBFCDB00AB0D2D /* Languages.swift in Sources */,
 				C40C84982002BF980011AF01 /* ChangeLanguageCell.swift in Sources */,
 				C4B54B2F1FEEFA3C008D531E /* CurrentUser.swift in Sources */,
+				C48D0DAB20129C79009347DE /* CalendarCell.swift in Sources */,
 				C44574621FDC192C004A5305 /* SettingsVC.swift in Sources */,
 				C430EBFF200E1265001E818B /* UIImageView+Tools.swift in Sources */,
 			);

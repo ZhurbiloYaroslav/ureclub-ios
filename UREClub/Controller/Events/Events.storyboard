@@ -37,6 +37,9 @@
                                     <segment title="Upcoming"/>
                                     <segment title="Past"/>
                                 </segments>
+                                <connections>
+                                    <action selector="eventPeriodSwitcherChanged:" destination="PXF-jZ-SOU" eventType="valueChanged" id="loM-la-2oI"/>
+                                </connections>
                             </segmentedControl>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="STU-SR-5Jf">
                                 <rect key="frame" x="0.0" y="94" width="375" height="50"/>
@@ -91,6 +94,9 @@
                                     <segment title="Calendar"/>
                                     <segment title="List"/>
                                 </segments>
+                                <connections>
+                                    <action selector="eventViewTypeSwitcherChanged:" destination="PXF-jZ-SOU" eventType="valueChanged" id="iee-q0-3p7"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

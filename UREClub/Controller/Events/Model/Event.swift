@@ -24,18 +24,24 @@ class Event: Article {
         self.init(id: "0", title: "", textContent: "", htmlContent: "", categories: [Category](), place: Place(), date: EventDate())
     }
     
+    func getDayFromDate() -> String {
+        return "25"
+    }
+    
     convenience init(withResult resultDictionary: [String: Any]) {
                 
-        let id = resultDictionary["event_id"] as? String ?? "0"
-        let title = resultDictionary["event_name"] as? String  ?? ""
-        let date_beg = resultDictionary["event_start_date"] as? String  ?? ""
-        let date_end = resultDictionary["event_start_date"] as? String  ?? ""
-        let htmlContent = resultDictionary["event_content"] as? String  ?? ""
+        let id = resultDictionary["id"] as? String ?? "0"
+        let title = resultDictionary["title"] as? String  ?? ""
+        let date_beg = resultDictionary["dateStart"] as? String  ?? ""
+        let date_end = resultDictionary["dateStart"] as? String  ?? ""
+        let htmlContent = resultDictionary["content"] as? String  ?? ""
         let textContent = htmlContent
-        let location_id = resultDictionary["location_id"] as? String  ?? ""
-        let location_name = resultDictionary["location_name"] as? String  ?? ""
-        let location_city = resultDictionary["location_city"] as? String  ?? "Kiev"
-        let location_address = resultDictionary["location_address"] as? String  ?? "Default address"
+        
+        let location = resultDictionary["location"] as? [String: Any] ?? [String: Any]()
+        let location_id = location["id"] as? String  ?? ""
+        let location_name = location["name"] as? String  ?? ""
+        let location_city = location["city"] as? String  ?? "Kiev"
+        let location_address = location["address"] as? String  ?? "Default address"
         
         let categories = [Category]()
         let place = Place(id: location_id, title: location_name, city: location_city, address: location_address)
