@@ -8,12 +8,16 @@
 
 import Foundation
 
-class EventsFilter {
+class EventsFilter: Filter {
     
     public static var shared = EventsFilter()
     
     private var currentEventPeriod = EventPeriod.Upcoming
     private var currentEventViewType = EventViewType.Calendar
+    
+    init() {
+        super.init(withType: .events)
+    }
     
 }
 

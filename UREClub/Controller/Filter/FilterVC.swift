@@ -12,7 +12,7 @@ class FilterVC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var filterManager: FilterManager!
+    var filterManager = FilterManager(withFilter: Filter(withType: .events))
     
     override func viewDidLoad() {
         super.viewDidLoad()

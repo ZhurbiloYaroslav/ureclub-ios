@@ -103,6 +103,9 @@
 		C4B54B311FEF01AC008D531E /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B54B301FEF01AC008D531E /* News.swift */; };
 		C4B54B341FEF17C9008D531E /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B54B331FEF17C9008D531E /* NewsCell.swift */; };
 		C4B54B361FEF2A3B008D531E /* Array+uniq.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B54B351FEF2A3B008D531E /* Array+uniq.swift */; };
+		C4B8A5B72013434400645E2E /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B8A5B62013434400645E2E /* Filter.swift */; };
+		C4B8A5BA201356F100645E2E /* NewsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B8A5B8201356F000645E2E /* NewsManager.swift */; };
+		C4B8A5BF2013586900645E2E /* FilterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B8A5BE2013586900645E2E /* FilterData.swift */; };
 		C4C203DA1FE2669600272679 /* UIView+IBInspectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C203D91FE2669600272679 /* UIView+IBInspectable.swift */; };
 		C4C203DC1FE266C100272679 /* UIButton+IBInspectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C203DB1FE266C100272679 /* UIButton+IBInspectable.swift */; };
 		C4C203DF1FE27F2B00272679 /* NavBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C203DE1FE27F2B00272679 /* NavBarVC.swift */; };
@@ -243,6 +246,9 @@
 		C4B54B301FEF01AC008D531E /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		C4B54B331FEF17C9008D531E /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		C4B54B351FEF2A3B008D531E /* Array+uniq.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+uniq.swift"; sourceTree = "<group>"; };
+		C4B8A5B62013434400645E2E /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
+		C4B8A5B8201356F000645E2E /* NewsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsManager.swift; sourceTree = "<group>"; };
+		C4B8A5BE2013586900645E2E /* FilterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterData.swift; sourceTree = "<group>"; };
 		C4C203D91FE2669600272679 /* UIView+IBInspectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+IBInspectable.swift"; sourceTree = "<group>"; };
 		C4C203DB1FE266C100272679 /* UIButton+IBInspectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+IBInspectable.swift"; sourceTree = "<group>"; };
 		C4C203DE1FE27F2B00272679 /* NavBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarVC.swift; sourceTree = "<group>"; };
@@ -727,6 +733,8 @@
 			isa = PBXGroup;
 			children = (
 				C4959EE0200F1DDB0063D436 /* FilterManager.swift */,
+				C4B8A5B62013434400645E2E /* Filter.swift */,
+				C4B8A5BE2013586900645E2E /* FilterData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -821,6 +829,7 @@
 			isa = PBXGroup;
 			children = (
 				C4B54B301FEF01AC008D531E /* News.swift */,
+				C4B8A5B8201356F000645E2E /* NewsManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1137,6 +1146,7 @@
 				C4C203EF1FE2A5F700272679 /* Codex.swift in Sources */,
 				C4FA7D281FF7616300F03846 /* SettingsCells.swift in Sources */,
 				C435FD1220109D5200D90CE8 /* Company.swift in Sources */,
+				C4B8A5B72013434400645E2E /* Filter.swift in Sources */,
 				C41CA3901FDBFC9B00AB0D2D /* UserDefaultsManager.swift in Sources */,
 				C44574681FDC1D18004A5305 /* MenuManager.swift in Sources */,
 				C430EBFA200E1265001E818B /* FullScreenSlideshowViewController.swift in Sources */,
@@ -1156,10 +1166,12 @@
 				C4F62CBC200D1BE90082DFBC /* Category.swift in Sources */,
 				C435FD0F20109ABC00D90CE8 /* Person.swift in Sources */,
 				C4C203F41FE2ADD100272679 /* CodexCell.swift in Sources */,
+				C4B8A5BF2013586900645E2E /* FilterData.swift in Sources */,
 				C4E521FE1FE90BFE00C3DE2E /* FilterVC.swift in Sources */,
 				C41CA3961FDBFDBD00AB0D2D /* Browser.swift in Sources */,
 				C430EBFE200E1265001E818B /* UIImage+AspectFit.swift in Sources */,
 				C41CA3921FDBFCC300AB0D2D /* Constants.swift in Sources */,
+				C4B8A5BA201356F100645E2E /* NewsManager.swift in Sources */,
 				C4C203ED1FE2959300272679 /* Menu.swift in Sources */,
 				C4AA29AC2005FA29009FE92C /* Validator.swift in Sources */,
 				C40C84922002B10D0011AF01 /* ChangePasswordCell.swift in Sources */,

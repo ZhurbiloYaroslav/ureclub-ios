@@ -23,6 +23,8 @@ class NewsListVC: UIViewController {
     
     var arrayWithNews = [News]()
     var networkManager = NetworkManager()
+    
+    var newsFilter = Filter(withType: .news)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -118,7 +120,7 @@ extension NewsListVC {
             }
         case "ShowFilter":
             guard let filterVC = segue.destination as? FilterVC else { return }
-            filterVC.filterManager = FilterManager(withType: .event)
+            filterVC.filterManager.currentFilter = newsFilter
         default:
             print("Was used undefined segue")
             return

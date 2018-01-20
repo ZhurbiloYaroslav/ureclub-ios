@@ -17,7 +17,8 @@ class MembersVC: UIViewController {
     fileprivate var tableViewCellCoordinator: [Int:IndexPath] = [:]
     
     var membersManager = MembersManager()
-    var currentMemberType = MembersManager.MemberType.Person
+    var membersFilter = Filter(withType: .members)
+    var currentMemberViewType = MembersManager.MemberType.Person
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
 
@@ -81,9 +82,9 @@ class MembersVC: UIViewController {
 
         switch sender.selectedSegmentIndex {
         case 1:
-            currentMemberType = .Company
+            currentMemberViewType = .Company
         default:
-            currentMemberType = .Person
+            currentMemberViewType = .Person
         }
         tableView.reloadData()
     }
@@ -93,12 +94,12 @@ class MembersVC: UIViewController {
 extension MembersVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return membersManager.getNumberOfTableCellsFor(currentMemberType)
+        return membersManager.getNumberOfTableCellsFor(currentMemberViewType)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        switch currentMemberType {
+        switch currentMemberViewType {
         case .Company:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "CompanyCell", for: indexPath) as? CompanyCell
                 else { return UITableViewCell() }
@@ -147,7 +148,7 @@ extension MembersVC: UITableViewDelegate, UITableViewDataSource {
             destination.publicContactToShow = publicContactToShow
         case "ShowFilter":
             guard let filterVC = segue.destination as? FilterVC else { return }
-            filterVC.filterManager = FilterManager(withType: .members)
+            filterVC.filterManager.currentFilter = membersFilter
         default:
             print("Was used undefined segue")
         }
