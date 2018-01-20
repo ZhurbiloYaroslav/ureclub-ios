@@ -19,7 +19,7 @@ class MembersManager {
     
     var arrayWithPersons: [Person] {
         return [
-            Person(firstName: "Olga", lastName: "Sokolova", company: getCompanyWithID("1"), position: "Director", dateSince: "01.01.2013",
+            Person(firstName: "Olga", lastName: "Solovei", company: getCompanyWithID("1"), position: "Director", dateSince: "01.01.2013",
                    id: "1", type: "member",
                    imageLink: "https://media.licdn.com/media/AAEAAQAAAAAAAAMIAAAAJDg3NzU5NjA5LWVmMmMtNDE1NC1hNzNhLTI2NzkzZTgyYjZlMA.jpg"),
             Person(firstName: "Dima", lastName: "Kuznets", company: getCompanyWithID("1"), position: "Head of Development", dateSince: "01.01.2014",

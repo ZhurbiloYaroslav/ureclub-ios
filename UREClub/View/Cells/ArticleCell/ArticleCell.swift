@@ -43,7 +43,7 @@ class ArticleCell: UITableViewCell {
         
         if let eventEntity = article as? Event {
             
-            dateLabel.text = eventEntity.date.getDate()
+            dateLabel.text = eventEntity.date.getStringWithDate()
             timeLabel.text = eventEntity.date.getTimePeriod()
             addressLabel.text = eventEntity.place.getAddressAndCity()
             

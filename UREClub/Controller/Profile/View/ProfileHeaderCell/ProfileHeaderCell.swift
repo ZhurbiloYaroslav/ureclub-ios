@@ -26,6 +26,7 @@ class ProfileHeaderCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        profileImage.setRadius(60, withWidth: 2, andColor: #colorLiteral(red: 1, green: 0.5781051517, blue: 0, alpha: 1))
     }
     
     func updateCellWith(_ contact: GenericContact?) {
@@ -43,8 +44,5 @@ class ProfileHeaderCell: UITableViewCell {
             positionLabel.text = CurrentUser.company.position
             periodLabel.text = CurrentUser.company.date
         }
-        
-        
     }
-    
 }

@@ -19,7 +19,7 @@ class CalendarCell: UITableViewCell {
     }
     
     func updateCellWith(_ event: Event) {
-        dayLabel.text = event.getDayFromDate()
+        dayLabel.text = event.date.getDayFromDate()
         titleLabel.text = event.title
     }
     

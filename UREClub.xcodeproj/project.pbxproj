@@ -106,6 +106,8 @@
 		C4B8A5B72013434400645E2E /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B8A5B62013434400645E2E /* Filter.swift */; };
 		C4B8A5BA201356F100645E2E /* NewsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B8A5B8201356F000645E2E /* NewsManager.swift */; };
 		C4B8A5BF2013586900645E2E /* FilterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B8A5BE2013586900645E2E /* FilterData.swift */; };
+		C4B8A5C32013BA3700645E2E /* ContactsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B8A5C12013BA3700645E2E /* ContactsCell.swift */; };
+		C4B8A5C42013BA3700645E2E /* ContactsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4B8A5C22013BA3700645E2E /* ContactsCell.xib */; };
 		C4C203DA1FE2669600272679 /* UIView+IBInspectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C203D91FE2669600272679 /* UIView+IBInspectable.swift */; };
 		C4C203DC1FE266C100272679 /* UIButton+IBInspectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C203DB1FE266C100272679 /* UIButton+IBInspectable.swift */; };
 		C4C203DF1FE27F2B00272679 /* NavBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C203DE1FE27F2B00272679 /* NavBarVC.swift */; };
@@ -249,6 +251,8 @@
 		C4B8A5B62013434400645E2E /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		C4B8A5B8201356F000645E2E /* NewsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsManager.swift; sourceTree = "<group>"; };
 		C4B8A5BE2013586900645E2E /* FilterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterData.swift; sourceTree = "<group>"; };
+		C4B8A5C12013BA3700645E2E /* ContactsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsCell.swift; sourceTree = "<group>"; };
+		C4B8A5C22013BA3700645E2E /* ContactsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactsCell.xib; sourceTree = "<group>"; };
 		C4C203D91FE2669600272679 /* UIView+IBInspectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+IBInspectable.swift"; sourceTree = "<group>"; };
 		C4C203DB1FE266C100272679 /* UIButton+IBInspectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+IBInspectable.swift"; sourceTree = "<group>"; };
 		C4C203DE1FE27F2B00272679 /* NavBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarVC.swift; sourceTree = "<group>"; };
@@ -705,6 +709,7 @@
 			children = (
 				C47FA74B1FE1D795003D393E /* Contacts.storyboard */,
 				C44574631FDC1AED004A5305 /* ContactsVC.swift */,
+				C4B8A5C02013BA1C00645E2E /* View */,
 			);
 			path = Contacts;
 			sourceTree = "<group>";
@@ -805,6 +810,15 @@
 			children = (
 				C4B54B331FEF17C9008D531E /* NewsCell.swift */,
 				C4D8D32A1FF2351A0003DA36 /* NewsCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C4B8A5C02013BA1C00645E2E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C4B8A5C12013BA3700645E2E /* ContactsCell.swift */,
+				C4B8A5C22013BA3700645E2E /* ContactsCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1019,6 +1033,7 @@
 				C47FA74C1FE1D795003D393E /* Contacts.storyboard in Resources */,
 				C4662ADF1FEAAE38001848C8 /* Montserrat-ThinItalic.ttf in Resources */,
 				C4C203E91FE2938500272679 /* Main.storyboard in Resources */,
+				C4B8A5C42013BA3700645E2E /* ContactsCell.xib in Resources */,
 				C4662AE01FEAAE38001848C8 /* Montserrat-BoldItalic.ttf in Resources */,
 				C4D8D3311FF2CC000003DA36 /* ArticleCell.xib in Resources */,
 				C430EBF7200E1265001E818B /* ic_cross_white@3x.png in Resources */,
@@ -1165,6 +1180,7 @@
 				C4FA7D2A1FF7654100F03846 /* GenericCell.swift in Sources */,
 				C4F62CBC200D1BE90082DFBC /* Category.swift in Sources */,
 				C435FD0F20109ABC00D90CE8 /* Person.swift in Sources */,
+				C4B8A5C32013BA3700645E2E /* ContactsCell.swift in Sources */,
 				C4C203F41FE2ADD100272679 /* CodexCell.swift in Sources */,
 				C4B8A5BF2013586900645E2E /* FilterData.swift in Sources */,
 				C4E521FE1FE90BFE00C3DE2E /* FilterVC.swift in Sources */,

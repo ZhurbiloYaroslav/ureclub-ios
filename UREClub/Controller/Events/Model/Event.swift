@@ -24,16 +24,12 @@ class Event: Article {
         self.init(id: "0", title: "", textContent: "", htmlContent: "", categories: [Category](), place: Place(), date: EventDate())
     }
     
-    func getDayFromDate() -> String {
-        return "25"
-    }
-    
     convenience init(withResult resultDictionary: [String: Any]) {
                 
         let id = resultDictionary["id"] as? String ?? "0"
         let title = resultDictionary["title"] as? String  ?? ""
-        let date_beg = resultDictionary["dateStart"] as? String  ?? ""
-        let date_end = resultDictionary["dateStart"] as? String  ?? ""
+        let date_beg = resultDictionary["date"] as? String  ?? ""
+        let date_end = resultDictionary["date"] as? String  ?? ""
         let htmlContent = resultDictionary["content"] as? String  ?? ""
         let textContent = htmlContent
         
@@ -50,11 +46,4 @@ class Event: Article {
         self.init(id: id, title: title, textContent: textContent, htmlContent: htmlContent, categories: categories, place: place, date: date)
     }
 }
-
-//TODO: Delete this code
-//extension Event: FilterItem {
-//    func getItem() -> Self {
-//        return self
-//    }
-//}
 

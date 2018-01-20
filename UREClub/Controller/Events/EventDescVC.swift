@@ -82,7 +82,7 @@ class EventDescVC: UIViewController {
         }
         
         titleLabel.text = event.title
-        dateLabel.text = event.date.getDate()
+        dateLabel.text = event.date.getStringWithDate()
         timePeriodLabel.text = event.date.getTimePeriod()
         addressLabel.text = event.place.getAddressAndCity()
                 

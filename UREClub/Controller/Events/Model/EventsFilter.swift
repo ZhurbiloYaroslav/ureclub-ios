@@ -12,8 +12,8 @@ class EventsFilter: Filter {
     
     public static var shared = EventsFilter()
     
-    private var currentEventPeriod = EventPeriod.Upcoming
-    private var currentEventViewType = EventViewType.Calendar
+    private var currentEventPeriod = EventPeriod.upcoming
+    private var currentEventViewType = EventViewType.calendar
     
     init() {
         super.init(withType: .events)
@@ -28,20 +28,20 @@ extension EventsFilter {
         currentEventPeriod = EventPeriod.getTypeForInt(value)
     }
     
-    func getEventPeriodFrom() -> EventPeriod {
+    func getEventPeriod() -> EventPeriod {
         return currentEventPeriod
     }
     
     enum EventPeriod {
-        case Upcoming
-        case Past
+        case upcoming
+        case past
         
         static func getTypeForInt(_ value: Int) -> EventPeriod {
             switch value {
             case 0:
-                return .Upcoming
+                return .upcoming
             default:
-                return .Past
+                return .past
             }
         }
     }
@@ -54,20 +54,20 @@ extension EventsFilter {
         currentEventViewType = EventViewType.getTypeForInt(value)
     }
     
-    func getEventViewTypeFrom() -> EventViewType {
+    func getEventViewType() -> EventViewType {
         return currentEventViewType
     }
     
     enum EventViewType {
-        case Calendar
-        case List
+        case calendar
+        case list
         
         static func getTypeForInt(_ value: Int) -> EventViewType {
             switch value {
             case 0:
-                return .Calendar
+                return .calendar
             default:
-                return .List
+                return .list
             }
         }
     }

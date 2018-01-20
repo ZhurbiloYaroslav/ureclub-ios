@@ -17,7 +17,6 @@ class EventsListVC: UIViewController {
     @IBOutlet weak var eventsListTypeControl: UISegmentedControl!
     
     var eventsManager = EventsManager.shared
-    var eventsFilter = EventsFilter.shared
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,12 +38,12 @@ class EventsListVC: UIViewController {
     }
     
     @IBAction func eventViewTypeSwitcherChanged(_ sender: UISegmentedControl) {
-        eventsFilter.setEventViewTypeFrom(value: sender.selectedSegmentIndex)
+        eventsManager.eventsFilter.setEventViewTypeFrom(value: sender.selectedSegmentIndex)
         reloadCurrentView()
     }
     
     @IBAction func eventPeriodSwitcherChanged(_ sender: UISegmentedControl) {
-        eventsFilter.setEventPeriodFrom(value: sender.selectedSegmentIndex)
+        eventsManager.eventsFilter.setEventPeriodFrom(value: sender.selectedSegmentIndex)
         reloadCurrentView()
     }
     
@@ -108,21 +107,22 @@ extension EventsListVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return eventsManager.getNumberOfEvents()
+        return eventsManager.getNumberOfEventsIn(section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let eventViewType = eventsFilter.getEventViewTypeFrom()
+        let eventViewType = eventsManager.eventsFilter.getEventViewType()
         switch eventViewType {
-        case .Calendar:
+        case .calendar:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "CalendarCell", for: indexPath) as? CalendarCell
                 else { return UITableViewCell() }
             let event = eventsManager.getEventFor(indexPath)
             cell.updateCellWith(event)
+            
             return cell
             
-        case .List:
+        case .list:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "ArticleCell", for: indexPath) as? ArticleCell
                 else { return UITableViewCell() }
             let event = eventsManager.getEventFor(indexPath)
@@ -133,6 +133,10 @@ extension EventsListVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.performSegue(withIdentifier: "ShowEventDesc", sender: indexPath)
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return eventsManager.getHeaderTitleFor(section)
     }
 }
 
@@ -153,7 +157,7 @@ extension EventsListVC {
             }
         case "ShowFilter":
             guard let filterVC = segue.destination as? FilterVC else { return }
-            filterVC.filterManager.currentFilter = eventsFilter
+            filterVC.filterManager.currentFilter = eventsManager.eventsFilter
         default:
             print("Was used undefined segue")
             return
