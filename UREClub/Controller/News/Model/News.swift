@@ -43,3 +43,11 @@ class News: Article {
         self.init(id: id, title: title, textContent: textContent, htmlContent: htmlContent, categories: categories, date: dateString)
     }
 }
+
+//TODO: Delete this code
+//extension News: FilterItem {
+//    func getItem() -> Self {
+//        return self
+//    }
+//}
+

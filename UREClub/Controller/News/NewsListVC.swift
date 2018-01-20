@@ -112,15 +112,13 @@ extension NewsListVC {
         
         switch segueID {
         case "ShowNewsDesc":
-            guard let newsDescVC = segue.destination as? NewsDescVC else {
-                return
-            }
+            guard let newsDescVC = segue.destination as? NewsDescVC else { return }
             if let indexPath = sender as? IndexPath {
                 newsDescVC.currentNews = arrayWithNews[indexPath.row]
             }
-            
         case "ShowFilter":
-            break
+            guard let filterVC = segue.destination as? FilterVC else { return }
+            filterVC.filterManager = FilterManager(withType: .event)
         default:
             print("Was used undefined segue")
             return

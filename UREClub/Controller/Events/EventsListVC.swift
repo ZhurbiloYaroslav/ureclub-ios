@@ -152,7 +152,8 @@ extension EventsListVC {
                 eventDescVC.currentEvent = eventsManager.getEventFor(indexPath)
             }
         case "ShowFilter":
-            break
+            guard let filterVC = segue.destination as? FilterVC else { return }
+            filterVC.filterManager = FilterManager(withType: .event)
         default:
             print("Was used undefined segue")
             return

@@ -50,3 +50,11 @@ class Event: Article {
         self.init(id: id, title: title, textContent: textContent, htmlContent: htmlContent, categories: categories, place: place, date: date)
     }
 }
+
+//TODO: Delete this code
+//extension Event: FilterItem {
+//    func getItem() -> Self {
+//        return self
+//    }
+//}
+

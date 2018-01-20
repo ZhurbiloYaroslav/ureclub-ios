@@ -136,17 +136,20 @@ extension MembersVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         guard let segueID = segue.identifier else { return }
+        
         switch segueID {
-            
         case "ShowProfile":
             guard let indexPath = sender as? IndexPath else { return }
             let publicContactToShow = membersManager.getPersonFor(indexPath)
             guard let destination = segue.destination as? ProfileVC else { return }
             destination.publicContactToShow = publicContactToShow
-            
+        case "ShowFilter":
+            guard let filterVC = segue.destination as? FilterVC else { return }
+            filterVC.filterManager = FilterManager(withType: .members)
         default:
-            break
+            print("Was used undefined segue")
         }
     }
 }

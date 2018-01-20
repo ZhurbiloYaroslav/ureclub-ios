@@ -8,17 +8,6 @@
 
 import Foundation
 
-protocol GenericContact {
-    /// Returns generic cell for using in collections
-    func getContact() -> Self
-}
-
-extension Contact: GenericContact {
-    func getContact() -> Self {
-        return self
-    }
-}
-
 class Contact {
     
     //TODO: Implement Array With Categories
@@ -33,7 +22,7 @@ class Contact {
     
     init(id: String, imageLink: String, type: String, phone: String?, email: String?, priority: String?) {
         self.id = id
-        self.imageLink = imageLink ?? ""
+        self.imageLink = imageLink
         self.phone = phone ?? ""
         self.email = email ?? ""
         self.priority = priority ?? "9"
@@ -80,4 +69,23 @@ extension Contact {
         return type
     }
     
+}
+
+//TODO: Delete this code
+//extension Event: FilterItem {
+//    func getItem() -> Self {
+//        return self
+//    }
+//}
+
+
+protocol GenericContact {
+    /// Returns generic cell for using in collections
+    func getContact() -> Self
+}
+
+extension Contact: GenericContact {
+    func getContact() -> Self {
+        return self
+    }
 }
