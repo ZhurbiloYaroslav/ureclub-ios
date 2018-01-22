@@ -9,6 +9,12 @@
 import UIKit
 import SWRevealViewController
 
+extension MembersVC: ContactsDataDelegate {
+    func didReceiveContacts() {
+        self.tableView.reloadData()
+    }
+}
+
 class MembersVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
@@ -16,15 +22,15 @@ class MembersVC: UIViewController {
     
     fileprivate var tableViewCellCoordinator: [Int:IndexPath] = [:]
     
-    var membersManager = MembersManager()
-    var membersFilter = Filter(withType: .members)
-    var currentMemberViewType = MembersManager.MemberType.Person
+    var contactsManager = ContactsManager(withFilterType: .members, andType: .person)
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setDelegates()
+        contactsManager.contactsData.getContactsData()
         setDelegates()
         setupLeftMenu()
         updateUILabelsWithLocalizedText()
@@ -54,6 +60,8 @@ class MembersVC: UIViewController {
     func setDelegates() {
         tableView.delegate = self
         tableView.dataSource = self
+        
+        contactsManager.contactsData.delegate = self
     }
     
     func setupLeftMenu() {
@@ -82,9 +90,9 @@ class MembersVC: UIViewController {
 
         switch sender.selectedSegmentIndex {
         case 1:
-            currentMemberViewType = .Company
+            contactsManager.contactType = .company
         default:
-            currentMemberViewType = .Person
+            contactsManager.contactType = .person
         }
         tableView.reloadData()
     }
@@ -94,13 +102,13 @@ class MembersVC: UIViewController {
 extension MembersVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return membersManager.getNumberOfTableCellsFor(currentMemberViewType)
+        return contactsManager.getNumberOfTableCells()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        switch currentMemberViewType {
-        case .Company:
+        switch contactsManager.contactType {
+        case .company:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "CompanyCell", for: indexPath) as? CompanyCell
                 else { return UITableViewCell() }
             
@@ -111,14 +119,16 @@ extension MembersVC: UITableViewDelegate, UITableViewDataSource {
             cell.collectionView.tag = tag
             tableViewCellCoordinator[tag] = indexPath
             
-            cell.updateCellWith(membersManager.getCompanyFor(indexPath))
+            cell.updateCellWith(contactsManager.getCompanyFor(indexPath))
             
             return cell
-        case .Person:
+        case .person, .worker:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "PersonCell", for: indexPath) as? PersonCell
                 else { return UITableViewCell() }
-            cell.updateCellWith(membersManager.getPersonFor(indexPath))
+            cell.updateCellWith(contactsManager.getPersonFor(indexPath))
             return cell
+        case .undefined:
+            return UITableViewCell()
         }
     }
     
@@ -143,12 +153,12 @@ extension MembersVC: UITableViewDelegate, UITableViewDataSource {
         switch segueID {
         case "ShowProfile":
             guard let indexPath = sender as? IndexPath else { return }
-            let publicContactToShow = membersManager.getPersonFor(indexPath)
+            let publicContactToShow = contactsManager.getPersonFor(indexPath)
             guard let destination = segue.destination as? ProfileVC else { return }
             destination.publicContactToShow = publicContactToShow
         case "ShowFilter":
             guard let filterVC = segue.destination as? FilterVC else { return }
-            filterVC.filterManager.currentFilter = membersFilter
+            filterVC.filterManager.currentFilter = contactsManager.contactsFilter
         default:
             print("Was used undefined segue")
         }
@@ -159,7 +169,7 @@ extension MembersVC: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let parentTableCellIndexPath = tableViewCellCoordinator[collectionView.tag] else { return 0 }
-        return membersManager.getNumberOfCollectionCellsForTable(parentTableCellIndexPath)
+        return contactsManager.getNumberOfCollectionCellsForTable(parentTableCellIndexPath)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -174,7 +184,7 @@ extension MembersVC: UICollectionViewDelegate, UICollectionViewDataSource {
             else { return }
         guard let parentTableCellIndexPath = tableViewCellCoordinator[collectionView.tag] else { return }
         
-        let person = membersManager.getPersonFor(collectionIndexPath: indexPath, tableIndexPath: parentTableCellIndexPath)
+        let person = contactsManager.getPersonFor(collectionIndexPath: indexPath, tableIndexPath: parentTableCellIndexPath)
         cell.updateCellWith(person)
     }
 }

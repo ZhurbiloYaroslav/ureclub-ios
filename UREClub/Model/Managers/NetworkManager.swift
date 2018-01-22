@@ -12,6 +12,7 @@ import Alamofire
 @objc protocol NetworkManagerDelegate {
     @objc optional func didLoad(arrayWithNews:[News])
     @objc optional func didLoad(arrayWithEvents:[Event])
+    @objc optional func didLoad(dictWithContacts:[String: [AnyObject]])
 }
 
 class NetworkManager: NSObject {
@@ -21,6 +22,8 @@ class NetworkManager: NSObject {
     private var arrayWithEvents: [Event]!
     private var arrayWithNews: [News]!
     private var arrayWithPlaces: [Place]!
+    
+    private var dictWithContacts: [String: [AnyObject]]!
     
     func retrieveInfoForPath(_ path: RequestAddress.ServerPath, completionHandler: @escaping (_ errorMessages: [NetworkError]?)->())  {
         
@@ -40,6 +43,13 @@ class NetworkManager: NSObject {
             headers = requestData.getHeaders()
             parameters = requestData.getParams()
             url = requestData.getURL()
+        case .contacts:
+            let requestData = ContactsRequestData()
+            headers = requestData.getHeaders()
+            parameters = requestData.getParams()
+            url = requestData.getURL()
+        case .filter:
+            break
         default:
             let requestData = EventsRequestData()
             headers = requestData.getHeaders()
@@ -68,6 +78,9 @@ class NetworkManager: NSObject {
             return nil
         case .news:
             parseNewsWith(response)
+            return nil
+        case .contacts:
+            parseContactsWith(response)
             return nil
         default:
             errorMessages.append(NetworkError.undefinedPath)
@@ -106,7 +119,7 @@ class NetworkManager: NSObject {
                 case .events: resultAddress += "wp-json/s4s_ureclub_rest/v1/events"
                 case .news: resultAddress += "wp-json/s4s_ureclub_rest/v1/news"
                 case .user: resultAddress += "wp-json/s4s_ureclub_rest/v1/user"
-                case .filter: resultAddress += "wp-json/wp/v2/categories"
+                case .filter: resultAddress += "wp-json/wp/v2/filter"
                 }
                 return resultAddress
             }
@@ -296,6 +309,73 @@ extension NetworkManager {
             return .news
         }
         private let pageAddress: String = RequestAddress.ServerPath.news.address()
+        public let language = "en"
+        public let bearerToken = CurrentUser.getBearerToken()
+        
+        func getParams() -> Parameters {
+            return [
+                "Authorization": bearerToken
+            ]
+        }
+        
+        func getHeaders() -> HTTPHeaders {
+            return [
+                "Authorization": bearerToken
+            ]
+        }
+        
+        func getURL() -> URL? {
+            var result = "\(pageAddress)"
+            result = result.replacingOccurrences(of: " ", with: "%20")
+            return URL(string: result)
+        }
+    }
+    
+}
+
+//MARK: Contacts
+extension NetworkManager {
+    
+    private func parseContactsWith(_ response: DataResponse<Any>) {
+
+        guard let dictWithResponse = response.result.value as? (Dictionary<String, Any>)  else {
+            return
+        }
+        
+        guard let dictWithPersons = dictWithResponse["people"] as? [(Dictionary<String, Any>)]  else {
+            return
+        }
+        
+        guard let dictWithCompanies = dictWithResponse["companies"] as? [(Dictionary<String, Any>)]  else {
+            return
+        }
+        
+        var arrayWithPersons = [Person]()
+        for dictWithItem in dictWithPersons {
+            let person = Person(withResult: dictWithItem)
+            arrayWithPersons.append(person)
+        }
+        
+        var arrayWithCompanies = [Company]()
+        for dictWithItem in dictWithCompanies {
+            let company = Company(withResult: dictWithItem)
+            arrayWithCompanies.append(company)
+        }
+        
+        dictWithContacts = [String: [AnyObject]]()
+        dictWithContacts.updateValue(arrayWithPersons, forKey: "people")
+        dictWithContacts.updateValue(arrayWithCompanies, forKey: "companies")
+        
+        delegate?.didLoad?(dictWithContacts: dictWithContacts)
+        
+    }
+    
+    struct ContactsRequestData {
+        
+        private var currentPath: RequestAddress.ServerPath {
+            return .contacts
+        }
+        private let pageAddress: String = RequestAddress.ServerPath.contacts.address()
         public let language = "en"
         public let bearerToken = CurrentUser.getBearerToken()
         

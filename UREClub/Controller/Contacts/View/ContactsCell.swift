@@ -13,8 +13,6 @@ class ContactsCell: UITableViewCell {
     @IBOutlet weak var contactImage: UIImageView!
     @IBOutlet weak var fullNameLabel: UILabel!
     @IBOutlet weak var positionLabel: UILabel!
-    @IBOutlet weak var atLabel: UILabel!
-    @IBOutlet weak var companyLabel: UILabel!
     @IBOutlet weak var emailButton: UIButton!
     @IBOutlet weak var phoneButton: UIButton!
     
@@ -34,9 +32,7 @@ class ContactsCell: UITableViewCell {
         contactImage.sd_setImage(with: URL(string: person.getImageLink()), placeholderImage: #imageLiteral(resourceName: "icon-user_circle"))
         
         fullNameLabel.text = person.fullName
-        positionLabel.text = person.position
-        atLabel.text = "At"
-        companyLabel.text = person.company.name
+        positionLabel.text = person.position + " At " + person.company.name
         emailButton.setTitle("sample@email.com", for: .normal)
         phoneButton.setTitle("0637776534", for: .normal)
     }

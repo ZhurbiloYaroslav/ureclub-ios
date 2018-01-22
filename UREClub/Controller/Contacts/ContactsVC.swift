@@ -9,22 +9,30 @@
 import UIKit
 import SWRevealViewController
 
+extension ContactsVC: ContactsDataDelegate {
+    func didReceiveContacts() {
+        self.tableView.reloadData()
+    }
+}
+
 class ContactsVC: UITableViewController {
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
-    var membersManager = MembersManager()
-    var membersFilter = Filter(withType: .members)
-    
-    let person = Person(firstName: "Olga", lastName: "Solovei", company: Company(name: "UREClub", id: "1", type: "company", imageLink: "https://www.edukation.com.ua/upload_page/705/untitled_1_1453563195.jpg"), position: "Director", dateSince: "01.01.2013", id: "1", type: "member", imageLink: "https://media.licdn.com/media/AAEAAQAAAAAAAAMIAAAAJDg3NzU5NjA5LWVmMmMtNDE1NC1hNzNhLTI2NzkzZTgyYjZlMA.jpg")
+    var contactsManager = ContactsManager(withFilterType: .contacts, andType: .worker)
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setDelegates()
+        contactsManager.contactsData.getContactsData()
         self.setDefaultBackground()
         setupLeftMenu()
-        registerNibs()
         updateUILabelsWithLocalizedText()
+        
+        registerNibs()
+        setTableStyle()
+        setDefaultBackground()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,6 +47,10 @@ class ContactsVC: UITableViewController {
         navigationController?.makeTransparent()
     }
     
+    func setDelegates() {
+        contactsManager.contactsData.delegate = self
+    }
+    
     func setupLeftMenu() {
         if revealViewController() != nil {
             menuButton.target = revealViewController()
@@ -47,6 +59,12 @@ class ContactsVC: UITableViewController {
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
             
         }
+    }
+    
+    func setTableStyle() {
+        tableView.backgroundColor = Constants.Color.skyLight
+        tableView.estimatedRowHeight = 100
+        tableView.rowHeight = UITableViewAutomaticDimension
     }
     
     func registerNibs() {
@@ -60,14 +78,15 @@ class ContactsVC: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return contactsManager.getNumberOfTableCells()
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ContactsCell", for: indexPath) as? ContactsCell
             else { return UITableViewCell() }
         
-        cell.updateCellWith(person)
+        cell.updateCellWith(contactsManager.getPersonFor(indexPath))
         return cell
     }
     
@@ -84,7 +103,7 @@ class ContactsVC: UITableViewController {
         switch segueID {
         case "ShowProfile":
             guard let indexPath = sender as? IndexPath else { return }
-            let publicContactToShow = person
+            let publicContactToShow = contactsManager.getPersonFor(indexPath)
             guard let destination = segue.destination as? ProfileVC else { return }
             destination.publicContactToShow = publicContactToShow
         default:

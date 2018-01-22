@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Contact {
+class Contact: NSObject {
     
     //TODO: Implement Array With Categories
     var categories: [Category]!
@@ -21,6 +21,7 @@ class Contact {
     fileprivate let type: String
     
     init(id: String, imageLink: String, type: String, phone: String?, email: String?, priority: String?) {
+                
         self.id = id
         self.imageLink = imageLink
         self.phone = phone ?? ""
@@ -34,21 +35,21 @@ class Contact {
     }
     
     enum ContactType {
-        case Person
-        case Company
-        case Worker
-        case Undefined
+        case person
+        case company
+        case worker
+        case undefined
         
         static func getTypeForString(_ value: String) -> ContactType {
             switch value {
             case "company":
-                return .Company
+                return .company
             case "member":
-                return .Person
+                return .person
             case "worker":
-                return .Worker
+                return .worker
             default:
-                return .Undefined
+                return .undefined
             }
         }
     }
@@ -64,23 +65,14 @@ extension Contact {
         return imageLink
     }
     
-    func getTypeForString() -> ContactType {
+    func getContactType() -> ContactType {
         let type = ContactType.getTypeForString(self.type)
         return type
     }
     
 }
 
-//TODO: Delete this code
-//extension Event: FilterItem {
-//    func getItem() -> Self {
-//        return self
-//    }
-//}
-
-
 protocol GenericContact {
-    /// Returns generic cell for using in collections
     func getContact() -> Self
 }
 

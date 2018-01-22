@@ -7,11 +7,11 @@ target 'UREClub' do
   
   pod 'INSPersistentContainer'
 
-  pod 'Alamofire', '~> 4.5'
+  pod 'Alamofire', '~> 4.5.1'
 
   pod 'SwiftSoup'
   
-  pod 'SDWebImage', '~> 4.0'
+  pod 'SDWebImage', '~> 4.1.2'
 
 end
 
@@ -26,3 +26,6 @@ post_install do |installer|
         end
     end
 end
+
+
+

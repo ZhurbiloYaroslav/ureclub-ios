@@ -28,6 +28,7 @@ extension Filter {
         case events
         case news
         case members
+        case contacts
     }
     
     struct FilterSection {

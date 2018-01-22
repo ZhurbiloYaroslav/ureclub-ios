@@ -70,6 +70,8 @@ struct FilterData {
                     ]
                 )
             ]
+        default:
+            return [Filter.FilterSection]()
         }
     }
 }
