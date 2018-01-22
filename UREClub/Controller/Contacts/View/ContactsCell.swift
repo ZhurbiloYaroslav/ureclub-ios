@@ -33,24 +33,24 @@ class ContactsCell: UITableViewCell {
         
         fullNameLabel.text = person.fullName
         positionLabel.text = person.position + " At " + person.company.name
-        emailButton.setTitle("sample@email.com", for: .normal)
-        phoneButton.setTitle("0637776534", for: .normal)
+        emailButton.setTitle(person.getEmail(), for: .normal)
+        phoneButton.setTitle(person.getPhone(), for: .normal)
     }
     
     @IBAction func emailButtonPressed(_ sender: UIButton) {
-        print("emailButtonPressed")
+        Browser.openURLWith(.Mail_User_Email)
     }
     
     @IBAction func phoneButtonPressed(_ sender: UIButton) {
-        print("phoneButtonPressed")
+        Browser.openURLWith(.Call_User_Phone)
     }
     
     @IBAction func facebookButtonPressed(_ sender: UIButton) {
-        print("facebookButtonPressed")
+        Browser.openURLWith(.Surf_User_Facebook)
     }
     
     @IBAction func linkedInButtonPressed(_ sender: UIButton) {
-        print("linkedInButtonPressed")
+        Browser.openURLWith(.Surf_User_LinkedIn)
     }
     
 }

@@ -102,11 +102,13 @@ class ProfileVC: UITableViewController {
             cell.updateCellWith(publicContactToShow)
             return cell
         case [1,0]:
-            let cellData = FieldCell.CellData(type: .Email, icon: #imageLiteral(resourceName: "icon-gmail"), title: "Email:", value: CurrentUser.email)
+            let email = publicContactToShow?.getEmail() ?? CurrentUser.email
+            let cellData = FieldCell.CellData(type: .Email, icon: #imageLiteral(resourceName: "icon-gmail"), title: "Email:", value: email)
             cell.configureWith(cellData)
             return cell
         case [1,1]:
-            let cellData = FieldCell.CellData(type: .Phone, icon: #imageLiteral(resourceName: "icon-phone"), title: "Phone:", value: CurrentUser.phone)
+            let phone = publicContactToShow?.getPhone() ?? CurrentUser.phone
+            let cellData = FieldCell.CellData(type: .Phone, icon: #imageLiteral(resourceName: "icon-phone"), title: "Phone:", value: phone)
             cell.configureWith(cellData)
             return cell
         case [1,2]:

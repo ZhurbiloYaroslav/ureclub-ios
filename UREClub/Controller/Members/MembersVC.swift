@@ -42,6 +42,7 @@ class MembersVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        contactsManager.contactsData.getContactsData()
         navigationController?.setDefaultStyle()
     }
     

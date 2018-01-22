@@ -57,8 +57,16 @@ class Contact: NSObject {
 
 extension Contact {
     
-    func getID() -> String {
+    public func getID() -> String {
         return id
+    }
+    
+    public func getEmail() -> String {
+        return email
+    }
+    
+    public func getPhone() -> String {
+        return phone
     }
     
     public func getImageLink() -> String {
