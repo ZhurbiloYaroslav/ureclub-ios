@@ -13,7 +13,6 @@ class Person: Contact {
     var lastName: String
     var company: Company
     var position: String
-    var dateSince: String
     
     convenience init(firstName: String, lastName: String, company: Company, position: String, dateSince: String,
                      id: String, type: String, imageLink: String) {
@@ -33,9 +32,8 @@ class Person: Contact {
         self.lastName = lastName
         self.company = company
         self.position = position
-        self.dateSince = dateSince
         
-        super.init(id: id, imageLink: imageLink, type: type, phone: phone, email: email, priority: priority)
+        super.init(id: id, imageLink: imageLink, type: type, phone: phone, email: email, priority: priority, dateSince: dateSince)
         
     }
     
@@ -49,6 +47,7 @@ class Person: Contact {
         let dateSince = resultDictionary["dateSince"] as? String ?? ""
         let phone = resultDictionary["phone"] as? String ?? ""
         let email = resultDictionary["email"] as? String ?? ""
+        let priority = resultDictionary["priority"] as? String ?? "0"
         
         let dictWithLinks = resultDictionary["links"] as? [String: Any]  ?? [String: Any]()
         let imageLink = dictWithLinks["image"] as? String ?? ""
@@ -60,7 +59,7 @@ class Person: Contact {
         let company = Company(name: companyName, id: companyID, type: "company", imageLink: companyImage)
         
         self.init(firstName: firstName, lastName: lastName, company: company, position: position, dateSince: dateSince,
-                  id: id, type: type, imageLink: imageLink, priority: nil, phone: phone, email: email)
+                  id: id, type: type, imageLink: imageLink, priority: priority, phone: phone, email: email)
     }
     
     var fullName: String {

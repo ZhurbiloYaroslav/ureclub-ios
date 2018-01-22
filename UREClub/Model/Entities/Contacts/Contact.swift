@@ -18,20 +18,22 @@ class Contact: NSObject {
     private var phone: String
     private var email: String
     private let priority: String
+    private let dateSince: String
     fileprivate let type: String
     
-    init(id: String, imageLink: String, type: String, phone: String?, email: String?, priority: String?) {
+    init(id: String, imageLink: String, type: String, phone: String?, email: String?, priority: String?, dateSince: String?) {
                 
         self.id = id
         self.imageLink = imageLink
         self.phone = phone ?? ""
         self.email = email ?? ""
-        self.priority = priority ?? "9"
+        self.priority = priority ?? "50"
         self.type = type
+        self.dateSince = dateSince ?? ""
     }
     
     convenience init(id: String, imageLink: String, type: String) {
-        self.init(id: id, imageLink: imageLink, type: type, phone: nil, email: nil, priority: nil)
+        self.init(id: id, imageLink: imageLink, type: type, phone: nil, email: nil, priority: nil, dateSince: nil)
     }
     
     enum ContactType {
@@ -73,6 +75,15 @@ extension Contact {
         return imageLink
     }
     
+    public func getDateSince() -> Date {
+        return Formatter.getDateFrom(dateSince)
+    }
+    
+    public func getDateSince() -> String {
+        let resultDate = Formatter.getSinceMonthsFromTodayFor(getDateSince())
+        return String(describing: resultDate) + " months with UREClub"
+    }
+    
     func getContactType() -> ContactType {
         let type = ContactType.getTypeForString(self.type)
         return type
@@ -82,10 +93,14 @@ extension Contact {
 
 protocol GenericContact {
     func getContact() -> Self
+    func getPriority() -> Int
 }
 
 extension Contact: GenericContact {
     func getContact() -> Self {
         return self
+    }
+    func getPriority() -> Int {
+        return Int(priority) ?? 50
     }
 }

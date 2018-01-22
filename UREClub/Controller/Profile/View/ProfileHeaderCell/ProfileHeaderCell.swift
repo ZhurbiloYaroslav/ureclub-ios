@@ -36,7 +36,7 @@ class ProfileHeaderCell: UITableViewCell {
             fullNameLabel.text = contact.firstName + " " + contact.lastName
             companyNameLabel.text = contact.company.name
             positionLabel.text = contact.position
-            periodLabel.text = CurrentUser.company.date
+            periodLabel.text = contact.getDateSince()
         } else {
             profileImage.sd_setImage(with: URL(string: CurrentUser.linkImage), placeholderImage: #imageLiteral(resourceName: "icon-user_circle"))
             fullNameLabel.text = CurrentUser.fullName

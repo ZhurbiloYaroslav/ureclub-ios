@@ -68,8 +68,12 @@ class ContactsData {
     }
     
     func getArrayWithContactsFor(types: [Contact.ContactType]) -> [GenericContact] {
-        let resultArrayWithContacts = arrayWithPersons.filter { person in types.contains(person.getContactType())}
-        return resultArrayWithContacts
+        let filteredArrayWithContacts = arrayWithPersons.filter { person in types.contains(person.getContactType())}
+        let sortedArrayWithContacts = filteredArrayWithContacts.sorted { $0.getPriority() < $1.getPriority() }
+        for contact in sortedArrayWithContacts {
+            print("---sorted", contact.getPriority(), " - ", contact.firstName)
+        }
+        return sortedArrayWithContacts
     }
     
     func getContactsData() {
