@@ -23,7 +23,7 @@ class CompanyCell: UITableViewCell {
     
     func updateCellWith(_ company: Company) {
         companyNameLabel.text = company.name
-        companyImageView.sd_setImage(with: URL(string: company.getImageLink()), placeholderImage: #imageLiteral(resourceName: "icon-user_circle"))
+        companyImageView.sd_setImage(with: URL(string: company.getImageLink()), placeholderImage: #imageLiteral(resourceName: "placeholder-company"))
     }
     
 }

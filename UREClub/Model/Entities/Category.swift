@@ -9,11 +9,11 @@
 import Foundation
 
 struct Category {
-    let id: String
+    let id: Int
     let name: String
     
     init(withResult resultDictionary: [String: Any]) {
-        self.id = resultDictionary["id"] as? String ?? "0"
+        self.id = resultDictionary["id"] as? Int ?? 0
         self.name = resultDictionary["name"] as? String  ?? ""
     }
 }

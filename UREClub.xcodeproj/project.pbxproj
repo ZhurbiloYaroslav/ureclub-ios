@@ -57,7 +57,7 @@
 		C463F88A1FF52D10001FBBC1 /* DefaultDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C463F8891FF52D10001FBBC1 /* DefaultDataManager.swift */; };
 		C463F88C1FF52DC5001FBBC1 /* CurrentUserCompany.swift in Sources */ = {isa = PBXBuildFile; fileRef = C463F88B1FF52DC5001FBBC1 /* CurrentUserCompany.swift */; };
 		C4662AB71FEA98F7001848C8 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4662AB61FEA98F7001848C8 /* NetworkManager.swift */; };
-		C4662AB91FEAA251001848C8 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4662AB81FEAA251001848C8 /* Place.swift */; };
+		C4662AB91FEAA251001848C8 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4662AB81FEAA251001848C8 /* Location.swift */; };
 		C4662ABB1FEAA501001848C8 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4662ABA1FEAA501001848C8 /* Event.swift */; };
 		C4662ABD1FEAA57E001848C8 /* EventDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4662ABC1FEAA57E001848C8 /* EventDate.swift */; };
 		C4662AD11FEAAE38001848C8 /* Montserrat-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C4662ABF1FEAAE1E001848C8 /* Montserrat-ExtraBoldItalic.ttf */; };
@@ -203,7 +203,7 @@
 		C463F8891FF52D10001FBBC1 /* DefaultDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDataManager.swift; sourceTree = "<group>"; };
 		C463F88B1FF52DC5001FBBC1 /* CurrentUserCompany.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserCompany.swift; sourceTree = "<group>"; };
 		C4662AB61FEA98F7001848C8 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		C4662AB81FEAA251001848C8 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		C4662AB81FEAA251001848C8 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		C4662ABA1FEAA501001848C8 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		C4662ABC1FEAA57E001848C8 /* EventDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDate.swift; sourceTree = "<group>"; };
 		C4662ABF1FEAAE1E001848C8 /* Montserrat-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
@@ -574,7 +574,7 @@
 			isa = PBXGroup;
 			children = (
 				C4D8D32C1FF2BC7F0003DA36 /* Article.swift */,
-				C4662AB81FEAA251001848C8 /* Place.swift */,
+				C4662AB81FEAA251001848C8 /* Location.swift */,
 				C4B54B2E1FEEFA3C008D531E /* CurrentUser.swift */,
 				C463F88B1FF52DC5001FBBC1 /* CurrentUserCompany.swift */,
 				C4F62CBB200D1BE90082DFBC /* Category.swift */,
@@ -1162,7 +1162,7 @@
 				C463F8881FF5228E001FBBC1 /* NotificationsVC.swift in Sources */,
 				C4DC7771200FC41B00F3814F /* PersonCell.swift in Sources */,
 				C430EC00200E1265001E818B /* ZoomAnimatedTransitioning.swift in Sources */,
-				C4662AB91FEAA251001848C8 /* Place.swift in Sources */,
+				C4662AB91FEAA251001848C8 /* Location.swift in Sources */,
 				C430EC05200E1265001E818B /* SDWebImageSource.swift in Sources */,
 				C430EBFD200E1265001E818B /* InputSource.swift in Sources */,
 				C4662ABB1FEAA501001848C8 /* Event.swift in Sources */,

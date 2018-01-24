@@ -11,7 +11,7 @@ import Foundation
 import SwiftSoup
 
 class Article: NSObject {
-    var recordID: String
+    var recordID: Int
     var title: String
     var htmlContent: String
     var textContent: String
@@ -31,7 +31,7 @@ class Article: NSObject {
         return try! doc.html()
     }
     
-    init(id: String, title: String, textContent: String, htmlContent: String, categories: [Category]) {
+    init(id: Int, title: String, textContent: String, htmlContent: String, categories: [Category]) {
         
         self.recordID = id
         self.title = title
@@ -41,7 +41,7 @@ class Article: NSObject {
     }
     
     convenience override init() {
-        self.init(id: "0", title: "", textContent: "", htmlContent: "", categories: [Category]())
+        self.init(id: 0, title: "", textContent: "", htmlContent: "", categories: [Category]())
     }
     
     func parseImagesAndContentFromHTML() -> [String] {

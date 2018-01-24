@@ -58,7 +58,7 @@ class ContactsData {
     }
     
     func getCompanyWithID(_ searchingID: String) -> Company {
-        var resultCompany = Company(name: "Undefined", id: "0", type: "company", imageLink: "")
+        var resultCompany = Company(name: "Undefined", id: 0, type: "company", imageLink: "")
         for company in arrayWithCompanies {
             if company.getID() == searchingID {
                 resultCompany = company

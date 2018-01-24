@@ -21,7 +21,7 @@ class NetworkManager: NSObject {
     
     private var arrayWithEvents: [Event]!
     private var arrayWithNews: [News]!
-    private var arrayWithPlaces: [Place]!
+    private var arrayWithPlaces: [Location]!
     
     private var dictWithContacts: [String: [AnyObject]]!
     

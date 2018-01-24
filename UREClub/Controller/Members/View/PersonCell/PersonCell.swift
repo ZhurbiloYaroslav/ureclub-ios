@@ -24,7 +24,7 @@ class PersonCell: UITableViewCell {
     
     func updateCellWith(_ person: Person) {
         memberImageView.setRadius(64, withWidth: 1, andColor: UIColor.clear)
-        memberImageView.sd_setImage(with: URL(string: person.getImageLink()), placeholderImage: #imageLiteral(resourceName: "icon-user_circle"))
+        memberImageView.sd_setImage(with: URL(string: person.getImageLink()), placeholderImage: #imageLiteral(resourceName: "placeholder-user"))
         
         fullNameLabel.text = person.fullName
         companyLabel.text = person.company.name

@@ -10,25 +10,26 @@ import Foundation
 import SwiftSoup
 
 class News: Article {
+    //var ids: [Int]
     private var date: String
     
     func getDate() -> String {
         return Formatter.getOnlyDateFrom(dateString: date)
     }
     
-    init(id: String, title: String, textContent: String, htmlContent: String, categories: [Category], date: String) {
+    init(id: Int, title: String, textContent: String, htmlContent: String, categories: [Category], date: String) {
         self.date = date
         
         super.init(id: id, title: title, textContent: textContent, htmlContent: htmlContent, categories: categories)
     }
     
     convenience init() {
-        self.init(id: "0", title: "", textContent: "", htmlContent: "", categories: [Category](), date: "")
+        self.init(id: 0, title: "", textContent: "", htmlContent: "", categories: [Category](), date: "")
     }
     
     convenience init(withResult resultDictionary: [String: Any]) {
                 
-        let id = resultDictionary["id"] as? String ?? "0"
+        let id = resultDictionary["id"] as? Int ?? 0
         let dateString = resultDictionary["date"] as? String ?? ""
         let title = resultDictionary["title"] as? String  ?? ""
         let htmlContent = resultDictionary["content"] as? String  ?? ""
@@ -43,11 +44,4 @@ class News: Article {
         self.init(id: id, title: title, textContent: textContent, htmlContent: htmlContent, categories: categories, date: dateString)
     }
 }
-
-//TODO: Delete this code
-//extension News: FilterItem {
-//    func getItem() -> Self {
-//        return self
-//    }
-//}
 

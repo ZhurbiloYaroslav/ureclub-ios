@@ -10,40 +10,37 @@ import Foundation
 import SwiftSoup
 
 class Event: Article {
-    var place: Place
+    //var ids: [Int]
+    var location: Location
     var date: EventDate
     
-    init(id: String, title: String, textContent: String, htmlContent: String, categories: [Category], place: Place, date: EventDate) {
-        self.place = place
+    init(id: Int, title: String, textContent: String, htmlContent: String, categories: [Category], location: Location, date: EventDate) {
+        self.location = location
         self.date = date
         
         super.init(id: id, title: title, textContent: textContent, htmlContent: htmlContent, categories: categories)
     }
     
     convenience init() {
-        self.init(id: "0", title: "", textContent: "", htmlContent: "", categories: [Category](), place: Place(), date: EventDate())
+        self.init(id: 0, title: "", textContent: "", htmlContent: "", categories: [Category](), location: Location(), date: EventDate())
     }
     
     convenience init(withResult resultDictionary: [String: Any]) {
                 
-        let id = resultDictionary["id"] as? String ?? "0"
+        let id = resultDictionary["id"] as? Int ?? 0
         let title = resultDictionary["title"] as? String  ?? ""
-        let date_beg = resultDictionary["date"] as? String  ?? ""
-        let date_end = resultDictionary["date"] as? String  ?? ""
         let htmlContent = resultDictionary["content"] as? String  ?? ""
         let textContent = htmlContent
         
-        let location = resultDictionary["location"] as? [String: Any] ?? [String: Any]()
-        let location_id = location["id"] as? String  ?? ""
-        let location_name = location["name"] as? String  ?? ""
-        let location_city = location["city"] as? String  ?? "Kiev"
-        let location_address = location["address"] as? String  ?? "Default address"
+        let dictWithLocation = resultDictionary["location"] as? [String: Any] ?? [String: Any]()
+        let location = Location(withResult: dictWithLocation)
+        
+        let dictWithDate = resultDictionary["location"] as? [String: Any] ?? [String: Any]()
+        let date = EventDate(withResult: dictWithDate)
         
         let categories = [Category]()
-        let place = Place(id: location_id, title: location_name, city: location_city, address: location_address)
-        let date = EventDate(date_beg: date_beg, date_end: date_end)
         
-        self.init(id: id, title: title, textContent: textContent, htmlContent: htmlContent, categories: categories, place: place, date: date)
+        self.init(id: id, title: title, textContent: textContent, htmlContent: htmlContent, categories: categories, location: location, date: date)
     }
 }
 

@@ -13,26 +13,26 @@ class Contact: NSObject {
     //TODO: Implement Array With Categories
     var categories: [Category]!
     
-    private let id: String
+    private let id: Int
     private var imageLink: String
     private var phone: String
     private var email: String
-    private let priority: String
+    private let priority: Int
     private let dateSince: String
     fileprivate let type: String
     
-    init(id: String, imageLink: String, type: String, phone: String?, email: String?, priority: String?, dateSince: String?) {
-                
+    init(id: Int, imageLink: String, type: String, phone: String?, email: String?, priority: Int?, dateSince: String?) {
+
         self.id = id
         self.imageLink = imageLink
         self.phone = phone ?? ""
         self.email = email ?? ""
-        self.priority = priority ?? "50"
+        self.priority = priority ?? Constants.Contact.defaultPriority
         self.type = type
         self.dateSince = dateSince ?? ""
     }
     
-    convenience init(id: String, imageLink: String, type: String) {
+    convenience init(id: Int, imageLink: String, type: String) {
         self.init(id: id, imageLink: imageLink, type: type, phone: nil, email: nil, priority: nil, dateSince: nil)
     }
     
@@ -60,6 +60,10 @@ class Contact: NSObject {
 extension Contact {
     
     public func getID() -> String {
+        return String(describing: id) ?? "0"
+    }
+    
+    public func getID() -> Int {
         return id
     }
     
@@ -101,6 +105,6 @@ extension Contact: GenericContact {
         return self
     }
     func getPriority() -> Int {
-        return Int(priority) ?? 50
+        return priority
     }
 }

@@ -29,5 +29,14 @@ struct Constants {
         static let coalDark =  #colorLiteral(red: 0.2392156863, green: 0.2392156863, blue: 0.2901960784, alpha: 1) //3D3D4A //UIColor(red: 61.0/255.0, green: 61.0/255.0, blue: 74.0/255.0, alpha: 1.0)
     }
     
+    struct Contact {
+        static let defaultPriority = 50
+    }
+    
+    struct Location {
+        static let defaultLatitude: Double = 0
+        static let defaultLongitude: Double = 0
+    }
+    
 }
 

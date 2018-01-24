@@ -15,19 +15,19 @@ class Person: Contact {
     var position: String
     
     convenience init(firstName: String, lastName: String, company: Company, position: String, dateSince: String,
-                     id: String, type: String, imageLink: String) {
+                     id: Int, type: String, imageLink: String) {
         self.init(firstName: firstName, lastName: lastName, company: company, position: position, dateSince: dateSince,
                   id: id, type: type, imageLink: imageLink,
                   priority: nil, phone: nil, email: nil)
     }
     
     convenience init() {
-        self.init(firstName: "", lastName: "", company: Company(), position: "", dateSince: "", id: "", type: "", imageLink: "", priority: nil, phone: nil, email: nil)
+        self.init(firstName: "", lastName: "", company: Company(), position: "", dateSince: "", id: 0, type: "", imageLink: "", priority: nil, phone: nil, email: nil)
     }
     
     init(firstName: String, lastName: String, company: Company, position: String, dateSince: String,
-         id: String, type: String, imageLink: String,
-         priority: String?, phone: String?, email: String?) {
+         id: Int, type: String, imageLink: String,
+         priority: Int?, phone: String?, email: String?) {
         self.firstName = firstName
         self.lastName = lastName
         self.company = company
@@ -39,7 +39,7 @@ class Person: Contact {
     
     convenience init(withResult resultDictionary: [String: Any]) {
 
-        let id = resultDictionary["id"] as? String ?? "0"
+        let id = resultDictionary["id"] as? Int ?? 0
         let type = resultDictionary["type"] as? String ?? ""
         let firstName = resultDictionary["firstName"] as? String ?? ""
         let lastName = resultDictionary["lastName"] as? String ?? ""
@@ -47,13 +47,13 @@ class Person: Contact {
         let dateSince = resultDictionary["dateSince"] as? String ?? ""
         let phone = resultDictionary["phone"] as? String ?? ""
         let email = resultDictionary["email"] as? String ?? ""
-        let priority = resultDictionary["priority"] as? String ?? "0"
+        let priority = resultDictionary["priority"] as? Int ?? 0
         
         let dictWithLinks = resultDictionary["links"] as? [String: Any]  ?? [String: Any]()
         let imageLink = dictWithLinks["image"] as? String ?? ""
         
         let dictWithCompany = resultDictionary["company"] as? [String: Any]  ?? [String: Any]()
-        let companyID = dictWithCompany["id"] as? String ?? ""
+        let companyID = dictWithCompany["id"] as? Int ?? 0
         let companyName = dictWithCompany["name"] as? String ?? ""
         let companyImage = "https://www.edukation.com.ua/upload_page/705/untitled_1_1453563195.jpg"
         let company = Company(name: companyName, id: companyID, type: "company", imageLink: companyImage)

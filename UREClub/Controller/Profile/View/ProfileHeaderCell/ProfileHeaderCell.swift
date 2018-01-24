@@ -32,13 +32,13 @@ class ProfileHeaderCell: UITableViewCell {
     func updateCellWith(_ contact: GenericContact?) {
         
         if let contact = contact as? Person {
-            profileImage.sd_setImage(with: URL(string: contact.getImageLink()), placeholderImage: #imageLiteral(resourceName: "icon-user_circle"))
+            profileImage.sd_setImage(with: URL(string: contact.getImageLink()), placeholderImage: #imageLiteral(resourceName: "placeholder-user"))
             fullNameLabel.text = contact.firstName + " " + contact.lastName
             companyNameLabel.text = contact.company.name
             positionLabel.text = contact.position
             periodLabel.text = contact.getDateSince()
         } else {
-            profileImage.sd_setImage(with: URL(string: CurrentUser.linkImage), placeholderImage: #imageLiteral(resourceName: "icon-user_circle"))
+            profileImage.sd_setImage(with: URL(string: CurrentUser.linkImage), placeholderImage: #imageLiteral(resourceName: "placeholder-user"))
             fullNameLabel.text = CurrentUser.fullName
             companyNameLabel.text = CurrentUser.company.companyName
             positionLabel.text = CurrentUser.company.position

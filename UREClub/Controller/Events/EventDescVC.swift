@@ -84,7 +84,7 @@ class EventDescVC: UIViewController {
         titleLabel.text = event.title
         dateLabel.text = event.date.getStringWithDate()
         timePeriodLabel.text = event.date.getTimePeriod()
-        addressLabel.text = event.place.getAddressAndCity()
+        addressLabel.text = event.location.getNameAndCity()
                 
         contentWebView.loadHTMLString(event.getHTMLContent(), baseURL: Bundle.main.bundleURL)
         contentWebView.scrollView.isScrollEnabled = true

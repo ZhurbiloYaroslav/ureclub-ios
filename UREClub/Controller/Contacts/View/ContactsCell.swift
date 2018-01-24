@@ -32,7 +32,8 @@ class ContactsCell: UITableViewCell {
         contactImage.sd_setImage(with: URL(string: person.getImageLink()), placeholderImage: #imageLiteral(resourceName: "icon-user_circle"))
         
         fullNameLabel.text = person.fullName
-        positionLabel.text = person.position + " At " + person.company.name
+        let atCompanyText = (person.company.name.count > 0) ? " At " + person.company.name : ""
+        positionLabel.text = person.position + atCompanyText
         emailButton.setTitle(person.getEmail(), for: .normal)
         phoneButton.setTitle(person.getPhone(), for: .normal)
     }
