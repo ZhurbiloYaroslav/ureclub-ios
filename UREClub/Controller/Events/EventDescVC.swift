@@ -37,14 +37,19 @@ class EventDescVC: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var timePeriodLabel: UILabel!
-    @IBOutlet weak var addressLabel: UILabel!
-    //@IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var contentWebView: UIWebView!
     @IBOutlet weak var webViewHeightConstraint: NSLayoutConstraint!
+    
+    //MARK: IBOutlets of Event only
+    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var stackWithEventAttendance: UIStackView!
+    @IBOutlet weak var goButton: UIButton!
     
     @IBOutlet var slideshow: ImageSlideshow!
     
     var currentEvent: Event?
+    
+    let networkManager = NetworkManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,6 +90,10 @@ class EventDescVC: UIViewController {
         dateLabel.text = event.date.getStringWithDate()
         timePeriodLabel.text = event.date.getTimePeriod()
         addressLabel.text = event.location.getNameAndCity()
+        
+        if event.isRegistrationDisabled() {
+            goButton.isHidden = true
+        }
                 
         contentWebView.loadHTMLString(event.getHTMLContent(), baseURL: Bundle.main.bundleURL)
         contentWebView.scrollView.isScrollEnabled = true
@@ -93,8 +102,35 @@ class EventDescVC: UIViewController {
         contentWebView.sizeToFit()
     }
     
+    //MARK: IBAction(s)
+    @IBAction func goButtonPressed(_ sender: UIButton) {
+        guard let event = currentEvent else {
+            return
+        }
+        networkManager.getNonce { (nonce, error) in
+            guard let nonce = nonce else {
+                print(error)
+                return
+            }
+            let bookEventRequestData = NetworkManager.BookEventRequestData(
+                nonce: nonce,
+                event_id: event.getStringWithID(),
+                ticket_id: event.ticket.getStringWithID(),
+                amount: 1,
+                comment: "All ok"
+            )
+            self.networkManager.bookEvent(bookEventRequestData, completionHandler: {
+                Alert().presentAlertWith(title: "Title", andMessages: ["Message"]) { alertVC in
+                    self.present(alertVC, animated: true, completion: nil)
+                }
+            })
+        }
+    }
+}
+
+// Slider
+extension EventDescVC {
     func setupImageSlider() {
-        
         slideshow.backgroundColor = UIColor.clear
         slideshow.slideshowInterval = 5.0
         slideshow.pageControlPosition = PageControlPosition.underScrollView
@@ -102,9 +138,7 @@ class EventDescVC: UIViewController {
         slideshow.pageControl.pageIndicatorTintColor = UIColor.black
         slideshow.contentScaleMode = UIViewContentMode.scaleAspectFill
         slideshow.activityIndicator = DefaultActivityIndicator()
-        slideshow.currentPageChanged = { page in
-            
-        }
+        slideshow.currentPageChanged = { page in }
         
         let recognizer = UITapGestureRecognizer(target: self, action: #selector(NewsDescVC.didTap))
         slideshow.addGestureRecognizer(recognizer)
@@ -115,5 +149,4 @@ class EventDescVC: UIViewController {
         fullScreenController.slideshow.activityIndicator = DefaultActivityIndicator(style: .white, color: nil)
         fullScreenController.closeButton.setTitle("Go Back", for: .normal)
     }
-    
 }

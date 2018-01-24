@@ -48,6 +48,10 @@ class NetworkManager: NSObject {
             headers = requestData.getHeaders()
             parameters = requestData.getParams()
             url = requestData.getURL()
+        case .nonce:
+            break
+        case .bookEvent:
+            break
         case .filter:
             break
         default:
@@ -99,27 +103,35 @@ class NetworkManager: NSObject {
     
     struct RequestAddress {
         enum ServerPath {
+            
             //TODO: Change Server!!!
             fileprivate var currentServer: Server { return .test }
+            fileprivate var ureclubRestPath: String { return "wp-json/s4s_ureclub_rest/v1/" }
             
             case login
             case register
             case contacts
             case events
+            case bookEvent
+            case nonce // Secure phrase to submit the event
             case news
             case user
             case filter
+            case attendance
             
             func address() -> String {
                 var resultAddress = currentServer.rawValue
                 switch self {
                 case .login: resultAddress += "wp-json/jwt-auth/v1/token"
-                case .register: resultAddress += "wp-json/s4s_ureclub_rest/v1/register"
-                case .contacts: resultAddress += "wp-json/s4s_ureclub_rest/v1/contacts"
-                case .events: resultAddress += "wp-json/s4s_ureclub_rest/v1/events"
-                case .news: resultAddress += "wp-json/s4s_ureclub_rest/v1/news"
-                case .user: resultAddress += "wp-json/s4s_ureclub_rest/v1/user"
-                case .filter: resultAddress += "wp-json/wp/v2/filter"
+                case .register: resultAddress += ureclubRestPath + "register"
+                case .contacts: resultAddress += ureclubRestPath + "contacts"
+                case .events: resultAddress += ureclubRestPath + "events"
+                case .bookEvent: resultAddress += ureclubRestPath + "book-event"
+                case .nonce: resultAddress += ureclubRestPath + "nonce"
+                case .news: resultAddress += ureclubRestPath + "news"
+                case .user: resultAddress += ureclubRestPath + "user"
+                case .filter: resultAddress += ureclubRestPath + "filter"
+                case .attendance: resultAddress += ureclubRestPath + "attendance"
                 }
                 return resultAddress
             }
@@ -382,6 +394,119 @@ extension NetworkManager {
         func getParams() -> Parameters {
             return [
                 "Authorization": bearerToken
+            ]
+        }
+        
+        func getHeaders() -> HTTPHeaders {
+            return [
+                "Authorization": bearerToken
+            ]
+        }
+        
+        func getURL() -> URL? {
+            var result = "\(pageAddress)"
+            result = result.replacingOccurrences(of: " ", with: "%20")
+            return URL(string: result)
+        }
+    }
+    
+}
+
+//MARK: Get nonce
+extension NetworkManager {
+    
+    func getNonce(completionHandler: @escaping (_ nonce: String?, _ error: String?)->()) {
+        
+        let userData = NonceRequestData()
+        guard let url = userData.getURL() else {
+            completionHandler(nil, "Bad url")
+            return
+        }
+        let parameters = userData.getParams()
+        let headers = userData.getHeaders()
+        
+        Alamofire.request(url, method:.post, parameters:parameters, headers:headers).responseJSON { (response) in
+            
+            guard let dictWithResponse = response.result.value as? (Dictionary<String, Any>)  else {
+                completionHandler(nil, "No value from response")
+                return
+            }
+            guard let dictWithData = dictWithResponse["data"] as? (Dictionary<String, Any>)  else {
+                completionHandler(nil, "No data from value of the response")
+                return
+            }
+            
+            guard let nonce = dictWithData["nonce"] as? String else {
+                completionHandler(nil, "No nonce from data")
+                return
+            }
+            completionHandler(nonce, nil)
+        }
+    }
+    
+    struct NonceRequestData {
+        
+        private var currentPath: RequestAddress.ServerPath { return .nonce }
+        private let pageAddress: String = RequestAddress.ServerPath.nonce.address()
+        private let bearerToken = CurrentUser.getBearerToken()
+        
+        func getParams() -> Parameters {
+            return [
+                "Authorization": bearerToken,
+                "nonce_action": "booking_add"
+            ]
+        }
+        
+        func getHeaders() -> HTTPHeaders {
+            return [
+                "Authorization": bearerToken
+            ]
+        }
+        
+        func getURL() -> URL? {
+            var result = "\(pageAddress)"
+            result = result.replacingOccurrences(of: " ", with: "%20")
+            return URL(string: result)
+        }
+    }
+    
+}
+
+//MARK: Book Event
+extension NetworkManager {
+    
+    func bookEvent(_ userData: BookEventRequestData, completionHandler: @escaping ()->()) {
+        
+        guard let url = userData.getURL() else { return }
+        let parameters = userData.getParams()
+        let headers = userData.getHeaders()
+        
+        Alamofire.request(url, method:.post, parameters:parameters, headers:headers).responseJSON { (response) in
+            completionHandler()
+        }
+    }
+    
+    struct BookEventRequestData {
+        
+        let nonce: String
+        let event_id: String
+        let ticket_id: String
+        let amount: Int
+        let comment: String
+        
+        private var currentPath: RequestAddress.ServerPath { return .nonce }
+        private let pageAddress: String = RequestAddress.ServerPath.nonce.address()
+        private let bearerToken = CurrentUser.getBearerToken()
+        
+        func getParams() -> Parameters {
+            return [
+                "action": "booking_add",
+                "_wpnonce": nonce,
+                "event_id": event_id,
+                "em_tickets[\(ticket_id)][spaces]": amount,
+                "booking_comment": comment,
+                "em_lang": "en_US",
+                "lang": "en"
             ]
         }
         

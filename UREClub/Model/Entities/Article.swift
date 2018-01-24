@@ -65,3 +65,12 @@ class Article: NSObject {
         }
     }
 }
+
+extension Article {
+    func getID() -> Int {
+        return recordID
+    }
+    func getStringWithID() -> String {
+        return String(describing: recordID)
+    }
+}

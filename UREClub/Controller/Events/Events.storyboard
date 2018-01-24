@@ -237,6 +237,9 @@
                                                                         <real key="value" value="5"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="goButtonPressed:" destination="hpo-A6-tVV" eventType="touchUpInside" id="EW0-cg-Qaq"/>
+                                                                </connections>
                                                             </button>
                                                             <view contentMode="scaleToFill" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gHN-B1-Kje">
                                                                 <rect key="frame" x="142.5" y="0.0" width="202.5" height="30"/>
@@ -351,7 +354,9 @@
                         <outlet property="addressLabel" destination="VkJ-m4-1X4" id="ozu-hB-ySR"/>
                         <outlet property="contentWebView" destination="No0-Jm-n6O" id="qlc-NO-Q2q"/>
                         <outlet property="dateLabel" destination="y8L-z5-xTe" id="g3e-aK-CgO"/>
+                        <outlet property="goButton" destination="wP2-NO-aJb" id="0Hc-uX-vuL"/>
                         <outlet property="slideshow" destination="KTw-xB-v6F" id="OTo-ud-i1m"/>
+                        <outlet property="stackWithEventAttendance" destination="54D-gl-jqy" id="Cgu-zf-2dy"/>
                         <outlet property="timePeriodLabel" destination="JDZ-zk-goQ" id="tzr-TA-Gnk"/>
                         <outlet property="titleLabel" destination="VK9-So-faA" id="OVk-nM-doV"/>
                         <outlet property="webViewHeightConstraint" destination="WCo-FV-GWe" id="nxh-k6-d0i"/>
