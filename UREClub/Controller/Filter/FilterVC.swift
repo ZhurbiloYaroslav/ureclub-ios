@@ -32,6 +32,12 @@ class FilterVC: UIViewController {
         
         navigationController?.setDefaultStyle()
     }
+    
+    func updateUILabelsWithLocalizedText() {
+        
+        navigationItem.title = "screen_filter_title".localized()
+        
+    }
 
 }
 

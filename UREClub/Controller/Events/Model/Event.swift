@@ -41,7 +41,7 @@ class Event: Article {
         let dictWithLocation = resultDictionary["location"] as? [String: Any] ?? [String: Any]()
         let location = Location(withResult: dictWithLocation)
         
-        let dictWithDate = resultDictionary["location"] as? [String: Any] ?? [String: Any]()
+        let dictWithDate = resultDictionary["date"] as? [String: Any] ?? [String: Any]()
         let date = EventDate(withResult: dictWithDate)
         
         let dictWithTicket = resultDictionary["ticket"] as? [String: Any] ?? [String: Any]()

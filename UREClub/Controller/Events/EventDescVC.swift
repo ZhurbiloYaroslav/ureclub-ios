@@ -45,6 +45,8 @@ class EventDescVC: UIViewController {
     @IBOutlet weak var stackWithEventAttendance: UIStackView!
     @IBOutlet weak var goButton: UIButton!
     
+    @IBOutlet weak var seeWhoAttendLabel: UILabel!
+    
     @IBOutlet var slideshow: ImageSlideshow!
     
     var currentEvent: Event?
@@ -68,7 +70,7 @@ class EventDescVC: UIViewController {
     func updateUILabelsWithLocalizedText() {
         
         navigationItem.title = "screen_eventDescription_title".localized()
-        
+        seeWhoAttendLabel.text = "event_attend_seewho".localized()
     }
     
     func updateUIWithValues() {
@@ -147,6 +149,6 @@ extension EventDescVC {
     @objc func didTap() {
         let fullScreenController = slideshow.presentFullScreenController(from: self)
         fullScreenController.slideshow.activityIndicator = DefaultActivityIndicator(style: .white, color: nil)
-        fullScreenController.closeButton.setTitle("Go Back", for: .normal)
+        fullScreenController.closeButton.setTitle("navbar_button_back".localized(), for: .normal)
     }
 }

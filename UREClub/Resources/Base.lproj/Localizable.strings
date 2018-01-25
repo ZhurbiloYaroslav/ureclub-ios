@@ -20,9 +20,6 @@
 
 /*auth, button*/
 "button_signup" = "Sign Up";
-
-/*sample text*/
-"lorem_ipsum_text" = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
 "profile_section_contacts" = "Contacts";
 "profile_section_about" = "About";
 "settings_section_main" = "Main info";
@@ -57,3 +54,31 @@
 "screen_contacts_title" = "Contacts";
 "screen_main_title" = "Main";
 "screen_settings_title" = "Settings";
+"profile_email" = "Email:";
+"profile_phone" = "Phone:";
+"profile_facebook" = "Facebook";
+"profile_linkedin" = "LinkedIn";
+"screen_notifications_title" = "Notifications";
+"navbar_button_back" = "Back";
+"month_01" = "January";
+"month_02" = "February";
+"month_03" = "March";
+"month_04" = "April";
+"month_05" = "May";
+"month_06" = "June";
+"month_07" = "July";
+"month_08" = "August";
+"month_09" = "September";
+"month_10" = "October";
+"month_11" = "November";
+"month_12" = "December";
+"month_undefined" = "Undefined";
+"filter_section_year" = "Year";
+"filter_section_category" = "Type";
+"filter_section_sorting" = "Sorting";
+"filter_section_status" = "Status";
+"filter_section_starred" = "Starred";
+"filter_section_sortby" = "Sort by";
+"filter_section_category_user" = "Occupation";
+"screen_filter_title" = "Filter";
+"event_attend_seewho" = "See who attend";

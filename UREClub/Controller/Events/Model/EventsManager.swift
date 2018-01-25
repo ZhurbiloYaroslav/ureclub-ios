@@ -94,19 +94,19 @@ class EventsManager {
             if eventMonth == monthIndex {
                 
                 switch monthIndex {
-                case 0:  return "January"
-                case 1:  return "February"
-                case 2:  return "March"
-                case 3:  return "April"
-                case 4:  return "May"
-                case 5:  return "June"
-                case 6:  return "July"
-                case 7:  return "August"
-                case 8:  return "September"
-                case 9:  return "October"
-                case 10: return "November"
-                case 11: return "December"
-                default: return "Undefined"
+                case 0:  return "month_01".localized()
+                case 1:  return "month_02".localized()
+                case 2:  return "month_03".localized()
+                case 3:  return "month_04".localized()
+                case 4:  return "month_05".localized()
+                case 5:  return "month_06".localized()
+                case 6:  return "month_07".localized()
+                case 7:  return "month_08".localized()
+                case 8:  return "month_09".localized()
+                case 9:  return "month_10".localized()
+                case 10: return "month_11".localized()
+                case 11: return "month_12".localized()
+                default: return "month_undefined".localized()
                 }
             }
         }

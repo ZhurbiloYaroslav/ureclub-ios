@@ -103,20 +103,24 @@ class ProfileVC: UITableViewController {
             return cell
         case [1,0]:
             let email = publicContactToShow?.getEmail() ?? CurrentUser.email
-            let cellData = FieldCell.CellData(type: .Email, icon: #imageLiteral(resourceName: "icon-profile-email"), title: "Email:", value: email)
+            let cellTitle = "profile_email".localized()
+            let cellData = FieldCell.CellData(type: .Email, icon: #imageLiteral(resourceName: "icon-profile-email"), title: cellTitle, value: email)
             cell.configureWith(cellData)
             return cell
         case [1,1]:
             let phone = publicContactToShow?.getPhone() ?? CurrentUser.phone
-            let cellData = FieldCell.CellData(type: .Phone, icon: #imageLiteral(resourceName: "icon-profile-phone"), title: "Phone:", value: phone)
+            let cellTitle = "profile_phone".localized()
+            let cellData = FieldCell.CellData(type: .Phone, icon: #imageLiteral(resourceName: "icon-profile-phone"), title: cellTitle, value: phone)
             cell.configureWith(cellData)
             return cell
         case [1,2]:
-            let cellData = FieldCell.CellData(type: .Facebook, icon: #imageLiteral(resourceName: "icon-profile-facebook"), title: "Facebook", value: "")
+            let cellTitle = "profile_facebook".localized()
+            let cellData = FieldCell.CellData(type: .Facebook, icon: #imageLiteral(resourceName: "icon-profile-facebook"), title: cellTitle, value: "")
             cell.configureWith(cellData)
             return cell
         case [1,3]:
-            let cellData = FieldCell.CellData(type: .LinkedIn, icon: #imageLiteral(resourceName: "icon-profile-linkedIn"), title: "LinkedIn", value: "")
+            let cellTitle = "profile_linkedin".localized()
+            let cellData = FieldCell.CellData(type: .LinkedIn, icon: #imageLiteral(resourceName: "icon-profile-linkedIn"), title: cellTitle, value: "")
             cell.configureWith(cellData)
             return cell
         case [2,0]:

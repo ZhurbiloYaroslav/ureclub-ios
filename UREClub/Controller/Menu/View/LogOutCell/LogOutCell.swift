@@ -27,12 +27,10 @@ class LogOutCell: UITableViewCell {
     
     func updateCellWith(indexPath: IndexPath) {
         
-        logOutLabel.text = "Log out"
+        logOutLabel.text = "menu_item_logout".localized()
         userNameLabel.text = CurrentUser.fullName
         
-        profileImage.layer.cornerRadius = 32
-        profileImage.layer.borderWidth = 1
-        profileImage.layer.borderColor = UIColor.clear.cgColor
+        profileImage.setRadius(32, withWidth: 1, andColor: UIColor.clear)
         profileImage.sd_setImage(with: URL(string: CurrentUser.linkImage), placeholderImage: UIImage(named: "icon-placeholder-person"))
     }
     

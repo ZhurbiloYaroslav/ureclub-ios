@@ -13,6 +13,7 @@ class NotificationsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        updateUILabelsWithLocalizedText()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -25,6 +26,13 @@ class NotificationsVC: UIViewController {
         super.viewWillDisappear(animated)
         
         navigationController?.makeTransparent()
+    }
+    
+    func updateUILabelsWithLocalizedText() {
+        
+        navigationItem.title = "screen_notifications_title".localized()
+        navigationItem.backBarButtonItem?.title = "navbar_button_back".localized()
+        
     }
 
 }
