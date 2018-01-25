@@ -30,7 +30,7 @@ class EventsListVC: UIViewController {
     }
     
     func setupTableView() {
-        self.tableView.backgroundColor = Constants.Color.skyLight
+        self.tableView.backgroundColor = Constants.DefaultColor.background
         self.setDefaultBackground()
         
         tableView.estimatedRowHeight = 200

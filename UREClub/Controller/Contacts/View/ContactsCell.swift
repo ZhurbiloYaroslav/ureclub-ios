@@ -28,8 +28,8 @@ class ContactsCell: UITableViewCell {
         
         currentPerson = person
         
-        contactImage.setRadius(60, withWidth: 2, andColor: #colorLiteral(red: 0.4401541352, green: 0.7075563073, blue: 0.9916591048, alpha: 1))
-        contactImage.sd_setImage(with: URL(string: person.getImageLink()), placeholderImage: #imageLiteral(resourceName: "icon-user_circle"))
+        contactImage.setRadius(75, withWidth: 2, andColor: #colorLiteral(red: 0.4401541352, green: 0.7075563073, blue: 0.9916591048, alpha: 1))
+        contactImage.sd_setImage(with: URL(string: person.getImageLink()), placeholderImage: UIImage(named: "icon-placeholder-person"))
         
         fullNameLabel.text = person.fullName
         let atCompanyText = (person.company.name.count > 0) ? " At " + person.company.name : ""

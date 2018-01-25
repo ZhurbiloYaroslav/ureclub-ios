@@ -19,7 +19,7 @@ class CodexCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.contentView.backgroundColor = Constants.Color.skyLight
+        self.contentView.backgroundColor = Constants.DefaultColor.background
     }
     
 }

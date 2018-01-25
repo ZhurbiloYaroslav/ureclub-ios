@@ -28,9 +28,8 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background-login" translatesAutoresizingMaskIntoConstraints="NO" id="vq8-Qo-pju">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ureclub-logo" translatesAutoresizingMaskIntoConstraints="NO" id="mjf-4Y-bly">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-ureclub" translatesAutoresizingMaskIntoConstraints="NO" id="mjf-4Y-bly">
                                 <rect key="frame" x="123" y="168.5" width="128" height="128"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="128" id="709-92-Xsl"/>
@@ -252,6 +251,6 @@
     </scenes>
     <resources>
         <image name="background-login" width="356" height="653"/>
-        <image name="ureclub-logo" width="196" height="196"/>
+        <image name="logo-ureclub" width="250" height="252"/>
     </resources>
 </document>

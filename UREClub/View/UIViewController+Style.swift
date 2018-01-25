@@ -11,6 +11,6 @@ import UIKit
 extension UIViewController {
     
     func setDefaultBackground() {
-        view.backgroundColor = Constants.Color.skyLight
+        view.backgroundColor = Constants.DefaultColor.background
     }
 }

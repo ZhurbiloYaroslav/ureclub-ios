@@ -103,20 +103,20 @@ class ProfileVC: UITableViewController {
             return cell
         case [1,0]:
             let email = publicContactToShow?.getEmail() ?? CurrentUser.email
-            let cellData = FieldCell.CellData(type: .Email, icon: #imageLiteral(resourceName: "icon-gmail"), title: "Email:", value: email)
+            let cellData = FieldCell.CellData(type: .Email, icon: #imageLiteral(resourceName: "icon-profile-email"), title: "Email:", value: email)
             cell.configureWith(cellData)
             return cell
         case [1,1]:
             let phone = publicContactToShow?.getPhone() ?? CurrentUser.phone
-            let cellData = FieldCell.CellData(type: .Phone, icon: #imageLiteral(resourceName: "icon-phone"), title: "Phone:", value: phone)
+            let cellData = FieldCell.CellData(type: .Phone, icon: #imageLiteral(resourceName: "icon-profile-phone"), title: "Phone:", value: phone)
             cell.configureWith(cellData)
             return cell
         case [1,2]:
-            let cellData = FieldCell.CellData(type: .Facebook, icon: #imageLiteral(resourceName: "icon-facebook-large"), title: "Facebook", value: "")
+            let cellData = FieldCell.CellData(type: .Facebook, icon: #imageLiteral(resourceName: "icon-profile-facebook"), title: "Facebook", value: "")
             cell.configureWith(cellData)
             return cell
         case [1,3]:
-            let cellData = FieldCell.CellData(type: .LinkedIn, icon: #imageLiteral(resourceName: "icon-linkedin"), title: "LinkedIn", value: "")
+            let cellData = FieldCell.CellData(type: .LinkedIn, icon: #imageLiteral(resourceName: "icon-profile-linkedIn"), title: "LinkedIn", value: "")
             cell.configureWith(cellData)
             return cell
         case [2,0]:

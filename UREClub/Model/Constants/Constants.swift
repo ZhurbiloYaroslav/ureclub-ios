@@ -38,5 +38,9 @@ struct Constants {
         static let defaultLongitude: Double = 0
     }
     
+    struct DefaultColor {
+        static let background = UIColor.white //Was Constants.Color.skyLight
+    }
+    
 }
 

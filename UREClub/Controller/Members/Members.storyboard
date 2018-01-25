@@ -50,7 +50,7 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="CVB-ox-cWg">
                                                             <rect key="frame" x="0.0" y="27" width="343" height="64"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="axZ-Lz-vL0">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" image="placeholder-company" translatesAutoresizingMaskIntoConstraints="NO" id="axZ-Lz-vL0">
                                                                     <rect key="frame" x="0.0" y="0.0" width="128" height="64"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="64" id="P6o-EB-kNO"/>
@@ -77,7 +77,7 @@
                                                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                                 <subviews>
-                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="w52-Jz-dE4">
+                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-attend-person" translatesAutoresizingMaskIntoConstraints="NO" id="w52-Jz-dE4">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="height" constant="50" id="8Ux-7X-HxD"/>
@@ -129,7 +129,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="lPo-nk-zVU">
                                                     <rect key="frame" x="16" y="10" width="343" height="128"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FB8-Qv-YRP">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-placeholder-person" translatesAutoresizingMaskIntoConstraints="NO" id="FB8-Qv-YRP">
                                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="128" id="38z-Nw-IF7"/>
@@ -137,22 +137,22 @@
                                                             </constraints>
                                                         </imageView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="aPT-ub-J5N">
-                                                            <rect key="frame" x="143" y="29.5" width="200" height="69"/>
+                                                            <rect key="frame" x="143" y="28" width="200" height="72"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AI5-b8-zrC" userLabel="Full name">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="200" height="21"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="200" height="22"/>
                                                                     <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="18"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Company" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ahr-Qe-NPc">
-                                                                    <rect key="frame" x="0.0" y="26" width="200" height="19"/>
+                                                                    <rect key="frame" x="0.0" y="27" width="200" height="20"/>
                                                                     <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="16"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Position" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QkN-ix-sF4" userLabel="Position">
-                                                                    <rect key="frame" x="0.0" y="50" width="200" height="19"/>
+                                                                    <rect key="frame" x="0.0" y="52" width="200" height="20"/>
                                                                     <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="16"/>
                                                                     <color key="textColor" red="0.0" green="0.63137254899999995" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
@@ -260,7 +260,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icon-filter" width="30" height="30"/>
+        <image name="icon-attend-person" width="50" height="50"/>
+        <image name="icon-filter" width="32" height="31"/>
+        <image name="icon-placeholder-person" width="128" height="129"/>
         <image name="menu" width="22" height="22"/>
+        <image name="placeholder-company" width="676" height="358"/>
     </resources>
 </document>

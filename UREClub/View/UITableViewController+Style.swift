@@ -17,6 +17,6 @@ extension UITableViewController {
     }
     
     func setDefaultStyle() {
-        self.tableView.backgroundColor = Constants.Color.skyLight
+        self.tableView.backgroundColor = Constants.DefaultColor.background
     }
 }

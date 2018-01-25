@@ -18,7 +18,7 @@ class PersonCollectionCell: UICollectionViewCell {
     }
     
     func updateCellWith(_ person: Person) {
-        personImageView.sd_setImage(with: URL(string: person.getImageLink()), placeholderImage: #imageLiteral(resourceName: "placeholder-user"))
+        personImageView.sd_setImage(with: URL(string: person.getImageLink()), placeholderImage: UIImage(named: "icon-attend-person"))
     }
     
 }

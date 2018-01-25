@@ -26,8 +26,8 @@ class CodexVC: UIViewController {
     
     func setStyle() {
         self.setDefaultBackground()
-        tableView.backgroundColor = Constants.Color.skyLight
-        tableView.sectionIndexColor = Constants.Color.skyLight
+        tableView.backgroundColor = Constants.DefaultColor.background
+        tableView.sectionIndexColor = Constants.DefaultColor.background
     }
     
     func setDelegates() {

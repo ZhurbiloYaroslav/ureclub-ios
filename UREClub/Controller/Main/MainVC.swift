@@ -17,7 +17,7 @@ class MainVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.backgroundColor = Constants.Color.skyLight
+        self.tableView.backgroundColor = Constants.DefaultColor.background
         setDelegates()
         self.setDefaultBackground()
         updateUILabelsWithLocalizedText()

@@ -184,7 +184,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icon-filter" width="30" height="30"/>
+        <image name="icon-filter" width="32" height="31"/>
         <image name="menu" width="22" height="22"/>
     </resources>
 </document>

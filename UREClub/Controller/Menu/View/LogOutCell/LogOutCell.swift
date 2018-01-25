@@ -33,7 +33,7 @@ class LogOutCell: UITableViewCell {
         profileImage.layer.cornerRadius = 32
         profileImage.layer.borderWidth = 1
         profileImage.layer.borderColor = UIColor.clear.cgColor
-        profileImage.sd_setImage(with: URL(string: CurrentUser.linkImage), placeholderImage: #imageLiteral(resourceName: "icon-user_circle"))
+        profileImage.sd_setImage(with: URL(string: CurrentUser.linkImage), placeholderImage: UIImage(named: "icon-placeholder-person"))
     }
     
 }

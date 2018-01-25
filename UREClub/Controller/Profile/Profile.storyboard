@@ -25,7 +25,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="py8-Af-ICY">
                         <barButtonItem key="leftBarButtonItem" image="menu" id="Zbf-tD-L7G"/>
-                        <barButtonItem key="rightBarButtonItem" image="icon-alarm-3" id="KAZ-MS-Sal">
+                        <barButtonItem key="rightBarButtonItem" image="icon-notif-empty" id="KAZ-MS-Sal">
                             <connections>
                                 <action selector="notificationsButtonPressed:" destination="4Wk-iU-QtO" id="HxO-uM-oX0"/>
                             </connections>
@@ -76,7 +76,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icon-alarm-3" width="28" height="32"/>
+        <image name="icon-notif-empty" width="27" height="32"/>
         <image name="menu" width="22" height="22"/>
     </resources>
 </document>

@@ -18,7 +18,7 @@ extension UISegmentedControl {
         self.borderWidth = 1
         self.borderColor = Constants.Color.coalLight
         self.backgroundColor = Constants.Color.coalLight
-        self.tintColor = Constants.Color.skyLight
+        self.tintColor = Constants.DefaultColor.background
     }
 
 }

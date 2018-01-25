@@ -63,7 +63,7 @@ class ContactsVC: UITableViewController {
     }
     
     func setTableStyle() {
-        tableView.backgroundColor = Constants.Color.skyLight
+        tableView.backgroundColor = Constants.DefaultColor.background
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableViewAutomaticDimension
     }

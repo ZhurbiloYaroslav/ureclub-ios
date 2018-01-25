@@ -16,6 +16,7 @@ class ArticleCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     
+    @IBOutlet weak var timeStack: UIStackView!
     @IBOutlet weak var addressStack: UIStackView!
     @IBOutlet weak var geoImage: UIImageView!
     @IBOutlet weak var addressLabel: UILabel!
@@ -52,7 +53,7 @@ class ArticleCell: UITableViewCell {
             titleLabel.numberOfLines = 4
             dateLabel.text = newsEntity.getDate()
             
-            timeLabel.isHidden = true
+            timeStack.isHidden = true
             addressStack.isHidden = true
         }
     }
