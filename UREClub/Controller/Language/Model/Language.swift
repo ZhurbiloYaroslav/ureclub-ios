@@ -36,6 +36,16 @@ enum Language {
         }
     }
     
+    func getLanguageCodeForServer() -> String {
+        switch self {
+        case .system:
+            let languageParts = systemPrefferedLanguage.components(separatedBy: "-")
+            return languageParts.count > 0 ? languageParts[0] : "ru"
+        default:
+            return getCode()
+        }
+    }
+    
     func getCodeForSavingLanguageInDefaults() -> String {
         switch self {
         case .system:

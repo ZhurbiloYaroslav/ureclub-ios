@@ -272,18 +272,16 @@ extension NetworkManager {
             return .events
         }
         private let pageAddress: String = RequestAddress.ServerPath.events.address()
-        public let language = "en"
-        public let bearerToken = CurrentUser.getBearerToken()
         
         func getParams() -> Parameters {
             return [
-                "Authorization": bearerToken
+                "lang": LanguageManager.shared.currentLanguage.getLanguageCodeForServer()
             ]
         }
         
         func getHeaders() -> HTTPHeaders {
             return [
-                "Authorization": bearerToken
+                "Authorization": CurrentUser.getBearerToken()
             ]
         }
         
@@ -321,18 +319,16 @@ extension NetworkManager {
             return .news
         }
         private let pageAddress: String = RequestAddress.ServerPath.news.address()
-        public let language = "en"
-        public let bearerToken = CurrentUser.getBearerToken()
         
         func getParams() -> Parameters {
             return [
-                "Authorization": bearerToken
+                "lang": LanguageManager.shared.currentLanguage.getLanguageCodeForServer()
             ]
         }
         
         func getHeaders() -> HTTPHeaders {
             return [
-                "Authorization": bearerToken
+                "Authorization": CurrentUser.getBearerToken()
             ]
         }
         
@@ -388,18 +384,16 @@ extension NetworkManager {
             return .contacts
         }
         private let pageAddress: String = RequestAddress.ServerPath.contacts.address()
-        public let language = "en"
-        public let bearerToken = CurrentUser.getBearerToken()
         
         func getParams() -> Parameters {
             return [
-                "Authorization": bearerToken
+                "lang": LanguageManager.shared.currentLanguage.getLanguageCodeForServer()
             ]
         }
         
         func getHeaders() -> HTTPHeaders {
             return [
-                "Authorization": bearerToken
+                "Authorization": CurrentUser.getBearerToken()
             ]
         }
         
