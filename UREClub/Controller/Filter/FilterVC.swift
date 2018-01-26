@@ -19,7 +19,7 @@ class FilterVC: UIViewController {
         
         self.setDefaultBackground()
         setDelegates()
-        
+        updateUIWithLocalizedText()
     }
     
     func setDelegates() {
@@ -33,7 +33,7 @@ class FilterVC: UIViewController {
         navigationController?.setDefaultStyle()
     }
     
-    func updateUILabelsWithLocalizedText() {
+    func updateUIWithLocalizedText() {
         
         navigationItem.title = "screen_filter_title".localized()
         

@@ -21,8 +21,15 @@ class SettingsVC: UITableViewController {
         setupLeftMenu()
         self.setDefaultBackground()
         
-        updateUILabelsWithLocalizedText()
+        updateUIWithLocalizedText()
         setupTableView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        updateUIWithLocalizedText()
+        tableView.reloadData()
     }
     
     func setupLeftMenu() {
@@ -53,7 +60,7 @@ class SettingsVC: UITableViewController {
         }
     }
     
-    func updateUILabelsWithLocalizedText() {
+    func updateUIWithLocalizedText() {
         
         navigationItem.title = "screen_settings_title".localized()
     }
@@ -104,5 +111,14 @@ extension SettingsVC {
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 36
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath {
+        case [1,0]:
+            performSegue(withIdentifier: "ShowLanguagePicker", sender: nil)
+        default:
+            break
+        }
     }
 }

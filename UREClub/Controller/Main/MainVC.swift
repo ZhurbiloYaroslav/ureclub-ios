@@ -20,7 +20,7 @@ class MainVC: UIViewController {
         self.tableView.backgroundColor = Constants.DefaultColor.background
         setDelegates()
         self.setDefaultBackground()
-        updateUILabelsWithLocalizedText()
+        updateUIWithLocalizedText()
         setupLeftMenu()
     }
     
@@ -29,7 +29,7 @@ class MainVC: UIViewController {
         tableView.dataSource = self
     }
     
-    func updateUILabelsWithLocalizedText() {
+    func updateUIWithLocalizedText() {
         
         navigationItem.title = "screen_main_title".localized()
         

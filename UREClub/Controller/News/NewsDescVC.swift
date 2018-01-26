@@ -23,12 +23,12 @@ class NewsDescVC: UIViewController {
         super.viewDidLoad()
         
         self.setDefaultBackground()
-        updateUILabelsWithLocalizedText()
+        updateUIWithLocalizedText()
         setupImageSlider()
         updateUIWithValues()
     }
     
-    func updateUILabelsWithLocalizedText() {
+    func updateUIWithLocalizedText() {
         
         navigationItem.title = "screen_newsDescription_title".localized()
         

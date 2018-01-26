@@ -28,7 +28,7 @@ class ContactsVC: UITableViewController {
         contactsManager.contactsData.getContactsData()
         self.setDefaultBackground()
         setupLeftMenu()
-        updateUILabelsWithLocalizedText()
+        updateUIWithLocalizedText()
         
         registerNibs()
         setTableStyle()
@@ -72,7 +72,7 @@ class ContactsVC: UITableViewController {
         tableView.register(UINib(nibName: "ContactsCell", bundle: nil), forCellReuseIdentifier: "ContactsCell")
     }
     
-    func updateUILabelsWithLocalizedText() {
+    func updateUIWithLocalizedText() {
         
         navigationItem.title = "screen_contacts_title".localized()
         

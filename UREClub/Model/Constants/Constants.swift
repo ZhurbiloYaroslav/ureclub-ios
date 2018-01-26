@@ -11,14 +11,6 @@ import Foundation
 
 struct Constants {
     
-    static let defaultLanguage = Constants.languages[0]
-    
-    static let languages: [Languages.Language] = [
-        .System,
-        .English,
-        .Russian
-    ]
-    
     struct Color {
         static let navBar = UIColor(red: 78.0/255.0, green: 136.0/255.0, blue: 200.0/255.0, alpha: 1.0)
         static let blueLight = #colorLiteral(red: 0.2901960784, green: 0.6274509804, blue: 0.8352941176, alpha: 1) //4AA0D5 //UIColor(red: 74.0/255.0, green: 160.0/255.0, blue: 213.0/255.0, alpha: 1.0)

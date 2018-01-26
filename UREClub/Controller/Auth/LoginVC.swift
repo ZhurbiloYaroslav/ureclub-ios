@@ -29,7 +29,7 @@ class LoginVC: UIViewController {
 
         initializeDelegates()
         setFieldsStyles()
-        updateUILabelsWithLocalizedText()
+        updateUIWithLocalizedText()
     }
     
     func setFieldsStyles() {
@@ -50,7 +50,7 @@ class LoginVC: UIViewController {
         passwordField.delegate = self
     }
     
-    func updateUILabelsWithLocalizedText() {
+    func updateUIWithLocalizedText() {
         enterEmailLabel.text = "enter_email".localized()
         enterPasswordLabel.text = "enter_password".localized()
         

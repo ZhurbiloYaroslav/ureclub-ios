@@ -23,19 +23,4 @@ class UserDefaultsManager {
         }
         
     }
-    
-    var language: Languages.Language {
-        
-        get {
-            guard let languageRaw = self.options["language"] else {
-                return Constants.defaultLanguage
-            }
-            return Languages.Language(rawValue: languageRaw) ?? Constants.defaultLanguage
-        }
-        
-        set {
-            self.options["language"] = newValue.rawValue
-        }
-        
-    }
 }

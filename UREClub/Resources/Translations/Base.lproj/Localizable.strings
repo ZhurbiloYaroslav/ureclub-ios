@@ -82,3 +82,5 @@
 "filter_section_category_user" = "Occupation";
 "screen_filter_title" = "Filter";
 "event_attend_seewho" = "See who attend";
+"menu_item_logout" = "Log out";
+"screen_language_title" = "Choose Language";

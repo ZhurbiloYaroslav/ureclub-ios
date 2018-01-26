@@ -39,7 +39,7 @@ class NewsListVC: UIViewController {
         setDelegates()
         registerNibs()
         setupLeftMenu()
-        updateUILabelsWithLocalizedText()
+        updateUIWithLocalizedText()
     }
     
     func getArrayWithNews() {
@@ -71,7 +71,7 @@ class NewsListVC: UIViewController {
         }
     }
     
-    func updateUILabelsWithLocalizedText() {
+    func updateUIWithLocalizedText() {
         
         navigationItem.title = "screen_news_title".localized()
         

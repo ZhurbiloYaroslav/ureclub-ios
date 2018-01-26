@@ -58,7 +58,7 @@ class EventDescVC: UIViewController {
         
         self.setDefaultBackground()
         setDelegates()
-        updateUILabelsWithLocalizedText()
+        updateUIWithLocalizedText()
         setupImageSlider()
         updateUIWithValues()
     }
@@ -67,7 +67,7 @@ class EventDescVC: UIViewController {
         contentWebView.delegate = self
     }
     
-    func updateUILabelsWithLocalizedText() {
+    func updateUIWithLocalizedText() {
         
         navigationItem.title = "screen_eventDescription_title".localized()
         seeWhoAttendLabel.text = "event_attend_seewho".localized()

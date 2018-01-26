@@ -26,7 +26,7 @@ class EventsListVC: UIViewController {
         setDelegates()
         registerNibs()
         setupLeftMenu()
-        updateUILabelsWithLocalizedText()
+        updateUIWithLocalizedText()
     }
     
     func setupTableView() {
@@ -82,7 +82,7 @@ class EventsListVC: UIViewController {
         }
     }
     
-    func updateUILabelsWithLocalizedText() {
+    func updateUIWithLocalizedText() {
         
         navigationItem.title = "screen_events_title".localized()
         

@@ -37,11 +37,20 @@
                     </navigationItem>
                     <connections>
                         <outlet property="menuButton" destination="9Ce-5H-aE9" id="TJS-Ny-brg"/>
+                        <segue destination="ESS-aE-Ea3" kind="show" identifier="ShowLanguagePicker" id="thj-zM-fRJ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Den-vk-KMt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4326" y="4464"/>
+        </scene>
+        <!--LanguagePickerVC-->
+        <scene sceneID="3Sx-el-cJq">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Language" referencedIdentifier="LanguagePickerVC" id="ESS-aE-Ea3" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IXh-XH-cYW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5078" y="4468"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4ob-Q4-T7m">

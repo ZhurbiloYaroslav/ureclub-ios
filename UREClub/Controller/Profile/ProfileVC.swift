@@ -20,7 +20,7 @@ class ProfileVC: UITableViewController {
         
         self.setDefaultBackground()
         swithPrivateAndPublicProfile()
-        updateUILabelsWithLocalizedText()
+        updateUIWithLocalizedText()
         setupTableView()
     }
     
@@ -66,7 +66,7 @@ class ProfileVC: UITableViewController {
         }
     }
     
-    func updateUILabelsWithLocalizedText() {
+    func updateUIWithLocalizedText() {
         
     }
     

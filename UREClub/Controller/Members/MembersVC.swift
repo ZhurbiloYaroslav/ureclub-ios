@@ -33,7 +33,7 @@ class MembersVC: UIViewController {
         contactsManager.contactsData.getContactsData()
         setDelegates()
         setupLeftMenu()
-        updateUILabelsWithLocalizedText()
+        updateUIWithLocalizedText()
         
         setTableStyle()
         setDefaultBackground()
@@ -77,7 +77,7 @@ class MembersVC: UIViewController {
         }
     }
     
-    func updateUILabelsWithLocalizedText() {
+    func updateUIWithLocalizedText() {
         
         navigationItem.title = "screen_members_title".localized()
         

@@ -18,10 +18,10 @@ class CodexVC: UIViewController {
         super.viewDidLoad()
         
         setStyle()
-        updateUILabelsWithLocalizedText()
+        updateUIWithLocalizedText()
         setupLeftMenu()
         setDelegates()
-        updateUILabelsWithLocalizedText()
+        updateUIWithLocalizedText()
     }
     
     func setStyle() {
@@ -35,7 +35,7 @@ class CodexVC: UIViewController {
         tableView.dataSource = self
     }
     
-    func updateUILabelsWithLocalizedText() {
+    func updateUIWithLocalizedText() {
         
         navigationItem.title = "screen_codex_title".localized()
         

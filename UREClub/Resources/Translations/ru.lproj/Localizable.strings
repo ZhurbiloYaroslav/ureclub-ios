@@ -1,0 +1,86 @@
+
+/*auth, button*/
+"button_login" = "Войти";
+
+/*menu, label*/
+"menu_item_profile" = "Мой профиль";
+"button_register" = "Регитрация";
+"menu_item_codex" = "Кодекс этики";
+"menu_item_settings" = "Настройки";
+"menu_item_events" = "Мероприятия";
+"menu_item_news" = "Новости";
+"profile_navbar_title" = "Профиль";
+"news_navbar_title" = "Новости";
+"events_navbar_title" = "Мероприятия";
+"email_enter_title" = "Введите ваш e-mail адрес";
+"password_enter_title" = "Введите пароль";
+
+/*auth, button*/
+"no_account" = "";
+
+/*auth, button*/
+"button_signup" = "";
+"profile_section_contacts" = "Контакты";
+"profile_section_about" = "Общие сведения";
+"settings_section_main" = "";
+"settings_section_social" = "";
+"settings_section_about" = "Общие сведения";
+"settings_section_security" = "Безопасность";
+"settings_section_language" = "Язык";
+"placeholder_email" = "";
+"placeholder_password" = "";
+"enter_email" = "Введите ваш e-mail адрес";
+"enter_password" = "Введите пароль";
+"button_log_in" = "Войти";
+"button_password_restore" = "Восстановить пароль";
+"menu_item_main" = "Главная";
+"menu_item_profile" = "Мой профиль";
+"menu_item_members" = "Участники клуба";
+"menu_item_contacts" = "Контакты";
+"screen_events_title" = "Мероприятия";
+"screen_news_title" = "Новости";
+"control_event_upcoming" = "Будущие";
+"control_event_past" = "Предыдущие";
+"control_event_calendar" = "Календарь";
+"control_event_list" = "Список";
+"screen_newsDescription_title" = "";
+"screen_eventDescription_title" = "";
+"settings_cell_language_title" = "Язык";
+
+/*cell title*/
+"settings_cell_password_change" = "Сменить пароль";
+"screen_members_title" = "Участники клуба";
+"screen_codex_title" = "Кодекс этики";
+"screen_contacts_title" = "Контакты";
+"screen_main_title" = "Главная";
+"screen_settings_title" = "Настройки";
+"profile_email" = "";
+"profile_phone" = "";
+"profile_facebook" = "";
+"profile_linkedin" = "";
+"screen_notifications_title" = "";
+"navbar_button_back" = "";
+"month_01" = "";
+"month_02" = "";
+"month_03" = "";
+"month_04" = "";
+"month_05" = "";
+"month_06" = "";
+"month_07" = "";
+"month_08" = "";
+"month_09" = "";
+"month_10" = "";
+"month_11" = "";
+"month_12" = "";
+"month_undefined" = "";
+"filter_section_year" = "";
+"filter_section_category" = "";
+"filter_section_sorting" = "";
+"filter_section_status" = "";
+"filter_section_starred" = "";
+"filter_section_sortby" = "";
+"filter_section_category_user" = "";
+"screen_filter_title" = "";
+"event_attend_seewho" = "";
+"menu_item_logout" = "";
+"screen_language_title" = "";
