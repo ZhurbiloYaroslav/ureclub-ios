@@ -379,6 +379,7 @@
 		C41CA3641FDBE3F000AB0D2D /* UREClub */ = {
 			isa = PBXGroup;
 			children = (
+				C4801672201B7AC0005F2253 /* Translations */,
 				C430EBDE200E124F001E818B /* Libraries */,
 				C41CA37F1FDBEB5900AB0D2D /* Extensions */,
 				C41CA37E1FDBEB4E00AB0D2D /* Protocols */,
@@ -439,7 +440,6 @@
 		C41CA37D1FDBEB4500AB0D2D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C4801672201B7AC0005F2253 /* Translations */,
 				C430EC0B200E40DB001E818B /* CSS */,
 				C4C203F21FE2AA3F00272679 /* Fonts */,
 				C41CA36F1FDBE3F000AB0D2D /* Assets.xcassets */,
@@ -756,7 +756,6 @@
 				C480164F201B3061005F2253 /* View */,
 				C4801652201B30E9005F2253 /* Model */,
 				C4801663201B6D22005F2253 /* Extensions */,
-				C480166B201B7A26005F2253 /* Translations */,
 			);
 			path = Language;
 			sourceTree = "<group>";
@@ -786,17 +785,10 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		C480166B201B7A26005F2253 /* Translations */ = {
-			isa = PBXGroup;
-			children = (
-				C480166E201B7A6E005F2253 /* Language.strings */,
-			);
-			path = Translations;
-			sourceTree = "<group>";
-		};
 		C4801672201B7AC0005F2253 /* Translations */ = {
 			isa = PBXGroup;
 			children = (
+				C480166E201B7A6E005F2253 /* Language.strings */,
 				C463F87F1FF50710001FBBC1 /* Localizable.strings */,
 			);
 			path = Translations;
@@ -1350,8 +1342,7 @@
 				C4801671201B7A91005F2253 /* en */,
 			);
 			name = Language.strings;
-			path = UREClub/Controller/Language/Translations;
-			sourceTree = SOURCE_ROOT;
+			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
 

@@ -23,7 +23,7 @@ class LanguageCell: UITableViewCell {
     func updateCellWith(_ language: Language) {
         currentLanguage = language
         translatedTitleLabel.text = language.getTranslatedName()
-        nativeTitleLabel.text = language.getName()
+        nativeTitleLabel.text = language.getNativeName()
     }
 
 }

@@ -11,20 +11,22 @@ import Foundation
 class LanguageManager {
     
     static let shared = LanguageManager()
+    let defaults = UserDefaults.standard
         
     var currentLanguage: Language {
         get {
-            let languageCode = UserDefaults.standard.object(forKey: "current_language_code") as? String ?? self.defaultLanguage.getCode()
+            let languageCode = defaults.object(forKey: "current_language_code") as? String ?? self.defaultLanguage.getCodeForSavingLanguageInDefaults()
             return Language.getLanguageFromStringWithCode(languageCode)
         }
         set {
-            let currentLanguageCode = newValue.getCode()
-            UserDefaults.standard.set(currentLanguageCode, forKey: "current_language_code")
+            let languageCode = newValue.getCodeForSavingLanguageInDefaults()
+            defaults.set(languageCode, forKey: "current_language_code")
+            defaults.synchronize()
         }
     }
     
     var defaultLanguage: Language {
-        return arrayWithLanguages[1]
+        return arrayWithLanguages[0]
     }
     
     let arrayWithLanguages: [Language] = [
@@ -40,6 +42,10 @@ class LanguageManager {
     
     func getLanguageFor(_ indexPath: IndexPath) -> Language {
         return arrayWithLanguages[indexPath.row]
+    }
+    
+    func saveCurrentLanguageWith(_ indexPath: IndexPath) {
+        currentLanguage = arrayWithLanguages[indexPath.row]
     }
     
 }

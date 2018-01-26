@@ -22,6 +22,7 @@ class LanguagePickerVC: UITableViewController {
         super.viewWillAppear(animated)
         
         updateUIWithLocalizedText()
+        tableView.reloadData()
     }
     
     func updateUIWithLocalizedText() {
@@ -44,18 +45,8 @@ class LanguagePickerVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch indexPath {
-        case [0,0]:
-            LanguageManager.shared.currentLanguage = .system
-        case [0,1]:
-            LanguageManager.shared.currentLanguage = .english
-        case [0,2]:
-            LanguageManager.shared.currentLanguage = .russian
-        case [0,3]:
-            LanguageManager.shared.currentLanguage = .ukrainian
-        default:
-            LanguageManager.shared.currentLanguage = .english
-        }
+        
+        languageManager.saveCurrentLanguageWith(indexPath)
         
         updateUIWithLocalizedText()
         navigationController?.popViewController(animated: true)

@@ -16,11 +16,10 @@ class ChangeLanguageCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        configureCell()
     }
     
-    func configureCell() {
+    func updateCell() {
         cellTitle.text = "settings_cell_language_title".localized()
-        languageName.text = LanguageManager.shared.currentLanguage.getName()
+        languageName.text = LanguageManager.shared.currentLanguage.getTranslatedName()
     }
 }

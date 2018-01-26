@@ -36,6 +36,7 @@ struct SettingsCells {
             case 0:
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: "ChangePasswordCell", for: indexPath) as? ChangePasswordCell
                     else { return UITableViewCell() }
+                cell.updateCell()
                 return cell
             default:
                 return UITableViewCell()
@@ -45,6 +46,7 @@ struct SettingsCells {
             case 0:
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: "ChangeLanguageCell", for: indexPath) as? ChangeLanguageCell
                     else { return UITableViewCell() }
+                cell.updateCell()
                 return cell
             default:
                 return UITableViewCell()

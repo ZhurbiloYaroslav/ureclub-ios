@@ -15,10 +15,9 @@ class ChangePasswordCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        configureCell()
     }
     
-    func configureCell() {
+    func updateCell() {
         changePasswordLabel.text = "settings_cell_password_change".localized()
     }
     

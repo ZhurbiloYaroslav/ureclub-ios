@@ -11,7 +11,7 @@ extension String {
     
     func localized() -> String {
         let currentLanguage = LanguageManager.shared.currentLanguage
-        return getLocalizedStringForResource(currentLanguage.getCodeForUsingInApp())
+        return getLocalizedStringForResource(currentLanguage.getLanguageCodeForUsingInApp())
     }
         
     func getLocalizedString(key: String, lang: String, table: String? = nil) -> String? {

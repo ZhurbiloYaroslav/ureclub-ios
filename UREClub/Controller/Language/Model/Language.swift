@@ -16,6 +16,10 @@ enum Language {
     case ukrainian
     case polish
     
+    var baseLanguage: Language {
+        return .english
+    }
+    
     var systemPrefferedLanguage: String {
         return Locale.preferredLanguages[0]
     }
@@ -32,35 +36,62 @@ enum Language {
         }
     }
     
-    func getCodeForUsingInApp() -> String {
+    func getCodeForSavingLanguageInDefaults() -> String {
+        switch self {
+        case .system:
+            return "system"
+        default:
+            return getCode()
+        }
+    }
+    
+    func getLanguageCodeForUsingInApp() -> String {
         switch getCode() {
-        case "en":
+        case baseLanguage.getCode():
             return "Base"
         default:
             return getCode()
         }
     }
     
-    func getName() -> String {
+    func getNativeName() -> String {
         switch self {
-        case .system: return "System"
-        case .english: return "English"
-        case .russian: return "Russian"
-        case .ukrainian: return "Ukrainian"
-        case .polish: return "Polish"
+        case .system:
+            return "System"
+        default:
+            let appLanguageCode = getLanguageCodeForUsingInApp()
+            let langTranslationKey = getLanguageTranslationKey()
+            let defaultValueOnError = "<\(langTranslationKey)>"
+            guard let pathForLanguage = Bundle.main.path(forResource: appLanguageCode, ofType: "lproj")
+                else { return defaultValueOnError }
+            guard let bundleForLanguage = Bundle(path: pathForLanguage)
+                else { return defaultValueOnError }
+            let translatedName = bundleForLanguage.localizedString(forKey: langTranslationKey,value: defaultValueOnError,table: "Language")
+            return translatedName
         }
     }
     
     func getTranslatedName() -> String {
-        let languageName = "language_" + getCode()
-        let localizedLanguageName = Bundle.main.localizedString(forKey: languageName, value: nil, table: "Language")
+        let langTranslationKey = getLanguageTranslationKey()
+        let localizedLanguageName = Bundle.main.localizedString(forKey: langTranslationKey, value: "<\(langTranslationKey)>", table: "Language")
         return localizedLanguageName
+    }
+    
+    func getLanguageTranslationKey() -> String {
+        switch self {
+        case .system:
+            return "language_system"
+        default:
+            return "language_" + getCode()
+        }
     }
     
     static func getLanguageFromStringWithCode(_ stringWithCode: String) -> Language {
         switch stringWithCode {
+        case "system": return .system
         case "ru": return .russian
         case "uk": return .ukrainian
+        case "pl": return .polish
         default: return .english
         }
     }
