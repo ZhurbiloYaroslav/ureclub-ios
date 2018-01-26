@@ -56,8 +56,8 @@ struct EventDate {
     }
     
     func getTimePeriod() -> String {
-        let startTime = Formatter.getStringFrom(getDateOfBegining(), withFormat: .HHmm)
-        let endTime = Formatter.getStringFrom(getDateOfEnd(), withFormat: .HHmm)
+        let startTime = time_beg.dropLast(3)
+        let endTime = time_end.dropLast(3)
         return startTime + " - " + endTime
     }
     
