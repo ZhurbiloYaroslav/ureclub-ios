@@ -165,6 +165,8 @@ class ProfileVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath {
+        case [0,0]:
+            performSegue(withIdentifier: "ShowProfileEdit", sender: nil)
         case [1,0]: Browser.openURLWith(.Mail_User_Email)
         case [1,1]: Browser.openURLWith(.Call_User_Phone)
         case [1,2]: Browser.openURLWith(.Surf_User_Facebook)

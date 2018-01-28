@@ -34,27 +34,103 @@
                     <connections>
                         <outlet property="menuButton" destination="Zbf-tD-L7G" id="k5I-7c-ri8"/>
                         <outlet property="notificationsButton" destination="KAZ-MS-Sal" id="bqc-DH-Bxc"/>
-                        <segue destination="F62-NP-W0d" kind="show" identifier="ShowNotifications" id="2Xm-8g-XCz"/>
+                        <segue destination="lGe-kI-9aV" kind="show" identifier="ShowNotifications" id="2Xm-8g-XCz"/>
+                        <segue destination="s3k-Kb-bQ5" kind="show" identifier="ShowProfileEdit" id="uJd-lN-3lp"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="voo-fl-a9l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4326" y="114"/>
         </scene>
-        <!--Notifications-->
-        <scene sceneID="HkZ-g0-2aX">
+        <!--Profile edit-->
+        <scene sceneID="12f-Jg-f3a">
             <objects>
-                <viewController storyboardIdentifier="NotificationsVC" title="Notifications" id="F62-NP-W0d" customClass="NotificationsVC" customModule="UREClub" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="b5B-0o-12p">
+                <viewController storyboardIdentifier="ProfileEditVC" title="Profile edit" id="s3k-Kb-bQ5" customClass="ProfileEditVC" customModule="UREClub" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Bms-T7-Nnf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j5h-CX-Gc3">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fre-Sq-McY" userLabel="Container View">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l3J-Yf-Q09">
+                                                <rect key="frame" x="123" y="30" width="128" height="128"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-placeholder-person" translatesAutoresizingMaskIntoConstraints="NO" id="DIA-KC-gJL">
+                                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="128" id="Ia2-w0-sa7"/>
+                                                            <constraint firstAttribute="width" constant="128" id="Kim-6u-Exz"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <button opaque="NO" alpha="0.20000000000000001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="POE-ZH-jBi">
+                                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                        <color key="backgroundColor" red="0.36862745099999999" green="0.73725490199999999" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <connections>
+                                                            <action selector="changeImageButtonPressed:" destination="s3k-Kb-bQ5" eventType="touchUpInside" id="Npq-Nz-u75"/>
+                                                        </connections>
+                                                    </button>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-profile-edit" translatesAutoresizingMaskIntoConstraints="NO" id="ejX-xv-V73">
+                                                        <rect key="frame" x="91" y="91" width="32" height="32"/>
+                                                        <color key="backgroundColor" red="0.99610227346420288" green="0.99589234590530396" blue="0.99216681718826294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="32" id="BAb-40-mZe"/>
+                                                            <constraint firstAttribute="width" constant="32" id="quQ-nb-ZEw"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstItem="DIA-KC-gJL" firstAttribute="centerY" secondItem="l3J-Yf-Q09" secondAttribute="centerY" id="2H6-tz-0ua"/>
+                                                    <constraint firstItem="DIA-KC-gJL" firstAttribute="centerX" secondItem="l3J-Yf-Q09" secondAttribute="centerX" id="3v7-IL-GUw"/>
+                                                    <constraint firstItem="POE-ZH-jBi" firstAttribute="top" secondItem="l3J-Yf-Q09" secondAttribute="top" id="4VF-if-9yA"/>
+                                                    <constraint firstAttribute="bottom" secondItem="ejX-xv-V73" secondAttribute="bottom" constant="5" id="FFN-ME-d38"/>
+                                                    <constraint firstItem="POE-ZH-jBi" firstAttribute="leading" secondItem="l3J-Yf-Q09" secondAttribute="leading" id="FyW-4K-9pH"/>
+                                                    <constraint firstAttribute="trailing" secondItem="ejX-xv-V73" secondAttribute="trailing" constant="5" id="bv1-hE-Zbf"/>
+                                                    <constraint firstAttribute="width" constant="128" id="exW-zf-3ed"/>
+                                                    <constraint firstAttribute="height" constant="128" id="hM5-xC-7cY"/>
+                                                    <constraint firstAttribute="trailing" secondItem="POE-ZH-jBi" secondAttribute="trailing" id="qSh-sX-LpW"/>
+                                                    <constraint firstAttribute="bottom" secondItem="POE-ZH-jBi" secondAttribute="bottom" id="uyz-qp-pCi"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="l3J-Yf-Q09" firstAttribute="top" secondItem="fre-Sq-McY" secondAttribute="top" constant="30" id="R0A-SB-OV4"/>
+                                            <constraint firstItem="l3J-Yf-Q09" firstAttribute="centerX" secondItem="fre-Sq-McY" secondAttribute="centerX" id="b6m-5m-6zr"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="fre-Sq-McY" secondAttribute="trailing" id="DsK-iE-FQY"/>
+                                    <constraint firstItem="fre-Sq-McY" firstAttribute="leading" secondItem="j5h-CX-Gc3" secondAttribute="leading" id="aiL-GJ-6cv"/>
+                                    <constraint firstAttribute="bottom" secondItem="fre-Sq-McY" secondAttribute="bottom" id="cV7-wg-KvH"/>
+                                    <constraint firstItem="fre-Sq-McY" firstAttribute="top" secondItem="j5h-CX-Gc3" secondAttribute="top" id="jjl-ed-Uvr"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <viewLayoutGuide key="safeArea" id="ECL-64-lSP"/>
+                        <constraints>
+                            <constraint firstItem="j5h-CX-Gc3" firstAttribute="leading" secondItem="dsx-BG-dms" secondAttribute="leading" id="4FR-MJ-mav"/>
+                            <constraint firstItem="fre-Sq-McY" firstAttribute="width" secondItem="Bms-T7-Nnf" secondAttribute="width" id="4IO-or-guN"/>
+                            <constraint firstItem="fre-Sq-McY" firstAttribute="height" secondItem="Bms-T7-Nnf" secondAttribute="height" priority="250" id="8IZ-un-beZ"/>
+                            <constraint firstItem="j5h-CX-Gc3" firstAttribute="top" secondItem="dsx-BG-dms" secondAttribute="top" id="ZjT-Dw-7vt"/>
+                            <constraint firstItem="dsx-BG-dms" firstAttribute="bottom" secondItem="j5h-CX-Gc3" secondAttribute="bottom" id="l31-7f-KEI"/>
+                            <constraint firstItem="dsx-BG-dms" firstAttribute="trailing" secondItem="j5h-CX-Gc3" secondAttribute="trailing" id="t3C-Ci-xQE"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dsx-BG-dms"/>
                     </view>
+                    <connections>
+                        <outlet property="profileImageEditButtonImage" destination="ejX-xv-V73" id="HNP-tF-Qub"/>
+                        <outlet property="profileImageView" destination="DIA-KC-gJL" id="DUT-MO-CEb"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Muf-2A-ugR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="657-0d-lTF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5490" y="114"/>
+            <point key="canvasLocation" x="5782" y="114"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fG8-Vj-sVE">
@@ -74,9 +150,19 @@
             </objects>
             <point key="canvasLocation" x="3054" y="114"/>
         </scene>
+        <!--NotificationsVC-->
+        <scene sceneID="c98-nw-dFB">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="NotificationsVC" storyboardName="Notifications" referencedIdentifier="NotificationsVC" id="lGe-kI-9aV" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="slo-KF-bnj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5070" y="-57"/>
+        </scene>
     </scenes>
     <resources>
         <image name="icon-notif-empty" width="27" height="32"/>
+        <image name="icon-placeholder-person" width="128" height="129"/>
+        <image name="icon-profile-edit" width="25" height="25"/>
         <image name="menu" width="22" height="22"/>
     </resources>
 </document>
