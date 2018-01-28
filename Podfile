@@ -13,6 +13,8 @@ target 'UREClub' do
   
   pod 'SDWebImage', '~> 4.1.2'
 
+  pod 'SkyFloatingLabelTextField', '~> 3.0'
+
 end
 
 post_install do |installer|
