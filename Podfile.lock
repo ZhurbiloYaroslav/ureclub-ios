@@ -4,13 +4,15 @@ PODS:
   - SDWebImage (4.1.2):
     - SDWebImage/Core (= 4.1.2)
   - SDWebImage/Core (4.1.2)
+  - SkyFloatingLabelTextField (3.2.1)
   - SwiftSoup (1.5.5)
   - SWRevealViewController (2.3.0)
 
 DEPENDENCIES:
-  - Alamofire (~> 4.5)
+  - Alamofire (~> 4.5.1)
   - INSPersistentContainer
-  - SDWebImage (~> 4.0)
+  - SDWebImage (~> 4.1.2)
+  - SkyFloatingLabelTextField (~> 3.0)
   - SwiftSoup
   - SWRevealViewController
 
@@ -18,9 +20,10 @@ SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
   INSPersistentContainer: 7e04a0d332ba075441ce0ee73d584ce84d76ac23
   SDWebImage: cb6f9f266a9977741efcbc21e618e8be3734c774
+  SkyFloatingLabelTextField: 71d28906024e7d7e4460099b342f3ca7036a2e24
   SwiftSoup: 6a31eb02551c9c523eea14aef9d9e70f1466ff99
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
 
-PODFILE CHECKSUM: fa736574dda3bfc46d195d8a05b6ebac58439ac4
+PODFILE CHECKSUM: 3a8fc5f301b7d4bc4f11aaf8b1355b0e4bc6ee96
 
 COCOAPODS: 1.2.1
