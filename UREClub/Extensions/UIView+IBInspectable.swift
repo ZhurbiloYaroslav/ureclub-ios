@@ -16,6 +16,17 @@ extension UIView {
         layer.borderColor = color?.cgColor
     }
     
+    func setShadow(offset: CGSize, opacity: Float, radius: CGFloat, andColor color: UIColor?) {
+        layer.shadowOffset = offset
+        layer.shadowOpacity = opacity
+        layer.shadowRadius = radius
+        layer.shadowColor = color?.cgColor
+    }
+}
+
+//MARK: Delete it in the future
+extension UIView {
+    
     @IBInspectable var cornerRadius: CGFloat {
         set { layer.cornerRadius = newValue  }
         get { return layer.cornerRadius }
@@ -67,5 +78,6 @@ extension UIView {
         set { clipsToBounds = newValue }
         get { return clipsToBounds }
     }
+    
 }
 

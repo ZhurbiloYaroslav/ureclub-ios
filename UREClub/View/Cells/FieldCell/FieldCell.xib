@@ -26,7 +26,7 @@
                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="d4p-S9-TTe">
                         <rect key="frame" x="15" y="10" width="345" height="107.5"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-call" translatesAutoresizingMaskIntoConstraints="NO" id="m3N-Gl-jBQ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-profile-phone" translatesAutoresizingMaskIntoConstraints="NO" id="m3N-Gl-jBQ">
                                 <rect key="frame" x="0.0" y="29" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="56R-qX-x7U"/>
@@ -76,6 +76,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="icon-call" width="44" height="44"/>
+        <image name="icon-profile-phone" width="50" height="50"/>
     </resources>
 </document>

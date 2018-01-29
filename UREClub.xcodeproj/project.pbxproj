@@ -45,6 +45,7 @@
 		C435FD1220109D5200D90CE8 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435FD1120109D5200D90CE8 /* Company.swift */; };
 		C43D1F76201DF7F600CFC158 /* ProfileEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43D1F75201DF7F600CFC158 /* ProfileEditVC.swift */; };
 		C43D1F79201DFA4D00CFC158 /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C43D1F78201DFA4D00CFC158 /* Notifications.storyboard */; };
+		C43D1F7D201E843000CFC158 /* UIViewController+hideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43D1F7C201E843000CFC158 /* UIViewController+hideKeyboard.swift */; };
 		C44574601FDC18FB004A5305 /* NewsListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C445745F1FDC18FB004A5305 /* NewsListVC.swift */; };
 		C44574621FDC192C004A5305 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44574611FDC192C004A5305 /* SettingsVC.swift */; };
 		C44574641FDC1AED004A5305 /* ContactsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44574631FDC1AED004A5305 /* ContactsVC.swift */; };
@@ -80,7 +81,6 @@
 		C4662AE11FEAAE38001848C8 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C4662ACF1FEAAE34001848C8 /* Montserrat-Regular.ttf */; };
 		C4662AE21FEAAE38001848C8 /* Montserrat-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C4662AD01FEAAE36001848C8 /* Montserrat-ExtraLight.ttf */; };
 		C4662AE41FEAB4F5001848C8 /* ArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4662AE31FEAB4F5001848C8 /* ArticleCell.swift */; };
-		C4662AE61FEAB6A0001848C8 /* UIImageView+downloadedFromURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4662AE51FEAB6A0001848C8 /* UIImageView+downloadedFromURL.swift */; };
 		C4662AE81FEAC8EC001848C8 /* EventDescVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4662AE71FEAC8EC001848C8 /* EventDescVC.swift */; };
 		C47FA7391FE1D2FB003D393E /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C47FA7371FE1D2FB003D393E /* Auth.storyboard */; };
 		C47FA7441FE1D60B003D393E /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C47FA7431FE1D60B003D393E /* Profile.storyboard */; };
@@ -195,6 +195,7 @@
 		C435FD1120109D5200D90CE8 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		C43D1F75201DF7F600CFC158 /* ProfileEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditVC.swift; sourceTree = "<group>"; };
 		C43D1F78201DFA4D00CFC158 /* Notifications.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notifications.storyboard; sourceTree = "<group>"; };
+		C43D1F7C201E843000CFC158 /* UIViewController+hideKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+hideKeyboard.swift"; sourceTree = "<group>"; };
 		C445745F1FDC18FB004A5305 /* NewsListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListVC.swift; sourceTree = "<group>"; };
 		C44574611FDC192C004A5305 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		C44574631FDC1AED004A5305 /* ContactsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsVC.swift; sourceTree = "<group>"; };
@@ -233,7 +234,6 @@
 		C4662ACF1FEAAE34001848C8 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		C4662AD01FEAAE36001848C8 /* Montserrat-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraLight.ttf"; sourceTree = "<group>"; };
 		C4662AE31FEAB4F5001848C8 /* ArticleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCell.swift; sourceTree = "<group>"; };
-		C4662AE51FEAB6A0001848C8 /* UIImageView+downloadedFromURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+downloadedFromURL.swift"; sourceTree = "<group>"; };
 		C4662AE71FEAC8EC001848C8 /* EventDescVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDescVC.swift; sourceTree = "<group>"; };
 		C47FA7381FE1D2FB003D393E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Auth.storyboard; sourceTree = "<group>"; };
 		C47FA7431FE1D60B003D393E /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
@@ -467,7 +467,7 @@
 			children = (
 				C4C203D91FE2669600272679 /* UIView+IBInspectable.swift */,
 				C4C203DB1FE266C100272679 /* UIButton+IBInspectable.swift */,
-				C4662AE51FEAB6A0001848C8 /* UIImageView+downloadedFromURL.swift */,
+				C43D1F7C201E843000CFC158 /* UIViewController+hideKeyboard.swift */,
 				C4B54B351FEF2A3B008D531E /* Array+uniq.swift */,
 			);
 			path = Extensions;
@@ -1231,6 +1231,7 @@
 				C4DC777E200FDD1900F3814F /* PersonCollectionCell.swift in Sources */,
 				C480164E201B2F71005F2253 /* LanguageVC.swift in Sources */,
 				C4801654201B319E005F2253 /* Language.swift in Sources */,
+				C43D1F7D201E843000CFC158 /* UIViewController+hideKeyboard.swift in Sources */,
 				C4C203EB1FE2939B00272679 /* MainVC.swift in Sources */,
 				C4FA7D2D1FF7712B00F03846 /* TableSectionNumber.swift in Sources */,
 				C4D8D32D1FF2BC7F0003DA36 /* Article.swift in Sources */,
@@ -1295,7 +1296,6 @@
 				C4B8A5C62013ED1000645E2E /* ContactsData.swift in Sources */,
 				C40C84922002B10D0011AF01 /* ChangePasswordCell.swift in Sources */,
 				C4C203E51FE2871500272679 /* CodexVC.swift in Sources */,
-				C4662AE61FEAB6A0001848C8 /* UIImageView+downloadedFromURL.swift in Sources */,
 				C40C84982002BF980011AF01 /* ChangeLanguageCell.swift in Sources */,
 				C4B54B2F1FEEFA3C008D531E /* CurrentUser.swift in Sources */,
 				C48D0DAB20129C79009347DE /* CalendarCell.swift in Sources */,

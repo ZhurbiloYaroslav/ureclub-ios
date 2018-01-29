@@ -47,16 +47,16 @@
             <objects>
                 <viewController storyboardIdentifier="ProfileEditVC" title="Profile edit" id="s3k-Kb-bQ5" customClass="ProfileEditVC" customModule="UREClub" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Bms-T7-Nnf">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j5h-CX-Gc3">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="936"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fre-Sq-McY" userLabel="Container View">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1162.5"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l3J-Yf-Q09">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l3J-Yf-Q09" userLabel="Profile Image Container">
                                                 <rect key="frame" x="123" y="30" width="128" height="128"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-placeholder-person" translatesAutoresizingMaskIntoConstraints="NO" id="DIA-KC-gJL">
@@ -66,41 +66,151 @@
                                                             <constraint firstAttribute="width" constant="128" id="Kim-6u-Exz"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" alpha="0.20000000000000001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="POE-ZH-jBi">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="POE-ZH-jBi">
                                                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                                        <color key="backgroundColor" red="0.36862745099999999" green="0.73725490199999999" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <connections>
                                                             <action selector="changeImageButtonPressed:" destination="s3k-Kb-bQ5" eventType="touchUpInside" id="Npq-Nz-u75"/>
                                                         </connections>
                                                     </button>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-profile-edit" translatesAutoresizingMaskIntoConstraints="NO" id="ejX-xv-V73">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yJS-cA-pee">
                                                         <rect key="frame" x="91" y="91" width="32" height="32"/>
-                                                        <color key="backgroundColor" red="0.99610227346420288" green="0.99589234590530396" blue="0.99216681718826294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <subviews>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-profile-edit" translatesAutoresizingMaskIntoConstraints="NO" id="ejX-xv-V73">
+                                                                <rect key="frame" x="8" y="8" width="16" height="16"/>
+                                                                <color key="backgroundColor" red="0.99610227346420288" green="0.99589234590530396" blue="0.99216681718826294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="16" id="BAb-40-mZe"/>
+                                                                    <constraint firstAttribute="width" constant="16" id="quQ-nb-ZEw"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="32" id="BAb-40-mZe"/>
-                                                            <constraint firstAttribute="width" constant="32" id="quQ-nb-ZEw"/>
+                                                            <constraint firstItem="ejX-xv-V73" firstAttribute="centerY" secondItem="yJS-cA-pee" secondAttribute="centerY" id="7rN-Ji-CLZ"/>
+                                                            <constraint firstAttribute="width" constant="32" id="eb0-Mo-D2w"/>
+                                                            <constraint firstAttribute="height" constant="32" id="hHJ-j7-lrk"/>
+                                                            <constraint firstItem="ejX-xv-V73" firstAttribute="centerX" secondItem="yJS-cA-pee" secondAttribute="centerX" id="wzZ-kM-aTq"/>
                                                         </constraints>
-                                                    </imageView>
+                                                    </view>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstItem="DIA-KC-gJL" firstAttribute="centerY" secondItem="l3J-Yf-Q09" secondAttribute="centerY" id="2H6-tz-0ua"/>
                                                     <constraint firstItem="DIA-KC-gJL" firstAttribute="centerX" secondItem="l3J-Yf-Q09" secondAttribute="centerX" id="3v7-IL-GUw"/>
                                                     <constraint firstItem="POE-ZH-jBi" firstAttribute="top" secondItem="l3J-Yf-Q09" secondAttribute="top" id="4VF-if-9yA"/>
-                                                    <constraint firstAttribute="bottom" secondItem="ejX-xv-V73" secondAttribute="bottom" constant="5" id="FFN-ME-d38"/>
                                                     <constraint firstItem="POE-ZH-jBi" firstAttribute="leading" secondItem="l3J-Yf-Q09" secondAttribute="leading" id="FyW-4K-9pH"/>
-                                                    <constraint firstAttribute="trailing" secondItem="ejX-xv-V73" secondAttribute="trailing" constant="5" id="bv1-hE-Zbf"/>
                                                     <constraint firstAttribute="width" constant="128" id="exW-zf-3ed"/>
                                                     <constraint firstAttribute="height" constant="128" id="hM5-xC-7cY"/>
                                                     <constraint firstAttribute="trailing" secondItem="POE-ZH-jBi" secondAttribute="trailing" id="qSh-sX-LpW"/>
+                                                    <constraint firstAttribute="bottom" secondItem="yJS-cA-pee" secondAttribute="bottom" constant="5" id="rGf-9a-ra6"/>
                                                     <constraint firstAttribute="bottom" secondItem="POE-ZH-jBi" secondAttribute="bottom" id="uyz-qp-pCi"/>
+                                                    <constraint firstAttribute="trailing" secondItem="yJS-cA-pee" secondAttribute="trailing" constant="5" id="vGp-dt-Qaz"/>
                                                 </constraints>
                                             </view>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Xuq-g6-rRU">
+                                                <rect key="frame" x="16" y="183" width="343" height="654.5"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="7oD-zh-yx5">
+                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="334.5"/>
+                                                        <subviews>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mA2-Qa-mH1" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                                                <rect key="frame" x="0.0" y="0.0" width="343" height="39"/>
+                                                                <nil key="textColor"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="First Name"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="First Name"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="First Name"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </textField>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5YR-sn-dCp" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                                                <rect key="frame" x="0.0" y="49" width="343" height="39.5"/>
+                                                                <nil key="textColor"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Last Name"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="Last Name"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Last Name"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </textField>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aR9-TU-0ZA" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                                                <rect key="frame" x="0.0" y="98.5" width="343" height="39"/>
+                                                                <nil key="textColor"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Position"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="Position"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Position"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </textField>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bIR-aP-AVi" userLabel="Email" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                                                <rect key="frame" x="0.0" y="147.5" width="343" height="39.5"/>
+                                                                <nil key="textColor"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Email"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="Email"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Email"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </textField>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BtE-Oz-k0f" userLabel="Phone" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                                                <rect key="frame" x="0.0" y="197" width="343" height="39"/>
+                                                                <nil key="textColor"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Phone"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="Phone"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Phone"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </textField>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e1v-ho-e85" userLabel="Facebook" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                                                <rect key="frame" x="0.0" y="246" width="343" height="39.5"/>
+                                                                <nil key="textColor"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Facebook"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="Facebook"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Facebook"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </textField>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZXi-gY-ucD" userLabel="LinkedIn" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                                                <rect key="frame" x="0.0" y="295.5" width="343" height="39"/>
+                                                                <nil key="textColor"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="LinkedIn"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="LinkedIn"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="LinkedIn"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" text="User description TextView" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="1en-gV-ppK">
+                                                        <rect key="frame" x="0.0" y="354.5" width="343" height="300"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="300" id="P5L-0F-PZc"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                                    </textView>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="Xuq-g6-rRU" secondAttribute="trailing" constant="16" id="813-W6-T3P"/>
                                             <constraint firstItem="l3J-Yf-Q09" firstAttribute="top" secondItem="fre-Sq-McY" secondAttribute="top" constant="30" id="R0A-SB-OV4"/>
+                                            <constraint firstItem="Xuq-g6-rRU" firstAttribute="top" secondItem="l3J-Yf-Q09" secondAttribute="bottom" constant="25" id="SFm-Rq-ssC"/>
+                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Xuq-g6-rRU" secondAttribute="bottom" constant="325" id="SGC-PG-uhd"/>
                                             <constraint firstItem="l3J-Yf-Q09" firstAttribute="centerX" secondItem="fre-Sq-McY" secondAttribute="centerX" id="b6m-5m-6zr"/>
+                                            <constraint firstItem="Xuq-g6-rRU" firstAttribute="leading" secondItem="fre-Sq-McY" secondAttribute="leading" constant="16" id="g1x-W2-eXO"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -123,9 +233,20 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dsx-BG-dms"/>
                     </view>
+                    <size key="freeformSize" width="375" height="1000"/>
                     <connections>
+                        <outlet property="emailField" destination="bIR-aP-AVi" id="oXS-Lm-16B"/>
+                        <outlet property="facebookField" destination="e1v-ho-e85" id="9MJ-qS-qhp"/>
+                        <outlet property="firstNameField" destination="mA2-Qa-mH1" id="CSm-xo-cu3"/>
+                        <outlet property="lastNameField" destination="5YR-sn-dCp" id="kKM-ah-KSS"/>
+                        <outlet property="linkedInField" destination="ZXi-gY-ucD" id="qTk-PL-GzF"/>
+                        <outlet property="phoneField" destination="BtE-Oz-k0f" id="ifK-D6-mt6"/>
+                        <outlet property="positionField" destination="aR9-TU-0ZA" id="GvY-B4-wE9"/>
+                        <outlet property="profileImageEditButtonContainer" destination="yJS-cA-pee" id="kcd-LQ-EMa"/>
                         <outlet property="profileImageEditButtonImage" destination="ejX-xv-V73" id="HNP-tF-Qub"/>
                         <outlet property="profileImageView" destination="DIA-KC-gJL" id="DUT-MO-CEb"/>
+                        <outlet property="scrollView" destination="j5h-CX-Gc3" id="UjC-Ky-cj5"/>
+                        <outlet property="userDescriptionTextView" destination="1en-gV-ppK" id="DA2-bU-x7d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="657-0d-lTF" userLabel="First Responder" sceneMemberID="firstResponder"/>
