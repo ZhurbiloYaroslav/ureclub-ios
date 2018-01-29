@@ -22,9 +22,10 @@ extension UIView {
         layer.shadowRadius = radius
         layer.shadowColor = color?.cgColor
     }
+    
 }
 
-//MARK: Delete it in the future
+// MARK: Delete it in the future
 extension UIView {
     
     @IBInspectable var cornerRadius: CGFloat {

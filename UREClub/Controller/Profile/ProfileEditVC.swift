@@ -9,9 +9,9 @@
 import UIKit
 import SkyFloatingLabelTextField
 
-protocol GenericTextField { }
-extension UITextField: GenericTextField { }
-extension UITextView: GenericTextField { }
+protocol GenericTextField {}
+extension UITextField: GenericTextField {}
+extension UITextView: GenericTextField {}
 
 class ProfileEditVC: UIViewController {
 
