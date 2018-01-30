@@ -15,10 +15,14 @@ extension UISegmentedControl {
     }
     
     func setDefaultStyle() {
-        self.layer.borderWidth = 1
-        self.layer.borderColor = Constants.Color.coalLight.cgColor
-        self.backgroundColor = Constants.Color.coalLight
-        self.tintColor = Constants.DefaultColor.background
+        
+        tintColor = Constants.Color.coalLight
+        
+        layer.cornerRadius = 0.0
+        layer.borderWidth = 1.5
+        layer.borderColor = Constants.Color.coalLight.cgColor
+        layer.backgroundColor = Constants.DefaultColor.background.cgColor
+        layer.masksToBounds = true
     }
 
 }
