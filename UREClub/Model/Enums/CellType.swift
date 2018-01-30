@@ -9,20 +9,20 @@
 import Foundation
 
 enum CellType {
-    case Text
-    case Html
-    case NameFull
-    case NameFirst
-    case NameLast
-    case CompanyName
-    case UserPosition
-    case Phone
-    case Email
-    case Password
-    case Skype
-    case Viber
-    case Facebook
-    case Twitter
-    case LinkedIn
-    case Undefined
+    case text
+    case html
+    case nameFull
+    case nameFirst
+    case nameLast
+    case companyName
+    case userPosition
+    case phone
+    case email
+    case password
+    case skype
+    case viber
+    case facebook
+    case twitter
+    case linkedIn
+    case undefined
 }

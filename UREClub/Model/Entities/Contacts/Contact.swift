@@ -10,7 +10,7 @@ import Foundation
 
 class Contact: NSObject {
     
-    //TODO: Implement Array With Categories
+    // TODO: Implement Array With Categories
     var categories: [Category]!
     
     private let id: Int

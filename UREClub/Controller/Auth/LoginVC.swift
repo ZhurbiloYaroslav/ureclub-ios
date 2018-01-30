@@ -7,52 +7,77 @@
 //
 
 import UIKit
+import SkyFloatingLabelTextField
 
 class LoginVC: UIViewController {
     
-    @IBOutlet weak var enterEmailLabel: UILabel!
-    @IBOutlet weak var enterPasswordLabel: UILabel!
+    @IBOutlet weak var logoBackgroundView: UIView!
     
     //TextFields
-    @IBOutlet weak var emailField: UITextField!
-    @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var emailField: SkyFloatingLabelTextField!
+    @IBOutlet weak var passwordField: SkyFloatingLabelTextField!
     
     //Buttons
     @IBOutlet weak var logInButton: UIButton!
     @IBOutlet weak var callUsButton: UIButton!
     @IBOutlet weak var restorePasswordButton: UIButton!
     
+    private var currentAlertVC: UIAlertController!
     private var activeTextField = UITextField()
+    private var arrayWithTextFields: [SkyFloatingLabelTextField] {
+        return [ emailField, passwordField ]
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setUIElementsStyle()
         initializeDelegates()
-        setFieldsStyles()
         updateUIWithLocalizedText()
+        hideKeyboardWhenTappedAround()
+        registerForKeyboardNotifications()
     }
     
-    func setFieldsStyles() {
-        let attributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+    func setUIElementsStyle() {
         
-        let placeholderEmail = "placeholder_email".localized()
-        let emailPlaceholder = NSAttributedString(string: placeholderEmail, attributes: attributes)
+        logoBackgroundView.setRadius(100, withWidth: 1, andColor: UIColor.clear)
+        logoBackgroundView.clipsToBounds = true
         
-        let placeholderPassword = "placeholder_password".localized()
-        let passwordPlaceholder = NSAttributedString(string: placeholderPassword, attributes: attributes)
+        emailField.selectedTitle = "placeholder_email".localized()
+        passwordField.selectedTitle = "placeholder_password".localized()
         
-        emailField.attributedPlaceholder = emailPlaceholder
-        passwordField.attributedPlaceholder = passwordPlaceholder
+        for textField in arrayWithTextFields {
+            
+            textField.lineHeight = 0
+            textField.lineColor = UIColor.clear
+            
+            textField.textAlignment = .center
+            
+            textField.font = UIFont(name: "Montserrat-Medium", size: 18) ?? UIFont()
+            textField.textColor = UIColor.white
+            textField.titleColor = Constants.Color.skyLight
+            textField.titleFont = UIFont(name: "Montserrat-Bold", size: 18) ?? UIFont()
+            textField.editingChanged()
+            textField.placeholderColor = UIColor.white
+            textField.placeholderFont = UIFont(name: "Montserrat-Medium", size: 18) ?? UIFont()
+            textField.errorColor = Constants.Color.errorColor
+            
+            textField.selectedTitleColor = Constants.Color.skyDark
+        }
+        passwordField.isSecureTextEntry = true
+        
+        logInButton.setRadius(10, withWidth: 1, andColor: UIColor.clear)
     }
     
     func initializeDelegates() {
-        emailField.delegate = self
-        passwordField.delegate = self
+        for textField in arrayWithTextFields {
+            textField.delegate = self
+        }
     }
     
     func updateUIWithLocalizedText() {
-        enterEmailLabel.text = "enter_email".localized()
-        enterPasswordLabel.text = "enter_password".localized()
+        emailField.placeholder = "enter_email".localized()
+        passwordField.placeholder = "enter_password".localized()
         
         logInButton.setTitle("button_log_in".localized(), for: .normal)
         restorePasswordButton.setTitle("button_password_restore".localized(), for: .normal)
@@ -67,17 +92,18 @@ class LoginVC: UIViewController {
         if let unwrappedEmail = emailField.text, Validator.isEmailValid(unwrappedEmail) {
             email = unwrappedEmail
         } else {
-            errorMessages.append("Email is invalid")
+            errorMessages.append("email_is_not_valid".localized())
         }
         
         if let unwrappedPassword = passwordField.text, Validator.isPasswordValid(unwrappedPassword) {
             password = unwrappedPassword
         } else {
-            errorMessages.append("Password is invalid")
+            errorMessages.append("password_is_not_valid".localized())
         }
         
         if errorMessages.count > 0 {
-            Alert().presentAlertWith(title: "Login Error", andMessages: errorMessages, completionHandler: { (alertContoller) in
+            let alertTitle = "auth_alert_error_title".localized()
+            Alert().presentAlertWith(title: alertTitle, andMessages: errorMessages, completionHandler: { (alertContoller) in
                 self.present(alertContoller, animated: true, completion: nil)
             })
             return
@@ -90,22 +116,30 @@ class LoginVC: UIViewController {
         
         NetworkManager().loginWith(loginData) { errorMessages in
             if let errorMessages = errorMessages {
-                print(errorMessages)
+                let alertTitle = "auth_alert_error_title".localized()
+                Alert().presentAlertWith(title: alertTitle, andMessages: errorMessages, completionHandler: { (alertVC) in
+                    self.present(alertVC, animated: true, completion: nil)
+                })
             } else {
-                print("firstName: ", CurrentUser.firstName)
-                print("email: ", CurrentUser.email)
-                print("getBearerToken: ", CurrentUser.getBearerToken())
                 self.performSegue(withIdentifier: "EnterFromLogin", sender: nil)
             }
         }
     }
     
     @IBAction func callButtonPressed(_ sender: UIButton) {
-        Browser.openURLWith(.Call_UREClub_6753)
+        Browser.openURLWith(.callUREClub6753)
     }
     
     @IBAction func emailButtonPressed(_ sender: UIButton) {
-        Browser.openURLWith(.Mail_UREClub_Info)
+        Browser.openURLWith(.mailUREClubInfo)
+    }
+    
+    @IBAction func restorePasswordButtonPressed(_ sender: UIButton) {
+        presentAlertWithEmailTextField()
+    }
+    
+    @IBAction func resetStateForTextFieldOnValueChanged(_ sender: SkyFloatingLabelTextField) {
+        sender.errorMessage = ""
     }
     
     deinit {
@@ -114,17 +148,124 @@ class LoginVC: UIViewController {
 
 }
 
+
+// Send Reset Password Request
+extension LoginVC {
+    
+    var passwordResetAlertTitle: String {
+        return "auth_alert_password_reset_title".localized()
+    }
+    
+    func presentAlertWithEmailTextField() {
+        
+        let alertMessage = "auth_alert_password_reset_message".localized()
+        
+        let alertController = UIAlertController(title: passwordResetAlertTitle, message: alertMessage, preferredStyle: .alert)
+        let actionCancel = UIAlertAction(title: "alert_button_cancel".localized(), style: .cancel, handler: nil)
+        let actionSend = UIAlertAction(title: "alert_button_send".localized(), style: .default) { (alertAction) in
+            self.validateEmailFieldFor(alertController)
+        }
+        
+        alertController.addAction(actionCancel)
+        alertController.addAction(actionSend)
+        
+        alertController.addTextField { (textField) in
+            textField.text = self.emailField.text
+            textField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
+        }
+        
+        currentAlertVC = alertController
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        
+        guard let fieldText = textField.text else { return }
+        var newMessage = ""
+        var attributes = [ NSAttributedStringKey.foregroundColor: UIColor.black ]
+        
+        if Validator.isEmailValid(fieldText) {
+            currentAlertVC.actions[1].isEnabled = true
+            newMessage = "email_is_valid".localized()
+            attributes = [ NSAttributedStringKey.foregroundColor: UIColor.darkGray ]
+        } else {
+            currentAlertVC.actions[1].isEnabled = false
+            newMessage = "email_is_not_valid".localized()
+            attributes = [ NSAttributedStringKey.foregroundColor: UIColor.red ]
+        }
+        
+        let attributedString = NSAttributedString(string: newMessage, attributes: attributes)
+        currentAlertVC.setValue(attributedString, forKey: "attributedMessage")
+        
+    }
+    
+    func validateEmailFieldFor(_ alertController: UIAlertController) {
+        guard let emailTextField = alertController.textFields?[0], let email = emailTextField.text else {
+            return
+        }
+        if Validator.isEmailValid(email) {
+            sendResetPasswordFor(email)
+        } else {
+            let alertMessage = "email_is_not_valid".localized()
+            alertController.message = alertMessage
+        }
+    }
+    
+    func sendResetPasswordFor(_ email: String) {
+        
+        let resetPasswordData = NetworkManager.ResetPasswordData(email: email)
+        NetworkManager().resetPassword(resetPasswordData) { errorMessages in
+            
+            if let errorMessages = errorMessages {
+                
+                Alert().presentAlertWith(title: self.passwordResetAlertTitle, andMessages: errorMessages, completionHandler: { (alertVC) in
+                    self.present(alertVC, animated: true, completion: nil)
+                })
+            }
+        }
+        
+    }
+    
+}
+
 // Methods, that helps hide Keyboard
 extension LoginVC: UITextFieldDelegate {
-    // Tutorial Move textfield up when Keyboard appears https://www.youtube.com/watch?v=AiYCStoj0lc
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
+        guard let skyTextField = textField as? SkyFloatingLabelTextField else {
+            return
+        }
+        
+        validateTextField(skyTextField)
+        
+    }
+    
+    func validateTextField(_ textField: SkyFloatingLabelTextField) {
+        switch textField.tag {
+        case 1:
+            if Validator.isEmailValid(textField.text) {
+                textField.errorMessage = ""
+            } else {
+                textField.errorMessage = "email_is_not_valid".localized()
+            }
+        case 2:
+            if Validator.isPasswordValid(textField.text) {
+                textField.errorMessage = ""
+            } else {
+                textField.errorMessage = "password_is_not_valid".localized()
+            }
+        default:
+            break
+        }
+    }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         activeTextField = textField
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        emailField.resignFirstResponder()
-        passwordField.resignFirstResponder()
+        textField.resignFirstResponder()
         return true
     }
     
@@ -169,5 +310,6 @@ extension LoginVC: UITextFieldDelegate {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
+    
 }
 

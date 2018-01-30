@@ -15,8 +15,8 @@ extension UISegmentedControl {
     }
     
     func setDefaultStyle() {
-        self.borderWidth = 1
-        self.borderColor = Constants.Color.coalLight
+        self.layer.borderWidth = 1
+        self.layer.borderColor = Constants.Color.coalLight.cgColor
         self.backgroundColor = Constants.Color.coalLight
         self.tintColor = Constants.DefaultColor.background
     }

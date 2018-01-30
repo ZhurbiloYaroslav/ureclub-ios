@@ -21,7 +21,7 @@ class ArticleCell: UITableViewCell {
     @IBOutlet weak var geoImage: UIImageView!
     @IBOutlet weak var addressLabel: UILabel!
     
-    var articleType: ArticleType = .Undefined
+    var articleType: ArticleType = .undefined
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -59,8 +59,8 @@ class ArticleCell: UITableViewCell {
     }
     
     enum ArticleType {
-        case Event
-        case News
-        case Undefined
+        case event
+        case news
+        case undefined
     }
 }

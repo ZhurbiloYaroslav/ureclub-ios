@@ -93,7 +93,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
-//MARK: Auth
+// MARK: Auth
 extension AppDelegate {
     
     func chooseViewControllerToPresent() {

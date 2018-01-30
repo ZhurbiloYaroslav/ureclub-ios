@@ -138,9 +138,28 @@ extension EventsListVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return eventsManager.getHeaderTitleFor(section)
     }
+    
+    //    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    //
+    //        let headerTitleText = eventsManager.getHeaderTitleFor(section)
+    //
+    //        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 36))
+    //        headerView.backgroundColor = Constants.Color.tableSectionsBackground
+    //
+    //        let headerTitleLabel = UILabel(frame: CGRect(x: 16, y: 0, width: tableView.frame.size.width, height: 36))
+    //        headerTitleLabel.text = headerTitleText
+    //        headerTitleLabel.font = UIFont(name: "Montserrat-Medium", size: 18)
+    //        headerTitleLabel.textColor = Constants.Color.tableSectionsTitle
+    //
+    //        headerView.addSubview(headerTitleLabel)
+    //
+    //        return headerView
+    //
+    //    }
+    
 }
 
-//MARK: SEGUES
+// MARK: SEGUES
 extension EventsListVC {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let segueID = segue.identifier else {

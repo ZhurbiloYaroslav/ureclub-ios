@@ -11,7 +11,7 @@ import Foundation
 
 class Alert {
     
-    func presentAlertWith(title: String, andMessages arrayWithMessages: [String], completionHandler: @escaping (UIAlertController)->()) {
+    func presentAlertWith(title: String, andMessages arrayWithMessages: [String], completionHandler: @escaping (UIAlertController) -> ()) {
         var message = ""
         for index in 0...(arrayWithMessages.count - 1) {
             message += arrayWithMessages[index]
@@ -22,7 +22,7 @@ class Alert {
         completionHandler(alertController)
     }
     
-    func presentAlertWith(messages arrayWithMessages: [String], completionHandler: @escaping (UIAlertController)->()) {
+    func presentAlertWith(messages arrayWithMessages: [String], completionHandler: @escaping (UIAlertController) -> ()) {
         presentAlertWith(title: "User login", andMessages: arrayWithMessages) { (alertController) in
             completionHandler(alertController)
         }

@@ -109,6 +109,7 @@ enum Language {
 }
 // For the future purposes
 extension Language {
+    
     func getLocale() -> String {
         switch self {
         case .system:
@@ -120,4 +121,5 @@ extension Language {
         case .polish: return ""
         }
     }
+    
 }

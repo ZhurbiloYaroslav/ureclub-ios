@@ -96,12 +96,12 @@ extension SettingsVC {
         }
         
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 36))
-        headerView.backgroundColor = Constants.Color.blueLight
+        headerView.backgroundColor = Constants.Color.tableSectionsBackground
         
         let headerTitleLabel = UILabel(frame: CGRect(x: 16, y: 0, width: tableView.frame.size.width, height: 36))
         headerTitleLabel.text = headerTitleText
         headerTitleLabel.font = UIFont(name: "Montserrat-Medium", size: 18)
-        headerTitleLabel.textColor = Constants.Color.skyDark
+        headerTitleLabel.textColor = Constants.Color.tableSectionsTitle
         
         headerView.addSubview(headerTitleLabel)
         
@@ -115,6 +115,8 @@ extension SettingsVC {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath {
+        case [0,0]:
+            performSegue(withIdentifier: "ShowPasswordEdit", sender: nil)
         case [1,0]:
             performSegue(withIdentifier: "ShowLanguagePicker", sender: nil)
         default:

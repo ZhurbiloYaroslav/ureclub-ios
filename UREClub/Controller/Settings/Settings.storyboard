@@ -38,11 +38,20 @@
                     <connections>
                         <outlet property="menuButton" destination="9Ce-5H-aE9" id="TJS-Ny-brg"/>
                         <segue destination="ESS-aE-Ea3" kind="show" identifier="ShowLanguagePicker" id="thj-zM-fRJ"/>
+                        <segue destination="96K-Yo-wkT" kind="show" identifier="ShowPasswordEdit" id="xef-mi-FAH"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Den-vk-KMt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4326" y="4464"/>
+        </scene>
+        <!--PasswordEditVC-->
+        <scene sceneID="04J-1I-jeS">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Password" referencedIdentifier="PasswordEditVC" id="96K-Yo-wkT" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EFx-Hb-6dz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5020" y="4365"/>
         </scene>
         <!--LanguagePickerVC-->
         <scene sceneID="3Sx-el-cJq">

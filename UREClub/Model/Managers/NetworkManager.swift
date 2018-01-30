@@ -27,7 +27,7 @@ class NetworkManager: NSObject {
     
     func retrieveInfoForPath(_ path: RequestAddress.ServerPath, completionHandler: @escaping (_ errorMessages: [NetworkError]?)->())  {
         
-        //var errorMessages = [NetworkError]()
+        // var errorMessages = [NetworkError]()
         var headers: HTTPHeaders!
         var parameters: Parameters!
         var url: URL!
@@ -104,7 +104,7 @@ class NetworkManager: NSObject {
     struct RequestAddress {
         enum ServerPath {
             
-            //TODO: Change Server!!!
+            // TODO: Change Server!!!
             fileprivate var currentServer: Server { return .test }
             fileprivate var ureclubRestPath: String { return "wp-json/s4s_ureclub_rest/v1/" }
             
@@ -118,6 +118,7 @@ class NetworkManager: NSObject {
             case user
             case filter
             case attendance
+            case resetPassword
             
             func address() -> String {
                 var resultAddress = currentServer.rawValue
@@ -132,6 +133,7 @@ class NetworkManager: NSObject {
                 case .user: resultAddress += ureclubRestPath + "user"
                 case .filter: resultAddress += ureclubRestPath + "filter"
                 case .attendance: resultAddress += ureclubRestPath + "attendance"
+                case .resetPassword: resultAddress += "s4s-reset-password.php"
                 }
                 return resultAddress
             }
@@ -151,7 +153,7 @@ class NetworkManager: NSObject {
     
 }
 
-//MARK: Login
+// MARK: Login
 extension NetworkManager {
     
     func loginWith(_ userData: LoginRequestData, completionHandler: @escaping (_ errorMessages: [String]?)->()) {
@@ -160,13 +162,16 @@ extension NetworkManager {
         
         let parameters = userData.getParams()
         
-        Alamofire.request(url, method:.post, parameters:parameters).responseJSON { (response) in
+        Alamofire.request(url, method:.post, parameters:parameters).responseJSON { response in
             
-            if let errorMessages = self.parseLoginResultDataWith(response) {
+            if response.result.error != nil {
+                completionHandler(["server_bad_connection".localized()])
+            } else if let errorMessages = self.parseLoginResultDataWith(response) {
                 completionHandler(errorMessages)
             } else {
                 completionHandler(nil)
             }
+            
         }
         
     }
@@ -195,6 +200,17 @@ extension NetworkManager {
         
         let userDataDict = makeDictionaryFrom(response)
         
+        if let stringWithErrorCode = userDataDict["code"] as? String {
+            switch stringWithErrorCode {
+            case let codeValue where codeValue.contains("invalid_email"):
+                return ["server_invalid_email".localized()]
+            case let codeValue where codeValue.contains("incorrect_password"):
+                return ["server_incorrect_password".localized()]
+            default:
+                return ["server_error_undefined".localized()]
+            }
+        }
+        
         CurrentUser.getFirstAndLastNameFromString(userDataDict["user_display_name"] as? String ?? "")
         
         CurrentUser.id = userDataDict["id"] as? String ?? ""
@@ -208,15 +224,16 @@ extension NetworkManager {
         CurrentUser.company.companyName = userDataDict["company_name"] as? String ?? ""
         CurrentUser.linkImage = userDataDict["image_link"] as? String ?? ""
         CurrentUser.company.position = userDataDict["job_position"] as? String ?? ""
-        CurrentUser.linkedIn_link = userDataDict["linkedIn_link"] as? String ?? ""
-        CurrentUser.facebook_link = userDataDict["facebook_link"] as? String ?? ""
+        CurrentUser.linkedInLink = userDataDict["linkedIn_link"] as? String ?? ""
+        CurrentUser.facebookLink = userDataDict["facebook_link"] as? String ?? ""
         CurrentUser.isLoggedIn = true
         
         return nil
     }
+    
 }
 
-//MARK: Register
+// MARK: Register
 extension NetworkManager {
     
     struct RegisterRequestData {
@@ -243,11 +260,12 @@ extension NetworkManager {
             result = result.replacingOccurrences(of: " ", with: "%20")
             return URL(string: result)
         }
+        
     }
     
 }
 
-//MARK: Events
+// MARK: Events
 extension NetworkManager {
     
     private func parseEventsWith(_ response: DataResponse<Any>) {
@@ -290,11 +308,12 @@ extension NetworkManager {
             result = result.replacingOccurrences(of: " ", with: "%20")
             return URL(string: result)
         }
+        
     }
     
 }
 
-//MARK: News
+// MARK: News
 extension NetworkManager {
     
     private func parseNewsWith(_ response: DataResponse<Any>) {
@@ -337,11 +356,12 @@ extension NetworkManager {
             result = result.replacingOccurrences(of: " ", with: "%20")
             return URL(string: result)
         }
+        
     }
     
 }
 
-//MARK: Contacts
+// MARK: Contacts
 extension NetworkManager {
     
     private func parseContactsWith(_ response: DataResponse<Any>) {
@@ -383,6 +403,7 @@ extension NetworkManager {
         private var currentPath: RequestAddress.ServerPath {
             return .contacts
         }
+        
         private let pageAddress: String = RequestAddress.ServerPath.contacts.address()
         
         func getParams() -> Parameters {
@@ -402,11 +423,12 @@ extension NetworkManager {
             result = result.replacingOccurrences(of: " ", with: "%20")
             return URL(string: result)
         }
+        
     }
     
 }
 
-//MARK: Get nonce
+// MARK: Get nonce
 extension NetworkManager {
     
     func getNonce(completionHandler: @escaping (_ nonce: String?, _ error: String?)->()) {
@@ -462,11 +484,12 @@ extension NetworkManager {
             result = result.replacingOccurrences(of: " ", with: "%20")
             return URL(string: result)
         }
+        
     }
     
 }
 
-//MARK: Book Event
+// MARK: Book Event
 extension NetworkManager {
     
     func bookEvent(_ userData: BookEventRequestData, completionHandler: @escaping ()->()) {
@@ -515,6 +538,58 @@ extension NetworkManager {
             result = result.replacingOccurrences(of: " ", with: "%20")
             return URL(string: result)
         }
+        
+    }
+    
+}
+
+// MARK: Reset Password
+extension NetworkManager {
+    
+    func resetPassword(_ userData: ResetPasswordData, completionHandler: @escaping (_ errorMessages: [String]?)->()) {
+        
+        guard let url = userData.getURL() else { return }
+        
+        let parameters = userData.getParams()
+        
+        Alamofire.request(url, method:.post, parameters:parameters).responseJSON { response in
+            
+            if response.result.error != nil {
+                completionHandler(["server_bad_connection".localized()])
+            } else if let errorMessages = self.parseResetPasswordDataWith(response) {
+                completionHandler(errorMessages)
+            } else {
+                completionHandler(nil)
+            }
+            
+        }
+        
+    }
+    
+    struct ResetPasswordData {
+        private let pageAddress: String = RequestAddress.ServerPath.resetPassword.address()
+        
+        public let email: String
+        
+        func getParams() -> Parameters {
+            return [
+                "email": email
+            ]
+        }
+        
+        func getURL() -> URL? {
+            var result = "\(pageAddress)"
+            result = result.replacingOccurrences(of: " ", with: "%20")
+            return URL(string: result)
+        }
+    }
+    
+    private func parseResetPasswordDataWith(_ response: DataResponse<Any>) -> [String]? {
+        
+        let userDataDict = makeDictionaryFrom(response)
+        
+        let message = userDataDict["code"] as? String ?? "Error"
+        return [message]
     }
     
 }

@@ -27,11 +27,15 @@ class Validator {
         return simpleName.evaluate(with: name)
     }
     
-    static func isEmailValid(_ email: String?) -> Bool {
-        let simpleEmailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+    static func isEmailValid(_ value: String?) -> Bool {
+        guard let email = value else {
+            return true
+        }
+        let trimmedEmail = email.trimmingCharacters(in: CharacterSet.whitespaces)
         
-        let emailTest = NSPredicate(format:"SELF MATCHES %@", simpleEmailRegEx)
-        return emailTest.evaluate(with: email)
+        let simpleEmailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailTest = NSPredicate(format: "SELF MATCHES %@", simpleEmailRegEx)
+        return emailTest.evaluate(with: trimmedEmail)
     }
     
     static func isPasswordValid(_ password: String?) -> Bool {

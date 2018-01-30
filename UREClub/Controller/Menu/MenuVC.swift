@@ -36,11 +36,15 @@ class MenuVC: UITableViewController {
         
         switch cellID {
         case "MenuCell":
-            let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! MenuCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as? MenuCell else {
+                return UITableViewCell()
+            }
             cell.updateCellWith(indexPath: indexPath)
             return cell
         case "LogOutCell":
-            let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! LogOutCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as? LogOutCell else {
+                return UITableViewCell()
+            }
             cell.updateCellWith(indexPath: indexPath)
             return cell
         default:

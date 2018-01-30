@@ -9,44 +9,44 @@
 import Foundation
 
 struct EventDate {
-    let date_beg: String
-    let time_beg: String
-    let date_end: String
-    let time_end: String
+    let dateBeg: String
+    let timeBeg: String
+    let dateEnd: String
+    let timeEnd: String
     
-    init(date_beg: String, time_beg: String, date_end: String, time_end: String) {
-        self.date_beg = date_beg
-        self.time_beg = time_beg
-        self.date_end = date_end
-        self.time_end = time_end
+    init(dateBeg: String, timeBeg: String, dateEnd: String, timeEnd: String) {
+        self.dateBeg = dateBeg
+        self.timeBeg = timeBeg
+        self.dateEnd = dateEnd
+        self.timeEnd = timeEnd
     }
     
     init() {
         let currentDate = Formatter.getStringFrom(Date(), withFormat: .ddMMyyyy)
         let currentTime = Formatter.getStringFrom(Date(), withFormat: .HHmm)
-        self.date_beg = currentDate
-        self.time_beg = currentTime
-        self.date_end = currentDate
-        self.time_end = currentTime
+        self.dateBeg = currentDate
+        self.timeBeg = currentTime
+        self.dateEnd = currentDate
+        self.timeEnd = currentTime
     }
     
     init(withResult resultDictionary: [String: Any]) {
         
-        let date_beg = resultDictionary["date_beg"] as? String  ?? ""
-        let time_beg = resultDictionary["time_beg"] as? String  ?? ""
-        let date_end = resultDictionary["date_end"] as? String  ?? ""
-        let time_end = resultDictionary["time_end"] as? String  ?? ""
+        let dateBeg = resultDictionary["date_beg"] as? String  ?? ""
+        let timeBeg = resultDictionary["time_beg"] as? String  ?? ""
+        let dateEnd = resultDictionary["date_end"] as? String  ?? ""
+        let timeEnd = resultDictionary["time_end"] as? String  ?? ""
         
-        self.init(date_beg: date_beg, time_beg: time_beg, date_end: date_end, time_end: time_end)
+        self.init(dateBeg: dateBeg, timeBeg: timeBeg, dateEnd: dateEnd, timeEnd: timeEnd)
     }
     
     func getDateOfBegining() -> Date {
-        let stringWithEventDate = date_beg
+        let stringWithEventDate = dateBeg
         return Formatter.getDateFrom(stringWithEventDate)
     }
     
     func getDateOfEnd() -> Date {
-        let stringWithEventDate = date_beg
+        let stringWithEventDate = dateBeg
         return Formatter.getDateFrom(stringWithEventDate)
     }
     
@@ -56,8 +56,8 @@ struct EventDate {
     }
     
     func getTimePeriod() -> String {
-        let startTime = time_beg.dropLast(3)
-        let endTime = time_end.dropLast(3)
+        let startTime = timeBeg.dropLast(3)
+        let endTime = timeEnd.dropLast(3)
         return startTime + " - " + endTime
     }
     

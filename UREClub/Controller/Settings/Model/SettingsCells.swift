@@ -19,9 +19,9 @@ struct SettingsCells {
     public func getNumberOfCellsInSection(_ section: Int) -> Int {
         guard let sectionEnum = TableSectionNumber(rawValue: section) else { return 0 }
         switch sectionEnum {
-        case .Section1:
+        case .section1:
             return 1
-        case .Section2:
+        case .section2:
             return 1
         default:
             return 0
@@ -31,7 +31,7 @@ struct SettingsCells {
     public func getCellForTable(_ tableView: UITableView, andIndexPath indexPath: IndexPath) -> UITableViewCell {
         guard let sectionEnum = TableSectionNumber(rawValue: indexPath.section) else { return UITableViewCell() }
         switch sectionEnum {
-        case .Section1:
+        case .section1:
             switch indexPath.row {
             case 0:
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: "ChangePasswordCell", for: indexPath) as? ChangePasswordCell
@@ -41,7 +41,7 @@ struct SettingsCells {
             default:
                 return UITableViewCell()
             }
-        case .Section2:
+        case .section2:
             switch indexPath.row {
             case 0:
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: "ChangeLanguageCell", for: indexPath) as? ChangeLanguageCell
@@ -58,8 +58,8 @@ struct SettingsCells {
     
     /// Dictionary with Array of Cells Data
     private var mapWithCells: [TableSectionNumber: [GenericCellData]] = [
-        .Section1 : [
-            FieldCell.CellData(type: .NameFull,
+        .section1: [
+            FieldCell.CellData(type: .nameFull,
                                icon: UIImage(),
                                title: "Full name:",
                                value: CurrentUser.fullName)

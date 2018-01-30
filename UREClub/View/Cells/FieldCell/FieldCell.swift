@@ -46,7 +46,7 @@ class FieldCell: UITableViewCell {
         cellField.text = cellData.value
         
         switch cellData.type {
-        case .Text:
+        case .text:
             cellImage.isHidden = true
             
             cellTitle.isHidden = true

@@ -40,10 +40,11 @@ class EventDescVC: UIViewController {
     @IBOutlet weak var contentWebView: UIWebView!
     @IBOutlet weak var webViewHeightConstraint: NSLayoutConstraint!
     
-    //MARK: IBOutlets of Event only
+    // MARK: IBOutlets of Event only
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var stackWithEventAttendance: UIStackView!
     @IBOutlet weak var goButton: UIButton!
+    @IBOutlet weak var attendanceListContainer: UIView!
     
     @IBOutlet weak var seeWhoAttendLabel: UILabel!
     
@@ -88,10 +89,11 @@ class EventDescVC: UIViewController {
             slideshow.setImageInputs(imagePlaceholder)
         }
         
-        titleLabel.text = event.title
+        titleLabel.text = event.title.uppercased()
         dateLabel.text = event.date.getStringWithDate()
         timePeriodLabel.text = event.date.getTimePeriod()
         addressLabel.text = event.location.getNameAndCity()
+        attendanceListContainer.setRadius(5, withWidth: 1, andColor: #colorLiteral(red: 0, green: 0.631372549, blue: 0.8509803922, alpha: 1))
         
         if event.isRegistrationDisabled() {
             goButton.isHidden = true
@@ -104,7 +106,7 @@ class EventDescVC: UIViewController {
         contentWebView.sizeToFit()
     }
     
-    //MARK: IBAction(s)
+    // MARK: IBAction(s)
     @IBAction func goButtonPressed(_ sender: UIButton) {
         guard let event = currentEvent else {
             return

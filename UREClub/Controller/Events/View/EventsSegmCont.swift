@@ -17,8 +17,8 @@ class EventsSegmCont: UISegmentedControl {
     }
     
     func setStyleForEvents() {
-        self.borderWidth = 1
-        self.borderColor = Constants.Color.blueDark
+        self.layer.borderWidth = 1
+        self.layer.borderColor = Constants.Color.blueDark.cgColor
         self.backgroundColor = UIColor.clear
         self.tintColor = Constants.Color.blueDark
     }

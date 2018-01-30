@@ -27,9 +27,9 @@
 "settings_section_about" = "About";
 "settings_section_security" = "Security";
 "settings_section_language" = "Language";
-"placeholder_email" = "your@email.com";
-"placeholder_password" = "******";
-"enter_email" = "Enter your email";
+"placeholder_email" = "Email";
+"placeholder_password" = "Password";
+"enter_email" = "Enter your Email";
 "enter_password" = "Enter your password";
 "button_log_in" = "Log in";
 "button_password_restore" = "Restore your password";
@@ -84,3 +84,9 @@
 "event_attend_seewho" = "See who attend";
 "menu_item_logout" = "Log out";
 "screen_language_title" = "Choose Language";
+
+/*server_[server error]*/
+"server_incorrect_password" = "Incorrect Password";
+"email_is_not_valid" = "Email is not valid";
+"password_is_not_valid" = "Password is not valid";
+"auth_alert_error_title" = "Login error";

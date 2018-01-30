@@ -19,7 +19,7 @@ extension UINavigationController {
     func setDefaultStyle() {
         navigationBar.tintColor = UIColor.white
         navigationBar.barTintColor = Constants.Color.navBar
-        navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white]
+        navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         navigationBar.isTranslucent = false
     }
     

@@ -82,6 +82,8 @@
 		C4662AE21FEAAE38001848C8 /* Montserrat-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C4662AD01FEAAE36001848C8 /* Montserrat-ExtraLight.ttf */; };
 		C4662AE41FEAB4F5001848C8 /* ArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4662AE31FEAB4F5001848C8 /* ArticleCell.swift */; };
 		C4662AE81FEAC8EC001848C8 /* EventDescVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4662AE71FEAC8EC001848C8 /* EventDescVC.swift */; };
+		C47BEE44201FE8C300688AEF /* PasswordEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47BEE43201FE8C300688AEF /* PasswordEditVC.swift */; };
+		C47BEE48201FEA1400688AEF /* Password.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C47BEE47201FEA1400688AEF /* Password.storyboard */; };
 		C47FA7391FE1D2FB003D393E /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C47FA7371FE1D2FB003D393E /* Auth.storyboard */; };
 		C47FA7441FE1D60B003D393E /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C47FA7431FE1D60B003D393E /* Profile.storyboard */; };
 		C47FA7461FE1D6D8003D393E /* Events.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C47FA7451FE1D6D8003D393E /* Events.storyboard */; };
@@ -117,8 +119,7 @@
 		C4B8A5C32013BA3700645E2E /* ContactsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B8A5C12013BA3700645E2E /* ContactsCell.swift */; };
 		C4B8A5C42013BA3700645E2E /* ContactsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4B8A5C22013BA3700645E2E /* ContactsCell.xib */; };
 		C4B8A5C62013ED1000645E2E /* ContactsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B8A5C52013ED1000645E2E /* ContactsData.swift */; };
-		C4C203DA1FE2669600272679 /* UIView+IBInspectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C203D91FE2669600272679 /* UIView+IBInspectable.swift */; };
-		C4C203DC1FE266C100272679 /* UIButton+IBInspectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C203DB1FE266C100272679 /* UIButton+IBInspectable.swift */; };
+		C4C203DA1FE2669600272679 /* UIView+setters.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C203D91FE2669600272679 /* UIView+setters.swift */; };
 		C4C203DF1FE27F2B00272679 /* NavBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C203DE1FE27F2B00272679 /* NavBarVC.swift */; };
 		C4C203E11FE283C300272679 /* UINavigationBar+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C203E01FE283C300272679 /* UINavigationBar+Style.swift */; };
 		C4C203E31FE2869C00272679 /* Codex.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4C203E21FE2869C00272679 /* Codex.storyboard */; };
@@ -235,6 +236,8 @@
 		C4662AD01FEAAE36001848C8 /* Montserrat-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraLight.ttf"; sourceTree = "<group>"; };
 		C4662AE31FEAB4F5001848C8 /* ArticleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCell.swift; sourceTree = "<group>"; };
 		C4662AE71FEAC8EC001848C8 /* EventDescVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDescVC.swift; sourceTree = "<group>"; };
+		C47BEE43201FE8C300688AEF /* PasswordEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordEditVC.swift; sourceTree = "<group>"; };
+		C47BEE47201FEA1400688AEF /* Password.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Password.storyboard; sourceTree = "<group>"; };
 		C47FA7381FE1D2FB003D393E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Auth.storyboard; sourceTree = "<group>"; };
 		C47FA7431FE1D60B003D393E /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		C47FA7451FE1D6D8003D393E /* Events.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Events.storyboard; sourceTree = "<group>"; };
@@ -279,8 +282,7 @@
 		C4B8A5C12013BA3700645E2E /* ContactsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsCell.swift; sourceTree = "<group>"; };
 		C4B8A5C22013BA3700645E2E /* ContactsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactsCell.xib; sourceTree = "<group>"; };
 		C4B8A5C52013ED1000645E2E /* ContactsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsData.swift; sourceTree = "<group>"; };
-		C4C203D91FE2669600272679 /* UIView+IBInspectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+IBInspectable.swift"; sourceTree = "<group>"; };
-		C4C203DB1FE266C100272679 /* UIButton+IBInspectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+IBInspectable.swift"; sourceTree = "<group>"; };
+		C4C203D91FE2669600272679 /* UIView+setters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+setters.swift"; sourceTree = "<group>"; };
 		C4C203DE1FE27F2B00272679 /* NavBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarVC.swift; sourceTree = "<group>"; };
 		C4C203E01FE283C300272679 /* UINavigationBar+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Style.swift"; sourceTree = "<group>"; };
 		C4C203E21FE2869C00272679 /* Codex.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Codex.storyboard; sourceTree = "<group>"; };
@@ -465,8 +467,7 @@
 		C41CA37F1FDBEB5900AB0D2D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				C4C203D91FE2669600272679 /* UIView+IBInspectable.swift */,
-				C4C203DB1FE266C100272679 /* UIButton+IBInspectable.swift */,
+				C4C203D91FE2669600272679 /* UIView+setters.swift */,
 				C43D1F7C201E843000CFC158 /* UIViewController+hideKeyboard.swift */,
 				C4B54B351FEF2A3B008D531E /* Array+uniq.swift */,
 			);
@@ -662,6 +663,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		C47BEE42201FE85A00688AEF /* PasswordChange */ = {
+			isa = PBXGroup;
+			children = (
+				C47BEE43201FE8C300688AEF /* PasswordEditVC.swift */,
+				C47BEE47201FEA1400688AEF /* Password.storyboard */,
+			);
+			path = PasswordChange;
+			sourceTree = "<group>";
+		};
 		C47FA73A1FE1D39E003D393E /* Menu */ = {
 			isa = PBXGroup;
 			children = (
@@ -756,6 +766,7 @@
 			children = (
 				C47FA74D1FE1D7CE003D393E /* Settings.storyboard */,
 				C44574611FDC192C004A5305 /* SettingsVC.swift */,
+				C47BEE42201FE85A00688AEF /* PasswordChange */,
 				C4AA3CEC1FF66736008B00B4 /* View */,
 				C4AA3CEB1FF6672A008B00B4 /* Model */,
 			);
@@ -1118,6 +1129,7 @@
 				C48D0DAC20129C79009347DE /* CalendarCell.xib in Resources */,
 				C47FA74E1FE1D7CE003D393E /* Settings.storyboard in Resources */,
 				C4662AD91FEAAE38001848C8 /* Montserrat-LightItalic.ttf in Resources */,
+				C47BEE48201FEA1400688AEF /* Password.storyboard in Resources */,
 				C463F87D1FF50710001FBBC1 /* Localizable.strings in Resources */,
 				C40C84992002BF980011AF01 /* ChangeLanguageCell.xib in Resources */,
 				C4F4DB5E1FF5369500AA607C /* FieldCell.xib in Resources */,
@@ -1212,7 +1224,7 @@
 				C4C203E71FE288B000272679 /* UIViewController+Style.swift in Sources */,
 				C41CA36E1FDBE3F000AB0D2D /* UREClub.xcdatamodeld in Sources */,
 				C48D0DA52012817E009347DE /* EventsManager.swift in Sources */,
-				C4C203DA1FE2669600272679 /* UIView+IBInspectable.swift in Sources */,
+				C4C203DA1FE2669600272679 /* UIView+setters.swift in Sources */,
 				C41CA38E1FDBFC7100AB0D2D /* String+localized.swift in Sources */,
 				C480165D201B3E54005F2253 /* LanguageManager.swift in Sources */,
 				C430EBFC200E1265001E818B /* ImageSlideshowItem.swift in Sources */,
@@ -1224,6 +1236,7 @@
 				C41CA3681FDBE3F000AB0D2D /* EventsListVC.swift in Sources */,
 				C4DC777C200FC98200F3814F /* ContactsManager.swift in Sources */,
 				C44574641FDC1AED004A5305 /* ContactsVC.swift in Sources */,
+				C47BEE44201FE8C300688AEF /* PasswordEditVC.swift in Sources */,
 				C430EBDD200DEA34001E818B /* Formatter.swift in Sources */,
 				C4662AE41FEAB4F5001848C8 /* ArticleCell.swift in Sources */,
 				C4E521F41FE9012B00C3DE2E /* NewsDescVC.swift in Sources */,
@@ -1258,7 +1271,6 @@
 				C430EBFD200E1265001E818B /* InputSource.swift in Sources */,
 				C4662ABB1FEAA501001848C8 /* Event.swift in Sources */,
 				C4E522041FE914AD00C3DE2E /* TableViewCell+Style.swift in Sources */,
-				C4C203DC1FE266C100272679 /* UIButton+IBInspectable.swift in Sources */,
 				C4662AB71FEA98F7001848C8 /* NetworkManager.swift in Sources */,
 				C4C203EF1FE2A5F700272679 /* Codex.swift in Sources */,
 				C4FA7D281FF7616300F03846 /* SettingsCells.swift in Sources */,

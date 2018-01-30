@@ -27,8 +27,8 @@
 "settings_section_about" = "Загальні відомості";
 "settings_section_security" = "Безпека";
 "settings_section_language" = "Мова";
-"placeholder_email" = "your@email.com";
-"placeholder_password" = "******";
+"placeholder_email" = "Email";
+"placeholder_password" = "Пароль";
 "enter_email" = "Введіть вашу e-mail адресу";
 "enter_password" = "Введіть ваш пароль";
 "button_log_in" = "Увійти";
@@ -84,3 +84,11 @@
 "event_attend_seewho" = "See who attend";
 "menu_item_logout" = "Log out";
 "screen_language_title" = "Choose Language";
+
+/*server_[server error]*/
+"server_incorrect_password" = "Пароль не співпадає";
+"email_is_not_valid" = "Email не вірний";
+"password_is_not_valid" = "Пароль не вірний";
+"auth_alert_error_title" = "Помилка авторизації";
+"server_invalid_email" = "Користувача з таким email не існує";
+"server_error_undefined" = "Помилка звязку";

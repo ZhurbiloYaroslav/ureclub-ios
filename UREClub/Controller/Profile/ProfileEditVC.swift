@@ -116,8 +116,8 @@ class ProfileEditVC: UIViewController {
         positionField.text = CurrentUser.company.position
         phoneField.text = CurrentUser.phone
         emailField.text = CurrentUser.email
-        facebookField.text = CurrentUser.facebook_link
-        linkedInField.text = CurrentUser.linkedIn_link
+        facebookField.text = CurrentUser.facebookLink
+        linkedInField.text = CurrentUser.linkedInLink
         userDescriptionTextView.text = CurrentUser.textContent
         
     }

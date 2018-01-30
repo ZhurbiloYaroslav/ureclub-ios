@@ -15,6 +15,9 @@
             <string>AvenirNext-Medium</string>
             <string>AvenirNext-Regular</string>
         </array>
+        <array key="Montserrat-Regular.ttf">
+            <string>Montserrat-Regular</string>
+        </array>
     </customFonts>
     <scenes>
         <!--LoginVC-->
@@ -28,39 +31,62 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background-login" translatesAutoresizingMaskIntoConstraints="NO" id="vq8-Qo-pju">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-ureclub" translatesAutoresizingMaskIntoConstraints="NO" id="mjf-4Y-bly">
-                                <rect key="frame" x="123" y="168.5" width="128" height="128"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WcE-Jt-0qB" userLabel="Logo Container View">
+                                <rect key="frame" x="87" y="88" width="200" height="200"/>
+                                <subviews>
+                                    <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RxY-iJ-V9j">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-ureclub" translatesAutoresizingMaskIntoConstraints="NO" id="mjf-4Y-bly">
+                                        <rect key="frame" x="36" y="36" width="128" height="128"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="128" id="709-92-Xsl"/>
+                                            <constraint firstAttribute="height" constant="128" id="TVi-8U-r3w"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="128" id="709-92-Xsl"/>
-                                    <constraint firstAttribute="height" constant="128" id="TVi-8U-r3w"/>
+                                    <constraint firstAttribute="height" constant="200" id="2Kb-2T-Sth"/>
+                                    <constraint firstAttribute="width" constant="200" id="MXP-dw-KmL"/>
+                                    <constraint firstItem="RxY-iJ-V9j" firstAttribute="leading" secondItem="WcE-Jt-0qB" secondAttribute="leading" id="Sh8-fW-cgp"/>
+                                    <constraint firstItem="mjf-4Y-bly" firstAttribute="centerX" secondItem="WcE-Jt-0qB" secondAttribute="centerX" id="XnT-yJ-yWy"/>
+                                    <constraint firstAttribute="trailing" secondItem="RxY-iJ-V9j" secondAttribute="trailing" id="isj-PC-VvF"/>
+                                    <constraint firstItem="mjf-4Y-bly" firstAttribute="centerY" secondItem="WcE-Jt-0qB" secondAttribute="centerY" id="kYC-cF-uJn"/>
+                                    <constraint firstItem="RxY-iJ-V9j" firstAttribute="top" secondItem="WcE-Jt-0qB" secondAttribute="top" id="tQ9-9j-dwX"/>
+                                    <constraint firstAttribute="bottom" secondItem="RxY-iJ-V9j" secondAttribute="bottom" id="wEq-Q2-hYu"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="64"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ast-DB-Ebi">
-                                <rect key="frame" x="0.0" y="326.5" width="375" height="124"/>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Ast-DB-Ebi">
+                                <rect key="frame" x="0.0" y="318.5" width="375" height="132"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="RGM-6m-4Vu">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="57"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="51"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dih-wL-avx">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="25"/>
-                                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="18"/>
-                                                <color key="textColor" red="0.81176470588235294" green="0.92156862745098034" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gRN-Ee-QwA">
-                                                <rect key="frame" x="0.0" y="28" width="375" height="25"/>
+                                            <textField opaque="NO" tag="1" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gRN-Ee-QwA" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="47"/>
                                                 <color key="textColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" textContentType="email"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Email"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="Email"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Email"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="selectedLineHeight">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="resetStateForTextFieldOnValueChanged:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="4am-Cc-okG"/>
+                                                    <action selector="resetStateForTextFieldOnValueChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="hZs-U3-Y1z"/>
+                                                </connections>
                                             </textField>
                                             <view contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="TDH-9S-9AU">
-                                                <rect key="frame" x="0.0" y="56" width="375" height="1"/>
+                                                <rect key="frame" x="0.0" y="50" width="375" height="1"/>
                                                 <color key="backgroundColor" red="0.81176470590000005" green="0.92156862750000001" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="dN0-aY-XOh"/>
@@ -69,22 +95,31 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="zRO-G0-gOV">
-                                        <rect key="frame" x="0.0" y="67" width="375" height="57"/>
+                                        <rect key="frame" x="0.0" y="81" width="375" height="51"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Enter your password" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UFK-OQ-GCQ">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="25"/>
-                                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="18"/>
-                                                <color key="textColor" red="0.81176470588235294" green="0.92156862745098034" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VxO-wp-3qD">
-                                                <rect key="frame" x="0.0" y="28" width="375" height="25"/>
+                                            <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VxO-wp-3qD" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="47"/>
                                                 <color key="textColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Password"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="Password"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Password"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="selectedLineHeight">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="resetStateForTextFieldOnValueChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="6EU-vN-weq"/>
+                                                    <action selector="resetStateForTextFieldOnValueChanged:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="OJJ-WA-JcT"/>
+                                                </connections>
                                             </textField>
                                             <view contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="yZX-6Y-Sjx">
-                                                <rect key="frame" x="0.0" y="56" width="375" height="1"/>
+                                                <rect key="frame" x="0.0" y="50" width="375" height="1"/>
                                                 <color key="backgroundColor" red="0.81176470590000005" green="0.92156862750000001" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="Jxj-ay-1Ch"/>
@@ -97,27 +132,19 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="ShA-Fg-QcI">
                                 <rect key="frame" x="87.5" y="475.5" width="200" height="91"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="scj-q2-3nV">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vfE-7b-tkG">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="40"/>
-                                        <color key="backgroundColor" red="0.0" green="0.63137254901960782" blue="0.85098039215686272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.0" green="0.63137254899999995" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="200" id="gkB-G8-ROR"/>
-                                            <constraint firstAttribute="height" constant="40" id="s3d-xr-bfK"/>
+                                            <constraint firstAttribute="height" constant="40" id="W57-G7-Yro"/>
+                                            <constraint firstAttribute="width" constant="200" id="gTq-OX-X8H"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
                                         <state key="normal" title="Log in">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="10"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wu3-uM-toG"/>
+                                            <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mNl-M1-fbg"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PLr-ps-Vqf">
@@ -126,6 +153,9 @@
                                         <state key="normal" title="Restore your password">
                                             <color key="titleColor" red="0.81176470590000005" green="0.92156862750000001" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="restorePasswordButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mB3-2H-3Ec"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -204,11 +234,11 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="mbU-hy-hdp" secondAttribute="bottom" constant="30" id="1RA-7b-6V8"/>
-                            <constraint firstItem="Ast-DB-Ebi" firstAttribute="top" secondItem="mjf-4Y-bly" secondAttribute="bottom" constant="30" id="31O-kp-k4Q"/>
                             <constraint firstAttribute="trailing" secondItem="vq8-Qo-pju" secondAttribute="trailing" id="4g8-pN-7cv"/>
-                            <constraint firstItem="mjf-4Y-bly" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9JD-LO-Jty"/>
                             <constraint firstItem="Ast-DB-Ebi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Dhb-kY-S6h"/>
+                            <constraint firstItem="Ast-DB-Ebi" firstAttribute="top" secondItem="WcE-Jt-0qB" secondAttribute="bottom" constant="30" id="RKB-D8-73Z"/>
                             <constraint firstItem="ShA-Fg-QcI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="TYQ-LA-6V8"/>
+                            <constraint firstItem="WcE-Jt-0qB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bh8-aG-Bft"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ShA-Fg-QcI" secondAttribute="bottom" constant="100.5" id="c0Y-7h-F0n"/>
                             <constraint firstItem="mbU-hy-hdp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dok-Es-kdU"/>
                             <constraint firstItem="vq8-Qo-pju" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="jR3-lQ-Fnd"/>
@@ -228,9 +258,8 @@
                     <connections>
                         <outlet property="callUsButton" destination="c1N-1H-IeL" id="xnx-ST-SfY"/>
                         <outlet property="emailField" destination="gRN-Ee-QwA" id="woQ-sa-oGP"/>
-                        <outlet property="enterEmailLabel" destination="dih-wL-avx" id="BP8-M6-Oq0"/>
-                        <outlet property="enterPasswordLabel" destination="UFK-OQ-GCQ" id="jIK-fz-4dY"/>
-                        <outlet property="logInButton" destination="scj-q2-3nV" id="eEZ-7E-Vax"/>
+                        <outlet property="logInButton" destination="vfE-7b-tkG" id="kEw-e8-hzI"/>
+                        <outlet property="logoBackgroundView" destination="RxY-iJ-V9j" id="5is-Vm-cDq"/>
                         <outlet property="passwordField" destination="VxO-wp-3qD" id="RM8-5e-iOU"/>
                         <outlet property="restorePasswordButton" destination="PLr-ps-Vqf" id="amT-RK-rW5"/>
                         <segue destination="5Fi-dc-FuT" kind="show" identifier="EnterFromLogin" id="FYp-VU-Dzf"/>

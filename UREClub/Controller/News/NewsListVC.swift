@@ -105,7 +105,7 @@ extension NewsListVC: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-//MARK: SEGUES
+// MARK: SEGUES
 extension NewsListVC {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let segueID = segue.identifier else {

@@ -21,7 +21,7 @@ class Filter {
     
 }
 
-//MARK: Enums and structs
+// MARK: Enums and structs
 extension Filter {
     
     enum FilterType {
@@ -101,7 +101,7 @@ extension Filter {
     }
 }
 
-///MARK: GenericFilter
+// MARK: GenericFilter
 protocol GenericFilter {
     var type: Filter.FilterType { get set }
     var filterData: FilterData { get set }

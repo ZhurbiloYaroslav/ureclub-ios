@@ -9,9 +9,9 @@
 import Foundation
 
 enum TableSectionNumber: Int {
-    case Section1 = 0
-    case Section2
-    case Section3
-    case Section4
-    case Section5
+    case section1 = 0
+    case section2
+    case section3
+    case section4
+    case section5
 }

@@ -27,21 +27,21 @@ class Browser {
     }
     
     enum UrlAdresses {
-        case Call_UREClub_6753
-        case Mail_UREClub_Info
-        case Call_User_Phone
-        case Mail_User_Email
-        case Surf_User_Facebook
-        case Surf_User_LinkedIn
+        case callUREClub6753
+        case mailUREClubInfo
+        case callUserPhone
+        case mailUserEmail
+        case surfUserFacebook
+        case surfUserLinkedIn
         
         func getAddress() -> String {
             switch self {
-            case .Call_UREClub_6753: return "tel://+380442276753"
-            case .Mail_UREClub_Info: return "mailto:info@ureclub.com"
-            case .Call_User_Phone: return "tel://\(CurrentUser.phone)"
-            case .Mail_User_Email: return "mailto:\(CurrentUser.email)"
-            case .Surf_User_Facebook: return CurrentUser.facebook_link
-            case .Surf_User_LinkedIn: return CurrentUser.linkedIn_link
+            case .callUREClub6753: return "tel://+380442276753"
+            case .mailUREClubInfo: return "mailto:info@ureclub.com"
+            case .callUserPhone: return "tel://\(CurrentUser.phone)"
+            case .mailUserEmail: return "mailto:\(CurrentUser.email)"
+            case .surfUserFacebook: return CurrentUser.facebookLink
+            case .surfUserLinkedIn: return CurrentUser.linkedInLink
             }
         }
     }

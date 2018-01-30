@@ -39,19 +39,19 @@ class ContactsCell: UITableViewCell {
     }
     
     @IBAction func emailButtonPressed(_ sender: UIButton) {
-        Browser.openURLWith(.Mail_User_Email)
+        Browser.openURLWith(.mailUserEmail)
     }
     
     @IBAction func phoneButtonPressed(_ sender: UIButton) {
-        Browser.openURLWith(.Call_User_Phone)
+        Browser.openURLWith(.callUserPhone)
     }
     
     @IBAction func facebookButtonPressed(_ sender: UIButton) {
-        Browser.openURLWith(.Surf_User_Facebook)
+        Browser.openURLWith(.surfUserFacebook)
     }
     
     @IBAction func linkedInButtonPressed(_ sender: UIButton) {
-        Browser.openURLWith(.Surf_User_LinkedIn)
+        Browser.openURLWith(.surfUserLinkedIn)
     }
     
 }

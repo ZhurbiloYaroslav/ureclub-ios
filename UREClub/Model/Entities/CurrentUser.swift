@@ -43,8 +43,8 @@ class CurrentUser {
         isUserActive = false
         id = ""
         linkImage = ""
-        linkedIn_link = ""
-        facebook_link = ""
+        linkedInLink = ""
+        facebookLink = ""
         textContent = ""
         firstName = ""
         lastName = ""
@@ -56,7 +56,7 @@ class CurrentUser {
     }
 }
 
-//MARK: Current User Variables
+// MARK: Current User Variables
 extension CurrentUser {
     
     static var isLoggedIn: Bool {
@@ -99,7 +99,7 @@ extension CurrentUser {
         }
     }
     
-    static var linkedIn_link: String {
+    static var linkedInLink: String {
         get {
             return defaults.object(forKey: "currentUser_LinkedIn_Link") as? String ?? ""
         }
@@ -109,7 +109,7 @@ extension CurrentUser {
         }
     }
     
-    static var facebook_link: String {
+    static var facebookLink: String {
         get {
             return defaults.object(forKey: "currentUser_Facebook_Link") as? String ?? ""
         }
