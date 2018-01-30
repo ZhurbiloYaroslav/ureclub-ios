@@ -20,6 +20,6 @@ class ChangeLanguageCell: UITableViewCell {
     
     func updateCell() {
         cellTitle.text = "settings_cell_language_title".localized()
-        languageName.text = LanguageManager.shared.currentLanguage.getTranslatedName()
+        languageName.text = LanguageManager.shared.currentLanguage.getNativeName()
     }
 }

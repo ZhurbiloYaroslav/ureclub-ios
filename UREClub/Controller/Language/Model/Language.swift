@@ -20,15 +20,9 @@ enum Language {
         return .english
     }
     
-    var systemPrefferedLanguage: String {
-        return Locale.preferredLanguages[0]
-    }
-    
     func getCode() -> String {
         switch self {
-        case .system:
-            let languageParts = systemPrefferedLanguage.components(separatedBy: "-")
-            return languageParts.count > 0 ? languageParts[0] : "Base"
+        case .system: return LanguageManager.getSystemPrefferedLanguageCode()
         case .english: return "en"
         case .russian: return "ru"
         case .ukrainian: return "uk"
@@ -39,8 +33,7 @@ enum Language {
     func getLanguageCodeForServer() -> String {
         switch self {
         case .system:
-            let languageParts = systemPrefferedLanguage.components(separatedBy: "-")
-            return languageParts.count > 0 ? languageParts[0] : "ru"
+            return LanguageManager.getSystemPrefferedLanguageCode()
         default:
             return getCode()
         }
@@ -113,7 +106,7 @@ extension Language {
     func getLocale() -> String {
         switch self {
         case .system:
-            let languageParts = systemPrefferedLanguage.components(separatedBy: "-")
+            let languageParts = LanguageManager.systemPrefferedLanguage.components(separatedBy: "-")
             return languageParts.count > 1 ? languageParts[1] : "Base"
         case .english: return ""
         case .russian: return ""

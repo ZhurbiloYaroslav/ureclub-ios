@@ -38,37 +38,6 @@ class LoginVC: UIViewController {
         registerForKeyboardNotifications()
     }
     
-    func setUIElementsStyle() {
-        
-        logoBackgroundView.setRadius(100, withWidth: 1, andColor: UIColor.clear)
-        logoBackgroundView.clipsToBounds = true
-        
-        emailField.selectedTitle = "placeholder_email".localized()
-        passwordField.selectedTitle = "placeholder_password".localized()
-        
-        for textField in arrayWithTextFields {
-            
-            textField.lineHeight = 0
-            textField.lineColor = UIColor.clear
-            
-            textField.textAlignment = .center
-            
-            textField.font = UIFont(name: "Montserrat-Medium", size: 18) ?? UIFont()
-            textField.textColor = UIColor.white
-            textField.titleColor = Constants.Color.skyLight
-            textField.titleFont = UIFont(name: "Montserrat-Bold", size: 18) ?? UIFont()
-            textField.editingChanged()
-            textField.placeholderColor = UIColor.white
-            textField.placeholderFont = UIFont(name: "Montserrat-Medium", size: 18) ?? UIFont()
-            textField.errorColor = Constants.Color.errorColor
-            
-            textField.selectedTitleColor = Constants.Color.skyDark
-        }
-        passwordField.isSecureTextEntry = true
-        
-        logInButton.setRadius(10, withWidth: 1, andColor: UIColor.clear)
-    }
-    
     func initializeDelegates() {
         for textField in arrayWithTextFields {
             textField.delegate = self
@@ -146,6 +115,54 @@ class LoginVC: UIViewController {
         removeKeyboardNotifications()
     }
 
+}
+
+// MARK: Methods related with styles
+extension LoginVC {
+    
+    func setUIElementsStyle() {
+        
+        setLogoWithRoundBackground()
+        
+        emailField.selectedTitle = "placeholder_email".localized()
+        passwordField.selectedTitle = "placeholder_password".localized()
+        
+        setStylesForTextFields()
+        
+        passwordField.isSecureTextEntry = true
+        
+        logInButton.setRadius(10, withWidth: 1, andColor: UIColor.clear)
+    }
+    
+    func setStylesForTextFields() {
+        
+        for textField in arrayWithTextFields {
+            
+            textField.lineHeight = 0
+            textField.lineColor = UIColor.clear
+            
+            textField.textAlignment = .center
+            textField.titleLabel.textAlignment = .center
+            
+            textField.font = UIFont(name: "Montserrat-Medium", size: 18) ?? UIFont()
+            textField.textColor = UIColor.white
+            textField.titleColor = Constants.Color.skyLight
+            textField.titleFont = UIFont(name: "Montserrat-Medium", size: 16) ?? UIFont()
+            textField.editingChanged()
+            textField.placeholderColor = UIColor.white
+            textField.placeholderFont = UIFont(name: "Montserrat-Medium", size: 18) ?? UIFont()
+            textField.errorColor = Constants.Color.errorColor
+            
+            textField.selectedTitleColor = Constants.Color.skyDark
+            
+        }
+    }
+    
+    func setLogoWithRoundBackground() {
+        let logoBackgroundRadius = (logoBackgroundView.bounds.height / 2)
+        logoBackgroundView.setRadius(logoBackgroundRadius, withWidth: 1, andColor: UIColor.clear)
+        logoBackgroundView.clipsToBounds = true
+    }
 }
 
 
