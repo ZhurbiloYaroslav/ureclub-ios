@@ -78,7 +78,7 @@ class ContactsData {
     
     func getContactsData() {
         networkManager.retrieveInfoForPath(.contacts) { errors in
-            print("---contacts data errors", errors)
+
         }
     }
     

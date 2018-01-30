@@ -34,7 +34,7 @@
                         </constraints>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="nVW-9j-ne8">
-                        <rect key="frame" x="15" y="70" width="290" height="261.5"/>
+                        <rect key="frame" x="15" y="70" width="290" height="257"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-placeholder-person" translatesAutoresizingMaskIntoConstraints="NO" id="Edw-Cx-Kps">
                                 <rect key="frame" x="70" y="0.0" width="150" height="150"/>
@@ -55,28 +55,47 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="cJ7-GO-uDo">
-                                <rect key="frame" x="77.5" y="160" width="135" height="101.5"/>
+                                <rect key="frame" x="49" y="160" width="192" height="97"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Full name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zrk-8I-atL">
-                                        <rect key="frame" x="6.5" y="0.0" width="122" height="29.5"/>
-                                        <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="24"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="16S-Gs-SRh">
+                                        <rect key="frame" x="0.0" y="0.0" width="192" height="25"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="opb-mV-KUh" userLabel="icon-profile-empty">
+                                                <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="25" id="hL4-ep-9Ag"/>
+                                                    <constraint firstAttribute="height" constant="25" id="sFU-T1-ImO"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Full name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zrk-8I-atL">
+                                                <rect key="frame" x="35" y="0.0" width="122" height="25"/>
+                                                <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="24"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-profile-edit" translatesAutoresizingMaskIntoConstraints="NO" id="b7L-f5-InL">
+                                                <rect key="frame" x="167" y="0.0" width="25" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="25" id="DAP-qL-EIC"/>
+                                                    <constraint firstAttribute="width" constant="25" id="zGR-Xc-vMp"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="company name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BXk-6y-iYd">
-                                        <rect key="frame" x="0.0" y="34.5" width="135" height="21"/>
+                                        <rect key="frame" x="28.5" y="30" width="135" height="21"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="posiiton" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C72-5b-x5J">
-                                        <rect key="frame" x="33.5" y="60.5" width="68.5" height="21"/>
+                                        <rect key="frame" x="62" y="56" width="68.5" height="21"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="period" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BZu-iw-nQY">
-                                        <rect key="frame" x="47.5" y="86.5" width="40" height="15"/>
+                                        <rect key="frame" x="76" y="82" width="40" height="15"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="12"/>
                                         <color key="textColor" red="0.0" green="0.63137254899999995" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -99,16 +118,19 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="companyNameLabel" destination="BXk-6y-iYd" id="cka-Ty-wLw"/>
+                <outlet property="editProfileIcon" destination="b7L-f5-InL" id="7qM-Hb-PzQ"/>
                 <outlet property="fullNameLabel" destination="Zrk-8I-atL" id="jF2-bZ-oH0"/>
                 <outlet property="periodLabel" destination="BZu-iw-nQY" id="lac-Hu-Ibt"/>
                 <outlet property="positionLabel" destination="C72-5b-x5J" id="73B-LT-7Tx"/>
                 <outlet property="profileImage" destination="Edw-Cx-Kps" id="6zO-oE-6dQ"/>
+                <outlet property="temporaryIcon" destination="opb-mV-KUh" id="ZPP-fR-Br3"/>
             </connections>
             <point key="canvasLocation" x="33" y="250.5"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="icon-placeholder-person" width="128" height="129"/>
+        <image name="icon-profile-edit" width="25" height="25"/>
         <image name="profile-header-background" width="600" height="404"/>
     </resources>
 </document>

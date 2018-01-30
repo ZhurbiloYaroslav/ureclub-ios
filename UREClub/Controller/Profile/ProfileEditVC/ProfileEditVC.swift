@@ -89,7 +89,7 @@ class ProfileEditVC: UIViewController {
     
     func setUIElementsStyle() {
         
-        profileImageView.setRadius(64, withWidth: 2, andColor: #colorLiteral(red: 1, green: 0.5781051517, blue: 0, alpha: 1))
+        profileImageView.setRadius(64, withWidth: 2, andColor: #colorLiteral(red: 0.4401541352, green: 0.7075563073, blue: 0.9916591048, alpha: 1))
         profileImageView.clipsToBounds = true
         
         profileImageEditButtonContainer.setRadius(16, withWidth: 1, andColor: UIColor.clear)

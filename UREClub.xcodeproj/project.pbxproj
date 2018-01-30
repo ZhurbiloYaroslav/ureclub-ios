@@ -146,6 +146,8 @@
 		C4E522041FE914AD00C3DE2E /* TableViewCell+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E522031FE914AD00C3DE2E /* TableViewCell+Style.swift */; };
 		C4F087532020C8B200C3BDC6 /* StoryboardInitialized.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F087522020C8B200C3BDC6 /* StoryboardInitialized.swift */; };
 		C4F087552020CA7F00C3BDC6 /* ProfileEditVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4F087542020CA7F00C3BDC6 /* ProfileEditVC.storyboard */; };
+		C4F0875A2020D12400C3BDC6 /* ProfileButtonsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F087582020D12400C3BDC6 /* ProfileButtonsCell.swift */; };
+		C4F0875B2020D12400C3BDC6 /* ProfileButtonsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4F087592020D12400C3BDC6 /* ProfileButtonsCell.xib */; };
 		C4F4DB5E1FF5369500AA607C /* FieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4F4DB5C1FF535BC00AA607C /* FieldCell.xib */; };
 		C4F4DB5F1FF5369B00AA607C /* FieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F4DB5D1FF535BC00AA607C /* FieldCell.swift */; };
 		C4F62CBC200D1BE90082DFBC /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F62CBB200D1BE90082DFBC /* Category.swift */; };
@@ -311,6 +313,8 @@
 		C4E522031FE914AD00C3DE2E /* TableViewCell+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableViewCell+Style.swift"; sourceTree = "<group>"; };
 		C4F087522020C8B200C3BDC6 /* StoryboardInitialized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardInitialized.swift; sourceTree = "<group>"; };
 		C4F087542020CA7F00C3BDC6 /* ProfileEditVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProfileEditVC.storyboard; sourceTree = "<group>"; };
+		C4F087582020D12400C3BDC6 /* ProfileButtonsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileButtonsCell.swift; sourceTree = "<group>"; };
+		C4F087592020D12400C3BDC6 /* ProfileButtonsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileButtonsCell.xib; sourceTree = "<group>"; };
 		C4F4DB5C1FF535BC00AA607C /* FieldCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FieldCell.xib; sourceTree = "<group>"; };
 		C4F4DB5D1FF535BC00AA607C /* FieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldCell.swift; sourceTree = "<group>"; };
 		C4F62CBB200D1BE90082DFBC /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -598,6 +602,7 @@
 			isa = PBXGroup;
 			children = (
 				C463F8861FF51095001FBBC1 /* ProfileHeaderCell */,
+				C4F087572020D0F700C3BDC6 /* ProfileButtonsCell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1023,6 +1028,15 @@
 			path = ProfileEditVC;
 			sourceTree = "<group>";
 		};
+		C4F087572020D0F700C3BDC6 /* ProfileButtonsCell */ = {
+			isa = PBXGroup;
+			children = (
+				C4F087582020D12400C3BDC6 /* ProfileButtonsCell.swift */,
+				C4F087592020D12400C3BDC6 /* ProfileButtonsCell.xib */,
+			);
+			path = ProfileButtonsCell;
+			sourceTree = "<group>";
+		};
 		C4F4DB591FF5307000AA607C /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -1142,6 +1156,7 @@
 				C4959EEA200F292F0063D436 /* LogOutCell.xib in Resources */,
 				C41CA3731FDBE3F000AB0D2D /* LaunchScreen.storyboard in Resources */,
 				C4662AD71FEAAE38001848C8 /* Montserrat-BlackItalic.ttf in Resources */,
+				C4F0875B2020D12400C3BDC6 /* ProfileButtonsCell.xib in Resources */,
 				C4E521FC1FE90BD700C3DE2E /* FilterVC.storyboard in Resources */,
 				C480164C201B2F1B005F2253 /* LanguagePickerVC.storyboard in Resources */,
 				C43D1F79201DFA4D00CFC158 /* Notifications.storyboard in Resources */,
@@ -1303,6 +1318,7 @@
 				C41CA3901FDBFC9B00AB0D2D /* UserDefaultsManager.swift in Sources */,
 				C44574681FDC1D18004A5305 /* MenuManager.swift in Sources */,
 				C430EBFA200E1265001E818B /* FullScreenSlideshowViewController.swift in Sources */,
+				C4F0875A2020D12400C3BDC6 /* ProfileButtonsCell.swift in Sources */,
 				C41CA3881FDBED0100AB0D2D /* MenuVC.swift in Sources */,
 				C4959EE9200F292F0063D436 /* LogOutCell.swift in Sources */,
 				C4DC7776200FC46200F3814F /* CompanyCell.swift in Sources */,

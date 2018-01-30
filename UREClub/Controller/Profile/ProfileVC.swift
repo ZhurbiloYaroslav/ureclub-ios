@@ -13,6 +13,7 @@ class ProfileVC: UITableViewController {
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var notificationsButton: UIBarButtonItem!
+    
     public var publicContactToShow: Contact?
     
     override func viewDidLoad() {
@@ -60,7 +61,7 @@ class ProfileVC: UITableViewController {
     }
     
     func registerCustomCells() {
-        let customCellsIdFromNibs = ["ProfileHeaderCell","FieldCell"]
+        let customCellsIdFromNibs = ["ProfileHeaderCell", "FieldCell", "ProfileButtonsCell"]
         for cellID in customCellsIdFromNibs {
             tableView.register(UINib(nibName: cellID, bundle: nil), forCellReuseIdentifier: cellID)
         }
@@ -83,7 +84,7 @@ class ProfileVC: UITableViewController {
         case 0:
             return 1
         case 1:
-            return 4
+            return 3
         case 2:
             return 1
         default:
@@ -94,6 +95,8 @@ class ProfileVC: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "FieldCell", for: indexPath) as? FieldCell
             else { return UITableViewCell() }
+        
+        hideCellImageIfItIsPersonalProfileIn(cell)
         
         switch indexPath {
         case [0,0]:
@@ -114,15 +117,13 @@ class ProfileVC: UITableViewController {
             cell.configureWith(cellData)
             return cell
         case [1,2]:
-            let cellTitle = "profile_facebook".localized()
-            let cellData = FieldCell.CellData(type: .facebook, icon: #imageLiteral(resourceName: "icon-profile-facebook"), title: cellTitle, value: "")
-            cell.configureWith(cellData)
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileButtonsCell", for: indexPath) as? ProfileButtonsCell
+                else { return UITableViewCell() }
+            
+            cell.facebookButton.addTarget(self, action: #selector(ProfileVC.wasPressedFacebookButton(_:)), for: .touchUpInside)
+            cell.linkedInButton.addTarget(self, action: #selector(ProfileVC.wasPressedLinkedInButton(_:)), for: .touchUpInside)
             return cell
-        case [1,3]:
-            let cellTitle = "profile_linkedin".localized()
-            let cellData = FieldCell.CellData(type: .linkedIn, icon: #imageLiteral(resourceName: "icon-profile-linkedIn"), title: cellTitle, value: "")
-            cell.configureWith(cellData)
-            return cell
+            
         case [2,0]:
             let cellData = FieldCell.CellData(type: .text, icon: UIImage(), title: "", value: CurrentUser.textContent)
             cell.configureWith(cellData)
@@ -166,13 +167,11 @@ class ProfileVC: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath {
         case [0,0]:
-            if let profileEditVC = ProfileEditVC.storyboardInstance() {
+            if let profileEditVC = ProfileEditVC.storyboardInstance(), itIsCurrentUserProfile() {
                 navigationController?.pushViewController(profileEditVC, animated: true)
             }
         case [1,0]: Browser.openURLWith(.mailUserEmail)
         case [1,1]: Browser.openURLWith(.callUserPhone)
-        case [1,2]: Browser.openURLWith(.surfUserFacebook)
-        case [1,3]: Browser.openURLWith(.surfUserLinkedIn)
         default:
             break
         }
@@ -180,6 +179,27 @@ class ProfileVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 36
+    }
+    
+    @objc func wasPressedFacebookButton(_ sender: UIButton) {
+        Browser.openURLWith(.surfUserFacebook)
+    }
+    
+    @objc func wasPressedLinkedInButton(_ sender: UIButton) {
+        Browser.openURLWith(.surfUserLinkedIn)
+    }
+    
+}
+
+// Helper methods
+extension ProfileVC {
+    
+    func hideCellImageIfItIsPersonalProfileIn(_ cell: FieldCell) {
+        cell.cellImage.isHidden = publicContactToShow == nil ? true : false
+    }
+    
+    func itIsCurrentUserProfile() -> Bool {
+        return publicContactToShow == nil
     }
     
 }
