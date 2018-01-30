@@ -9,6 +9,8 @@
 import UIKit
 import SkyFloatingLabelTextField
 
+extension PasswordEditVC: StoryboardInitialized {}
+
 class PasswordEditVC: UIViewController {
 
     override func viewDidLoad() {

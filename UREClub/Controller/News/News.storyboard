@@ -6,18 +6,9 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Montserrat-Medium.ttf">
-            <string>Montserrat-Medium</string>
-        </array>
-        <array key="Montserrat-Regular.ttf">
-            <string>Montserrat-Regular</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--News-->
         <scene sceneID="gEw-O7-ZOB">
@@ -53,8 +44,6 @@
                     <connections>
                         <outlet property="menuButton" destination="cm8-XE-gIL" id="Zo1-Fa-Okf"/>
                         <outlet property="tableView" destination="HoL-jI-QlC" id="kVI-tD-aL2"/>
-                        <segue destination="A6K-NC-vjw" kind="show" identifier="ShowNewsDesc" id="kr9-Ls-Lbg"/>
-                        <segue destination="uDA-oy-M2u" kind="show" identifier="ShowFilter" id="u5R-hm-N6G"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9gX-N0-eRn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -63,106 +52,6 @@
                 </barButtonItem>
             </objects>
             <point key="canvasLocation" x="4285.6000000000004" y="1983.9580209895055"/>
-        </scene>
-        <!--FilterVC-->
-        <scene sceneID="y0W-e0-onO">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Filter" referencedIdentifier="FilterVC" id="uDA-oy-M2u" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bVi-a7-H4y" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5031" y="1763"/>
-        </scene>
-        <!--News description-->
-        <scene sceneID="3JJ-CR-4k9">
-            <objects>
-                <viewController storyboardIdentifier="NewsDescVC" title="News description" id="A6K-NC-vjw" customClass="NewsDescVC" customModule="UREClub" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="PdI-j8-CaT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pPm-Xz-tpQ">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L1l-Gs-mOm" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wXA-Bl-Gkg" customClass="ImageSlideshow" customModule="UREClub" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="wXA-Bl-Gkg" secondAttribute="height" multiplier="3:2" id="zjE-af-OA8"/>
-                                                </constraints>
-                                            </view>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="U37-de-PQO">
-                                                <rect key="frame" x="15" y="265" width="345" height="101.5"/>
-                                                <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="KFw-Jc-nSf">
-                                                        <rect key="frame" x="0.0" y="0.0" width="345" height="50.5"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Event title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mzp-kp-56b">
-                                                                <rect key="frame" x="0.0" y="0.0" width="345" height="22"/>
-                                                                <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="18"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gal-3E-Zdv">
-                                                                <rect key="frame" x="0.0" y="32" width="345" height="18.5"/>
-                                                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="15"/>
-                                                                <color key="textColor" red="0.0" green="0.63137254899999995" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                        </subviews>
-                                                    </stackView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="249" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XXd-hZ-kxV">
-                                                        <rect key="frame" x="0.0" y="80.5" width="345" height="21"/>
-                                                        <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
-                                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                            </stackView>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="U37-de-PQO" secondAttribute="trailing" constant="15" id="2dN-mY-su6"/>
-                                            <constraint firstItem="U37-de-PQO" firstAttribute="leading" secondItem="L1l-Gs-mOm" secondAttribute="leading" constant="15" id="Ad3-7P-y8b"/>
-                                            <constraint firstItem="wXA-Bl-Gkg" firstAttribute="top" secondItem="L1l-Gs-mOm" secondAttribute="top" id="AwJ-35-ZiV"/>
-                                            <constraint firstItem="wXA-Bl-Gkg" firstAttribute="leading" secondItem="L1l-Gs-mOm" secondAttribute="leading" id="FfK-vu-ivh"/>
-                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="U37-de-PQO" secondAttribute="bottom" constant="15" id="c8M-xa-m3s"/>
-                                            <constraint firstAttribute="trailing" secondItem="wXA-Bl-Gkg" secondAttribute="trailing" id="iiY-8w-dQj"/>
-                                            <constraint firstItem="U37-de-PQO" firstAttribute="top" secondItem="wXA-Bl-Gkg" secondAttribute="bottom" constant="15" id="uAv-OL-mlY"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="L1l-Gs-mOm" firstAttribute="leading" secondItem="pPm-Xz-tpQ" secondAttribute="leading" id="HEs-4Z-7CU"/>
-                                    <constraint firstAttribute="trailing" secondItem="L1l-Gs-mOm" secondAttribute="trailing" id="mlh-S5-6Cp"/>
-                                    <constraint firstItem="L1l-Gs-mOm" firstAttribute="top" secondItem="pPm-Xz-tpQ" secondAttribute="top" id="qyC-8U-yzk"/>
-                                    <constraint firstAttribute="bottom" secondItem="L1l-Gs-mOm" secondAttribute="bottom" id="sDz-JO-su2"/>
-                                </constraints>
-                            </scrollView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="L1l-Gs-mOm" firstAttribute="width" secondItem="PdI-j8-CaT" secondAttribute="width" id="BXa-5f-GOf"/>
-                            <constraint firstItem="pPm-Xz-tpQ" firstAttribute="bottom" secondItem="vfr-Mb-b3S" secondAttribute="bottom" id="IAn-jb-J5y"/>
-                            <constraint firstItem="pPm-Xz-tpQ" firstAttribute="top" secondItem="vfr-Mb-b3S" secondAttribute="top" id="KQb-kR-JaJ"/>
-                            <constraint firstItem="pPm-Xz-tpQ" firstAttribute="trailing" secondItem="vfr-Mb-b3S" secondAttribute="trailing" id="kSn-0N-flp"/>
-                            <constraint firstItem="pPm-Xz-tpQ" firstAttribute="leading" secondItem="vfr-Mb-b3S" secondAttribute="leading" id="oDz-UE-LBL"/>
-                            <constraint firstItem="L1l-Gs-mOm" firstAttribute="height" secondItem="PdI-j8-CaT" secondAttribute="height" priority="250" id="ztb-YJ-Ps5"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="vfr-Mb-b3S"/>
-                    </view>
-                    <connections>
-                        <outlet property="contentLabel" destination="XXd-hZ-kxV" id="Qn9-wH-Mfn"/>
-                        <outlet property="dateLabel" destination="Gal-3E-Zdv" id="emK-Bj-N0u"/>
-                        <outlet property="slideshow" destination="wXA-Bl-Gkg" id="ARR-d9-6hP"/>
-                        <outlet property="titleLabel" destination="Mzp-kp-56b" id="2wh-ob-59E"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hBh-rC-8Uf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5776.8000000000002" y="1983.9580209895055"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="CAB-MO-O1B">
@@ -184,7 +73,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icon-filter" width="32" height="31"/>
+        <image name="icon-filter" width="27" height="26"/>
         <image name="menu" width="22" height="22"/>
     </resources>
 </document>

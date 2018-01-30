@@ -8,6 +8,8 @@
 
 import UIKit
 
+extension NotificationsVC: StoryboardInitialized {}
+
 class NotificationsVC: UIViewController {
 
     override func viewDidLoad() {

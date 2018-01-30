@@ -1,5 +1,5 @@
 //
-//  LanguageVC.swift
+//  LanguagePickerVC.swift
 //  UREClub
 //
 //  Created by Yaroslav Zhurbilo on 26.01.18.
@@ -7,6 +7,8 @@
 //
 
 import UIKit
+
+extension LanguagePickerVC: StoryboardInitialized {}
 
 class LanguagePickerVC: UITableViewController {
     

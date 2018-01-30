@@ -13,6 +13,8 @@ protocol GenericTextField {}
 extension UITextField: GenericTextField {}
 extension UITextView: GenericTextField {}
 
+extension ProfileEditVC: StoryboardInitialized {}
+
 class ProfileEditVC: UIViewController {
 
     @IBOutlet weak var scrollView: UIScrollView!

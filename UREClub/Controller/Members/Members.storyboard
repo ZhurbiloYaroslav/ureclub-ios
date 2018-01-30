@@ -216,21 +216,12 @@
                         <outlet property="memberTypeSwitcher" destination="ij6-Oj-dGQ" id="RYC-S7-EjD"/>
                         <outlet property="menuButton" destination="tT6-Um-d1u" id="Xts-lz-7FZ"/>
                         <outlet property="tableView" destination="GPz-Q2-peJ" id="hPr-pZ-asn"/>
-                        <segue destination="oR9-Q6-z9X" kind="show" identifier="ShowFilter" id="Z9D-Xz-7u1"/>
                         <segue destination="POc-qy-ccg" kind="show" identifier="ShowProfile" id="NZ1-zv-5cR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qLX-xs-lNf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4285.6000000000004" y="2798.9505247376314"/>
-        </scene>
-        <!--FilterVC-->
-        <scene sceneID="ek3-qg-oOi">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Filter" referencedIdentifier="FilterVC" id="oR9-Q6-z9X" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dwn-tE-Q46" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5038" y="2737"/>
         </scene>
         <!--ProfileVC-->
         <scene sceneID="cuM-YV-1aF">
@@ -261,7 +252,7 @@
     </scenes>
     <resources>
         <image name="icon-attend-person" width="50" height="50"/>
-        <image name="icon-filter" width="32" height="31"/>
+        <image name="icon-filter" width="27" height="26"/>
         <image name="icon-placeholder-person" width="128" height="129"/>
         <image name="menu" width="22" height="22"/>
         <image name="placeholder-company" width="676" height="358"/>

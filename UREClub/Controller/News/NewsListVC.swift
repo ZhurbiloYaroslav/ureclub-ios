@@ -78,7 +78,10 @@ class NewsListVC: UIViewController {
     }
     
     @IBAction func filterButtonPressed(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "ShowFilter", sender: nil)
+        if let filterVC = FilterVC.storyboardInstance() {
+            filterVC.filterManager.currentFilter = newsFilter
+            navigationController?.pushViewController(filterVC, animated: true)
+        }
     }
 
 }
@@ -101,29 +104,11 @@ extension NewsListVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "ShowNewsDesc", sender: indexPath)
-    }
-}
-
-// MARK: SEGUES
-extension NewsListVC {
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let segueID = segue.identifier else {
-            return
+        
+        if let articleDescVC = ArticleDescVC.storyboardInstance() {
+            articleDescVC.currentArticle = arrayWithNews[indexPath.row]
+            navigationController?.pushViewController(articleDescVC, animated: true)
         }
         
-        switch segueID {
-        case "ShowNewsDesc":
-            guard let newsDescVC = segue.destination as? NewsDescVC else { return }
-            if let indexPath = sender as? IndexPath {
-                newsDescVC.currentNews = arrayWithNews[indexPath.row]
-            }
-        case "ShowFilter":
-            guard let filterVC = segue.destination as? FilterVC else { return }
-            filterVC.filterManager.currentFilter = newsFilter
-        default:
-            print("Was used undefined segue")
-            return
-        }
     }
 }

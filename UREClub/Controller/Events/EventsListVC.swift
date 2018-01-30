@@ -95,7 +95,10 @@ class EventsListVC: UIViewController {
     }
     
     @IBAction func filterButtonPressed(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "ShowFilter", sender: nil)
+        if let filterVC = FilterVC.storyboardInstance() {
+            filterVC.filterManager.currentFilter = eventsManager.eventsFilter
+            navigationController?.pushViewController(filterVC, animated: true)
+        }
     }
     
 }
@@ -132,7 +135,12 @@ extension EventsListVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "ShowEventDesc", sender: indexPath)
+        
+        if let articleDescVC = ArticleDescVC.storyboardInstance() {
+            articleDescVC.currentArticle = eventsManager.getEventFor(indexPath)
+            navigationController?.pushViewController(articleDescVC, animated: true)
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -157,29 +165,4 @@ extension EventsListVC: UITableViewDelegate, UITableViewDataSource {
     //
     //    }
     
-}
-
-// MARK: SEGUES
-extension EventsListVC {
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let segueID = segue.identifier else {
-            return
-        }
-        
-        switch segueID {
-        case "ShowEventDesc":
-            guard let eventDescVC = segue.destination as? EventDescVC else {
-                return
-            }
-            if let indexPath = sender as? IndexPath {
-                eventDescVC.currentEvent = eventsManager.getEventFor(indexPath)
-            }
-        case "ShowFilter":
-            guard let filterVC = segue.destination as? FilterVC else { return }
-            filterVC.filterManager.currentFilter = eventsManager.eventsFilter
-        default:
-            print("Was used undefined segue")
-            return
-        }
-    }
 }

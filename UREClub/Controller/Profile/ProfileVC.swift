@@ -166,7 +166,9 @@ class ProfileVC: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath {
         case [0,0]:
-            performSegue(withIdentifier: "ShowProfileEdit", sender: nil)
+            if let profileEditVC = ProfileEditVC.storyboardInstance() {
+                navigationController?.pushViewController(profileEditVC, animated: true)
+            }
         case [1,0]: Browser.openURLWith(.mailUserEmail)
         case [1,1]: Browser.openURLWith(.callUserPhone)
         case [1,2]: Browser.openURLWith(.surfUserFacebook)

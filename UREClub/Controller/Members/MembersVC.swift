@@ -84,7 +84,10 @@ class MembersVC: UIViewController {
     }
     
     @IBAction func filterButtonPressed(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "ShowFilter", sender: nil)
+        if let filterVC = FilterVC.storyboardInstance() {
+            filterVC.filterManager.currentFilter = contactsManager.contactsFilter
+            navigationController?.pushViewController(filterVC, animated: true)
+        }
     }
 
     @IBAction func memberTypeSwitcherChanged(_ sender: UISegmentedControl) {
@@ -157,9 +160,6 @@ extension MembersVC: UITableViewDelegate, UITableViewDataSource {
             let publicContactToShow = contactsManager.getPersonFor(indexPath)
             guard let destination = segue.destination as? ProfileVC else { return }
             destination.publicContactToShow = publicContactToShow
-        case "ShowFilter":
-            guard let filterVC = segue.destination as? FilterVC else { return }
-            filterVC.filterManager.currentFilter = contactsManager.contactsFilter
         default:
             print("Was used undefined segue")
         }
