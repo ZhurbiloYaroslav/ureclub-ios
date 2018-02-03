@@ -28,26 +28,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Me-7y-ndE">
-                                <rect key="frame" x="0.0" y="20" width="375" height="1480"/>
+                                <rect key="frame" x="0.0" y="20" width="0.0" height="1480"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Di-pc-eoL" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1849.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="1849.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KTw-xB-v6F" customClass="ImageSlideshow" customModule="UREClub" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="KTw-xB-v6F" secondAttribute="height" multiplier="3:2" id="Y34-C3-abq"/>
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="DKg-B0-qTf">
-                                                <rect key="frame" x="15" y="265" width="345" height="139.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="139.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xQa-MJ-21z">
-                                                        <rect key="frame" x="0.0" y="0.0" width="345" height="24.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="24.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Event title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VK9-So-faA">
-                                                                <rect key="frame" x="0.0" y="0.0" width="345" height="24.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="24.5"/>
                                                                 <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="20"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -55,7 +54,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="aM7-uV-mo4">
-                                                        <rect key="frame" x="0.0" y="34.5" width="345" height="15"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="15"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-location" translatesAutoresizingMaskIntoConstraints="NO" id="V1y-rc-yGO">
                                                                 <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
@@ -65,7 +64,7 @@
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Event address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VkJ-m4-1X4">
-                                                                <rect key="frame" x="20" y="0.0" width="325" height="15"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="15"/>
                                                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="12"/>
                                                                 <color key="textColor" red="0.0" green="0.63137254899999995" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -73,7 +72,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="sBK-YN-433">
-                                                        <rect key="frame" x="0.0" y="59.5" width="345" height="15"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="15"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-date" translatesAutoresizingMaskIntoConstraints="NO" id="g2f-GI-E9c">
                                                                 <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
@@ -83,7 +82,7 @@
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y8L-z5-xTe">
-                                                                <rect key="frame" x="20" y="0.0" width="325" height="15"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="15"/>
                                                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="12"/>
                                                                 <color key="textColor" red="0.0" green="0.63137254899999995" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -91,7 +90,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="SxU-4r-vCO">
-                                                        <rect key="frame" x="0.0" y="84.5" width="345" height="15"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="15"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-time" translatesAutoresizingMaskIntoConstraints="NO" id="nlS-g9-FuF">
                                                                 <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
@@ -101,7 +100,7 @@
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JDZ-zk-goQ">
-                                                                <rect key="frame" x="20" y="0.0" width="325" height="15"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="15"/>
                                                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="12"/>
                                                                 <color key="textColor" red="0.0" green="0.63137254899999995" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -109,10 +108,10 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="54D-gl-jqy">
-                                                        <rect key="frame" x="0.0" y="109.5" width="345" height="30"/>
+                                                        <rect key="frame" x="0.0" y="374.5" width="0.0" height="30"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="753" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wP2-NO-aJb">
-                                                                <rect key="frame" x="0.0" y="0.0" width="134.5" height="30"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="30"/>
                                                                 <color key="backgroundColor" red="0.0" green="0.63137254899999995" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="30" id="Vhs-xG-v49"/>
@@ -125,19 +124,19 @@
                                                                 </connections>
                                                             </button>
                                                             <view contentMode="scaleToFill" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gHN-B1-Kje">
-                                                                <rect key="frame" x="139.5" y="0.0" width="205.5" height="30"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="30"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="pwq-hT-uHe">
-                                                                        <rect key="frame" x="5" y="3" width="197.5" height="24"/>
+                                                                        <rect key="frame" x="0.0" y="3" width="0.0" height="24"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="See who attend" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MkV-cw-f6U">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="110.5" height="24"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="24"/>
                                                                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="14"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="9jh-ae-tqR">
-                                                                                <rect key="frame" x="115.5" y="0.0" width="82" height="24"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="82" height="24"/>
                                                                                 <subviews>
                                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-attend-person" translatesAutoresizingMaskIntoConstraints="NO" id="rkD-Eh-SZM">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
@@ -146,13 +145,13 @@
                                                                                         </constraints>
                                                                                     </imageView>
                                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-attend-person" translatesAutoresizingMaskIntoConstraints="NO" id="6bo-gA-5Nz">
-                                                                                        <rect key="frame" x="29" y="0.0" width="24" height="24"/>
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="width" secondItem="6bo-gA-5Nz" secondAttribute="height" multiplier="25:25" id="vpT-jR-XYj"/>
                                                                                         </constraints>
                                                                                     </imageView>
                                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-attend-person" translatesAutoresizingMaskIntoConstraints="NO" id="Gcr-M6-HNY">
-                                                                                        <rect key="frame" x="58" y="0.0" width="24" height="24"/>
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="width" secondItem="Gcr-M6-HNY" secondAttribute="height" multiplier="25:25" id="tDa-Xp-zlV"/>
                                                                                         </constraints>
@@ -177,7 +176,7 @@
                                                 </subviews>
                                             </stackView>
                                             <webView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="No0-Jm-n6O">
-                                                <rect key="frame" x="15" y="419.5" width="345" height="1400"/>
+                                                <rect key="frame" x="0.0" y="419.5" width="0.0" height="1400"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1400" id="WCo-FV-GWe"/>

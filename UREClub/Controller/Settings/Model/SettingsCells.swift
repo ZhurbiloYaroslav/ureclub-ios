@@ -13,7 +13,7 @@ import Foundation
 struct SettingsCells {
     
     public var numberOfSections: Int {
-        return 2
+        return 3
     }
     
     public func getNumberOfCellsInSection(_ section: Int) -> Int {
@@ -22,6 +22,8 @@ struct SettingsCells {
         case .section1:
             return 1
         case .section2:
+            return 1
+        case .section3:
             return 1
         default:
             return 0
@@ -47,6 +49,15 @@ struct SettingsCells {
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: "ChangeLanguageCell", for: indexPath) as? ChangeLanguageCell
                     else { return UITableViewCell() }
                 cell.updateCell()
+                return cell
+            default:
+                return UITableViewCell()
+            }
+        case .section3:
+            switch indexPath.row {
+            case 0:
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "AboutCell", for: indexPath) as? AboutCell
+                    else { return UITableViewCell() }
                 return cell
             default:
                 return UITableViewCell()

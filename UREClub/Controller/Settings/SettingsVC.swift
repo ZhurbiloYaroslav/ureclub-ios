@@ -54,7 +54,7 @@ class SettingsVC: UITableViewController {
     }
     
     func registerCustomCells() {
-        let customCellsIdFromNibs = ["ChangePasswordCell","ChangeLanguageCell"]
+        let customCellsIdFromNibs = ["ChangePasswordCell","ChangeLanguageCell","AboutCell"]
         for cellID in customCellsIdFromNibs {
             tableView.register(UINib(nibName: cellID, bundle: nil), forCellReuseIdentifier: cellID)
         }
@@ -91,6 +91,8 @@ extension SettingsVC {
             headerTitleText = "settings_section_security".localized()
         case 1:
             headerTitleText = "settings_section_language".localized()
+        case 2:
+            headerTitleText = "about_app_section".localized()
         default:
             break
         }
@@ -122,6 +124,10 @@ extension SettingsVC {
         case [1,0]:
             if let languagePickerVC = LanguagePickerVC.storyboardInstance() {
                 navigationController?.pushViewController(languagePickerVC, animated: true)
+            }
+        case [2,0]:
+            if let aboutVC = AboutVC.storyboardInstance() {
+                navigationController?.pushViewController(aboutVC, animated: true)
             }
         default:
             break

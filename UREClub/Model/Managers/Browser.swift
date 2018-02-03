@@ -33,6 +33,7 @@ class Browser {
         case mailUserEmail
         case surfUserFacebook
         case surfUserLinkedIn
+        case soft4Status
         
         func getAddress() -> String {
             switch self {
@@ -42,6 +43,7 @@ class Browser {
             case .mailUserEmail: return "mailto:\(CurrentUser.email)"
             case .surfUserFacebook: return CurrentUser.facebookLink
             case .surfUserLinkedIn: return CurrentUser.linkedInLink
+            case .soft4Status: return "https://soft4status.com"
             }
         }
     }

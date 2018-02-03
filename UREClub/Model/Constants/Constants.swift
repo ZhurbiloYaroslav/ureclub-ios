@@ -38,5 +38,17 @@ struct Constants {
         static let background = UIColor.white //Was Constants.Color.skyLight
     }
     
+    struct AppInfo {
+        static var versionAndBuild: String {
+            return "\(version) (\(build))"
+        }
+        static var version: String {
+            return Bundle.main.infoDictionary?["CFBundleShortVersionString"]  as? String ?? "Undefined"
+        }
+        static var build: String {
+            return Bundle.main.infoDictionary?["CFBundleVersion"]  as? String ?? "Undefined"
+        }
+    }
+    
 }
 

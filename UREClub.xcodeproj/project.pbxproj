@@ -138,6 +138,10 @@
 		C4DC7776200FC46200F3814F /* CompanyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC7774200FC46200F3814F /* CompanyCell.swift */; };
 		C4DC777C200FC98200F3814F /* ContactsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC777B200FC98200F3814F /* ContactsManager.swift */; };
 		C4DC777E200FDD1900F3814F /* PersonCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC777D200FDD1900F3814F /* PersonCollectionCell.swift */; };
+		C4E07B0F2025CD0A00933FAA /* AboutVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4E07B0D2025CD0900933FAA /* AboutVC.storyboard */; };
+		C4E07B102025CD0A00933FAA /* AboutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E07B0E2025CD0900933FAA /* AboutVC.swift */; };
+		C4E07B162025D15700933FAA /* AboutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E07B122025CDD500933FAA /* AboutCell.swift */; };
+		C4E07B172025D15F00933FAA /* AboutCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4E07B132025CDD500933FAA /* AboutCell.xib */; };
 		C4E521F81FE9027B00C3DE2E /* UISegmentedControl+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E521F71FE9027B00C3DE2E /* UISegmentedControl+Style.swift */; };
 		C4E521FC1FE90BD700C3DE2E /* FilterVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4E521FB1FE90BD700C3DE2E /* FilterVC.storyboard */; };
 		C4E521FE1FE90BFE00C3DE2E /* FilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E521FD1FE90BFE00C3DE2E /* FilterVC.swift */; };
@@ -305,6 +309,10 @@
 		C4DC7774200FC46200F3814F /* CompanyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCell.swift; sourceTree = "<group>"; };
 		C4DC777B200FC98200F3814F /* ContactsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsManager.swift; sourceTree = "<group>"; };
 		C4DC777D200FDD1900F3814F /* PersonCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonCollectionCell.swift; sourceTree = "<group>"; };
+		C4E07B0D2025CD0900933FAA /* AboutVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AboutVC.storyboard; sourceTree = "<group>"; };
+		C4E07B0E2025CD0900933FAA /* AboutVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutVC.swift; sourceTree = "<group>"; };
+		C4E07B122025CDD500933FAA /* AboutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCell.swift; sourceTree = "<group>"; };
+		C4E07B132025CDD500933FAA /* AboutCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutCell.xib; sourceTree = "<group>"; };
 		C4E521F71FE9027B00C3DE2E /* UISegmentedControl+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISegmentedControl+Style.swift"; sourceTree = "<group>"; };
 		C4E521FB1FE90BD700C3DE2E /* FilterVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FilterVC.storyboard; sourceTree = "<group>"; };
 		C4E521FD1FE90BFE00C3DE2E /* FilterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterVC.swift; sourceTree = "<group>"; };
@@ -425,6 +433,7 @@
 				C47BEE42201FE85A00688AEF /* PasswordEditVC */,
 				C480164A201B2EDE005F2253 /* LanguagePickerVC */,
 				C47FA7401FE1D3EA003D393E /* Codex */,
+				C4E07B0C2025CD0900933FAA /* About */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1002,6 +1011,25 @@
 			path = PersonCell;
 			sourceTree = "<group>";
 		};
+		C4E07B0C2025CD0900933FAA /* About */ = {
+			isa = PBXGroup;
+			children = (
+				C4E07B0D2025CD0900933FAA /* AboutVC.storyboard */,
+				C4E07B0E2025CD0900933FAA /* AboutVC.swift */,
+				C4E07B112025CDD500933FAA /* AboutCell */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
+		C4E07B112025CDD500933FAA /* AboutCell */ = {
+			isa = PBXGroup;
+			children = (
+				C4E07B122025CDD500933FAA /* AboutCell.swift */,
+				C4E07B132025CDD500933FAA /* AboutCell.xib */,
+			);
+			path = AboutCell;
+			sourceTree = "<group>";
+		};
 		C4E521F91FE9055500C3DE2E /* StarredCategories */ = {
 			isa = PBXGroup;
 			children = (
@@ -1152,6 +1180,7 @@
 				C4662AE11FEAAE38001848C8 /* Montserrat-Regular.ttf in Resources */,
 				C47FA7391FE1D2FB003D393E /* Auth.storyboard in Resources */,
 				C40C84932002B10D0011AF01 /* ChangePasswordCell.xib in Resources */,
+				C4E07B172025D15F00933FAA /* AboutCell.xib in Resources */,
 				C4662AD11FEAAE38001848C8 /* Montserrat-ExtraBoldItalic.ttf in Resources */,
 				C4959EEA200F292F0063D436 /* LogOutCell.xib in Resources */,
 				C41CA3731FDBE3F000AB0D2D /* LaunchScreen.storyboard in Resources */,
@@ -1183,6 +1212,7 @@
 				C430EBF7200E1265001E818B /* ic_cross_white@3x.png in Resources */,
 				C47FA7481FE1D712003D393E /* News.storyboard in Resources */,
 				C4662ADA1FEAAE38001848C8 /* Montserrat-Light.ttf in Resources */,
+				C4E07B0F2025CD0A00933FAA /* AboutVC.storyboard in Resources */,
 				C41CA3701FDBE3F000AB0D2D /* Assets.xcassets in Resources */,
 				C47FA7461FE1D6D8003D393E /* Events.storyboard in Resources */,
 				C4662AD81FEAAE38001848C8 /* Montserrat-Thin.ttf in Resources */,
@@ -1264,7 +1294,9 @@
 				C41CA36E1FDBE3F000AB0D2D /* UREClub.xcdatamodeld in Sources */,
 				C48D0DA52012817E009347DE /* EventsManager.swift in Sources */,
 				C4C203DA1FE2669600272679 /* UIView+setters.swift in Sources */,
+				C4E07B162025D15700933FAA /* AboutCell.swift in Sources */,
 				C41CA38E1FDBFC7100AB0D2D /* String+localized.swift in Sources */,
+				C4E07B102025CD0A00933FAA /* AboutVC.swift in Sources */,
 				C480165D201B3E54005F2253 /* LanguageManager.swift in Sources */,
 				C430EBFC200E1265001E818B /* ImageSlideshowItem.swift in Sources */,
 				C463F88A1FF52D10001FBBC1 /* DefaultDataManager.swift in Sources */,
