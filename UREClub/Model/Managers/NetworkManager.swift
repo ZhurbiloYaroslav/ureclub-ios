@@ -15,6 +15,28 @@ import Alamofire
     @objc optional func didLoad(dictWithContacts:[String: [AnyObject]])
 }
 
+// MARK: Values that need to change!!!
+extension NetworkManager {
+    
+    static fileprivate var currentServer: Server {
+        return .development // MARK: Change it!
+    }
+    
+    enum Server {
+        case production
+        case development
+        
+        var baseAddress: String {
+            switch self {
+                
+            // MARK: Change Addresses of the SERVERS
+            case .production: return ""
+            case .development: return "http://qst.1gb.ua/"
+            }
+        }
+    }
+}
+
 class NetworkManager: NSObject {
     
     weak var delegate: NetworkManagerDelegate?
@@ -198,9 +220,9 @@ extension NetworkManager {
     
     private func parseLoginResultDataWith(_ response: DataResponse<Any>) -> [String]? {
         
-        let userDataDict = makeDictionaryFrom(response)
+        let dictWithResponse = makeDictionaryFrom(response)
         
-        if let stringWithErrorCode = userDataDict["code"] as? String {
+        if let stringWithErrorCode = dictWithResponse["code"] as? String {
             switch stringWithErrorCode {
             case let codeValue where codeValue.contains("invalid_email"):
                 return ["server_invalid_email".localized()]
@@ -211,8 +233,12 @@ extension NetworkManager {
             }
         }
         
+        guard let userDataDict = dictWithResponse["data"] as? Dictionary<String, Any> else {
+            return ["server_no_data".localized()]
+        }
+
         CurrentUser.getFirstAndLastNameFromString(userDataDict["user_display_name"] as? String ?? "")
-        
+
         CurrentUser.id = userDataDict["id"] as? String ?? ""
         CurrentUser.email = userDataDict["email"] as? String ?? ""
         CurrentUser.phone = userDataDict["phone"] as? String ?? ""
@@ -270,7 +296,13 @@ extension NetworkManager {
     
     private func parseEventsWith(_ response: DataResponse<Any>) {
         
-        guard let arrayWithEventsResult = response.result.value as? [(Dictionary<String, Any>)]  else {
+//        guard let arrayWithEventsResult = response.result.value as? [(Dictionary<String, Any>)]  else {
+//            return
+//        }
+        
+        let dictWithResponse = makeDictionaryFrom(response)
+        
+        guard let arrayWithEventsResult = dictWithResponse["data"] as? [(Dictionary<String, Any>)] else {
             return
         }
         
@@ -318,7 +350,13 @@ extension NetworkManager {
     
     private func parseNewsWith(_ response: DataResponse<Any>) {
         
-        guard let arrayWithNewsResult = response.result.value as? [(Dictionary<String, Any>)]  else {
+//        guard let arrayWithNewsResult = response.result.value as? [(Dictionary<String, Any>)]  else {
+//            return
+//        }
+        
+        let dictWithResponse = makeDictionaryFrom(response)
+        
+        guard let arrayWithNewsResult = dictWithResponse["data"] as? [(Dictionary<String, Any>)] else {
             return
         }
         
@@ -365,16 +403,18 @@ extension NetworkManager {
 extension NetworkManager {
     
     private func parseContactsWith(_ response: DataResponse<Any>) {
-
-        guard let dictWithResponse = response.result.value as? (Dictionary<String, Any>)  else {
+        
+        let dictWithResponse = makeDictionaryFrom(response)
+        
+        guard let arrayWithNewsResult = dictWithResponse["data"] as? Dictionary<String, Any> else {
             return
         }
         
-        guard let dictWithPersons = dictWithResponse["people"] as? [(Dictionary<String, Any>)]  else {
+        guard let dictWithPersons = arrayWithNewsResult["people"] as? [(Dictionary<String, Any>)]  else {
             return
         }
         
-        guard let dictWithCompanies = dictWithResponse["companies"] as? [(Dictionary<String, Any>)]  else {
+        guard let dictWithCompanies = arrayWithNewsResult["companies"] as? [(Dictionary<String, Any>)]  else {
             return
         }
         
@@ -443,10 +483,8 @@ extension NetworkManager {
         
         Alamofire.request(url, method:.post, parameters:parameters, headers:headers).responseJSON { (response) in
             
-            guard let dictWithResponse = response.result.value as? (Dictionary<String, Any>)  else {
-                completionHandler(nil, "No value from response")
-                return
-            }
+            let dictWithResponse = self.makeDictionaryFrom(response)
+            
             guard let dictWithData = dictWithResponse["data"] as? (Dictionary<String, Any>)  else {
                 completionHandler(nil, "No data from value of the response")
                 return

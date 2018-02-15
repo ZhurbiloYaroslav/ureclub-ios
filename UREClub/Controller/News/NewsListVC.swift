@@ -44,7 +44,7 @@ class NewsListVC: UIViewController {
     
     func getArrayWithNews() {
         networkManager.retrieveInfoForPath(.news) { (errors) in
-            print("---Errors in news", errors)
+
         }
     }
     
