@@ -78,7 +78,7 @@ class NewsListVC: UIViewController {
     }
     
     @IBAction func filterButtonPressed(_ sender: UIBarButtonItem) {
-        if let filterVC = FilterVC.storyboardInstance() {
+        if let filterVC = FilterVC.getInstance() {
             filterVC.filterManager.currentFilter = newsFilter
             navigationController?.pushViewController(filterVC, animated: true)
         }
@@ -105,7 +105,7 @@ extension NewsListVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if let articleDescVC = ArticleDescVC.storyboardInstance() {
+        if let articleDescVC = ArticleDescVC.getInstance() {
             articleDescVC.currentArticle = arrayWithNews[indexPath.row]
             navigationController?.pushViewController(articleDescVC, animated: true)
         }

@@ -7,6 +7,7 @@ body {
     font-weight: 400;
     line-height: 1.66;
     word-wrap: break-word;
+    padding: 0px;
 }
 
 strong, b {
@@ -22,7 +23,7 @@ p {
 
 img {
     height: auto;
-    width: inherit;
+    width: 100%;
     max-width: 100%;
 }
 

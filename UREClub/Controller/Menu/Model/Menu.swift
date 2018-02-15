@@ -15,6 +15,10 @@ struct Menu {
         return items.count
     }
     
+    var logOutCellIndex: Int {
+        return items.count - 1
+    }
+    
     let items: [Item] = [
         Item(title: "menu_item_main".localized(), segue: "ShowMain", cellID: "MenuCell", section: 1, iconName: nil),
         Item(title: "menu_item_profile".localized(), segue: "ShowProfile", cellID: "MenuCell", section: 1, iconName: nil),

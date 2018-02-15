@@ -8,8 +8,6 @@
 
 import UIKit
 
-extension LanguagePickerVC: StoryboardInitialized {}
-
 class LanguagePickerVC: UITableViewController {
     
     let languageManager = LanguageManager()

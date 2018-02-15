@@ -141,6 +141,7 @@ class NetworkManager: NSObject {
             case filter
             case attendance
             case resetPassword
+            case changePassword
             
             func address() -> String {
                 var resultAddress = currentServer.rawValue
@@ -155,6 +156,7 @@ class NetworkManager: NSObject {
                 case .user: resultAddress += ureclubRestPath + "user"
                 case .filter: resultAddress += ureclubRestPath + "filter"
                 case .attendance: resultAddress += ureclubRestPath + "attendance"
+                case .changePassword: resultAddress += ureclubRestPath + "attendance"
                 case .resetPassword: resultAddress += "s4s-reset-password.php"
                 }
                 return resultAddress
@@ -627,6 +629,57 @@ extension NetworkManager {
         let userDataDict = makeDictionaryFrom(response)
         
         let message = userDataDict["code"] as? String ?? "Error"
+        return [message]
+    }
+    
+}
+
+// MARK: Change Password
+extension NetworkManager {
+    
+    func changePassword(_ userData: ChangePasswordData, completionHandler: @escaping (_ errorMessages: [String]?)->()) {
+        
+        guard let url = userData.getURL() else { return }
+        
+        let parameters = userData.getParams()
+        
+        Alamofire.request(url, method:.post, parameters:parameters).responseJSON { response in
+            
+            if response.result.error != nil {
+                completionHandler(["server_bad_connection".localized()])
+            } else if let errorMessages = self.parseChangePasswordDataWith(response) {
+                completionHandler(errorMessages)
+            } else {
+                completionHandler(nil)
+            }
+            
+        }
+        
+    }
+    
+    struct ChangePasswordData {
+        private let pageAddress: String = RequestAddress.ServerPath.changePassword.address()
+        
+        public let newPassword: String
+        
+        func getParams() -> Parameters {
+            return [
+                "password": newPassword
+            ]
+        }
+        
+        func getURL() -> URL? {
+            var result = "\(pageAddress)"
+            result = result.replacingOccurrences(of: " ", with: "%20")
+            return URL(string: result)
+        }
+    }
+    
+    private func parseChangePasswordDataWith(_ response: DataResponse<Any>) -> [String]? {
+        
+        let userDataDict = makeDictionaryFrom(response)
+        
+        let message = userDataDict["code"] as? String ?? "undefined_error"
         return [message]
     }
     

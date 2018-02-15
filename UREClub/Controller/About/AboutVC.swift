@@ -8,8 +8,6 @@
 
 import UIKit
 
-extension AboutVC: StoryboardInitialized {}
-
 class AboutVC: UITableViewController {
 
     @IBOutlet weak var appVersionCell: UITableViewCell!

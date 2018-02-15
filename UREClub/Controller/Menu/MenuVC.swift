@@ -70,9 +70,17 @@ class MenuVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
         let someExtraSpace: CGFloat = 60
         let heightOfTable = Int(self.view.frame.size.height - someExtraSpace)
-        return CGFloat((heightOfTable) / Menu().numberOfItems)
+        let heightOfCell = CGFloat((heightOfTable) / Menu().numberOfItems)
+        
+        switch indexPath.row {
+        case Menu().logOutCellIndex:
+            return heightOfCell + 20
+        default:
+            return heightOfCell
+        }
     }
     
     func setCustomStyle() {

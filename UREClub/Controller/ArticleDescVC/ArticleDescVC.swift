@@ -9,8 +9,6 @@
 import UIKit
 import SDWebImage
 
-extension ArticleDescVC: StoryboardInitialized {}
-
 class ArticleDescVC: UIViewController {
     
     // MARK: IBOutlets of Event and News

@@ -95,7 +95,7 @@ class EventsListVC: UIViewController {
     }
     
     @IBAction func filterButtonPressed(_ sender: UIBarButtonItem) {
-        if let filterVC = FilterVC.storyboardInstance() {
+        if let filterVC = FilterVC.getInstance() {
             filterVC.filterManager.currentFilter = eventsManager.eventsFilter
             navigationController?.pushViewController(filterVC, animated: true)
         }
@@ -136,7 +136,7 @@ extension EventsListVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if let articleDescVC = ArticleDescVC.storyboardInstance() {
+        if let articleDescVC = ArticleDescVC.getInstance() {
             articleDescVC.currentArticle = eventsManager.getEventFor(indexPath)
             navigationController?.pushViewController(articleDescVC, animated: true)
         }

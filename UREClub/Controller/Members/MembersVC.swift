@@ -84,7 +84,7 @@ class MembersVC: UIViewController {
     }
     
     @IBAction func filterButtonPressed(_ sender: UIBarButtonItem) {
-        if let filterVC = FilterVC.storyboardInstance() {
+        if let filterVC = FilterVC.getInstance() {
             filterVC.filterManager.currentFilter = contactsManager.contactsFilter
             navigationController?.pushViewController(filterVC, animated: true)
         }

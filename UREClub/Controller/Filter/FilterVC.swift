@@ -8,8 +8,6 @@
 
 import UIKit
 
-extension FilterVC: StoryboardInitialized {}
-
 class FilterVC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!

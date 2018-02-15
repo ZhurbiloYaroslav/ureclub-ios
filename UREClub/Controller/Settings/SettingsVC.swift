@@ -118,15 +118,15 @@ extension SettingsVC {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath {
         case [0,0]:
-            if let passwordEditVC = PasswordEditVC.storyboardInstance() {
+            if let passwordEditVC = PasswordEditVC.getInstance() {
                 navigationController?.pushViewController(passwordEditVC, animated: true)
             }
         case [1,0]:
-            if let languagePickerVC = LanguagePickerVC.storyboardInstance() {
+            if let languagePickerVC = LanguagePickerVC.getInstance() {
                 navigationController?.pushViewController(languagePickerVC, animated: true)
             }
         case [2,0]:
-            if let aboutVC = AboutVC.storyboardInstance() {
+            if let aboutVC = AboutVC.getInstance() {
                 navigationController?.pushViewController(aboutVC, animated: true)
             }
         default:
