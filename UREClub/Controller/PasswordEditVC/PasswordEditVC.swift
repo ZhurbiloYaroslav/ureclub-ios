@@ -54,12 +54,16 @@ class PasswordEditVC: UIViewController {
         }
         
         NetworkManager().changePassword(changePasswordData) { (arrayWithErrors) in
-            if let arrayWithErrors = arrayWithErrors, arrayWithErrors.isEmpty {
-                let alertTitle = "password_change_title".localized()
-                Alert().presentAlertWith(title: alertTitle, andMessages: arrayWithErrors, completionHandler: { (alertController) in
-                    self.present(alertController, animated: true, completion: nil)
-                })
+            
+            var alertMessages = ["password_change_message".localized()]
+            if let arrayWithErrors = arrayWithErrors {
+                alertMessages = arrayWithErrors
             }
+            
+            let alertTitle = "password_change_title".localized()
+            Alert().presentAlertWith(title: alertTitle, andMessages: alertMessages, completionHandler: { (alertController) in
+                self.present(alertController, animated: true, completion: nil)
+            })
         }
         
     }

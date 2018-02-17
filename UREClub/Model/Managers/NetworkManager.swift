@@ -156,7 +156,7 @@ class NetworkManager: NSObject {
                 case .user: resultAddress += ureclubRestPath + "user"
                 case .filter: resultAddress += ureclubRestPath + "filter"
                 case .attendance: resultAddress += ureclubRestPath + "attendance"
-                case .changePassword: resultAddress += ureclubRestPath + "attendance"
+                case .changePassword: resultAddress += ureclubRestPath + "password-change"
                 case .resetPassword: resultAddress += "s4s-reset-password.php"
                 }
                 return resultAddress
@@ -642,8 +642,9 @@ extension NetworkManager {
         guard let url = userData.getURL() else { return }
         
         let parameters = userData.getParams()
+        let headers = userData.getHeaders()
         
-        Alamofire.request(url, method:.post, parameters:parameters).responseJSON { response in
+        Alamofire.request(url, method: .post, parameters: parameters, headers: headers).responseJSON { response in
             
             if response.result.error != nil {
                 completionHandler(["server_bad_connection".localized()])
@@ -659,12 +660,19 @@ extension NetworkManager {
     
     struct ChangePasswordData {
         private let pageAddress: String = RequestAddress.ServerPath.changePassword.address()
+        private let bearerToken = CurrentUser.getBearerToken()
         
         public let newPassword: String
         
         func getParams() -> Parameters {
             return [
                 "password": newPassword
+            ]
+        }
+        
+        func getHeaders() -> HTTPHeaders {
+            return [
+                "Authorization": bearerToken
             ]
         }
         
