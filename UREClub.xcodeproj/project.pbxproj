@@ -28,6 +28,7 @@
 		C41CA3961FDBFDBD00AB0D2D /* Browser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41CA3951FDBFDBD00AB0D2D /* Browser.swift */; };
 		C41CA3981FDBFFFD00AB0D2D /* Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41CA3971FDBFFFD00AB0D2D /* Typealiases.swift */; };
 		C41CA39A1FDC010700AB0D2D /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41CA3991FDC010700AB0D2D /* ProfileVC.swift */; };
+		C41DDD952038C3DA005B9939 /* String+isEqual.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41DDD942038C3DA005B9939 /* String+isEqual.swift */; };
 		C430EBDD200DEA34001E818B /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C430EBDC200DEA34001E818B /* Formatter.swift */; };
 		C430EBF6200E1265001E818B /* ic_cross_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C430EBE2200E1265001E818B /* ic_cross_white@2x.png */; };
 		C430EBF7200E1265001E818B /* ic_cross_white@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C430EBE3200E1265001E818B /* ic_cross_white@3x.png */; };
@@ -189,6 +190,7 @@
 		C41CA3951FDBFDBD00AB0D2D /* Browser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Browser.swift; sourceTree = "<group>"; };
 		C41CA3971FDBFFFD00AB0D2D /* Typealiases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealiases.swift; sourceTree = "<group>"; };
 		C41CA3991FDC010700AB0D2D /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		C41DDD942038C3DA005B9939 /* String+isEqual.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+isEqual.swift"; sourceTree = "<group>"; };
 		C430EBDC200DEA34001E818B /* Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 		C430EBE2200E1265001E818B /* ic_cross_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_cross_white@2x.png"; sourceTree = "<group>"; };
 		C430EBE3200E1265001E818B /* ic_cross_white@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_cross_white@3x.png"; sourceTree = "<group>"; };
@@ -249,7 +251,7 @@
 		C4662AD01FEAAE36001848C8 /* Montserrat-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraLight.ttf"; sourceTree = "<group>"; };
 		C4662AE31FEAB4F5001848C8 /* ArticleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCell.swift; sourceTree = "<group>"; };
 		C4662AE71FEAC8EC001848C8 /* ArticleDescVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDescVC.swift; sourceTree = "<group>"; };
-		C47BEE43201FE8C300688AEF /* PasswordEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordEditVC.swift; sourceTree = "<group>"; };
+		C47BEE43201FE8C300688AEF /* PasswordEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordEditVC.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		C47BEE47201FEA1400688AEF /* PasswordEdit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PasswordEdit.storyboard; sourceTree = "<group>"; };
 		C47FA7381FE1D2FB003D393E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Auth.storyboard; sourceTree = "<group>"; };
 		C47FA7431FE1D60B003D393E /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
@@ -499,6 +501,7 @@
 				C43D1F7C201E843000CFC158 /* UIViewController+hideKeyboard.swift */,
 				C4C203D91FE2669600272679 /* UIView+setters.swift */,
 				C4B54B351FEF2A3B008D531E /* Array+uniq.swift */,
+				C41DDD942038C3DA005B9939 /* String+isEqual.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1395,6 +1398,7 @@
 				C41CA3921FDBFCC300AB0D2D /* Constants.swift in Sources */,
 				C4B8A5BA201356F100645E2E /* NewsManager.swift in Sources */,
 				C4C203ED1FE2959300272679 /* Menu.swift in Sources */,
+				C41DDD952038C3DA005B9939 /* String+isEqual.swift in Sources */,
 				C4AA29AC2005FA29009FE92C /* Validator.swift in Sources */,
 				C4B8A5C62013ED1000645E2E /* ContactsData.swift in Sources */,
 				C40C84922002B10D0011AF01 /* ChangePasswordCell.swift in Sources */,
