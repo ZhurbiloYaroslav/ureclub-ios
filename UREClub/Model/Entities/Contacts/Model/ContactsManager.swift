@@ -12,11 +12,10 @@ class ContactsManager {
     
     var contactsData = ContactsData.shared
     
-    var contactsFilter: Filter!
     var contactType: Contact.ContactType
     
     init(withFilterType filterType: Filter.FilterType, andType type: Contact.ContactType) {
-        self.contactsFilter = Filter(withType: filterType)
+        self.contactsData.contactsFilter = Filter(withType: filterType)
         self.contactType = type
     }
     
@@ -24,7 +23,7 @@ class ContactsManager {
         let type = self.contactType
         switch type {
         case .company:
-            return contactsData.arrayWithCompanies.count
+            return contactsData.getFilteredArrayWithCompanies().count
         case .person:
             return contactsData.getArrayWithContactsFor(types: [self.contactType]).count
         case .worker:
@@ -53,7 +52,7 @@ class ContactsManager {
     }
     
     func getCompanyFor(_ indexPath: IndexPath) -> Company {
-        return contactsData.arrayWithCompanies[indexPath.row]
+        return contactsData.getFilteredArrayWithCompanies()[indexPath.row]
     }
     
     func getCompanyIdFor(_ indexPath: IndexPath) -> String {
@@ -87,7 +86,7 @@ class ContactsManager {
         let type = self.contactType
         switch type {
         case .company:
-            return contactsData.arrayWithCompanies
+            return contactsData.getFilteredArrayWithCompanies()
         case .person:
             return contactsData.getArrayWithContactsFor(types: [type])
         case .worker:

@@ -11,6 +11,10 @@ import Foundation
 class Company: Contact {
     var name: String
     
+    var lowerCasedName: String {
+        return name.lowercased()
+    }
+    
     convenience init(name: String, id: Int, type: String, imageLink: String) {
         self.init(name: name, id: id, type: type, imageLink: imageLink,
                   priority: nil, phone: nil, email: nil, dateSince: nil)

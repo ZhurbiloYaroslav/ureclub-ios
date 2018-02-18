@@ -11,12 +11,23 @@ import Foundation
 class Filter {
     
     var type: FilterType
+    var searchString: String
     var filterData = FilterData()
     var arrayWithSections = [FilterSection]()
     
     init(withType type: FilterType) {
         self.type = type
+        self.searchString = ""
         self.arrayWithSections = filterData.getArrayWithSectionsDependsOn(type)
+    }
+    
+    var isInSearch: Bool {
+        let isNotInSearch = searchString.isEmpty == false
+        return isNotInSearch
+    }
+    
+    var lowerCasedSearchString: String {
+        return searchString.lowercased()
     }
     
 }

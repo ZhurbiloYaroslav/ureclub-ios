@@ -27,7 +27,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="107" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GPz-Q2-peJ">
-                                <rect key="frame" x="0.0" y="64" width="375" height="563"/>
+                                <rect key="frame" x="0.0" y="120" width="375" height="507"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" red="0.82352941180000006" green="0.41960784309999999" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
@@ -191,14 +191,21 @@
                                     <action selector="memberTypeSwitcherChanged:" destination="xQc-ew-vjU" eventType="valueChanged" id="kz9-ui-pxy"/>
                                 </connections>
                             </segmentedControl>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="RS9-Kg-Or3">
+                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES" smartDashesType="no" textContentType="name"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="GPz-Q2-peJ" firstAttribute="top" secondItem="Xtj-HF-Saq" secondAttribute="top" id="B3A-FQ-T6l"/>
+                            <constraint firstItem="RS9-Kg-Or3" firstAttribute="trailing" secondItem="Xtj-HF-Saq" secondAttribute="trailing" id="5ON-qa-64W"/>
+                            <constraint firstItem="RS9-Kg-Or3" firstAttribute="top" secondItem="Xtj-HF-Saq" secondAttribute="top" id="DOD-qF-z3j"/>
                             <constraint firstItem="GPz-Q2-peJ" firstAttribute="leading" secondItem="Xtj-HF-Saq" secondAttribute="leading" id="SWP-tw-0nh"/>
                             <constraint firstItem="ij6-Oj-dGQ" firstAttribute="leading" secondItem="Xtj-HF-Saq" secondAttribute="leading" id="Tra-BN-8pZ"/>
+                            <constraint firstItem="GPz-Q2-peJ" firstAttribute="top" secondItem="RS9-Kg-Or3" secondAttribute="bottom" id="cdq-sr-Lqf"/>
                             <constraint firstItem="ij6-Oj-dGQ" firstAttribute="trailing" secondItem="Xtj-HF-Saq" secondAttribute="trailing" id="gew-rc-XGL"/>
                             <constraint firstItem="ij6-Oj-dGQ" firstAttribute="top" secondItem="GPz-Q2-peJ" secondAttribute="bottom" id="h7K-jZ-wZv"/>
+                            <constraint firstItem="RS9-Kg-Or3" firstAttribute="leading" secondItem="Xtj-HF-Saq" secondAttribute="leading" id="mQi-Hp-2RO"/>
                             <constraint firstItem="GPz-Q2-peJ" firstAttribute="trailing" secondItem="Xtj-HF-Saq" secondAttribute="trailing" id="trG-AJ-Os9"/>
                             <constraint firstItem="Xtj-HF-Saq" firstAttribute="bottom" secondItem="ij6-Oj-dGQ" secondAttribute="bottom" id="uUK-HF-Pie"/>
                         </constraints>
@@ -215,11 +222,21 @@
                     <connections>
                         <outlet property="memberTypeSwitcher" destination="ij6-Oj-dGQ" id="RYC-S7-EjD"/>
                         <outlet property="menuButton" destination="tT6-Um-d1u" id="Xts-lz-7FZ"/>
+                        <outlet property="searchBar" destination="RS9-Kg-Or3" id="9C2-eI-IgW"/>
+                        <outlet property="searchDisplayController" destination="l1a-gh-Be0" id="ZZy-Ce-ewf"/>
                         <outlet property="tableView" destination="GPz-Q2-peJ" id="hPr-pZ-asn"/>
                         <segue destination="POc-qy-ccg" kind="show" identifier="ShowProfile" id="NZ1-zv-5cR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qLX-xs-lNf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="l1a-gh-Be0">
+                    <connections>
+                        <outlet property="delegate" destination="xQc-ew-vjU" id="cU6-Kt-mlA"/>
+                        <outlet property="searchContentsController" destination="xQc-ew-vjU" id="zsS-hy-YGz"/>
+                        <outlet property="searchResultsDataSource" destination="xQc-ew-vjU" id="pA7-Oz-yqf"/>
+                        <outlet property="searchResultsDelegate" destination="xQc-ew-vjU" id="hwW-A4-HqT"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="4285.6000000000004" y="2798.9505247376314"/>
         </scene>

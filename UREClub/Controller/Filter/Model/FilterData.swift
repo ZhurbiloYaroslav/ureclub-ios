@@ -30,26 +30,26 @@ struct FilterData {
                         Filter.FilterSectionItem(title: "Informal")
                     ]
                 ),
-                Filter.FilterSection(title: "filter_section_sorting".localized(), type: .sort, arrayWithItems:
-                    [
-                        Filter.FilterSectionItem(title: "Newer"),
-                        Filter.FilterSectionItem(title: "Older")
-                    ]
-                ),
-                Filter.FilterSection(title: "filter_section_status".localized(), type: .readingStatus, arrayWithItems:
-                    [
-                        Filter.FilterSectionItem(title: "All"),
-                        Filter.FilterSectionItem(title: "Not read"),
-                        Filter.FilterSectionItem(title: "Read")
-                    ]
-                ),
-                Filter.FilterSection(title: "filter_section_starred".localized(), type: .starred, arrayWithItems:
-                    [
-                        Filter.FilterSectionItem(title: "All"),
-                        Filter.FilterSectionItem(title: "Starred"),
-                        Filter.FilterSectionItem(title: "Not starred")
-                    ]
-                ),
+                //                Filter.FilterSection(title: "filter_section_sorting".localized(), type: .sort, arrayWithItems:
+                //                    [
+                //                        Filter.FilterSectionItem(title: "Newer"),
+                //                        Filter.FilterSectionItem(title: "Older")
+                //                    ]
+                //                ),
+                //                Filter.FilterSection(title: "filter_section_status".localized(), type: .readingStatus, arrayWithItems:
+                //                    [
+                //                        Filter.FilterSectionItem(title: "All"),
+                //                        Filter.FilterSectionItem(title: "Not read"),
+                //                        Filter.FilterSectionItem(title: "Read")
+                //                    ]
+                //                ),
+                //                Filter.FilterSection(title: "filter_section_starred".localized(), type: .starred, arrayWithItems:
+                //                    [
+                //                        Filter.FilterSectionItem(title: "All"),
+                //                        Filter.FilterSectionItem(title: "Starred"),
+                //                        Filter.FilterSectionItem(title: "Not starred")
+                //                    ]
+                //                ),
             ]
         case .members:
             return [

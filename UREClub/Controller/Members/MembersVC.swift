@@ -19,6 +19,7 @@ class MembersVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var memberTypeSwitcher: UISegmentedControl!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     fileprivate var tableViewCellCoordinator: [Int: IndexPath] = [:]
     
@@ -29,14 +30,13 @@ class MembersVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setDelegates()
         contactsManager.contactsData.getContactsData()
-        setDelegates()
         setupLeftMenu()
         updateUIWithLocalizedText()
         
         setTableStyle()
         setDefaultBackground()
+        setDelegates()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -61,6 +61,7 @@ class MembersVC: UIViewController {
     func setDelegates() {
         tableView.delegate = self
         tableView.dataSource = self
+        searchBar.delegate = self
         
         contactsManager.contactsData.delegate = self
     }
@@ -85,7 +86,7 @@ class MembersVC: UIViewController {
     
     @IBAction func filterButtonPressed(_ sender: UIBarButtonItem) {
         if let filterVC = FilterVC.getInstance() {
-            filterVC.filterManager.currentFilter = contactsManager.contactsFilter
+            filterVC.filterManager.currentFilter = contactsManager.contactsData.contactsFilter
             navigationController?.pushViewController(filterVC, animated: true)
         }
     }
@@ -98,6 +99,7 @@ class MembersVC: UIViewController {
         default:
             contactsManager.contactType = .person
         }
+        searchBar.text = ""
         tableView.reloadData()
     }
 }
@@ -126,12 +128,12 @@ extension MembersVC: UITableViewDelegate, UITableViewDataSource {
             cell.updateCellWith(contactsManager.getCompanyFor(indexPath))
             
             return cell
-        case .person, .worker:
+        case .person:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "PersonCell", for: indexPath) as? PersonCell
                 else { return UITableViewCell() }
             cell.updateCellWith(contactsManager.getPersonFor(indexPath))
             return cell
-        case .undefined:
+        default:
             return UITableViewCell()
         }
     }
@@ -189,3 +191,16 @@ extension MembersVC: UICollectionViewDelegate, UICollectionViewDataSource {
         cell.updateCellWith(person)
     }
 }
+
+extension MembersVC: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        contactsManager.contactsData.contactsFilter.searchString = searchBar.text ?? ""
+        tableView.reloadData()
+    }
+    
+}
+
+
+
