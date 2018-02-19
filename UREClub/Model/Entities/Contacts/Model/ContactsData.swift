@@ -14,6 +14,7 @@ extension ContactsData: NetworkManagerDelegate {
         self.dictWithContacts = dictWithContacts
         self.delegate?.didReceiveContacts()
     }
+    
 }
 
 protocol ContactsDataDelegate:class {
@@ -57,6 +58,22 @@ class ContactsData {
         return arrayWithResult
     }
     
+    var dictWithPersonsByCompanyID: [String: [Person]] {
+        var result = [String: [Person]]()
+        
+        for company in arrayWithCompanies {
+            let companyID = company.getStringWithID()
+            let emptyArrayWithPerson = [Person]()
+            result.updateValue(emptyArrayWithPerson, forKey: companyID)
+        }
+        
+        for person in arrayWithPersons {
+            let personsCompanyID = person.company.getStringWithID()
+            result[personsCompanyID]?.append(person)
+        }
+        return result
+    }
+    
     var arrayWithCompanies: [Company] {
         if let resultArray = dictWithContacts["companies"] as? [Company] {
             return resultArray
@@ -98,7 +115,7 @@ extension ContactsData {
         var filteredArrayWithContacts = arrayWithPersons.filter { person in types.contains(person.getContactType())}
         switch types {
         case let person where person.contains(.person):
-            filteredArrayWithContacts = getFilteredArrayWithContacts(filteredArrayWithContacts)
+            filteredArrayWithContacts = getFilteredArrayWithPersons(filteredArrayWithContacts)
         default:
             break
         }
@@ -106,7 +123,7 @@ extension ContactsData {
         return sortedArrayWithContacts
     }
     
-    func getFilteredArrayWithContacts(_ arrayWithPersons: [Person]) -> [Person] {
+    func getFilteredArrayWithPersons(_ arrayWithPersons: [Person]) -> [Person] {
         var result = [Person]()
         result = filterWithSearch(arrayWithPersons)
         result = filterWithAttendanceList(result)

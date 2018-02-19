@@ -14,6 +14,8 @@ class ContactsManager {
     
     var contactType: Contact.ContactType
     
+    var openedCellIndexPath: IndexPath?
+    
     init(withFilterType filterType: Filter.FilterType, andType type: Contact.ContactType) {
         self.contactsData.contactsFilter = Filter(withType: filterType)
         self.contactType = type
@@ -21,14 +23,33 @@ class ContactsManager {
     
     func getNumberOfTableCells() -> Int {
         let type = self.contactType
+        
         switch type {
         case .company:
-            return contactsData.getFilteredArrayWithCompanies().count
+            let amountOfCompanies = contactsData.getFilteredArrayWithCompanies().count
+            let amountOfPersonsInOpenedCompanyCell = getAmountOfPersonsInOpenedCompanyCell()
+            let sumOfCompaniesCellsAndOpenedPersonsCells = amountOfCompanies + amountOfPersonsInOpenedCompanyCell
+            return sumOfCompaniesCellsAndOpenedPersonsCells
+            
         case .person:
             return contactsData.getArrayWithContactsFor(types: [self.contactType]).count
         case .worker:
             return contactsData.getArrayWithContactsFor(types: [self.contactType]).count
         case .undefined:
+            return 0
+        }
+    }
+    
+    func getAmountOfPersonsInOpenedCompanyCell() -> Int {
+        var result = 0
+        if let openedCellIndexPath = openedCellIndexPath {
+            let company = getCompanyFor(openedCellIndexPath)
+            let companyID = company.getStringWithID()
+            if let dictWithPersonsOfCurrentCompany = contactsData.dictWithPersonsByCompanyID[companyID] {
+                result = dictWithPersonsOfCurrentCompany.count
+            }
+            return result
+        } else {
             return 0
         }
     }
@@ -47,12 +68,36 @@ class ContactsManager {
             }
             return arrayWithContacts[indexPath.row]
         default:
-            return Person()
+            return getContactForCompanyTypeCell(indexPath) as? Person ?? Person()
         }
     }
     
     func getCompanyFor(_ indexPath: IndexPath) -> Company {
         return contactsData.getFilteredArrayWithCompanies()[indexPath.row]
+    }
+    
+    func getContactForCompanyTypeCell(_ indexPath: IndexPath) -> Contact {
+        var result = [Contact]()
+        let arrayWithCompanies = contactsData.getFilteredArrayWithCompanies()
+        
+        if let openedCellIndexPath = openedCellIndexPath {
+            
+            for (index, company) in arrayWithCompanies.enumerated() {
+                result.append(company)
+                if index == openedCellIndexPath.row {
+                    if let arrayWithPersons = contactsData.dictWithPersonsByCompanyID[company.getStringWithID()] {
+                        for person in arrayWithPersons {
+                            result.append(person)
+                        }
+                    }
+                    
+                }
+            }
+            return result[indexPath.row]
+            
+        } else {
+            return arrayWithCompanies[indexPath.row]
+        }
     }
     
     func getCompanyIdFor(_ indexPath: IndexPath) -> String {

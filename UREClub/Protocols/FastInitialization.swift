@@ -69,10 +69,9 @@ extension FastInitialization {
         if let instance = storyboard.instantiateInitialViewController() as? Self {
             return instance
         } else if let instance = storyboard.instantiateViewController(withIdentifier: storyboardIdentifier) as? Self {
-            debugLog("Please, set \(storyboardIdentifier) as Initial View Controller")
             return instance
         } else {
-            print("No ID in Storyboard for \(storyboardIdentifier)")
+            debugLog("No ID in Storyboard for \(storyboardIdentifier)")
             return nil
         }
     }

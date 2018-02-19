@@ -138,23 +138,47 @@ extension MembersVC: UITableViewDelegate, UITableViewDataSource {
         
         switch contactsManager.contactType {
         case .company:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "CompanyCell", for: indexPath) as? CompanyCell
-                else { return UITableViewCell() }
             
-            cell.collectionView.delegate = self
-            cell.collectionView.dataSource = self
+            let genericContact = contactsManager.getContactForCompanyTypeCell(indexPath)
             
-            let tag = 10000*(indexPath.section+1)+indexPath.row
-            cell.collectionView.tag = tag
-            tableViewCellCoordinator[tag] = indexPath
+            if let company = genericContact as? Company {
+                
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "CompanyCell", for: indexPath) as? CompanyCell
+                    else { return UITableViewCell() }
+                
+                cell.collectionView.delegate = self
+                cell.collectionView.dataSource = self
+                
+                let tag = 10000*(indexPath.section+1)+indexPath.row
+                cell.collectionView.tag = tag
+                tableViewCellCoordinator[tag] = indexPath
+                
+                cell.tag = CellTag.company.rawValue
+                cell.updateCellWith(company)
+                
+                return cell
+                
+            } else if let person = genericContact as? Person {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "PersonCell", for: indexPath) as? PersonCell
+                    else { return UITableViewCell() }
+                
+                cell.tag = CellTag.person.rawValue
+                cell.updateCellWith(person)
+                
+                return cell
+                
+            } else {
+                return UITableViewCell()
+            }
             
-            cell.updateCellWith(contactsManager.getCompanyFor(indexPath))
-            
-            return cell
         case .person:
+            
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "PersonCell", for: indexPath) as? PersonCell
                 else { return UITableViewCell() }
+            
+            cell.tag = CellTag.person.rawValue
             cell.updateCellWith(contactsManager.getPersonFor(indexPath))
+            
             return cell
         default:
             return UITableViewCell()
@@ -169,26 +193,35 @@ extension MembersVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if (tableView.cellForRow(at: indexPath) as? PersonCell) != nil {
-            performSegue(withIdentifier: "ShowProfile", sender: indexPath)
+        guard let selectedCell = tableView.cellForRow(at: indexPath) else { return }
+        let tagForSelectedRow = selectedCell.tag
+        
+        switch tagForSelectedRow {
+        case CellTag.company.rawValue:
+            
+            switch contactsManager.openedCellIndexPath {
+            case nil:
+                contactsManager.openedCellIndexPath = indexPath
+            default:
+                contactsManager.openedCellIndexPath = nil
+            }
+            tableView.reloadData()
+            
+        case CellTag.person.rawValue:
+            if (tableView.cellForRow(at: indexPath) as? PersonCell) != nil {
+                if let profileVC = ProfileVC.getInstance() {
+                    let publicContactToShow = contactsManager.getPersonFor(indexPath)
+                    profileVC.publicContactToShow = publicContactToShow
+                    navigationController?.pushViewController(profileVC, animated: true)
+                }
+            }
+            
+        default:
+            break
         }
         
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        guard let segueID = segue.identifier else { return }
-        
-        switch segueID {
-        case "ShowProfile":
-            guard let indexPath = sender as? IndexPath else { return }
-            let publicContactToShow = contactsManager.getPersonFor(indexPath)
-            guard let destination = segue.destination as? ProfileVC else { return }
-            destination.publicContactToShow = publicContactToShow
-        default:
-            print("Was used undefined segue")
-        }
-    }
 }
 
 extension MembersVC: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -225,5 +258,12 @@ extension MembersVC: UISearchBarDelegate {
     
 }
 
-
+extension MembersVC {
+    
+    enum CellTag: Int {
+        case person = 1
+        case company = 2
+    }
+    
+}
 
