@@ -90,6 +90,7 @@ class LoginVC: UIViewController {
                     self.present(alertVC, animated: true, completion: nil)
                 })
             } else {
+                CurrentUser.password = loginData.password
                 self.performSegue(withIdentifier: "EnterFromLogin", sender: nil)
             }
         }

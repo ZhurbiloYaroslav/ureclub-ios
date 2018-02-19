@@ -5,6 +5,8 @@
 //  Created by Yaroslav Zhurbilo on 09.12.17.
 //  Copyright © 2017 Yaroslav Zhurbilo. All rights reserved.
 //
+// TODO: Refactor cell folding with: https://github.com/jeantimex/ios-swift-collapsible-table-section
+                            // or:   https://www.appcoda.com/expandable-table-view/
 
 import UIKit
 import SWRevealViewController

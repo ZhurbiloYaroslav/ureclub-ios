@@ -603,8 +603,8 @@ extension NetworkManager {
         
         let userDataDict = makeDictionaryFrom(response)
         
-        let message = userDataDict["code"] as? String ?? "Error"
-        return [message]
+        let message = userDataDict["code"] as? String ?? "server_password_reset_success"
+        return [message.localized()]
     }
     
 }

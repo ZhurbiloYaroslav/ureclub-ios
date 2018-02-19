@@ -8,11 +8,12 @@
 
 import Foundation
 import SwiftSoup
-//import KeychainSwift
+import KeychainSwift
 
 class CurrentUser {
     
     private static let defaults = UserDefaults.standard
+    private static let keychainManager = KeychainSwift()
     
     static func logOut(completionHandler: @escaping SuccessBehaviour) {
         resetUserDataWhenLogOut()
@@ -177,11 +178,10 @@ extension CurrentUser {
     
     static var password: String {
         get {
-            return defaults.object(forKey: "currentUserPassword") as? String ?? ""
+            return self.keychainManager.get("currentUserPassword") ?? ""
         }
         set {
-            defaults.set(newValue, forKey: "currentUserPassword")
-            defaults.synchronize()
+            self.keychainManager.set(newValue, forKey: "currentUserPassword")
         }
     }
     

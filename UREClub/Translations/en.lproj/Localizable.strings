@@ -109,3 +109,16 @@
 "email_is_valid" = "Email is not valid";
 "about_app_section" = "About";
 "about_app_title" = "App info";
+"screen_attendance_title" = "List of participants";
+"placeholder_password_current" = "Current password";
+"placeholder_password_new" = "New password";
+"placeholder_password_repeat" = "Repeat password";
+"button_password_change" = "Change password";
+"password_current_is_not_valid" = "Current password is not valid";
+"password_new_is_not_valid" = "New password is not valid";
+"password_repeat_is_not_valid" = "Repeated password is not valid";
+"passwords_not_equal" = "Passwords are not equal";
+"password_current_is_not_match" = "Current password doesn't match";
+"password_change_title" = "Change password";
+"password_change_success" = "Password was changed!";
+"server_password_reset_success" = "Your password was reset";

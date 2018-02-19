@@ -26,6 +26,7 @@ class PasswordEditVC: UIViewController {
         super.viewDidLoad()
         
         setUIElementsStyle()
+        assignTagToViews()
         initializeDelegates()
         updateUIWithLocalizedText()
         hideKeyboardWhenTappedAround()
@@ -34,7 +35,14 @@ class PasswordEditVC: UIViewController {
     func initializeDelegates() {
         for textField in arrayWithTextFields {
             textField.delegate = self
+            textField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         }
+    }
+    
+    func assignTagToViews() {
+        currentPasswordField.tag = TextFieldTag.currentPassword.rawValue
+        newPasswordField.tag = TextFieldTag.newPassword.rawValue
+        repeatPasswordField.tag = TextFieldTag.repeatPassword.rawValue
     }
     
     func updateUIWithLocalizedText() {
@@ -89,11 +97,42 @@ class PasswordEditVC: UIViewController {
 
 extension PasswordEditVC: UITextFieldDelegate {
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        let _ = validateDataFromTextFields()
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        let _ = validateDataFromTextFields()
+    }
+    
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        let _ = validateDataFromTextFields()
+    }
+    
+    enum TextFieldTag: Int {
+        case currentPassword = 1
+        case newPassword = 2
+        case repeatPassword = 3
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
     func setUIElementsStyle() {
         
         currentPasswordField.selectedTitle = "placeholder_password_current".localized()
+        currentPasswordField.placeholder = "placeholder_password_current".localized()
+        currentPasswordField.title = "placeholder_password_current".localized()
+        
         newPasswordField.selectedTitle = "placeholder_password_new".localized()
+        newPasswordField.placeholder = "placeholder_password_new".localized()
+        newPasswordField.title = "placeholder_password_new".localized()
+        
         repeatPasswordField.selectedTitle = "placeholder_password_repeat".localized()
+        repeatPasswordField.placeholder = "placeholder_password_repeat".localized()
+        repeatPasswordField.title = "placeholder_password_repeat".localized()
         
         setStylesForTextFields()
         
@@ -142,42 +181,66 @@ extension PasswordEditVC: UITextFieldDelegate {
 // MARK: Data validation
 extension PasswordEditVC {
     
+    func validateDataFromTextFields() -> Bool {
+        guard let currentPasswordText = currentPasswordField.text else { return false }
+        guard let newPasswordText = newPasswordField.text else { return false }
+        guard let repeatPasswordText = repeatPasswordField.text else { return false }
+        
+        print("---touch")
+        if Validator.isPasswordValid(currentPasswordText) {
+            currentPasswordField.errorMessage = ""
+        } else if currentPasswordText.isEmpty {
+            currentPasswordField.errorMessage = ""
+        } else {
+            currentPasswordField.errorMessage = "password_current_is_not_valid".localized()
+            return false
+        }
+        
+        if currentPasswordText.isEqualTo(CurrentUser.password) {
+            currentPasswordField.errorMessage = ""
+        } else {
+            currentPasswordField.errorMessage = "password_current_is_not_match".localized()
+            return false
+        }
+        
+        if Validator.isPasswordValid(newPasswordText) {
+            newPasswordField.errorMessage = ""
+        } else if newPasswordText.isEmpty {
+            newPasswordField.errorMessage = ""
+        } else {
+            newPasswordField.errorMessage = "password_new_is_not_valid".localized()
+            return false
+        }
+        
+        if Validator.isPasswordValid(repeatPasswordText) {
+            repeatPasswordField.errorMessage = ""
+        } else if repeatPasswordText.isEmpty {
+            repeatPasswordField.errorMessage = ""
+        } else {
+            repeatPasswordField.errorMessage = "password_repeat_is_not_valid".localized()
+            return false
+        }
+        
+        if newPasswordText.isEqualTo(repeatPasswordText) {
+            newPasswordField.errorMessage = ""
+            repeatPasswordField.errorMessage = ""
+        } else {
+            newPasswordField.errorMessage = "passwords_not_equal".localized()
+            repeatPasswordField.errorMessage = "passwords_not_equal".localized()
+            return false
+        }
+        
+        return true
+    }
+    
     func validateFieldsAndGetData() -> NetworkManager.ChangePasswordData? {
         
-        var errorMessages = [String]()
-        var newPassword = ""
-        var repeatPassword = ""
-        
-        if let unwrappedPassword = currentPasswordField.text, Validator.isPasswordValid(unwrappedPassword) == false {
-            errorMessages.append("password_is_not_valid_1".localized())
-        }
-        
-        if let unwrappedPassword = newPasswordField.text, Validator.isPasswordValid(unwrappedPassword) {
-            newPassword = unwrappedPassword
+        if validateDataFromTextFields() {
+            guard let newPassword = newPasswordField.text else { return nil }
+            return NetworkManager.ChangePasswordData(newPassword: newPassword)
         } else {
-            errorMessages.append("password_is_not_valid_2".localized())
-        }
-        
-        if let unwrappedPassword = repeatPasswordField.text, Validator.isPasswordValid(unwrappedPassword) {
-            repeatPassword = unwrappedPassword
-        } else {
-            errorMessages.append("password_is_not_valid_3".localized())
-        }
-        
-        if newPassword.isEqualTo(repeatPassword) == false {
-            errorMessages.append("password_not_equal".localized())
-        }
-        
-        if errorMessages.count > 0 {
-            let alertTitle = "auth_alert_error_title".localized()
-            Alert().presentAlertWith(title: alertTitle, andMessages: errorMessages, completionHandler: { (alertContoller) in
-                self.present(alertContoller, animated: true, completion: nil)
-            })
             return nil
         }
         
-        return NetworkManager.ChangePasswordData(newPassword: newPassword)
     }
 }
-
-
