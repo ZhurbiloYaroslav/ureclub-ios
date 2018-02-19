@@ -12,5 +12,5 @@ typealias CompletionHandlerWithData = (_ data: ResultData) -> ()
 
 enum ResultData {
     case withErrors([NetworkError])
-    case withEvents([Event])
+    case withMembersID([Int]) // Attendance
 }

@@ -15,6 +15,30 @@ extension MembersVC: ContactsDataDelegate {
     }
 }
 
+extension MembersVC {
+    
+    func setupAsAttendanceView() {
+        if contactsManager.contactsData.isItAttendanceScreen {
+            //replaceMenuButtonWithBack()
+            memberTypeSwitcher.isHidden = true
+            contactsManager.contactType = .person
+            navigationItem.title = "screen_attendance_title".localized()
+        } else {
+            setupLeftMenu()
+        }
+    }
+    
+    func replaceMenuButtonWithBack() {
+        let backItem = UIBarButtonItem(image: UIImage(named:"icon-back"), style: .plain, target: self, action: #selector(menuButtonTapped(sender:)))
+        navigationItem.backBarButtonItem = backItem
+    }
+    
+    @objc func menuButtonTapped(sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+}
+
 class MembersVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
@@ -25,18 +49,18 @@ class MembersVC: UIViewController {
     
     var contactsManager = ContactsManager(withFilterType: .members, andType: .person)
     
-    @IBOutlet weak var menuButton: UIBarButtonItem!
+    var menuButton: UIBarButtonItem!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         contactsManager.contactsData.getContactsData()
-        setupLeftMenu()
         updateUIWithLocalizedText()
         
         setTableStyle()
         setDefaultBackground()
         setDelegates()
+        setupAsAttendanceView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -71,9 +95,8 @@ class MembersVC: UIViewController {
             
             self.revealViewController().rearViewRevealWidth = self.view.frame.width - 64
             
-            menuButton.target = revealViewController()
-            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
-            
+            menuButton = UIBarButtonItem(image: UIImage(named:"menu"), style: .plain, target: revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)))
+            navigationItem.leftBarButtonItem = menuButton
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
     }

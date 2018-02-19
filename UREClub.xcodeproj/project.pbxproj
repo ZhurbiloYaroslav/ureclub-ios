@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A575E5EF19AB2E5627FF560A /* Pods_UREClub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F00CDDC75090A238545BF8D /* Pods_UREClub.framework */; };
+		C409AA9720399FDB0094CB17 /* NewNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C409AA9620399FDB0094CB17 /* NewNetworkManager.swift */; };
 		C40C84922002B10D0011AF01 /* ChangePasswordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40C84902002B10D0011AF01 /* ChangePasswordCell.swift */; };
 		C40C84932002B10D0011AF01 /* ChangePasswordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C40C84912002B10D0011AF01 /* ChangePasswordCell.xib */; };
 		C40C84982002BF980011AF01 /* ChangeLanguageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40C84962002BF980011AF01 /* ChangeLanguageCell.swift */; };
@@ -168,6 +169,7 @@
 		1B1637C256ED0A1500AE327F /* Pods-UREClub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UREClub.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UREClub/Pods-UREClub.debug.xcconfig"; sourceTree = "<group>"; };
 		6F00CDDC75090A238545BF8D /* Pods_UREClub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UREClub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE4E3DD1CDFA59C0049561D9 /* Pods-UREClub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UREClub.release.xcconfig"; path = "Pods/Target Support Files/Pods-UREClub/Pods-UREClub.release.xcconfig"; sourceTree = "<group>"; };
+		C409AA9620399FDB0094CB17 /* NewNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewNetworkManager.swift; sourceTree = "<group>"; };
 		C40C84902002B10D0011AF01 /* ChangePasswordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordCell.swift; sourceTree = "<group>"; };
 		C40C84912002B10D0011AF01 /* ChangePasswordCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangePasswordCell.xib; sourceTree = "<group>"; };
 		C40C84962002BF980011AF01 /* ChangeLanguageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeLanguageCell.swift; sourceTree = "<group>"; };
@@ -213,7 +215,7 @@
 		C445745F1FDC18FB004A5305 /* NewsListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListVC.swift; sourceTree = "<group>"; };
 		C44574611FDC192C004A5305 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		C44574631FDC1AED004A5305 /* ContactsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsVC.swift; sourceTree = "<group>"; };
-		C44574651FDC1B97004A5305 /* MembersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersVC.swift; sourceTree = "<group>"; };
+		C44574651FDC1B97004A5305 /* MembersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersVC.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		C44574671FDC1D18004A5305 /* MenuManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuManager.swift; sourceTree = "<group>"; };
 		C460E4E42035905100408572 /* debugLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = debugLog.swift; sourceTree = "<group>"; };
 		C460E4E6203590B500408572 /* UIViewController+fastInitialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+fastInitialization.swift"; sourceTree = "<group>"; };
@@ -250,7 +252,7 @@
 		C4662ACF1FEAAE34001848C8 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		C4662AD01FEAAE36001848C8 /* Montserrat-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraLight.ttf"; sourceTree = "<group>"; };
 		C4662AE31FEAB4F5001848C8 /* ArticleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCell.swift; sourceTree = "<group>"; };
-		C4662AE71FEAC8EC001848C8 /* ArticleDescVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDescVC.swift; sourceTree = "<group>"; };
+		C4662AE71FEAC8EC001848C8 /* ArticleDescVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDescVC.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		C47BEE43201FE8C300688AEF /* PasswordEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordEditVC.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		C47BEE47201FEA1400688AEF /* PasswordEdit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PasswordEdit.storyboard; sourceTree = "<group>"; };
 		C47FA7381FE1D2FB003D393E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Auth.storyboard; sourceTree = "<group>"; };
@@ -358,6 +360,15 @@
 				AE4E3DD1CDFA59C0049561D9 /* Pods-UREClub.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		C409AA982039A49D0094CB17 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				C409AA9620399FDB0094CB17 /* NewNetworkManager.swift */,
+				C4662AB61FEA98F7001848C8 /* NetworkManager.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		C40C848F2002AFF10011AF01 /* Enums */ = {
@@ -1088,9 +1099,9 @@
 		C4F4DB591FF5307000AA607C /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				C409AA982039A49D0094CB17 /* Network */,
 				C41CA38F1FDBFC9B00AB0D2D /* UserDefaultsManager.swift */,
 				C41CA3951FDBFDBD00AB0D2D /* Browser.swift */,
-				C4662AB61FEA98F7001848C8 /* NetworkManager.swift */,
 				C463F8891FF52D10001FBBC1 /* DefaultDataManager.swift */,
 				C4AA29AB2005FA29009FE92C /* Validator.swift */,
 				C4AA29AD2005FA3F009FE92C /* Alert.swift */,
@@ -1409,6 +1420,7 @@
 				C48D0DAB20129C79009347DE /* CalendarCell.swift in Sources */,
 				C44574621FDC192C004A5305 /* SettingsVC.swift in Sources */,
 				C430EBFF200E1265001E818B /* UIImageView+Tools.swift in Sources */,
+				C409AA9720399FDB0094CB17 /* NewNetworkManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

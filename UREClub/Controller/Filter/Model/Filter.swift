@@ -14,11 +14,13 @@ class Filter {
     var searchString: String
     var filterData = FilterData()
     var arrayWithSections = [FilterSection]()
+    var contactsIDToPresentOnly: [Int]?
     
     init(withType type: FilterType) {
         self.type = type
         self.searchString = ""
         self.arrayWithSections = filterData.getArrayWithSectionsDependsOn(type)
+        self.contactsIDToPresentOnly = nil
     }
     
     var isInSearch: Bool {

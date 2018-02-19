@@ -15,28 +15,6 @@ import Alamofire
     @objc optional func didLoad(dictWithContacts:[String: [AnyObject]])
 }
 
-// MARK: Values that need to change!!!
-extension NetworkManager {
-    
-    static fileprivate var currentServer: Server {
-        return .development // MARK: Change it!
-    }
-    
-    enum Server {
-        case production
-        case development
-        
-        var baseAddress: String {
-            switch self {
-                
-            // MARK: Change Addresses of the SERVERS
-            case .production: return ""
-            case .development: return "http://qst.1gb.ua/"
-            }
-        }
-    }
-}
-
 class NetworkManager: NSObject {
     
     weak var delegate: NetworkManagerDelegate?
@@ -49,11 +27,10 @@ class NetworkManager: NSObject {
     
     func retrieveInfoForPath(_ path: RequestAddress.ServerPath, completionHandler: @escaping (_ errorMessages: [NetworkError]?)->())  {
         
-        // var errorMessages = [NetworkError]()
         var headers: HTTPHeaders!
         var parameters: Parameters!
         var url: URL!
-        
+                
         switch path {
         case .events:
             let requestData = EventsRequestData()
@@ -139,7 +116,6 @@ class NetworkManager: NSObject {
             case news
             case user
             case filter
-            case attendance
             case resetPassword
             case changePassword
             
@@ -155,7 +131,6 @@ class NetworkManager: NSObject {
                 case .news: resultAddress += ureclubRestPath + "news"
                 case .user: resultAddress += ureclubRestPath + "user"
                 case .filter: resultAddress += ureclubRestPath + "filter"
-                case .attendance: resultAddress += ureclubRestPath + "attendance"
                 case .changePassword: resultAddress += ureclubRestPath + "password-change"
                 case .resetPassword: resultAddress += "s4s-reset-password.php"
                 }

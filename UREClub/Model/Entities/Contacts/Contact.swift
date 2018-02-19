@@ -59,7 +59,7 @@ class Contact: NSObject {
 
 extension Contact {
     
-    public func getID() -> String {
+    public func getStringWithID() -> String {
         return String(describing: id) ?? "0"
     }
     

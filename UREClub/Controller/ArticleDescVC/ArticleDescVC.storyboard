@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -27,7 +28,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Me-7y-ndE">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="5Me-7y-ndE">
                                 <rect key="frame" x="0.0" y="20" width="375" height="1480"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Di-pc-eoL" userLabel="Content View">
@@ -112,7 +113,7 @@
                                                         <rect key="frame" x="0.0" y="109.5" width="345" height="30"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="753" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wP2-NO-aJb">
-                                                                <rect key="frame" x="0.0" y="0.0" width="134.5" height="30"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="152.5" height="30"/>
                                                                 <color key="backgroundColor" red="0.0" green="0.63137254899999995" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="30" id="Vhs-xG-v49"/>
@@ -124,54 +125,38 @@
                                                                     <action selector="goButtonPressed:" destination="hpo-A6-tVV" eventType="touchUpInside" id="EW0-cg-Qaq"/>
                                                                 </connections>
                                                             </button>
-                                                            <view contentMode="scaleToFill" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gHN-B1-Kje">
-                                                                <rect key="frame" x="139.5" y="0.0" width="205.5" height="30"/>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="XkP-VC-wmu">
+                                                                <rect key="frame" x="157.5" y="0.0" width="187.5" height="30"/>
                                                                 <subviews>
-                                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="pwq-hT-uHe">
-                                                                        <rect key="frame" x="5" y="3" width="197.5" height="24"/>
+                                                                    <view hidden="YES" contentMode="scaleToFill" verticalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="ZA6-9S-1xc">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="187.5" height="30"/>
                                                                         <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="See who attend" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MkV-cw-f6U">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="110.5" height="24"/>
-                                                                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="14"/>
-                                                                                <nil key="textColor"/>
-                                                                                <nil key="highlightedColor"/>
-                                                                            </label>
-                                                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="9jh-ae-tqR">
-                                                                                <rect key="frame" x="115.5" y="0.0" width="82" height="24"/>
-                                                                                <subviews>
-                                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-attend-person" translatesAutoresizingMaskIntoConstraints="NO" id="rkD-Eh-SZM">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
-                                                                                        <constraints>
-                                                                                            <constraint firstAttribute="width" secondItem="rkD-Eh-SZM" secondAttribute="height" multiplier="25:25" id="1UH-A1-PvZ"/>
-                                                                                        </constraints>
-                                                                                    </imageView>
-                                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-attend-person" translatesAutoresizingMaskIntoConstraints="NO" id="6bo-gA-5Nz">
-                                                                                        <rect key="frame" x="29" y="0.0" width="24" height="24"/>
-                                                                                        <constraints>
-                                                                                            <constraint firstAttribute="width" secondItem="6bo-gA-5Nz" secondAttribute="height" multiplier="25:25" id="vpT-jR-XYj"/>
-                                                                                        </constraints>
-                                                                                    </imageView>
-                                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-attend-person" translatesAutoresizingMaskIntoConstraints="NO" id="Gcr-M6-HNY">
-                                                                                        <rect key="frame" x="58" y="0.0" width="24" height="24"/>
-                                                                                        <constraints>
-                                                                                            <constraint firstAttribute="width" secondItem="Gcr-M6-HNY" secondAttribute="height" multiplier="25:25" id="tDa-Xp-zlV"/>
-                                                                                        </constraints>
-                                                                                    </imageView>
-                                                                                </subviews>
-                                                                            </stackView>
+                                                                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qO6-m8-Frc">
+                                                                                <rect key="frame" x="0.0" y="-0.5" width="187.5" height="30"/>
+                                                                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="16"/>
+                                                                                <state key="normal" title="See who attend">
+                                                                                    <color key="titleColor" red="0.0" green="0.63137254899999995" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                </state>
+                                                                                <connections>
+                                                                                    <action selector="seeWhoAttendButtonPressed:" destination="hpo-A6-tVV" eventType="touchUpInside" id="FVj-GB-nLU"/>
+                                                                                </connections>
+                                                                            </button>
                                                                         </subviews>
-                                                                    </stackView>
+                                                                        <constraints>
+                                                                            <constraint firstItem="qO6-m8-Frc" firstAttribute="leading" secondItem="ZA6-9S-1xc" secondAttribute="leading" id="5Jy-IK-5xm"/>
+                                                                            <constraint firstItem="qO6-m8-Frc" firstAttribute="top" secondItem="ZA6-9S-1xc" secondAttribute="top" id="Gun-61-xc8"/>
+                                                                            <constraint firstAttribute="trailing" secondItem="qO6-m8-Frc" secondAttribute="trailing" id="Pmo-xR-B7i"/>
+                                                                            <constraint firstAttribute="bottom" secondItem="qO6-m8-Frc" secondAttribute="bottom" id="lj4-hm-Trs"/>
+                                                                        </constraints>
+                                                                    </view>
                                                                 </subviews>
-                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <constraints>
-                                                                    <constraint firstItem="pwq-hT-uHe" firstAttribute="centerY" secondItem="gHN-B1-Kje" secondAttribute="centerY" id="Apq-Er-S92"/>
-                                                                    <constraint firstItem="pwq-hT-uHe" firstAttribute="leading" secondItem="gHN-B1-Kje" secondAttribute="leading" constant="5" id="V2g-Zi-yyz"/>
-                                                                    <constraint firstAttribute="height" constant="30" id="a5F-RF-Hmp"/>
-                                                                    <constraint firstAttribute="bottom" secondItem="pwq-hT-uHe" secondAttribute="bottom" constant="3" id="ctS-nx-vUq"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="pwq-hT-uHe" secondAttribute="trailing" constant="3" id="mHx-mY-Ku5"/>
-                                                                    <constraint firstItem="pwq-hT-uHe" firstAttribute="top" secondItem="gHN-B1-Kje" secondAttribute="top" constant="3" id="zzk-O9-gYD"/>
+                                                                    <constraint firstItem="ZA6-9S-1xc" firstAttribute="top" secondItem="XkP-VC-wmu" secondAttribute="top" id="OSC-iY-IQl"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="ZA6-9S-1xc" secondAttribute="trailing" id="WX1-De-WGI"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="ZA6-9S-1xc" secondAttribute="bottom" id="eGJ-Ev-2Lg"/>
+                                                                    <constraint firstItem="ZA6-9S-1xc" firstAttribute="leading" secondItem="XkP-VC-wmu" secondAttribute="leading" id="uI5-uE-aHH"/>
                                                                 </constraints>
-                                                            </view>
+                                                            </stackView>
                                                         </subviews>
                                                     </stackView>
                                                 </subviews>
@@ -211,6 +196,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="XkP-VC-wmu" firstAttribute="width" secondItem="XtJ-5B-SLT" secondAttribute="width" multiplier="0.5" id="LB7-m0-03t"/>
                             <constraint firstItem="5Me-7y-ndE" firstAttribute="trailing" secondItem="UZB-V2-JLF" secondAttribute="trailing" id="UK6-aH-9Z0"/>
                             <constraint firstItem="5Me-7y-ndE" firstAttribute="top" secondItem="UZB-V2-JLF" secondAttribute="top" id="V74-Ti-9Mz"/>
                             <constraint firstItem="8Di-pc-eoL" firstAttribute="width" secondItem="XtJ-5B-SLT" secondAttribute="width" id="VUe-HH-lIU"/>
@@ -224,11 +210,11 @@
                     <size key="freeformSize" width="375" height="1500"/>
                     <connections>
                         <outlet property="addressLabel" destination="VkJ-m4-1X4" id="ozu-hB-ySR"/>
-                        <outlet property="attendanceListContainer" destination="gHN-B1-Kje" id="AqS-SW-Rdu"/>
+                        <outlet property="attendanceListContainer" destination="ZA6-9S-1xc" id="WZW-SA-cBo"/>
                         <outlet property="contentWebView" destination="No0-Jm-n6O" id="qlc-NO-Q2q"/>
                         <outlet property="dateLabel" destination="y8L-z5-xTe" id="g3e-aK-CgO"/>
                         <outlet property="goButton" destination="wP2-NO-aJb" id="0Hc-uX-vuL"/>
-                        <outlet property="seeWhoAttendLabel" destination="MkV-cw-f6U" id="8cz-ee-etu"/>
+                        <outlet property="seeWhoAttendButton" destination="qO6-m8-Frc" id="7DL-9b-T8R"/>
                         <outlet property="slideshow" destination="KTw-xB-v6F" id="OTo-ud-i1m"/>
                         <outlet property="stackWithAddress" destination="aM7-uV-mo4" id="S8Z-Cx-hnk"/>
                         <outlet property="stackWithEventAttendance" destination="54D-gl-jqy" id="Cgu-zf-2dy"/>
@@ -244,7 +230,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icon-attend-person" width="50" height="50"/>
         <image name="icon-date" width="25" height="26"/>
         <image name="icon-location" width="17" height="25"/>
         <image name="icon-time" width="25" height="25"/>

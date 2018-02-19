@@ -17,7 +17,7 @@ class CompanyCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        collectionView.backgroundColor = Constants.Color.skyDark
+        collectionView.backgroundColor = Constants.Color.skyLight
         collectionView.setRadius(15, withWidth: 1, andColor: UIColor.clear)
     }
     

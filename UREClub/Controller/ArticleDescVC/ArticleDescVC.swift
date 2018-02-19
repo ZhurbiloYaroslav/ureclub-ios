@@ -26,8 +26,16 @@ class ArticleDescVC: UIViewController {
     
     @IBOutlet weak var stackWithEventAttendance: UIStackView!
     @IBOutlet weak var goButton: UIButton!
+    
     @IBOutlet weak var attendanceListContainer: UIView!
-    @IBOutlet weak var seeWhoAttendLabel: UILabel!
+    @IBOutlet weak var seeWhoAttendButton: UIButton!
+    
+    @IBAction func seeWhoAttendButtonPressed(_ sender: UIButton) {
+        if let membersVC = MembersVC.getInstance() {
+            membersVC.contactsManager.contactsData.setAttendanceParams(attendanceMembersID)
+            navigationController?.pushViewController(membersVC, animated: true)
+        }
+    }
     
     @IBOutlet var slideshow: ImageSlideshow!
     
@@ -35,15 +43,24 @@ class ArticleDescVC: UIViewController {
     
     let networkManager = NetworkManager()
     
+    var attendanceMembersID: [Int]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        getAttendance()
         self.setDefaultBackground()
         setDelegates()
         updateUIWithLocalizedText()
         setupImageSlider()
         setUIDependsOnEventOrNews()
         updateUIWithValues()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.setDefaultStyle()
     }
     
     func setDelegates() {
@@ -67,7 +84,8 @@ class ArticleDescVC: UIViewController {
                 comment: "All is ok"
             )
             self.networkManager.bookEvent(bookEventRequestData, completionHandler: {
-                Alert().presentAlertWith(title: "Title", andMessages: ["Message"]) { alertVC in
+                let alertTitle = "Booking".localized()
+                Alert().presentAlertWith(title: alertTitle, andMessages: ["Message"]) { alertVC in
                     self.present(alertVC, animated: true, completion: nil)
                 }
             })
@@ -96,7 +114,7 @@ extension ArticleDescVC {
         switch currentArticle {
         case let eventArticle where eventArticle is Event:
             navigationItem.title = "screen_eventDescription_title".localized()
-            seeWhoAttendLabel.text = "event_attend_seewho".localized()
+            seeWhoAttendButton.setTitle("event_attend_seewho".localized(), for: .normal)
         case let newsArticle where newsArticle is News:
             navigationItem.title = "screen_newsDescription_title".localized()
         default:
@@ -161,6 +179,28 @@ extension ArticleDescVC: UIWebViewDelegate {
             return false
         }
         return true
+    }
+}
+
+extension ArticleDescVC {
+    
+    func getAttendance() {
+        guard let event = currentArticle as? Event else { return }
+        
+        let attendanceData = NewNetworkManager.AttendanceData(eventID: event.getID())
+        NewNetworkManager().get(.attendance(attendanceData)) { (resultData) in
+            
+            switch resultData {
+            case .withMembersID(let arrayWithMembersID):
+                let arrayWithMembersIsNotEmpty = arrayWithMembersID.isEmpty == false
+                if arrayWithMembersIsNotEmpty {
+                    self.attendanceMembersID = arrayWithMembersID
+                    self.attendanceListContainer.isHidden = false
+                }
+            default:
+                break
+            }
+        }
     }
 }
 

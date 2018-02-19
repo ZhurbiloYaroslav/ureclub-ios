@@ -57,7 +57,7 @@ class ContactsManager {
     
     func getCompanyIdFor(_ indexPath: IndexPath) -> String {
         let company = getCompanyFor(indexPath)
-        return company.getID()
+        return company.getStringWithID()
     }
     
     func getPersonFor(collectionIndexPath: IndexPath, tableIndexPath: IndexPath) -> Person {
@@ -75,7 +75,7 @@ class ContactsManager {
         guard let arrayWithPersons = contactsData.getArrayWithContactsFor(types: [.person]) as? [Person]
             else { return [Person]() }
         for person in arrayWithPersons {
-            if person.company.getID() == companyID {
+            if person.company.getStringWithID() == companyID {
                 resultArrayWithPersons.append(person)
             }
         }

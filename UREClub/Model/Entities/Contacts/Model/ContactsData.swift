@@ -49,13 +49,11 @@ class ContactsData {
             arrayWithResult = arrayWithCompanies.filter { company in
                 let companyName = company.lowerCasedName
                 let isNameOfCompanyMatch = companyName.contains(searchString)
-                print("---is?: ", isNameOfCompanyMatch, " ", companyName)
                 return isNameOfCompanyMatch
             }
         } else {
             arrayWithResult = arrayWithCompanies
         }
-        print("---result ", arrayWithResult)
         return arrayWithResult
     }
     
@@ -78,41 +76,11 @@ class ContactsData {
     func getCompanyWithID(_ searchingID: String) -> Company {
         var resultCompany = Company(name: "Undefined", id: 0, type: "company", imageLink: "")
         for company in arrayWithCompanies {
-            if company.getID() == searchingID {
+            if company.getStringWithID() == searchingID {
                 resultCompany = company
             }
         }
         return resultCompany
-    }
-    
-    func getArrayWithContactsFor(types: [Contact.ContactType]) -> [GenericContact] {
-        var filteredArrayWithContacts = arrayWithPersons.filter { person in types.contains(person.getContactType())}
-        switch types {
-        case let person where person.contains(.person):
-            filteredArrayWithContacts = getPersonsMathedSearching(filteredArrayWithContacts)
-        default:
-            break
-        }
-        let sortedArrayWithContacts = filteredArrayWithContacts.sorted { $0.getPriority() < $1.getPriority() }
-        return sortedArrayWithContacts
-    }
-    
-    func getPersonsMathedSearching(_ arrayWithPersons: [Person]) -> [Person] {
-        var arrayWithResult = [Person]()
-        let searchString = contactsFilter.lowerCasedSearchString
-        if contactsFilter.isInSearch {
-            arrayWithResult = arrayWithPersons.filter { person in
-                let firstName = person.firstName.lowercased()
-                let lastName = person.lastName.lowercased()
-                let isFirstNameMatch = firstName.contains(searchString)
-                let isLastNameMatch = lastName.contains(searchString)
-
-                return isFirstNameMatch || isLastNameMatch
-            }
-        } else {
-            arrayWithResult = arrayWithPersons
-        }
-        return arrayWithResult
     }
     
     func getContactsData() {
@@ -123,11 +91,76 @@ class ContactsData {
     
 }
 
+// MARK Array With Contacts
+extension ContactsData {
+    
+    func getArrayWithContactsFor(types: [Contact.ContactType]) -> [GenericContact] {
+        var filteredArrayWithContacts = arrayWithPersons.filter { person in types.contains(person.getContactType())}
+        switch types {
+        case let person where person.contains(.person):
+            filteredArrayWithContacts = getFilteredArrayWithContacts(filteredArrayWithContacts)
+        default:
+            break
+        }
+        let sortedArrayWithContacts = filteredArrayWithContacts.sorted { $0.getPriority() < $1.getPriority() }
+        return sortedArrayWithContacts
+    }
+    
+    func getFilteredArrayWithContacts(_ arrayWithPersons: [Person]) -> [Person] {
+        var result = [Person]()
+        result = filterWithSearch(arrayWithPersons)
+        result = filterWithAttendanceList(result)
+        return result
+    }
+    
+    func filterWithSearch(_ arrayWithPersons: [Person]) -> [Person] {
+        if contactsFilter.isInSearch {
+            let searchString = contactsFilter.lowerCasedSearchString
+            let filteredPersonsWithSearch = arrayWithPersons.filter { person in
+                let firstName = person.firstName.lowercased()
+                let lastName = person.lastName.lowercased()
+                let isFirstNameMatch = firstName.contains(searchString)
+                let isLastNameMatch = lastName.contains(searchString)
+                let isPersonMatchWithSearch = isFirstNameMatch || isLastNameMatch
+                return isPersonMatchWithSearch
+            }
+            return filteredPersonsWithSearch
+        } else {
+            return arrayWithPersons
+        }
+    }
+    
+    func filterWithAttendanceList(_ arrayWithPersons: [Person]) -> [Person] {
+        if isItAttendanceScreen {
+            let filteredPersonsWithAttendanceList = arrayWithPersons.filter { person in
+                let personID = person.getID()
+                let arrayWithAttendancePersons = getArrayWithAttendancePersons()
+                let isIdOfPersonMathWithAttendanceList = arrayWithAttendancePersons.contains(personID)
+                return isIdOfPersonMathWithAttendanceList
+            }
+            return filteredPersonsWithAttendanceList
+        } else {
+            return arrayWithPersons
+        }
+    }
+}
 
-
-
-
-
-
-
-
+// MARK: Attendance screen methods
+extension ContactsData {
+    
+    var isItAttendanceScreen: Bool {
+        guard let arrayWithIDsOfMembers = contactsFilter.contactsIDToPresentOnly else {
+            return false
+        }
+        let isThereAnyMember = arrayWithIDsOfMembers.count > 0
+        return isThereAnyMember
+    }
+    
+    func setAttendanceParams(_ membersID: [Int]?) {
+        contactsFilter.contactsIDToPresentOnly = membersID
+    }
+    
+    func getArrayWithAttendancePersons() -> [Int] {
+        return contactsFilter.contactsIDToPresentOnly ?? [Int]()
+    }
+}
