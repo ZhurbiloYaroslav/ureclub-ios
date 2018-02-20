@@ -10,7 +10,7 @@ import Foundation
 
 extension EventsManager: NetworkManagerDelegate {
     func didLoad(arrayWithEvents: [Event]) {
-        self.arrayWithEvents = arrayWithEvents
+        self.arrayWithAllEvents = arrayWithEvents
     }
 }
 
@@ -20,7 +20,7 @@ class EventsManager {
     
     public var eventsFilter = EventsFilter.shared
     
-    private var arrayWithEvents = [Event]()
+    private var arrayWithAllEvents = [Event]()
     private var networkManager = NetworkManager()
     
     private var sectionMonthIndex = [TableSectionIndex: MonthIndex]()
@@ -28,6 +28,21 @@ class EventsManager {
     init() {
         networkManager.delegate = self
         getArrayWithEvents { (errors) in }
+    }
+    
+    func getEventsFilteredWithUpcomingAndPast() -> [Event] {
+        var result = [Event]()
+        result = arrayWithAllEvents.filter() { event in
+            switch eventsFilter.getEventPeriod() {
+            case .upcoming:
+                let isDateOfEventInPast = Date() < event.date.getDateOfBegining()
+                return isDateOfEventInPast
+            case .past:
+                let isDateOfEventInFuture = Date() > event.date.getDateOfBegining()
+                return isDateOfEventInFuture
+            }
+        }
+        return result
     }
     
     func getNumberOfEventsIn(_ section: Int) -> Int {
@@ -41,7 +56,7 @@ class EventsManager {
             }
             return arrayWithEventsFromMonth.count
         case .list:
-            return arrayWithEvents.count
+            return getEventsFilteredWithUpcomingAndPast().count
         }
     }
     
@@ -55,7 +70,7 @@ class EventsManager {
     }
     
     func getDictWithEventsByMonths() -> [Int: [Event]] {
-        if arrayWithEvents.count == 0 {
+        if getEventsFilteredWithUpcomingAndPast().count == 0 {
             return [Int: [Event]]()
         }
         var dictWithEventsByMonths = [Int: [Event]]()
@@ -63,7 +78,7 @@ class EventsManager {
         var sectionIndex = 0
         for monthIndex in [0,1,2,3,4,5,6,7,8,9,10,11] {
             var newArrayWithEvents = [Event]()
-            for event in arrayWithEvents {
+            for event in getEventsFilteredWithUpcomingAndPast() {
                 if event.date.getMonthFromDate() == monthIndex {
                     newArrayWithEvents.append(event)
                 }
@@ -126,7 +141,7 @@ class EventsManager {
             return arrayWithEventsFromMonth[indexPath.row]
             
         case .list:
-            return arrayWithEvents[indexPath.row]
+            return getEventsFilteredWithUpcomingAndPast()[indexPath.row]
         }
     }
     

@@ -38,10 +38,10 @@ extension EventsFilter {
         
         static func getTypeForInt(_ value: Int) -> EventPeriod {
             switch value {
-            case 0:
-                return .upcoming
-            default:
+            case 1:
                 return .past
+            default:
+                return .upcoming
             }
         }
     }
