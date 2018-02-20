@@ -102,7 +102,7 @@ extension SettingsVC {
         
         let headerTitleLabel = UILabel(frame: CGRect(x: 16, y: 0, width: tableView.frame.size.width, height: 36))
         headerTitleLabel.text = headerTitleText
-        headerTitleLabel.font = UIFont(name: "Montserrat-Medium", size: 18)
+        headerTitleLabel.font = UIFont(name: "Montserrat-Medium", size: 15)
         headerTitleLabel.textColor = Constants.Color.tableSectionsTitle
         
         headerView.addSubview(headerTitleLabel)

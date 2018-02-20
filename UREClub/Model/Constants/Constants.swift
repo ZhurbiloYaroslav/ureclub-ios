@@ -21,7 +21,7 @@ struct Constants {
         static let coalDark =  #colorLiteral(red: 0.2392156863, green: 0.2392156863, blue: 0.2901960784, alpha: 1) //3D3D4A //UIColor(red: 61.0/255.0, green: 61.0/255.0, blue: 74.0/255.0, alpha: 1.0)
         
         static let tableSectionsBackground = UIColor(red:0.85, green:0.91, blue:0.94, alpha:0.8)
-        static let tableSectionsTitle = UIColor.darkGray
+        static let tableSectionsTitle = UIColor.gray
         static let errorColor = #colorLiteral(red: 0.9411764741, green: 0.4980392158, blue: 0.3529411852, alpha: 1)
     }
     
