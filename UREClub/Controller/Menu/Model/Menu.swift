@@ -20,7 +20,7 @@ struct Menu {
     }
     
     let items: [Item] = [
-        Item(title: "menu_item_main".localized(), segue: "ShowMain", cellID: "MenuCell", section: 1, iconName: nil),
+        //Item(title: "menu_item_main".localized(), segue: "ShowMain", cellID: "MenuCell", section: 1, iconName: nil),
         Item(title: "menu_item_profile".localized(), segue: "ShowProfile", cellID: "MenuCell", section: 1, iconName: nil),
         Item(title: "menu_item_events".localized(), segue: "ShowEvents", cellID: "MenuCell", section: 1, iconName: nil),
         Item(title: "menu_item_news".localized(), segue: "ShowNews", cellID: "MenuCell", section: 1, iconName: nil),
