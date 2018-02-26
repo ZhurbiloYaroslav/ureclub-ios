@@ -38,7 +38,15 @@ class FilterVC: UIViewController {
         navigationItem.title = "screen_filter_title".localized()
         
     }
-
+    
+    @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
+        performFilter()
+    }
+    
+    func performFilter() {
+        
+    }
+    
 }
 
 extension FilterVC: UITableViewDelegate, UITableViewDataSource {

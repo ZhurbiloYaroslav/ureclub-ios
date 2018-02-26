@@ -16,4 +16,9 @@ struct Category {
         self.id = resultDictionary["id"] as? Int ?? 0
         self.name = resultDictionary["name"] as? String  ?? ""
     }
+    
+    init(id: Int) {
+        self.id = id
+        self.name = ""
+    }
 }

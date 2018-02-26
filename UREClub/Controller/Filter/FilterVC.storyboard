@@ -42,6 +42,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dKx-38-SXL"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Filter" id="GFn-IS-zQg">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="NXN-eO-gU6">
+                            <connections>
+                                <action selector="doneButtonPressed:" destination="c6t-mb-Yf3" id="ZZd-eb-VNC"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="yoc-Bj-bdF" id="uX7-4n-Xo7"/>
                     </connections>

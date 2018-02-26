@@ -47,7 +47,14 @@ class Event: Article {
         let dictWithTicket = resultDictionary["ticket"] as? [String: Any] ?? [String: Any]()
         let ticket = Ticket(withResult: dictWithTicket)
         
-        let categories = [Category]()
+        var categories = [Category]()
+        let arrayWithCategories = resultDictionary["categories"] as? [Int] ?? [Int]()
+        arrayWithCategories.forEach({ categoryID in
+            let newCategory = Category(id: categoryID)
+            categories.append(newCategory)
+        })
+        
+        print("---categories: ", categories, " - ", title)
         
         self.init(id: id, title: title, textContent: textContent, htmlContent: htmlContent, categories: categories,
                   date: date, ticket: ticket, location: location)
