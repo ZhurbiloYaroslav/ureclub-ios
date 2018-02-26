@@ -46,8 +46,12 @@ class NewNetworkManager {
             method = attendanceData.httpMethod
             headers = attendanceData.getHeaders()
             parameters = attendanceData.getParams()
+        case .filter(let filterData):
+            url = filterData.getURL()
+            method = filterData.httpMethod
+            headers = filterData.getHeaders()
+            parameters = filterData.getParams()
         }
-        
         Alamofire.request(url, method: method, parameters: parameters, headers: headers).responseJSON { response in
             
             let resultData = self.parseResultDataWith(response, andPath: path)
@@ -60,6 +64,8 @@ class NewNetworkManager {
         switch path {
         case .attendance:
             return getAttendanceFrom(response)
+        case .filter:
+            return getFilterFrom(response)
         default:
             let errorMessages = [NetworkError.undefinedPath]
             return ResultData.withErrors(errorMessages)
@@ -105,10 +111,63 @@ extension NewNetworkManager {
         }
         
         func getURL() -> URL? {
-            var newURL = currentServer.baseAddress + requestAddress
+            let newURL = currentServer.baseAddress + requestAddress
             return URL(string: newURL)
         }
     }
+}
+
+// MARK: Filter
+extension NewNetworkManager {
+    
+    func getFilterFrom(_ response: DataResponse<Any>) -> ResultData {
+        
+        let responseValue = makeDictionaryFrom(response)
+        
+        guard let dictWithData = responseValue["data"] as? Dictionary<String, Any> else {
+            return ResultData.withErrors([NetworkError.badData])
+        }
+        
+        return ResultData.dictWithFilter(dictWithData)
+        
+    }
+    
+    struct FilterData {
+        public let httpMethod: HTTPMethod = .get
+        private let requestAddress = restPath + "filter"
+        
+        func getParams() -> Parameters {
+            return Parameters()
+        }
+        
+        func getHeaders() -> HTTPHeaders {
+            return [
+                "Authorization": CurrentUser.getBearerToken()
+            ]
+        }
+        
+        func getURL() -> URL? {
+            let newURL = currentServer.baseAddress + requestAddress
+            return URL(string: newURL)
+        }
+    }
+}
+
+typealias CompletionHandlerWithData = (_ data: NewNetworkManager.ResultData) -> ()
+
+extension NewNetworkManager {
+    
+    enum ResultData {
+        case withErrors([NetworkError])
+        case withMembersID([Int]) // Attendance
+        case dictWithFilter([String: Any]) // Dictionary with Filter categories
+    }
+    
+    enum Request {
+        case attendance(AttendanceData)
+        case filter(FilterData)
+    }
+    
 }
 
 // MARK: Helping methods
@@ -119,13 +178,6 @@ extension NewNetworkManager {
             return Dictionary<String, Any>()
         }
         return resourcesArray
-    }
-}
-
-extension NewNetworkManager {
-    
-    enum Request {
-        case attendance(AttendanceData)
     }
 }
 

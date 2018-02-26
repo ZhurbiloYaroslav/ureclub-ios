@@ -162,7 +162,6 @@
 		C4FA7D281FF7616300F03846 /* SettingsCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FA7D271FF7616300F03846 /* SettingsCells.swift */; };
 		C4FA7D2A1FF7654100F03846 /* GenericCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FA7D291FF7654100F03846 /* GenericCell.swift */; };
 		C4FA7D2D1FF7712B00F03846 /* TableSectionNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FA7D2C1FF7712B00F03846 /* TableSectionNumber.swift */; };
-		C4FE6F7C202B609A000ACEAA /* ResultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FE6F7B202B609A000ACEAA /* ResultData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -338,7 +337,6 @@
 		C4FA7D271FF7616300F03846 /* SettingsCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCells.swift; sourceTree = "<group>"; };
 		C4FA7D291FF7654100F03846 /* GenericCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericCell.swift; sourceTree = "<group>"; };
 		C4FA7D2C1FF7712B00F03846 /* TableSectionNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableSectionNumber.swift; sourceTree = "<group>"; };
-		C4FE6F7B202B609A000ACEAA /* ResultData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -362,6 +360,13 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		C4044B39204453A40062922D /* NewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NewModel;
+			sourceTree = "<group>";
+		};
 		C409AA982039A49D0094CB17 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -374,7 +379,6 @@
 		C40C848F2002AFF10011AF01 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
-				C4FE6F7B202B609A000ACEAA /* ResultData.swift */,
 				C4AA3CED1FF66E90008B00B4 /* CellType.swift */,
 				C463F8731FF4FAD2001FBBC1 /* NetworkError.swift */,
 				C4FA7D2C1FF7712B00F03846 /* TableSectionNumber.swift */,
@@ -1073,6 +1077,7 @@
 			children = (
 				C4E521FB1FE90BD700C3DE2E /* FilterVC.storyboard */,
 				C4E521FD1FE90BFE00C3DE2E /* FilterVC.swift */,
+				C4044B39204453A40062922D /* NewModel */,
 				C4959EDF200F1DC20063D436 /* Model */,
 			);
 			path = Filter;
@@ -1415,7 +1420,6 @@
 				C40C84922002B10D0011AF01 /* ChangePasswordCell.swift in Sources */,
 				C4C203E51FE2871500272679 /* CodexVC.swift in Sources */,
 				C40C84982002BF980011AF01 /* ChangeLanguageCell.swift in Sources */,
-				C4FE6F7C202B609A000ACEAA /* ResultData.swift in Sources */,
 				C4B54B2F1FEEFA3C008D531E /* CurrentUser.swift in Sources */,
 				C48D0DAB20129C79009347DE /* CalendarCell.swift in Sources */,
 				C44574621FDC192C004A5305 /* SettingsVC.swift in Sources */,

@@ -53,9 +53,7 @@ class Event: Article {
             let newCategory = Category(id: categoryID)
             categories.append(newCategory)
         })
-        
-        print("---categories: ", categories, " - ", title)
-        
+                
         self.init(id: id, title: title, textContent: textContent, htmlContent: htmlContent, categories: categories,
                   date: date, ticket: ticket, location: location)
     }
