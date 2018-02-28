@@ -72,16 +72,8 @@ extension FilterVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 
         let headerTitleText = filterManager.getTitleFor(section)
-
-        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 36))
-        headerView.backgroundColor = Constants.Color.tableSectionsBackground
-
-        let headerTitleLabel = UILabel(frame: CGRect(x: 16, y: 0, width: tableView.frame.size.width, height: 36))
-        headerTitleLabel.text = headerTitleText
-        headerTitleLabel.font = UIFont(name: "Montserrat-Medium", size: 18)
-        headerTitleLabel.textColor = Constants.Color.tableSectionsTitle
-
-        headerView.addSubview(headerTitleLabel)
+        
+        let headerView = UITableViewController().getCustomHeaderViewWith(headerTitleText)
 
         return headerView
 

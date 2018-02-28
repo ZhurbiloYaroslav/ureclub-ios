@@ -150,15 +150,7 @@ class ProfileVC: UITableViewController {
             break
         }
         
-        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 36))
-        headerView.backgroundColor = Constants.Color.tableSectionsBackground
-        
-        let headerTitleLabel = UILabel(frame: CGRect(x: 16, y: 0, width: tableView.frame.size.width, height: 36))
-        headerTitleLabel.text = headerTitleText
-        headerTitleLabel.font = UIFont(name: "Montserrat-Medium", size: 18)
-        headerTitleLabel.textColor = Constants.Color.tableSectionsTitle
-        
-        headerView.addSubview(headerTitleLabel)
+        let headerView = getCustomHeaderViewWith(headerTitleText)
         
         return headerView
         
