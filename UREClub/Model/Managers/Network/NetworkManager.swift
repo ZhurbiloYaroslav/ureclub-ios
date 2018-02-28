@@ -216,7 +216,7 @@ extension NetworkManager {
 
         CurrentUser.getFirstAndLastNameFromString(userDataDict["user_display_name"] as? String ?? "")
 
-        CurrentUser.id = userDataDict["id"] as? String ?? ""
+        CurrentUser.id = userDataDict["id"] as? Int ?? 0
         CurrentUser.email = userDataDict["email"] as? String ?? ""
         CurrentUser.phone = userDataDict["phone"] as? String ?? ""
         CurrentUser.firstName = userDataDict["first_name"] as? String ?? ""

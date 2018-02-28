@@ -14,59 +14,40 @@ struct FilterData {
         switch type {
         case .events, .news:
             return [
-                Filter.FilterSection(title: "filter_section_year".localized(), type: .year, arrayWithItems:
+                Filter.FilterSection(title: "filter_section_year".localized(), type: .year, selection: .single, arrayWithItems:
                     [
-                        Filter.FilterSectionItem(title: "2018"),
-                        Filter.FilterSectionItem(title: "2017"),
-                        Filter.FilterSectionItem(title: "2016")
+                        Filter.FilterSectionItem(id: [2018], title: "2018"),
+                        Filter.FilterSectionItem(id: [2017], title: "2017"),
+                        Filter.FilterSectionItem(id: [2016], title: "2016"),
+                        Filter.FilterSectionItem(id: [2015], title: "2015")
                     ]
                 ),
-                Filter.FilterSection(title: "filter_section_category".localized(), type: .category, arrayWithItems:
+                Filter.FilterSection(title: "filter_section_category".localized(), type: .category, selection: .multiple, arrayWithItems:
                     [
-                        Filter.FilterSectionItem(title: "Forums/Conferences"),
-                        Filter.FilterSectionItem(title: "Business lunches"),
-                        Filter.FilterSectionItem(title: "Legal committees"),
-                        Filter.FilterSectionItem(title: "International events"),
-                        Filter.FilterSectionItem(title: "Informal")
+                        Filter.FilterSectionItem(id: [23,29,30], title: "Forums/Conferences"),
+                        Filter.FilterSectionItem(id: [24,32,33], title: "Business lunches"),
+                        Filter.FilterSectionItem(id: [25,38,39], title: "Legal committees"),
+                        Filter.FilterSectionItem(id: [26,36,37], title: "International events"),
+                        Filter.FilterSectionItem(id: [27,35,34], title: "Informal")
                     ]
-                ),
-                //                Filter.FilterSection(title: "filter_section_sorting".localized(), type: .sort, arrayWithItems:
-                //                    [
-                //                        Filter.FilterSectionItem(title: "Newer"),
-                //                        Filter.FilterSectionItem(title: "Older")
-                //                    ]
-                //                ),
-                //                Filter.FilterSection(title: "filter_section_status".localized(), type: .readingStatus, arrayWithItems:
-                //                    [
-                //                        Filter.FilterSectionItem(title: "All"),
-                //                        Filter.FilterSectionItem(title: "Not read"),
-                //                        Filter.FilterSectionItem(title: "Read")
-                //                    ]
-                //                ),
-                //                Filter.FilterSection(title: "filter_section_starred".localized(), type: .starred, arrayWithItems:
-                //                    [
-                //                        Filter.FilterSectionItem(title: "All"),
-                //                        Filter.FilterSectionItem(title: "Starred"),
-                //                        Filter.FilterSectionItem(title: "Not starred")
-                //                    ]
-                //                ),
+                )
             ]
         case .members:
             return [
-                Filter.FilterSection(title: "filter_section_sortby".localized(), type: .sort, arrayWithItems:
+                Filter.FilterSection(title: "filter_section_sortby".localized(), type: .sort, selection: .single, arrayWithItems:
                     [
-                        Filter.FilterSectionItem(title: "Recently joined"),
-                        Filter.FilterSectionItem(title: "A-Z"),
-                        Filter.FilterSectionItem(title: "Z-A")
+                        Filter.FilterSectionItem(id: [0], title: "Recently joined"),
+                        Filter.FilterSectionItem(id: [0], title: "A-Z"),
+                        Filter.FilterSectionItem(id: [0], title: "Z-A")
                     ]
                 ),
-                Filter.FilterSection(title: "filter_section_category_user".localized(), type: .category, arrayWithItems:
+                Filter.FilterSection(title: "filter_section_category_user".localized(), type: .category, selection: .multiple, arrayWithItems:
                     [
-                        Filter.FilterSectionItem(title: "Residential"),
-                        Filter.FilterSectionItem(title: "Commercial"),
-                        Filter.FilterSectionItem(title: "Architecture"),
-                        Filter.FilterSectionItem(title: "Consulting"),
-                        Filter.FilterSectionItem(title: "Legal")
+                        Filter.FilterSectionItem(id: [42], title: "Residential"),
+                        Filter.FilterSectionItem(id: [43], title: "Commercial"),
+                        Filter.FilterSectionItem(id: [44], title: "Architecture"),
+                        Filter.FilterSectionItem(id: [45], title: "Consulting"),
+                        Filter.FilterSectionItem(id: [46], title: "Legal")
                     ]
                 )
             ]

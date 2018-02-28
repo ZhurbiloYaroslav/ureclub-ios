@@ -45,6 +45,8 @@ class ArticleDescVC: UIViewController {
     
     var attendanceMembersID: [Int]?
     
+    var currentUserAttendCurrentEvent: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -53,6 +55,7 @@ class ArticleDescVC: UIViewController {
         setDelegates()
         updateUIWithLocalizedText()
         setupImageSlider()
+        setupUI()
         setUIDependsOnEventOrNews()
         updateUIWithValues()
     }
@@ -95,6 +98,10 @@ class ArticleDescVC: UIViewController {
 
 // MARK: Methods related with updating UI
 extension ArticleDescVC {
+    
+    func setupUI() {
+        goButton.isEnabled = false
+    }
     
     func setUIDependsOnEventOrNews() {
         switch currentArticle {
@@ -192,16 +199,38 @@ extension ArticleDescVC {
             
             switch resultData {
             case .withMembersID(let arrayWithMembersID):
-                let arrayWithMembersIsNotEmpty = arrayWithMembersID.isEmpty == false
-                if arrayWithMembersIsNotEmpty {
-                    self.attendanceMembersID = arrayWithMembersID
-                    self.attendanceListContainer.isHidden = false
-                }
+                self.configureUIDependOnArrayOfAttendanceMembers(arrayWithMembersID)
             default:
                 break
             }
         }
     }
+    
+    func configureUIDependOnArrayOfAttendanceMembers(_ arrayWithMembersID: [Int]) {
+        
+        let arrayWithMembersIsNotEmpty = arrayWithMembersID.isEmpty == false
+        if arrayWithMembersIsNotEmpty {
+            self.attendanceMembersID = arrayWithMembersID
+            self.attendanceListContainer.isHidden = false
+        }
+        
+        arrayWithMembersID.forEach { (memberID) in
+            print(CurrentUser.id, "---", memberID)
+            if CurrentUser.getID() == memberID {
+                let goButtonTitle = "i_am_going".localized()
+                self.goButton.setTitle(goButtonTitle, for: .normal)
+                currentUserAttendCurrentEvent = true
+            }
+        }
+        
+        if currentUserAttendCurrentEvent {
+            self.goButton.isEnabled = false
+        } else {
+            self.goButton.isEnabled = true
+        }
+        
+    }
+    
 }
 
 // Slider

@@ -42,7 +42,7 @@ class CurrentUser {
     static func resetUserDataWhenLogOut() {
         isLoggedIn = false
         isUserActive = false
-        id = ""
+        id = 0
         linkImage = ""
         linkedInLink = ""
         facebookLink = ""
@@ -80,9 +80,9 @@ extension CurrentUser {
         }
     }
     
-    static var id: String {
+    static var id: Int {
         get {
-            return defaults.object(forKey: "currentUserID") as? String ?? ""
+            return defaults.object(forKey: "currentUserID") as? Int ?? 0
         }
         set {
             defaults.set(newValue, forKey: "currentUserID")
@@ -203,6 +203,12 @@ extension CurrentUser {
             defaults.set(newValue, forKey: "currentUserAuthenticationToken")
             defaults.synchronize()
         }
+    }
+}
+
+extension CurrentUser {
+    static func getID() -> Int {
+        return Int(id) ?? 0
     }
 }
 

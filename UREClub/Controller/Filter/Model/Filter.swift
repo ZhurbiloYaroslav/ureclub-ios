@@ -47,27 +47,37 @@ extension Filter {
     struct FilterSection {
         let title: String
         let type: String
+        let selection: SelectionType = .single
         let arrayWithItems: [FilterSectionItem]
         
-        init(title: String, type: String, arrayWithItems: [FilterSectionItem]) {
+        init(title: String, type: String, selection: SelectionType, arrayWithItems: [FilterSectionItem]) {
             self.title = title
             self.type = type
             self.arrayWithItems = arrayWithItems
         }
         
-        init(title: String, type: FilterSectionType, arrayWithItems: [FilterSectionItem]) {
+        init(title: String, type: FilterSectionType, selection: SelectionType, arrayWithItems: [FilterSectionItem]) {
             let stringWithType = type.getStringWithType()
-            self.init(title: title, type: stringWithType, arrayWithItems: arrayWithItems)
+            self.init(title: title, type: stringWithType, selection: selection, arrayWithItems: arrayWithItems)
         }
         
         func getNumberOfItems() -> Int {
             return arrayWithItems.count
         }
+        
+        enum SelectionType {
+            case single
+            case multiple
+        }
     }
     
     struct FilterSectionItem {
-        let id: String = "0"
-        let title: String!
+        let id: [Int]
+        let title: String
+        
+        func getArrayWithIDs() -> [Int] {
+            return id
+        }
     }
     
     enum FilterSectionType {

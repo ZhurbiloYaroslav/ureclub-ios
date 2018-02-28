@@ -245,8 +245,21 @@ extension MembersVC: UICollectionViewDelegate, UICollectionViewDataSource {
             else { return }
         guard let parentTableCellIndexPath = tableViewCellCoordinator[collectionView.tag] else { return }
         
+        //hideCollectionViewIfCellIsOpened(collectionView, with: parentTableCellIndexPath)
+        
         let person = contactsManager.getPersonFor(collectionIndexPath: indexPath, tableIndexPath: parentTableCellIndexPath)
         cell.updateCellWith(person)
+    }
+    
+    func hideCollectionViewIfCellIsOpened(_ collectionView: UICollectionView, with parentTableCellIndexPath: IndexPath ) {
+            
+        if let openedCellIndexPath = contactsManager.openedCellIndexPath, openedCellIndexPath == parentTableCellIndexPath {
+            collectionView.isHidden = true
+            print("hidden", parentTableCellIndexPath)
+        } else {
+            collectionView.isHidden = false
+            print("shown", parentTableCellIndexPath)
+        }
     }
 }
 

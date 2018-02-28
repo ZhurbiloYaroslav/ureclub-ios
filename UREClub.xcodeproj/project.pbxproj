@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		A575E5EF19AB2E5627FF560A /* Pods_UREClub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F00CDDC75090A238545BF8D /* Pods_UREClub.framework */; };
+		C4044B3B204456590062922D /* NewFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4044B3A204456590062922D /* NewFilter.swift */; };
+		C4044B3D204457A90062922D /* FilterItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4044B3C204457A90062922D /* FilterItems.swift */; };
 		C409AA9720399FDB0094CB17 /* NewNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C409AA9620399FDB0094CB17 /* NewNetworkManager.swift */; };
 		C40C84922002B10D0011AF01 /* ChangePasswordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40C84902002B10D0011AF01 /* ChangePasswordCell.swift */; };
 		C40C84932002B10D0011AF01 /* ChangePasswordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C40C84912002B10D0011AF01 /* ChangePasswordCell.xib */; };
@@ -168,6 +170,8 @@
 		1B1637C256ED0A1500AE327F /* Pods-UREClub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UREClub.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UREClub/Pods-UREClub.debug.xcconfig"; sourceTree = "<group>"; };
 		6F00CDDC75090A238545BF8D /* Pods_UREClub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UREClub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE4E3DD1CDFA59C0049561D9 /* Pods-UREClub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UREClub.release.xcconfig"; path = "Pods/Target Support Files/Pods-UREClub/Pods-UREClub.release.xcconfig"; sourceTree = "<group>"; };
+		C4044B3A204456590062922D /* NewFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFilter.swift; sourceTree = "<group>"; };
+		C4044B3C204457A90062922D /* FilterItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterItems.swift; sourceTree = "<group>"; };
 		C409AA9620399FDB0094CB17 /* NewNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewNetworkManager.swift; sourceTree = "<group>"; };
 		C40C84902002B10D0011AF01 /* ChangePasswordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordCell.swift; sourceTree = "<group>"; };
 		C40C84912002B10D0011AF01 /* ChangePasswordCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangePasswordCell.xib; sourceTree = "<group>"; };
@@ -294,7 +298,7 @@
 		C4B54B351FEF2A3B008D531E /* Array+uniq.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+uniq.swift"; sourceTree = "<group>"; };
 		C4B8A5B62013434400645E2E /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		C4B8A5B8201356F000645E2E /* NewsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsManager.swift; sourceTree = "<group>"; };
-		C4B8A5BE2013586900645E2E /* FilterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterData.swift; sourceTree = "<group>"; };
+		C4B8A5BE2013586900645E2E /* FilterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterData.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		C4B8A5C12013BA3700645E2E /* ContactsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsCell.swift; sourceTree = "<group>"; };
 		C4B8A5C22013BA3700645E2E /* ContactsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactsCell.xib; sourceTree = "<group>"; };
 		C4B8A5C52013ED1000645E2E /* ContactsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsData.swift; sourceTree = "<group>"; };
@@ -363,6 +367,8 @@
 		C4044B39204453A40062922D /* NewModel */ = {
 			isa = PBXGroup;
 			children = (
+				C4044B3A204456590062922D /* NewFilter.swift */,
+				C4044B3C204457A90062922D /* FilterItems.swift */,
 			);
 			path = NewModel;
 			sourceTree = "<group>";
@@ -884,8 +890,8 @@
 		C4959EDF200F1DC20063D436 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C4959EE0200F1DDB0063D436 /* FilterManager.swift */,
 				C4B8A5B62013434400645E2E /* Filter.swift */,
+				C4959EE0200F1DDB0063D436 /* FilterManager.swift */,
 				C4B8A5BE2013586900645E2E /* FilterData.swift */,
 			);
 			path = Model;
@@ -1359,6 +1365,7 @@
 				C48D0DA72012889F009347DE /* EventsFilter.swift in Sources */,
 				C4B54B341FEF17C9008D531E /* NewsCell.swift in Sources */,
 				C4E521F81FE9027B00C3DE2E /* UISegmentedControl+Style.swift in Sources */,
+				C4044B3D204457A90062922D /* FilterItems.swift in Sources */,
 				C4662AE81FEAC8EC001848C8 /* ArticleDescVC.swift in Sources */,
 				C4959EE1200F1DDB0063D436 /* FilterManager.swift in Sources */,
 				C44574601FDC18FB004A5305 /* NewsListVC.swift in Sources */,
@@ -1420,6 +1427,7 @@
 				C40C84922002B10D0011AF01 /* ChangePasswordCell.swift in Sources */,
 				C4C203E51FE2871500272679 /* CodexVC.swift in Sources */,
 				C40C84982002BF980011AF01 /* ChangeLanguageCell.swift in Sources */,
+				C4044B3B204456590062922D /* NewFilter.swift in Sources */,
 				C4B54B2F1FEEFA3C008D531E /* CurrentUser.swift in Sources */,
 				C48D0DAB20129C79009347DE /* CalendarCell.swift in Sources */,
 				C44574621FDC192C004A5305 /* SettingsVC.swift in Sources */,
