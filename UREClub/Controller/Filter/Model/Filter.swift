@@ -10,11 +10,24 @@ import Foundation
 
 class Filter {
     
+    // MARK: -
+    // MARK: Data
+    
     var type: FilterType
-    var searchString: String
     var filterData = FilterData()
     var arrayWithSections = [FilterSection]()
-    var contactsIDToPresentOnly: [Int]?
+    
+    // MARK: -
+    // MARK: Selected parameters for filtration
+    
+    var contactsIDToPresentOnly: [Int]? // For Members only
+    
+    var searchString: String
+    var chosenYear: Int?
+    var chosenCategories: [Int]?
+    
+    // MARK: -
+    // MARK: Main methods
     
     init(withType type: FilterType) {
         self.type = type
@@ -34,6 +47,7 @@ class Filter {
     
 }
 
+// MARK: -
 // MARK: Enums and structs
 extension Filter {
     
@@ -45,20 +59,31 @@ extension Filter {
     }
     
     struct FilterSection {
-        let title: String
-        let type: String
-        let selection: SelectionType = .single
-        let arrayWithItems: [FilterSectionItem]
+        private let title: String
+        private let type: FilterSectionType
+        private let selection: SelectionType = .single
+        private let arrayWithItems: [FilterSectionItem]
         
-        init(title: String, type: String, selection: SelectionType, arrayWithItems: [FilterSectionItem]) {
+        init(title: String, type: FilterSectionType, selection: SelectionType, arrayWithItems: [FilterSectionItem]) {
             self.title = title
             self.type = type
             self.arrayWithItems = arrayWithItems
         }
         
-        init(title: String, type: FilterSectionType, selection: SelectionType, arrayWithItems: [FilterSectionItem]) {
-            let stringWithType = type.getStringWithType()
-            self.init(title: title, type: stringWithType, selection: selection, arrayWithItems: arrayWithItems)
+        func getFilterType() -> FilterSectionType {
+            return type
+        }
+        
+        func getSelectionType() -> FilterSectionType {
+            return type
+        }
+        
+        func getTitle() -> String {
+            return title
+        }
+        
+        func getArrayWithItems() -> [FilterSectionItem] {
+            return arrayWithItems
         }
         
         func getNumberOfItems() -> Int {
@@ -128,6 +153,8 @@ extension Filter {
 protocol GenericFilter {
     var type: Filter.FilterType { get set }
     var filterData: FilterData { get set }
+    var chosenYear: Int? { get set }
+    var chosenCategories: [Int]? { get set }
     var arrayWithSections: [Filter.FilterSection] { get set }
     func getFilter() -> Self
 }

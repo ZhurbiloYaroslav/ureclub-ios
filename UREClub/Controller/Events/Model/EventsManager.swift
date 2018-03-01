@@ -30,9 +30,15 @@ class EventsManager {
         getArrayWithEvents { (errors) in }
     }
     
-    func getEventsFilteredWithUpcomingAndPast() -> [Event] {
+    func getFilteredEvents() -> [Event] {
+        let eventsFilteredWithUpcomingAndPast = getEventsFilteredWithUpcomingAndPast(arrayWithAllEvents)
+        let result = getEventsFilteredWithYearAndCategoryFrom(eventsFilteredWithUpcomingAndPast)
+        return result
+    }
+    
+    func getEventsFilteredWithUpcomingAndPast(_ sourceArrayWithEvents: [Event]) -> [Event] {
         var result = [Event]()
-        result = arrayWithAllEvents.filter() { event in
+        result = sourceArrayWithEvents.filter() { event in
             switch eventsFilter.getEventPeriod() {
             case .upcoming:
                 let isDateOfEventInPast = Date() < event.date.getDateOfBegining()
@@ -43,6 +49,29 @@ class EventsManager {
             }
         }
         return result
+    }
+    
+    func getEventsFilteredWithYearAndCategoryFrom(_ sourceArrayWithEvents: [Event]) -> [Event] {
+        
+        let eventsFilteredWithYear = sourceArrayWithEvents.filter() { event in
+            guard let chosenYear = eventsFilter.chosenYear else {
+                return true
+            }
+            let doesEventMatchToSelectedYear = chosenYear == event.date.getFullYearFromDate()
+            
+            return doesEventMatchToSelectedYear
+        }
+        
+        let eventsFilteredWithYearAndCategories = eventsFilteredWithYear.filter() { event in
+            guard let chosenCategories = eventsFilter.chosenCategories else {
+                return true
+            }
+            let doesEventMatchToSelectedCategories = chosenCategories.containsAnythingFrom(array: event.getArrayWithAllCategoriesIds())
+            
+            return doesEventMatchToSelectedCategories
+        }
+        
+        return eventsFilteredWithYearAndCategories
     }
     
     func getNumberOfEventsIn(_ section: Int) -> Int {
@@ -56,7 +85,7 @@ class EventsManager {
             }
             return arrayWithEventsFromMonth.count
         case .list:
-            return getEventsFilteredWithUpcomingAndPast().count
+            return getFilteredEvents().count
         }
     }
     
@@ -70,7 +99,7 @@ class EventsManager {
     }
     
     func getDictWithEventsByMonths() -> [Int: [Event]] {
-        if getEventsFilteredWithUpcomingAndPast().count == 0 {
+        if getFilteredEvents().count == 0 {
             return [Int: [Event]]()
         }
         var dictWithEventsByMonths = [Int: [Event]]()
@@ -78,7 +107,7 @@ class EventsManager {
         var sectionIndex = 0
         for monthIndex in [0,1,2,3,4,5,6,7,8,9,10,11] {
             var newArrayWithEvents = [Event]()
-            for event in getEventsFilteredWithUpcomingAndPast() {
+            for event in getFilteredEvents() {
                 if event.date.getMonthFromDate() == monthIndex {
                     newArrayWithEvents.append(event)
                 }
@@ -141,7 +170,7 @@ class EventsManager {
             return arrayWithEventsFromMonth[indexPath.row]
             
         case .list:
-            return getEventsFilteredWithUpcomingAndPast()[indexPath.row]
+            return getFilteredEvents()[indexPath.row]
         }
     }
     

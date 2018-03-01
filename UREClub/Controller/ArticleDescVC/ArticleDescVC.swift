@@ -215,7 +215,6 @@ extension ArticleDescVC {
         }
         
         arrayWithMembersID.forEach { (memberID) in
-            print(CurrentUser.id, "---", memberID)
             if CurrentUser.getID() == memberID {
                 let goButtonTitle = "i_am_going".localized()
                 self.goButton.setTitle(goButtonTitle, for: .normal)

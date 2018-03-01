@@ -103,6 +103,7 @@
 		C4801654201B319E005F2253 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4801653201B319E005F2253 /* Language.swift */; };
 		C480165D201B3E54005F2253 /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C480165C201B3E54005F2253 /* LanguageManager.swift */; };
 		C480166C201B7A6E005F2253 /* Language.strings in Resources */ = {isa = PBXBuildFile; fileRef = C480166E201B7A6E005F2253 /* Language.strings */; };
+		C48B5D532047AD520091A960 /* Array+contains.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48B5D522047AD520091A960 /* Array+contains.swift */; };
 		C48D0DA52012817E009347DE /* EventsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48D0DA42012817E009347DE /* EventsManager.swift */; };
 		C48D0DA72012889F009347DE /* EventsFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48D0DA62012889F009347DE /* EventsFilter.swift */; };
 		C48D0DAB20129C79009347DE /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48D0DA920129C79009347DE /* CalendarCell.swift */; };
@@ -280,11 +281,12 @@
 		C4801671201B7A91005F2253 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Language.strings; sourceTree = "<group>"; };
 		C4801673201B7B81005F2253 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = Translations/ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C4801674201B7B8A005F2253 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Translations/en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		C48D0DA42012817E009347DE /* EventsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsManager.swift; sourceTree = "<group>"; };
+		C48B5D522047AD520091A960 /* Array+contains.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+contains.swift"; sourceTree = "<group>"; };
+		C48D0DA42012817E009347DE /* EventsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsManager.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		C48D0DA62012889F009347DE /* EventsFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsFilter.swift; sourceTree = "<group>"; };
 		C48D0DA920129C79009347DE /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		C48D0DAA20129C79009347DE /* CalendarCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarCell.xib; sourceTree = "<group>"; };
-		C4959EE0200F1DDB0063D436 /* FilterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterManager.swift; sourceTree = "<group>"; };
+		C4959EE0200F1DDB0063D436 /* FilterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterManager.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		C4959EE2200F20AC0063D436 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		C4959EE7200F292F0063D436 /* LogOutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutCell.swift; sourceTree = "<group>"; };
 		C4959EE8200F292F0063D436 /* LogOutCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogOutCell.xib; sourceTree = "<group>"; };
@@ -523,6 +525,7 @@
 				C4C203D91FE2669600272679 /* UIView+setters.swift */,
 				C4B54B351FEF2A3B008D531E /* Array+uniq.swift */,
 				C41DDD942038C3DA005B9939 /* String+isEqual.swift */,
+				C48B5D522047AD520091A960 /* Array+contains.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1348,6 +1351,7 @@
 				C430EBFB200E1265001E818B /* ImageSlideshow.swift in Sources */,
 				C4959EE3200F20AC0063D436 /* Contact.swift in Sources */,
 				C41CA3681FDBE3F000AB0D2D /* EventsListVC.swift in Sources */,
+				C48B5D532047AD520091A960 /* Array+contains.swift in Sources */,
 				C4DC777C200FC98200F3814F /* ContactsManager.swift in Sources */,
 				C44574641FDC1AED004A5305 /* ContactsVC.swift in Sources */,
 				C47BEE44201FE8C300688AEF /* PasswordEditVC.swift in Sources */,

@@ -23,6 +23,7 @@ class Formatter {
         case dd = "dd"
         case mm = "MM"
         case yy = "yy"
+        case yyyy = "yyyy"
     }
     
     static func getDateFrom(_ stringWithDate: String) -> Date {

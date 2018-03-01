@@ -44,7 +44,7 @@ class FilterVC: UIViewController {
     }
     
     func performFilter() {
-        
+        navigationController?.popViewController(animated: true)
     }
     
 }
@@ -62,7 +62,13 @@ extension FilterVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FilterCell", for: indexPath)
         cell.textLabel?.text = filterManager.getSectionCellTitleFor(indexPath)
+        cell.accessoryType = filterManager.cellAccessoryTypeFor(indexPath)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        filterManager.wasPressedButtonWith(indexPath)
+        tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -72,7 +78,6 @@ extension FilterVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 
         let headerTitleText = filterManager.getTitleFor(section)
-        
         let headerView = UITableViewController().getCustomHeaderViewWith(headerTitleText)
 
         return headerView

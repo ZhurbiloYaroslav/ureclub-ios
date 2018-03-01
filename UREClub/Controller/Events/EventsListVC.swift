@@ -29,6 +29,12 @@ class EventsListVC: UIViewController {
         updateUIWithLocalizedText()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tableView.reloadData()
+    }
+    
     func setupTableView() {
         self.tableView.backgroundColor = Constants.DefaultColor.background
         self.setDefaultBackground()

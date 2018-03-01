@@ -67,10 +67,18 @@ class Article: NSObject {
 }
 
 extension Article {
+    
     func getID() -> Int {
         return recordID
     }
+    
     func getStringWithID() -> String {
         return String(describing: recordID)
+    }
+    
+    func getArrayWithAllCategoriesIds() -> [Int] {
+        var result = [Int]()
+        categories.forEach { result.append($0.id) }
+        return result
     }
 }

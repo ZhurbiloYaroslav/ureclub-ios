@@ -74,4 +74,9 @@ struct EventDate {
         let stringWithYear = Formatter.getStringFrom(getDateOfBegining(), withFormat: .yy)
         return Int(stringWithYear) ?? 0
     }
+    
+    func getFullYearFromDate() -> Int {
+        let stringWithYear = Formatter.getStringFrom(getDateOfBegining(), withFormat: .yyyy)
+        return Int(stringWithYear) ?? 0
+    }
 }
