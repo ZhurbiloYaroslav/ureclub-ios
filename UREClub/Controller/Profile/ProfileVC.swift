@@ -39,6 +39,7 @@ class ProfileVC: UITableViewController {
         if revealViewController() != nil {
             
             self.revealViewController().rearViewRevealWidth = self.view.frame.width - 64
+            self.view.frame.size.width = self.revealViewController().rearViewRevealWidth
             
             menuButton.target = revealViewController()
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))

@@ -24,10 +24,9 @@ class ProfileEditVC: UIViewController {
     @IBOutlet weak var firstNameField: SkyFloatingLabelTextField!
     @IBOutlet weak var lastNameField: SkyFloatingLabelTextField!
     @IBOutlet weak var positionField: SkyFloatingLabelTextField!
-    @IBOutlet weak var emailField: SkyFloatingLabelTextField!
-    @IBOutlet weak var phoneField: SkyFloatingLabelTextField!
     @IBOutlet weak var facebookField: SkyFloatingLabelTextField!
     @IBOutlet weak var linkedInField: SkyFloatingLabelTextField!
+    @IBOutlet weak var descriptionTitleLabel: UILabel!
     @IBOutlet weak var userDescriptionTextView: UITextView!
     
     var activeTextField: GenericTextField!
@@ -37,8 +36,6 @@ class ProfileEditVC: UIViewController {
             firstNameField,
             lastNameField,
             positionField,
-            emailField,
-            phoneField,
             facebookField,
             linkedInField
         ]
@@ -82,7 +79,7 @@ class ProfileEditVC: UIViewController {
         
         navigationItem.title = "screen_notifications_title".localized()
         navigationItem.backBarButtonItem?.title = "navbar_button_back".localized()
-        
+        descriptionTitleLabel.text = "profile_edit_description_title".localized()
     }
     
     func setUIElementsStyle() {
@@ -105,6 +102,9 @@ class ProfileEditVC: UIViewController {
             textField.selectedTitleColor = overcastBlueColor
             textField.selectedLineColor = overcastBlueColor
         }
+        
+        userDescriptionTextView.layer.borderWidth = 1
+        userDescriptionTextView.layer.borderColor = UIColor.gray.cgColor
     }
     
     func updateUIWithValues() {
@@ -114,8 +114,6 @@ class ProfileEditVC: UIViewController {
         firstNameField.text = CurrentUser.firstName
         lastNameField.text = CurrentUser.lastName
         positionField.text = CurrentUser.company.position
-        phoneField.text = CurrentUser.phone
-        emailField.text = CurrentUser.email
         facebookField.text = CurrentUser.facebookLink
         linkedInField.text = CurrentUser.linkedInLink
         userDescriptionTextView.text = CurrentUser.textContent
@@ -131,15 +129,28 @@ class ProfileEditVC: UIViewController {
     }
 }
 
-// Methods, that helps hide Keyboard
+// MARK: - Helpers
+extension ProfileEditVC {
+    
+}
+
+// MARK: - Methods, that helps hide Keyboard
 extension ProfileEditVC: UITextFieldDelegate, UITextViewDelegate, UIScrollViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         activeTextField = textView
     }
     
+    func textViewDidEndEditing(_ textView: UITextView) {
+        activeTextField = nil
+    }
+    
     func textFieldDidBeginEditing(_ textField: UITextField) {
         activeTextField = textField
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        activeTextField = nil
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -165,32 +176,40 @@ extension ProfileEditVC: UITextFieldDelegate, UITextViewDelegate, UIScrollViewDe
     
     @objc func keyboardWillShow(_ notification: Notification) {
         let userInfo = notification.userInfo
-        guard let keyboardFrameSize = (userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+        guard let keyboardFrame = (userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
             else { return }
-        let keyboardY = self.view.frame.size.height - keyboardFrameSize.height
         
-        var editingTextFieldY: CGFloat = 0
-        if let textField = activeTextField as? UITextField {
-            editingTextFieldY = textField.convert(textField.bounds.origin, to: nil).y
+        var contentInset = self.scrollView.contentInset
+        contentInset.bottom = keyboardFrame.size.height
+        scrollView.contentInset = contentInset
+    }
+    
+    func getActiveTextViewFrame() -> CGRect {
+        switch activeTextField {
+        case let textField as UITextField:
+            return textField.frame
+        case let textView as UITextView:
+            return textView.frame
+        default:
+            return CGRect.zero
         }
-        else if let textView = activeTextField as? UITextView {
-            editingTextFieldY = textView.convert(textView.bounds.origin, to: nil).y + textView.bounds.height
-        }
-        
-        self.currentFrameOriginalY = self.view.frame.origin.y
-        
-        if editingTextFieldY > keyboardY {
-            UIView.animate(withDuration: 0.25, delay: 0.0, options: .curveEaseIn, animations: {
-                self.view.frame = CGRect(x: 0, y: self.view.frame.origin.y - (editingTextFieldY - (keyboardY)),
-                                         width: self.view.bounds.width, height: self.view.bounds.height)
-            }, completion: nil)
+    }
+    
+    var activeFieldPosition: CGFloat {
+        switch activeTextField {
+        case let activeTextField as UITextField:
+            return self.view.frame.size.height - activeTextField.bounds.height
+        case let activeTextView as UITextView:
+            return self.view.frame.size.height - activeTextView.bounds.height
+        default:
+            return self.view.frame.size.height
         }
     }
     
     @objc func keyboardWillHide(_ notification: Notification) {
-        UIView.animate(withDuration: 0.25, delay: 0.0, options: .curveEaseIn, animations: {
-            self.view.frame = CGRect(x: 0, y: self.currentFrameOriginalY, width: self.view.bounds.width, height: self.view.bounds.height)
-        }, completion: nil)
+        let contentInsets = UIEdgeInsets.zero
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
     }
     
     func removeKeyboardNotifications() {
