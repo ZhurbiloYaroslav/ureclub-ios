@@ -1354,7 +1354,7 @@ const int FrontViewPositionNone = 0xff;
     __weak SWRevealViewController *theSelf = self;
     if ( animated )
     {
-        _enqueue( [theSelf _setFrontViewPosition:preReplacementPosition withDuration:firstDuration] );
+        //_enqueue( [theSelf _setFrontViewPosition:preReplacementPosition withDuration:firstDuration] );
         _enqueue( [theSelf _performTransitionOperation:SWRevealControllerOperationReplaceFrontController withViewController:newFrontViewController animated:NO] );
         _enqueue( [theSelf _setFrontViewPosition:FrontViewPositionLeft withDuration:duration] );
     }
