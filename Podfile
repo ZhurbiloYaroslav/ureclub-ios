@@ -16,6 +16,8 @@ target 'UREClub' do
   pod 'SkyFloatingLabelTextField', '~> 3.0'
   
   pod 'KeychainSwift', '~> 10.0'
+  
+  pod 'ALCameraViewController'
 
 end
 
