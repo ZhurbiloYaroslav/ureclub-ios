@@ -8,13 +8,14 @@
 
 import UIKit
 import SkyFloatingLabelTextField
+import ALCameraViewController
 
 protocol GenericTextField {}
 extension UITextField: GenericTextField {}
 extension UITextView: GenericTextField {}
 
 class ProfileEditVC: UIViewController {
-
+    
     @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var profileImageView: UIImageView!
@@ -119,13 +120,25 @@ class ProfileEditVC: UIViewController {
         userDescriptionTextView.text = CurrentUser.textContent
         
     }
-
+    
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
         updateProfileData()
     }
     
     @IBAction func changeImageButtonPressed(_ sender: UIButton) {
+        let croppingParameters = CroppingParameters(isEnabled: true,
+                                                    allowResizing: false,
+                                                    allowMoving: false,
+                                                    minimumSize: CGSize(width: 128, height: 128))
+        let cameraViewController = CameraViewController(croppingParameters: croppingParameters,
+                                                        allowsLibraryAccess: true,
+                                                        allowsSwapCameraOrientation: true,
+                                                        allowVolumeButtonCapture: true) { [weak self] image, asset in
+                                                            self?.profileImageView.image = image
+            self?.dismiss(animated: true, completion: nil)
+        }
         
+        present(cameraViewController, animated: true, completion: nil)
     }
     
     deinit {
@@ -137,13 +150,13 @@ class ProfileEditVC: UIViewController {
 extension ProfileEditVC {
     
     func updateProfileData() {
-
+        
         let updateProfileData = NewNetworkManager.UpdateProfileData(firstname: firstNameField.text,
-                                                       lastname: lastNameField.text,
-                                                       position: positionField.text,
-                                                       facebook: facebookField.text,
-                                                       linkedin: linkedInField.text,
-                                                       description: userDescriptionTextView.text
+                                                                    lastname: lastNameField.text,
+                                                                    position: positionField.text,
+                                                                    facebook: facebookField.text,
+                                                                    linkedin: linkedInField.text,
+                                                                    description: userDescriptionTextView.text
         )
         
         NewNetworkManager().performRequest(.updateProfile(updateProfileData)) { (resultData) in
