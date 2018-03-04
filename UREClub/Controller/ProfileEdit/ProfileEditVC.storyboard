@@ -24,7 +24,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j5h-CX-Gc3">
-                                <rect key="frame" x="0.0" y="20" width="375" height="680"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="636"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fre-Sq-McY" userLabel="Container View">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="700"/>
@@ -90,7 +90,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="39"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" textContentType="given-name"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="First Name"/>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="First Name"/>
@@ -101,7 +101,7 @@
                                                                 <rect key="frame" x="0.0" y="49" width="343" height="39.5"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" textContentType="family-name"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Last Name"/>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="Last Name"/>
@@ -112,7 +112,7 @@
                                                                 <rect key="frame" x="0.0" y="98.5" width="343" height="39"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" textContentType="organization-title"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Position"/>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="Position"/>
@@ -123,7 +123,7 @@
                                                                 <rect key="frame" x="0.0" y="147.5" width="343" height="39.5"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" textContentType="url"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Facebook"/>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="Facebook"/>
@@ -134,7 +134,7 @@
                                                                 <rect key="frame" x="0.0" y="197" width="343" height="39"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" textContentType="url"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="LinkedIn"/>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="LinkedIn"/>
@@ -195,6 +195,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dsx-BG-dms"/>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="drE-qG-2Mf">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="k83-gc-Bfi" userLabel="Save">
+                            <connections>
+                                <action selector="saveButtonPressed:" destination="s3k-Kb-bQ5" id="3wn-dV-YOz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <size key="freeformSize" width="375" height="700"/>
                     <connections>
                         <outlet property="descriptionTitleLabel" destination="H2G-W4-afP" id="lhV-3y-0KJ"/>

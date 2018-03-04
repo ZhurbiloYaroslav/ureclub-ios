@@ -33,13 +33,13 @@ class ProfileVC: UITableViewController {
         super.viewWillAppear(animated)
         
         navigationController?.makeTransparent()
+        tableView.reloadData()
     }
     
     func setupLeftMenu() {
         if revealViewController() != nil {
             
             self.revealViewController().rearViewRevealWidth = self.view.frame.width - 64
-            self.view.frame.size.width = self.revealViewController().rearViewRevealWidth
             
             menuButton.target = revealViewController()
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))

@@ -120,8 +120,12 @@ class ProfileEditVC: UIViewController {
         
     }
 
+    @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
+        updateProfileData()
+    }
+    
     @IBAction func changeImageButtonPressed(_ sender: UIButton) {
-
+        
     }
     
     deinit {
@@ -131,6 +135,53 @@ class ProfileEditVC: UIViewController {
 
 // MARK: - Helpers
 extension ProfileEditVC {
+    
+    func updateProfileData() {
+
+        let updateProfileData = NewNetworkManager.UpdateProfileData(firstname: firstNameField.text,
+                                                       lastname: lastNameField.text,
+                                                       position: positionField.text,
+                                                       facebook: facebookField.text,
+                                                       linkedin: linkedInField.text,
+                                                       description: userDescriptionTextView.text
+        )
+        
+        NewNetworkManager().performRequest(.updateProfile(updateProfileData)) { (resultData) in
+            
+            switch resultData {
+            case .dictWithUpdatedProfile(let data):
+                self.updateCurrentUserWith(data)
+            case .withErrors(let errors):
+                // MARK: Handle errors
+                print(errors)
+            default:
+                break
+            }
+        }
+    }
+    
+    func updateCurrentUserWith(_ data: [String: Any]) {
+        if
+            let firstName = data["firstname"] as? String,
+            let lastname = data["lastname"] as? String,
+            let position = data["position"] as? String,
+            let facebook = data["facebook"] as? String,
+            let linkedin = data["linkedin"] as? String,
+            let description = data["description"] as? String
+        {
+            CurrentUser.firstName = firstName
+            CurrentUser.lastName = lastname
+            CurrentUser.company.position = position
+            CurrentUser.facebookLink = facebook
+            CurrentUser.linkedInLink = linkedin
+            CurrentUser.textContent = description
+        } else {
+            // MARK: Handle Error
+        }
+        
+        navigationController?.popViewController(animated: true)
+        
+    }
     
 }
 

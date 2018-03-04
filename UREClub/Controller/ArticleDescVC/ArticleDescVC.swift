@@ -195,7 +195,7 @@ extension ArticleDescVC {
         guard let event = currentArticle as? Event else { return }
         
         let attendanceData = NewNetworkManager.AttendanceData(eventID: event.getID())
-        NewNetworkManager().get(.attendance(attendanceData)) { (resultData) in
+        NewNetworkManager().performRequest(.attendance(attendanceData)) { (resultData) in
             
             switch resultData {
             case .withMembersID(let arrayWithMembersID):
