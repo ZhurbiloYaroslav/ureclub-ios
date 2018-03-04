@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.5.1)
+  - ALCameraViewController (3.0.3)
   - INSPersistentContainer (1.0.2)
   - KeychainSwift (10.0.0)
   - SDWebImage (4.1.2):
@@ -11,6 +12,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.5.1)
+  - ALCameraViewController
   - INSPersistentContainer
   - KeychainSwift (~> 10.0)
   - SDWebImage (~> 4.1.2)
@@ -20,6 +22,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  ALCameraViewController: 6398a9282057f709b87a1ecc52a83b48028ade64
   INSPersistentContainer: 7e04a0d332ba075441ce0ee73d584ce84d76ac23
   KeychainSwift: f9f7910449a0c0fd2cabc889121530dd2c477c33
   SDWebImage: cb6f9f266a9977741efcbc21e618e8be3734c774
@@ -27,6 +30,6 @@ SPEC CHECKSUMS:
   SwiftSoup: 6a31eb02551c9c523eea14aef9d9e70f1466ff99
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
 
-PODFILE CHECKSUM: 8b8c8bf462d88ca4559dfba4ca194a311b137b66
+PODFILE CHECKSUM: d50dc23066f70efee08e8a9fee92df0f7c36210a
 
 COCOAPODS: 1.2.1
