@@ -130,12 +130,15 @@ class ProfileEditVC: UIViewController {
                                                     allowResizing: false,
                                                     allowMoving: false,
                                                     minimumSize: CGSize(width: 128, height: 128))
-        let cameraViewController = CameraViewController(croppingParameters: croppingParameters,
-                                                        allowsLibraryAccess: true,
-                                                        allowsSwapCameraOrientation: true,
-                                                        allowVolumeButtonCapture: true) { [weak self] image, asset in
-                                                            self?.profileImageView.image = image
-            self?.dismiss(animated: true, completion: nil)
+        let cameraViewController = CameraViewController(croppingParameters: croppingParameters, allowsLibraryAccess: true, allowsSwapCameraOrientation: true, allowVolumeButtonCapture: true) { [weak self] image, asset in
+            if let image = image {
+                self?.profileImageView.image = image
+                let uploadPhotoData = NetworkManager.UploadPhotoData(photoBody: image)
+                NetworkManager().uploadPhoto(uploadPhotoData, completionHandler: { (arrayWithMessages) in
+                    print("Uploaded")
+                    self?.dismiss(animated: true, completion: nil)
+                })
+            }
         }
         
         present(cameraViewController, animated: true, completion: nil)

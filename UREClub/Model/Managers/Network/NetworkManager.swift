@@ -118,6 +118,7 @@ class NetworkManager: NSObject {
             case filter
             case resetPassword
             case changePassword
+            case photoUpdate
             
             func address() -> String {
                 var resultAddress = currentServer.rawValue
@@ -132,6 +133,7 @@ class NetworkManager: NSObject {
                 case .user: resultAddress += ureclubRestPath + "user"
                 case .filter: resultAddress += ureclubRestPath + "filter"
                 case .changePassword: resultAddress += ureclubRestPath + "password-change"
+                case .photoUpdate: resultAddress += ureclubRestPath + "photo-update"
                 case .resetPassword: resultAddress += "s4s-reset-password.php"
                 }
                 return resultAddress
@@ -664,6 +666,77 @@ extension NetworkManager {
         
         let message = userDataDict["code"] as? String ?? "undefined_error"
         return [message]
+    }
+    
+}
+
+//MARK: Photo
+extension NetworkManager {
+    
+    func uploadPhoto(_ userData: UploadPhotoData, completionHandler: @escaping (_ errorMessages: [String]?)->()) {
+        
+        let image = userData.photoBody
+        guard let imgData = UIImageJPEGRepresentation(image, 1) else { return }
+        
+        let parameters = userData.getHeaders()
+        let fileName = "image-of-user-\(CurrentUser.getID()).jpg"
+        
+        Alamofire.upload(multipartFormData: { multipartFormData in
+            multipartFormData.append(imgData, withName: "profile_image",fileName: fileName, mimeType: "image/jpg")
+            for (key, value) in parameters {
+                multipartFormData.append((value as AnyObject).data(using: String.Encoding.utf8.rawValue)!, withName: key)
+            }
+        }, to: userData.pageAddress, method:.post, headers: userData.getHeaders()) { result in
+            switch result {
+                
+            case .success(let upload, _, _): // case .success(let upload, _, _):
+                completionHandler(nil)
+                 upload.responseJSON { response in
+                     if let errorMessages = self.parseUploadPhotoDataWith(response) {
+                         completionHandler(errorMessages)
+                     } else {
+                         completionHandler(nil)
+                     }
+             }
+            case .failure(let encodingError):
+                completionHandler([encodingError.localizedDescription])
+            }
+        }
+    }
+    
+    private func parseUploadPhotoDataWith(_ response: DataResponse<Any>) -> [String]? {
+        
+        let userDataDict = makeDictionaryFrom(response)
+        
+        guard let data = userDataDict["data"] as? [String: Any] else {
+            return ["no_data"]
+        }
+        guard let imageURL = data["imageURL"] as? String else {
+            return ["no_image"]
+        }
+        CurrentUser.linkImage = imageURL
+        return nil
+    }
+    
+    struct UploadPhotoData {
+        let pageAddress: String = RequestAddress.ServerPath.photoUpdate.address()
+        let photoBody: UIImage
+        
+        func getParams() -> Parameters {
+            return Parameters()
+        }
+        
+        func getHeaders() -> HTTPHeaders {
+            return [
+                "Authorization": CurrentUser.getBearerToken()
+            ]
+        }
+        
+        func getURL() -> URL? {
+            var result = "\(pageAddress)"
+            result = result.replacingOccurrences(of: " ", with: "%20")
+            return URL(string: result)
+        }
     }
     
 }
