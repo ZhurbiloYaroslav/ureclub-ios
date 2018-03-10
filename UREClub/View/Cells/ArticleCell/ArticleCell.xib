@@ -29,13 +29,58 @@
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="3bZ-34-Od6">
                         <rect key="frame" x="0.0" y="5" width="360" height="90"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="245" verticalHuggingPriority="245" horizontalCompressionResistancePriority="755" verticalCompressionResistancePriority="755" translatesAutoresizingMaskIntoConstraints="NO" id="KGt-bs-wLf">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JoH-EV-ZXq">
                                 <rect key="frame" x="0.0" y="0.0" width="150" height="90"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="245" verticalHuggingPriority="245" horizontalCompressionResistancePriority="755" verticalCompressionResistancePriority="755" translatesAutoresizingMaskIntoConstraints="NO" id="KGt-bs-wLf">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="90"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="90" id="Icf-S8-Hly"/>
+                                            <constraint firstAttribute="width" constant="150" id="dMo-Ik-s7d"/>
+                                        </constraints>
+                                    </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="037-1P-VL4">
+                                        <rect key="frame" x="100" y="0.0" width="50" height="47"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="BBx-CJ-CF1">
+                                                <rect key="frame" x="5" y="5" width="40" height="37"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="21" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="enm-9e-7kF">
+                                                        <rect key="frame" x="12" y="0.0" width="16.5" height="21"/>
+                                                        <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="17"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MAR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5wG-WQ-tLp">
+                                                        <rect key="frame" x="4.5" y="21" width="31.5" height="16"/>
+                                                        <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="13"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.37254901959999998" green="0.63921568630000003" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="BBx-CJ-CF1" firstAttribute="top" secondItem="037-1P-VL4" secondAttribute="top" constant="5" id="88D-6A-nXx"/>
+                                            <constraint firstAttribute="trailing" secondItem="BBx-CJ-CF1" secondAttribute="trailing" constant="5" id="Ch9-hC-s48"/>
+                                            <constraint firstItem="BBx-CJ-CF1" firstAttribute="leading" secondItem="037-1P-VL4" secondAttribute="leading" constant="5" id="n3M-PE-FaG"/>
+                                            <constraint firstAttribute="width" constant="50" id="unb-Aj-xcC"/>
+                                            <constraint firstAttribute="bottom" secondItem="BBx-CJ-CF1" secondAttribute="bottom" constant="5" id="v7F-LS-4fl"/>
+                                            <constraint firstItem="BBx-CJ-CF1" firstAttribute="height" secondItem="037-1P-VL4" secondAttribute="height" constant="-10" id="xBF-aH-22L"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="90" id="Icf-S8-Hly"/>
-                                    <constraint firstAttribute="width" constant="150" id="dMo-Ik-s7d"/>
+                                    <constraint firstItem="KGt-bs-wLf" firstAttribute="centerY" secondItem="JoH-EV-ZXq" secondAttribute="centerY" id="86a-pO-XfL"/>
+                                    <constraint firstAttribute="width" constant="150" id="GL5-MP-aEf"/>
+                                    <constraint firstAttribute="height" constant="90" id="YZj-Yk-RfM"/>
+                                    <constraint firstItem="037-1P-VL4" firstAttribute="top" secondItem="JoH-EV-ZXq" secondAttribute="top" id="ZCu-gu-VWz"/>
+                                    <constraint firstAttribute="trailing" secondItem="037-1P-VL4" secondAttribute="trailing" id="kp0-ZZ-lMS"/>
+                                    <constraint firstItem="KGt-bs-wLf" firstAttribute="centerX" secondItem="JoH-EV-ZXq" secondAttribute="centerX" id="qyr-kg-Nkx"/>
                                 </constraints>
-                            </imageView>
+                            </view>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3XX-x4-irZ">
                                 <rect key="frame" x="155" y="0.0" width="205" height="90"/>
                                 <subviews>
@@ -50,6 +95,7 @@
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="wEE-4d-KJ7">
                                                 <rect key="frame" x="0.0" y="22.5" width="205" height="15"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-date" translatesAutoresizingMaskIntoConstraints="NO" id="LzD-a3-l9h">
                                                         <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
@@ -67,7 +113,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="LFA-RE-f6E">
-                                                <rect key="frame" x="0.0" y="42.5" width="205" height="15"/>
+                                                <rect key="frame" x="0.0" y="22.5" width="205" height="15"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-time" translatesAutoresizingMaskIntoConstraints="NO" id="MeT-an-CTN">
                                                         <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
@@ -85,17 +131,17 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="krq-y5-EbU" userLabel="Address stack">
-                                                <rect key="frame" x="0.0" y="62.5" width="205" height="27.5"/>
+                                                <rect key="frame" x="0.0" y="42.5" width="205" height="47.5"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-location" translatesAutoresizingMaskIntoConstraints="NO" id="gKv-GO-IOD">
-                                                        <rect key="frame" x="0.0" y="6.5" width="15" height="15"/>
+                                                        <rect key="frame" x="0.0" y="16.5" width="15" height="15"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="15" id="OdR-Qk-4f2"/>
                                                             <constraint firstAttribute="height" constant="15" id="WKh-BJ-l4y"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event address" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aff-sD-4J6">
-                                                        <rect key="frame" x="20" y="6.5" width="185" height="15"/>
+                                                        <rect key="frame" x="20" y="16.5" width="185" height="15"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="12"/>
                                                         <color key="textColor" red="0.0" green="0.63137254899999995" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -103,6 +149,11 @@
                                                 </subviews>
                                             </stackView>
                                         </subviews>
+                                        <variation key="default">
+                                            <mask key="subviews">
+                                                <exclude reference="wEE-4d-KJ7"/>
+                                            </mask>
+                                        </variation>
                                     </stackView>
                                 </subviews>
                             </stackView>
@@ -121,7 +172,9 @@
                 <outlet property="addressStack" destination="krq-y5-EbU" id="lNk-Lx-cSC"/>
                 <outlet property="articleImage" destination="KGt-bs-wLf" id="bRb-0v-0ne"/>
                 <outlet property="dateLabel" destination="zqm-Fb-NOX" id="lCo-1i-LhZ"/>
+                <outlet property="dayLabel" destination="enm-9e-7kF" id="Y4c-0i-C3Q"/>
                 <outlet property="geoImage" destination="gKv-GO-IOD" id="ZNA-nI-gnb"/>
+                <outlet property="monthLabel" destination="5wG-WQ-tLp" id="eVS-C1-odp"/>
                 <outlet property="timeLabel" destination="aX4-P8-rq7" id="2vg-2u-T0Z"/>
                 <outlet property="timeStack" destination="LFA-RE-f6E" id="uJx-Uj-fSs"/>
                 <outlet property="titleLabel" destination="vnk-pS-Ip6" id="2TM-hZ-HVQ"/>

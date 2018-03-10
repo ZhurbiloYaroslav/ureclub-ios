@@ -23,7 +23,7 @@ class EventsManager {
     private var arrayWithAllEvents = [Event]()
     private var networkManager = NetworkManager()
     
-    private var sectionMonthIndex = [TableSectionIndex: MonthIndex]()
+    private var sectionIndex = [TableSectionIndex: YearAndMonth]()
     
     init() {
         networkManager.delegate = self
@@ -32,7 +32,8 @@ class EventsManager {
     
     func getFilteredEvents() -> [Event] {
         let eventsFilteredWithUpcomingAndPast = getEventsFilteredWithUpcomingAndPast(arrayWithAllEvents)
-        let result = getEventsFilteredWithYearAndCategoryFrom(eventsFilteredWithUpcomingAndPast)
+        let sortedEvents = sortEvents(eventsFilteredWithUpcomingAndPast)
+        let result = getEventsFilteredWithYearAndCategoryFrom(sortedEvents)
         return result
     }
     
@@ -46,6 +47,19 @@ class EventsManager {
             case .past:
                 let isDateOfEventInFuture = Date() > event.date.getDateOfBegining()
                 return isDateOfEventInFuture
+            }
+        }
+        return result
+    }
+    
+    func sortEvents(_ sourceArrayWithEvents: [Event]) -> [Event] {
+        var result = [Event]()
+        result = sourceArrayWithEvents.sorted { event1, event2 in
+            switch eventsFilter.getEventPeriod() {
+            case .upcoming:
+                return event1.date.getDateOfBegining() < event2.date.getDateOfBegining()
+            case .past:
+                return event1.date.getDateOfBegining() > event2.date.getDateOfBegining()
             }
         }
         return result
@@ -77,13 +91,14 @@ class EventsManager {
     func getNumberOfEventsIn(_ section: Int) -> Int {
         switch eventsFilter.getEventViewType() {
         case .calendar:
-            guard let monthIndex = sectionMonthIndex[section] else {
+            let dictWithEvents = getDictWithEventsByMonths()
+            guard let yearAndMonth = sectionIndex[section] else {
                 return 0
             }
-            guard let arrayWithEventsFromMonth = getDictWithEventsByMonths()[monthIndex] else {
+            guard let arrayWithEventsFromYearAndMonth = dictWithEvents[yearAndMonth] else {
                 return 0
             }
-            return arrayWithEventsFromMonth.count
+            return arrayWithEventsFromYearAndMonth.count
         case .list:
             return getFilteredEvents().count
         }
@@ -98,24 +113,26 @@ class EventsManager {
         }
     }
     
-    func getDictWithEventsByMonths() -> [Int: [Event]] {
-        if getFilteredEvents().count == 0 {
-            return [Int: [Event]]()
+    func getDictWithEventsByMonths() -> [String: [Event]] {
+        let filteredEvents = getFilteredEvents()
+        if filteredEvents.count == 0 {
+            return [String: [Event]]()
         }
-        var dictWithEventsByMonths = [Int: [Event]]()
+        var dictWithEventsByMonths = [String: [Event]]()
         
-        var sectionIndex = 0
-        for monthIndex in [0,1,2,3,4,5,6,7,8,9,10,11] {
-            var newArrayWithEvents = [Event]()
-            for event in getFilteredEvents() {
-                if event.date.getMonthFromDate() == monthIndex {
-                    newArrayWithEvents.append(event)
-                }
+        var index = 0
+        for event in filteredEvents {
+            let year = event.date.getFullYearFromDate()
+            let month = event.date.getMonthFromDate()
+            let yearAndMonthAsString = "\(year)\(month)"
+            if dictWithEventsByMonths[yearAndMonthAsString] == nil {
+                dictWithEventsByMonths.updateValue([Event](), forKey: yearAndMonthAsString)
             }
-            if newArrayWithEvents.count > 0 {
-                dictWithEventsByMonths.updateValue(newArrayWithEvents, forKey: monthIndex)
-                sectionMonthIndex.updateValue(monthIndex, forKey: sectionIndex)
-                sectionIndex += 1
+            dictWithEventsByMonths[yearAndMonthAsString]!.append(event)
+            
+            if sectionIndex.values.contains(yearAndMonthAsString) == false {
+                sectionIndex.updateValue(yearAndMonthAsString, forKey: index)
+                index += 1
             }
         }
         
@@ -124,50 +141,46 @@ class EventsManager {
     
     func getHeaderTitleFor(_ section: Int) -> String {
         if eventsFilter.getEventViewType() == .list {
-            return ""
-        }
-        guard let monthIndex = sectionMonthIndex[section] else {
-            return ""
-        }
-        guard let arrayWithEventsBySection = getDictWithEventsByMonths()[monthIndex] else {
-            return ""
+            return "month_undefined".localized()
         }
         
-        for monthIndex in [0,1,2,3,4,5,6,7,8,9,10,11] {
-            let eventMonth = arrayWithEventsBySection[0].date.getMonthFromDate()
-            if eventMonth == monthIndex {
-                
-                switch monthIndex {
-                case 0:  return "month_01".localized()
-                case 1:  return "month_02".localized()
-                case 2:  return "month_03".localized()
-                case 3:  return "month_04".localized()
-                case 4:  return "month_05".localized()
-                case 5:  return "month_06".localized()
-                case 6:  return "month_07".localized()
-                case 7:  return "month_08".localized()
-                case 8:  return "month_09".localized()
-                case 9:  return "month_10".localized()
-                case 10: return "month_11".localized()
-                case 11: return "month_12".localized()
-                default: return "month_undefined".localized()
-                }
-            }
+        _ = getDictWithEventsByMonths()
+        guard let yearAndMonthIndex = sectionIndex[section] else {
+            return "month_undefined".localized()
         }
-        return ""
+        let currentMonth = yearAndMonthIndex.dropFirst(4)
+        let currentYear = yearAndMonthIndex.dropLast(2)
+        var title = currentYear + " "
+        switch String(currentMonth) {
+        case "01": title += "month_01".localized()
+        case "02": title += "month_02".localized()
+        case "03": title += "month_03".localized()
+        case "04": title += "month_04".localized()
+        case "05": title += "month_05".localized()
+        case "06": title += "month_06".localized()
+        case "07": title += "month_07".localized()
+        case "08": title += "month_08".localized()
+        case "09": title += "month_09".localized()
+        case "10": title += "month_10".localized()
+        case "11": title += "month_11".localized()
+        case "12": title += "month_12".localized()
+        default: title += "month_undefined".localized()
+        }
+        return String(title)
     }
     
     func getEventFor(_ indexPath: IndexPath) -> Event {
         switch eventsFilter.getEventViewType() {
         case .calendar:
             
-            guard let monthIndex = sectionMonthIndex[indexPath.section] else {
+            let dictWithEvents = getDictWithEventsByMonths()
+            guard let yearAndMonthIndex = sectionIndex[indexPath.section] else {
                 return Event()
             }
-            guard let arrayWithEventsFromMonth = getDictWithEventsByMonths()[monthIndex] else {
+            guard let arrayWithEventsFromYearAndMonth = dictWithEvents[yearAndMonthIndex] else {
                 return Event()
             }
-            return arrayWithEventsFromMonth[indexPath.row]
+            return arrayWithEventsFromYearAndMonth[indexPath.row]
             
         case .list:
             return getFilteredEvents()[indexPath.row]

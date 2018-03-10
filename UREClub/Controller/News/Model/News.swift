@@ -43,5 +43,16 @@ class News: Article {
         }
         self.init(id: id, title: title, textContent: textContent, htmlContent: htmlContent, categories: categories, date: dateString)
     }
+    
+    func getDayFromDate() -> String {
+        let articleDate = Formatter.getDateFrom(date)
+        return Formatter.getStringFrom(articleDate, withFormat: .dd)
+    }
+    
+    func getShirtStringWithMonthFromDate() -> String {
+        let articleDate = Formatter.getDateFrom(date)
+        let stringWithMonth = Formatter.getStringFrom(articleDate, withFormat: .mmm)
+        return stringWithMonth
+    }
 }
 

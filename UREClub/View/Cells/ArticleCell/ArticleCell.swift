@@ -14,6 +14,9 @@ class ArticleCell: UITableViewCell {
     @IBOutlet weak var articleImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var dayLabel: UILabel!
+    @IBOutlet weak var monthLabel: UILabel!
+    
     @IBOutlet weak var timeLabel: UILabel!
     
     @IBOutlet weak var timeStack: UIStackView!
@@ -44,14 +47,18 @@ class ArticleCell: UITableViewCell {
         
         if let eventEntity = article as? Event {
             
-            dateLabel.text = eventEntity.date.getStringWithDate()
+            dayLabel.text = eventEntity.date.getDayFromDate()
+            monthLabel.text = eventEntity.date.getShirtStringWithMonthFromDate()
+            //dateLabel.text = eventEntity.date.getStringWithDate()
             timeLabel.text = eventEntity.date.getTimePeriod()
             addressLabel.text = eventEntity.location.getNameAndCity()
             
         } else if let newsEntity = article as? News {
             
             titleLabel.numberOfLines = 4
-            dateLabel.text = newsEntity.getDate()
+            dayLabel.text = newsEntity.getDayFromDate()
+            monthLabel.text = newsEntity.getShirtStringWithMonthFromDate()
+            //dateLabel.text = newsEntity.getDate()
             
             timeStack.isHidden = true
             addressStack.isHidden = true

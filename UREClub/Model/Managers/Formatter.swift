@@ -22,6 +22,7 @@ class Formatter {
         case HHmm = "HH:mm"
         case dd = "dd"
         case mm = "MM"
+        case mmm = "MMM"
         case yy = "yy"
         case yyyy = "yyyy"
     }

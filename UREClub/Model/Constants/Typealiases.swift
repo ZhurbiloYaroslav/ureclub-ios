@@ -10,4 +10,4 @@ import Foundation
 
 typealias SuccessBehaviour = () -> ()
 typealias TableSectionIndex = Int
-typealias MonthIndex = Int
+typealias YearAndMonth = String

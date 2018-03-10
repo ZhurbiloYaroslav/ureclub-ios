@@ -65,9 +65,18 @@ struct EventDate {
         return Formatter.getStringFrom(getDateOfBegining(), withFormat: .dd)
     }
     
-    func getMonthFromDate() -> Int {
+    func getMonthFromDate() -> String {
         let stringWithMonth = Formatter.getStringFrom(getDateOfBegining(), withFormat: .mm)
-        return ((Int(stringWithMonth)) ?? 1 ) - 1
+        if let month = Int(stringWithMonth) {
+            return month < 10 ? "0\(month)" : "\(month)"
+        } else {
+            return "01"
+        }
+    }
+    
+    func getShirtStringWithMonthFromDate() -> String {
+        let stringWithMonth = Formatter.getStringFrom(getDateOfBegining(), withFormat: .mmm)
+        return stringWithMonth
     }
     
     func getYearFromDate() -> Int {
