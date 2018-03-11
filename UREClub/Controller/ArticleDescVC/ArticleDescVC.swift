@@ -87,6 +87,7 @@ class ArticleDescVC: UIViewController {
                 comment: "All is ok"
             )
             self.networkManager.bookEvent(bookEventRequestData, completionHandler: {
+                self.getAttendance()
                 let alertTitle = "Booking".localized()
                 Alert().presentAlertWith(title: alertTitle, andMessages: ["Message"]) { alertVC in
                     self.present(alertVC, animated: true, completion: nil)
@@ -120,10 +121,11 @@ extension ArticleDescVC {
         
         switch currentArticle {
         case let eventArticle where eventArticle is Event:
-            navigationItem.title = "screen_eventDescription_title".localized()
+            //navigationItem.title = "screen_eventDescription_title".localized()
             seeWhoAttendButton.setTitle("event_attend_seewho".localized(), for: .normal)
         case let newsArticle where newsArticle is News:
-            navigationItem.title = "screen_newsDescription_title".localized()
+            break
+            //navigationItem.title = "screen_newsDescription_title".localized()
         default:
             break
         }
@@ -192,6 +194,7 @@ extension ArticleDescVC: UIWebViewDelegate {
 extension ArticleDescVC {
     
     func getAttendance() {
+        self.goButton.isEnabled = false
         guard let event = currentArticle as? Event else { return }
         
         let attendanceData = NewNetworkManager.AttendanceData(eventID: event.getID())
@@ -218,15 +221,12 @@ extension ArticleDescVC {
             if CurrentUser.getID() == memberID {
                 let goButtonTitle = "i_am_going".localized()
                 self.goButton.setTitle(goButtonTitle, for: .normal)
+                self.goButton.setBackgroundColor(color: #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1), forState: .normal)
                 currentUserAttendCurrentEvent = true
             }
         }
         
-        if currentUserAttendCurrentEvent {
-            self.goButton.isEnabled = false
-        } else {
-            self.goButton.isEnabled = true
-        }
+        self.goButton.isEnabled = true
         
     }
     

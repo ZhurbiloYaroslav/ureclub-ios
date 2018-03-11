@@ -20,6 +20,7 @@ class FieldCell: UITableViewCell {
     @IBOutlet weak var cellTitle: UILabel!
     @IBOutlet weak var cellText: UILabel!
     @IBOutlet weak var cellField: UITextField!
+    @IBOutlet weak var separatorLine: UIView!
     
     var isUnderEditing: Bool = false
     
@@ -50,6 +51,7 @@ class FieldCell: UITableViewCell {
             cellImage.isHidden = true
             
             cellTitle.isHidden = true
+            separatorLine.isHidden = true
             
             cellText.textColor = UIColor.darkGray
             cellText.numberOfLines = 0

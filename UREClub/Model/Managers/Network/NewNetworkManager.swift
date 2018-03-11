@@ -180,6 +180,9 @@ extension NewNetworkManager {
         public let firstname: String?
         public let lastname: String?
         public let position: String?
+        public let email: String?
+        public let phone: String?
+        public let hidePhone: Int?
         public let facebook: String?
         public let linkedin: String?
         public let description: String?
@@ -192,6 +195,9 @@ extension NewNetworkManager {
                 "firstname": firstname ?? "",
                 "lastname": lastname ?? "",
                 "position": position ?? "",
+                "email": email ?? "",
+                "phone": phone ?? "",
+                "hide_phone": hidePhone ?? 0,
                 "facebook": facebook ?? "",
                 "linkedin": linkedin ?? "",
                 "description": description ?? ""

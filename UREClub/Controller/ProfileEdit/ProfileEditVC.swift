@@ -25,6 +25,9 @@ class ProfileEditVC: UIViewController {
     @IBOutlet weak var firstNameField: SkyFloatingLabelTextField!
     @IBOutlet weak var lastNameField: SkyFloatingLabelTextField!
     @IBOutlet weak var positionField: SkyFloatingLabelTextField!
+    @IBOutlet weak var emailField: SkyFloatingLabelTextField!
+    @IBOutlet weak var phoneField: SkyFloatingLabelTextField!
+    @IBOutlet weak var hidePhoneSwitcher: UISwitch!
     @IBOutlet weak var facebookField: SkyFloatingLabelTextField!
     @IBOutlet weak var linkedInField: SkyFloatingLabelTextField!
     @IBOutlet weak var descriptionTitleLabel: UILabel!
@@ -37,6 +40,8 @@ class ProfileEditVC: UIViewController {
             firstNameField,
             lastNameField,
             positionField,
+            emailField,
+            phoneField,
             facebookField,
             linkedInField
         ]
@@ -102,6 +107,8 @@ class ProfileEditVC: UIViewController {
             textField.textColor = darkGreyColor
             textField.selectedTitleColor = overcastBlueColor
             textField.selectedLineColor = overcastBlueColor
+            textField.titleFont = UIFont(name: "Montserrat-Regular", size: 17)!
+            textField.placeholderFont = UIFont(name: "Montserrat-Bold", size: 14)!
         }
         
         userDescriptionTextView.layer.borderWidth = 1
@@ -115,6 +122,9 @@ class ProfileEditVC: UIViewController {
         firstNameField.text = CurrentUser.firstName
         lastNameField.text = CurrentUser.lastName
         positionField.text = CurrentUser.company.position
+        emailField.text = CurrentUser.email
+        phoneField.text = CurrentUser.phone
+        hidePhoneSwitcher.isOn = CurrentUser.isPhoneHidded
         facebookField.text = CurrentUser.facebookLink
         linkedInField.text = CurrentUser.linkedInLink
         userDescriptionTextView.text = CurrentUser.textContent
@@ -135,12 +145,12 @@ class ProfileEditVC: UIViewController {
                 self?.profileImageView.image = image
                 let uploadPhotoData = NetworkManager.UploadPhotoData(photoBody: image)
                 NetworkManager().uploadPhoto(uploadPhotoData, completionHandler: { (arrayWithMessages) in
-                    print("Uploaded")
                     self?.dismiss(animated: true, completion: nil)
                 })
+            } else {
+                self?.dismiss(animated: true, completion: nil)
             }
         }
-        
         present(cameraViewController, animated: true, completion: nil)
     }
     
@@ -153,10 +163,13 @@ class ProfileEditVC: UIViewController {
 extension ProfileEditVC {
     
     func updateProfileData() {
-        
+        let isPhoneHidden: Int = hidePhoneSwitcher.isOn ? 1 : 0
         let updateProfileData = NewNetworkManager.UpdateProfileData(firstname: firstNameField.text,
                                                                     lastname: lastNameField.text,
                                                                     position: positionField.text,
+                                                                    email: emailField.text,
+                                                                    phone: phoneField.text,
+                                                                    hidePhone: isPhoneHidden,
                                                                     facebook: facebookField.text,
                                                                     linkedin: linkedInField.text,
                                                                     description: userDescriptionTextView.text
@@ -177,10 +190,14 @@ extension ProfileEditVC {
     }
     
     func updateCurrentUserWith(_ data: [String: Any]) {
+
         if
             let firstName = data["firstname"] as? String,
             let lastname = data["lastname"] as? String,
             let position = data["position"] as? String,
+            let email = data["email"] as? String,
+            let phone = data["phone"] as? String,
+            let hidePhone = data["hide_phone"] as? Int,
             let facebook = data["facebook"] as? String,
             let linkedin = data["linkedin"] as? String,
             let description = data["description"] as? String
@@ -188,10 +205,14 @@ extension ProfileEditVC {
             CurrentUser.firstName = firstName
             CurrentUser.lastName = lastname
             CurrentUser.company.position = position
+            CurrentUser.email = email
+            CurrentUser.phone = phone
+            CurrentUser.isPhoneHidded = Bool(truncating: hidePhone as NSNumber)
             CurrentUser.facebookLink = facebook
             CurrentUser.linkedInLink = linkedin
             CurrentUser.textContent = description
         } else {
+            debugLog("Bad Data")
             // MARK: Handle Error
         }
         

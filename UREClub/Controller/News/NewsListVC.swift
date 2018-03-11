@@ -11,7 +11,7 @@ import SWRevealViewController
 
 extension NewsListVC: NetworkManagerDelegate {
     func didLoad(arrayWithNews: [News]) {
-        self.arrayWithNews = arrayWithNews
+        self.arrayWithNews = getSortedNewsFrom(arrayWithNews)
         tableView.reloadData()
     }
 }
@@ -55,7 +55,7 @@ class NewsListVC: UIViewController {
     }
     
     func registerNibs() {
-        tableView.register(UINib(nibName: "ArticleCell", bundle: nil), forCellReuseIdentifier: "ArticleCell")
+        tableView.register(UINib(nibName: "NewsCell", bundle: nil), forCellReuseIdentifier: "NewsCell")
     }
     
     func setupLeftMenu() {
@@ -77,6 +77,15 @@ class NewsListVC: UIViewController {
         
     }
     
+    func getSortedNewsFrom(_ newsArray: [News]) -> [News] {
+        let newsSortedByDate = newsArray.sorted { news1, news2 in
+            let news1Date = Formatter.getDateFrom(news1.getDate())
+            let news2Date = Formatter.getDateFrom(news2.getDate())
+            return news1Date > news2Date
+        }
+        return newsSortedByDate
+    }
+    
     @IBAction func filterButtonPressed(_ sender: UIBarButtonItem) {
         if let filterVC = FilterVC.getInstance() {
             filterVC.filterManager.currentFilter = newsFilter
@@ -96,7 +105,7 @@ extension NewsListVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ArticleCell", for: indexPath) as? ArticleCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCell", for: indexPath) as? NewsCell
             else { return UITableViewCell() }
         let news = arrayWithNews[indexPath.row]
         cell.updateCellWith(news)

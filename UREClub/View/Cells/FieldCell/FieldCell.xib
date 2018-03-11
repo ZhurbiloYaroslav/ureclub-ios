@@ -9,6 +9,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Montserrat-Bold.ttf">
+            <string>Montserrat-Bold</string>
+        </array>
         <array key="Montserrat-Regular.ttf">
             <string>Montserrat-Regular</string>
         </array>
@@ -34,36 +37,44 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ys8-Oh-wpt">
-                                <rect key="frame" x="65" y="12.5" width="280" height="82.5"/>
+                                <rect key="frame" x="65" y="14" width="280" height="79.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wPU-N8-hq9">
-                                        <rect key="frame" x="0.0" y="0.0" width="280" height="22"/>
-                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="18"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="280" height="17.5"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="14"/>
                                         <color key="textColor" red="0.0" green="0.63137254899999995" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eX5-IQ-hX5">
-                                        <rect key="frame" x="0.0" y="32" width="280" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <rect key="frame" x="0.0" y="27.5" width="280" height="21"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Field text" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sx0-eN-Qgy">
-                                        <rect key="frame" x="0.0" y="62.5" width="280" height="20"/>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="16"/>
+                                        <rect key="frame" x="0.0" y="58.5" width="280" height="21"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no"/>
                                     </textField>
                                 </subviews>
                             </stackView>
                         </subviews>
                     </stackView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1kr-uD-LXU" userLabel="Separator line">
+                        <rect key="frame" x="0.0" y="126.5" width="375" height="1"/>
+                        <color key="backgroundColor" red="0.81176470590000005" green="0.92156862750000001" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="Jzt-UA-hIA"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="d4p-S9-TTe" secondAttribute="trailing" constant="15" id="0sL-ok-p34"/>
                     <constraint firstItem="d4p-S9-TTe" firstAttribute="top" secondItem="otq-c3-eqw" secondAttribute="top" constant="10" id="6D5-z5-dno"/>
+                    <constraint firstAttribute="trailing" secondItem="1kr-uD-LXU" secondAttribute="trailing" id="Ca2-N2-q1V"/>
                     <constraint firstItem="d4p-S9-TTe" firstAttribute="leading" secondItem="otq-c3-eqw" secondAttribute="leading" constant="15" id="SKT-FK-vXP"/>
+                    <constraint firstItem="1kr-uD-LXU" firstAttribute="leading" secondItem="otq-c3-eqw" secondAttribute="leading" id="aOV-rL-ucj"/>
                     <constraint firstAttribute="bottom" secondItem="d4p-S9-TTe" secondAttribute="bottom" constant="10" id="hul-Qe-eXM"/>
+                    <constraint firstAttribute="bottom" secondItem="1kr-uD-LXU" secondAttribute="bottom" id="r1Y-FE-L68"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
@@ -71,6 +82,7 @@
                 <outlet property="cellImage" destination="m3N-Gl-jBQ" id="2sg-8m-93k"/>
                 <outlet property="cellText" destination="eX5-IQ-hX5" id="EhY-WY-ZU8"/>
                 <outlet property="cellTitle" destination="wPU-N8-hq9" id="2xC-0w-sxV"/>
+                <outlet property="separatorLine" destination="1kr-uD-LXU" id="lgK-p2-pm2"/>
             </connections>
             <point key="canvasLocation" x="46.5" y="155"/>
         </tableViewCell>

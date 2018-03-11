@@ -42,6 +42,7 @@ class CurrentUser {
     static func resetUserDataWhenLogOut() {
         isLoggedIn = false
         isUserActive = false
+        isPhoneHidded = false
         id = 0
         linkImage = ""
         linkedInLink = ""
@@ -76,6 +77,16 @@ extension CurrentUser {
         }
         set {
             defaults.set(newValue, forKey: "currentUserIsActive")
+            defaults.synchronize()
+        }
+    }
+    
+    static var isPhoneHidded: Bool {
+        get {
+            return defaults.object(forKey: "currentUserPhoneIsHidden") as? Bool ?? false
+        }
+        set {
+            defaults.set(newValue, forKey: "currentUserPhoneIsHidden")
             defaults.synchronize()
         }
     }
@@ -209,6 +220,10 @@ extension CurrentUser {
 extension CurrentUser {
     static func getID() -> Int {
         return Int(id) ?? 0
+    }
+    
+    static func getPhone() -> String {
+        return phone
     }
 }
 

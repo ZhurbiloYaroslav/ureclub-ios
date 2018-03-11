@@ -10,7 +10,7 @@ import Foundation
 import SwiftSoup
 
 class News: Article {
-    //var ids: [Int]
+
     private var date: String
     
     func getDate() -> String {
@@ -45,12 +45,12 @@ class News: Article {
     }
     
     func getDayFromDate() -> String {
-        let articleDate = Formatter.getDateFrom(date)
+        let articleDate = Formatter.getDateFrom(getDate())
         return Formatter.getStringFrom(articleDate, withFormat: .dd)
     }
     
     func getShirtStringWithMonthFromDate() -> String {
-        let articleDate = Formatter.getDateFrom(date)
+        let articleDate = Formatter.getDateFrom(getDate())
         let stringWithMonth = Formatter.getStringFrom(articleDate, withFormat: .mmm)
         return stringWithMonth
     }

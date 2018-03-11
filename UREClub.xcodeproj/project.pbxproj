@@ -88,6 +88,7 @@
 		C4662AE21FEAAE38001848C8 /* Montserrat-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C4662AD01FEAAE36001848C8 /* Montserrat-ExtraLight.ttf */; };
 		C4662AE41FEAB4F5001848C8 /* ArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4662AE31FEAB4F5001848C8 /* ArticleCell.swift */; };
 		C4662AE81FEAC8EC001848C8 /* ArticleDescVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4662AE71FEAC8EC001848C8 /* ArticleDescVC.swift */; };
+		C4696B7E205551D000B791BC /* UIButton+setBackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4696B7D205551D000B791BC /* UIButton+setBackgroundColor.swift */; };
 		C47BEE44201FE8C300688AEF /* PasswordEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47BEE43201FE8C300688AEF /* PasswordEditVC.swift */; };
 		C47BEE48201FEA1400688AEF /* PasswordEdit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C47BEE47201FEA1400688AEF /* PasswordEdit.storyboard */; };
 		C47FA7391FE1D2FB003D393E /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C47FA7371FE1D2FB003D393E /* Auth.storyboard */; };
@@ -257,6 +258,7 @@
 		C4662AD01FEAAE36001848C8 /* Montserrat-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraLight.ttf"; sourceTree = "<group>"; };
 		C4662AE31FEAB4F5001848C8 /* ArticleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCell.swift; sourceTree = "<group>"; };
 		C4662AE71FEAC8EC001848C8 /* ArticleDescVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDescVC.swift; sourceTree = "<group>"; wrapsLines = 0; };
+		C4696B7D205551D000B791BC /* UIButton+setBackgroundColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+setBackgroundColor.swift"; sourceTree = "<group>"; };
 		C47BEE43201FE8C300688AEF /* PasswordEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordEditVC.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		C47BEE47201FEA1400688AEF /* PasswordEdit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PasswordEdit.storyboard; sourceTree = "<group>"; };
 		C47FA7381FE1D2FB003D393E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Auth.storyboard; sourceTree = "<group>"; };
@@ -527,6 +529,7 @@
 				C4B54B351FEF2A3B008D531E /* Array+uniq.swift */,
 				C41DDD942038C3DA005B9939 /* String+isEqual.swift */,
 				C48B5D522047AD520091A960 /* Array+contains.swift */,
+				C4696B7D205551D000B791BC /* UIButton+setBackgroundColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1418,6 +1421,7 @@
 				C435FD0F20109ABC00D90CE8 /* Person.swift in Sources */,
 				C4B8A5C32013BA3700645E2E /* ContactsCell.swift in Sources */,
 				C4C203F41FE2ADD100272679 /* CodexCell.swift in Sources */,
+				C4696B7E205551D000B791BC /* UIButton+setBackgroundColor.swift in Sources */,
 				C4B8A5BF2013586900645E2E /* FilterData.swift in Sources */,
 				C4E521FE1FE90BFE00C3DE2E /* FilterVC.swift in Sources */,
 				C41CA3961FDBFDBD00AB0D2D /* Browser.swift in Sources */,

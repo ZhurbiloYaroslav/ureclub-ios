@@ -63,6 +63,7 @@ class MembersVC: UIViewController {
         setDefaultBackground()
         setDelegates()
         setupAsAttendanceView()
+        setSwitcherStyle()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -76,6 +77,11 @@ class MembersVC: UIViewController {
         super.viewWillDisappear(animated)
         
         navigationController?.makeTransparent()
+    }
+    
+    func setSwitcherStyle() {
+        let attr = NSDictionary(object: UIFont(name: "Montserrat-Medium", size: 14)!, forKey: NSAttributedStringKey.font as NSCopying)
+        memberTypeSwitcher.setTitleTextAttributes(attr as [NSObject : AnyObject], for: .normal)
     }
     
     func setTableStyle() {

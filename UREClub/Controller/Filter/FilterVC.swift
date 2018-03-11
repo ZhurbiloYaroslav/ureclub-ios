@@ -62,6 +62,7 @@ extension FilterVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FilterCell", for: indexPath)
         cell.textLabel?.text = filterManager.getSectionCellTitleFor(indexPath)
+        cell.textLabel?.font = UIFont(name: "Montserrat-Regular", size: 17)!
         cell.accessoryType = filterManager.cellAccessoryTypeFor(indexPath)
         return cell
     }

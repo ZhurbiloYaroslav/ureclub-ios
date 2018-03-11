@@ -27,12 +27,20 @@ class EventsListVC: UIViewController {
         registerNibs()
         setupLeftMenu()
         updateUIWithLocalizedText()
+        setSwitcherStyle()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         tableView.reloadData()
+    }
+    
+    func setSwitcherStyle() {
+        let attrTop = NSDictionary(object: UIFont(name: "Montserrat-Regular", size: 12)!, forKey: NSAttributedStringKey.font as NSCopying)
+        let attrBottom = NSDictionary(object: UIFont(name: "Montserrat-Medium", size: 14)!, forKey: NSAttributedStringKey.font as NSCopying)
+        eventsPeriodControl.setTitleTextAttributes(attrTop as [NSObject : AnyObject], for: .normal)
+        eventsListTypeControl.setTitleTextAttributes(attrBottom as [NSObject : AnyObject], for: .normal)
     }
     
     func setupTableView() {

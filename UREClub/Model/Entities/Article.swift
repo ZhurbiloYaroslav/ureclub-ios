@@ -17,9 +17,7 @@ class Article: NSObject {
     var textContent: String
     var categories: [Category]
     let defaultImage: [UIImage] = [#imageLiteral(resourceName: "image-placeHolder")]
-    var imageLinks: [String] {
-        return parseImagesAndContentFromHTML()
-    }
+    var imageLinks: [String]!
     
     func getHTMLContent() -> String {
         
@@ -38,6 +36,27 @@ class Article: NSObject {
         self.htmlContent = htmlContent
         self.textContent = textContent
         self.categories = categories
+        
+        do {
+            var arrayWithImageLinks = [String]()
+            
+            let doc: Document = try! SwiftSoup.parse(htmlContent)
+            
+            let els: Elements = try SwiftSoup.parse(htmlContent).select("img")
+            for link: Element in els.array(){
+                let linkSrc: String = try link.attr("src")
+                arrayWithImageLinks.append(linkSrc)
+            }
+            arrayWithImageLinks.uniqInPlace()
+            
+            self.textContent = try doc.body()?.text() ?? ""
+            self.imageLinks = arrayWithImageLinks
+            
+        } catch {
+            self.textContent = ""
+            self.imageLinks = [String]()
+        }
+        
     }
     
     convenience override init() {

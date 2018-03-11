@@ -112,7 +112,7 @@ class ProfileVC: UITableViewController {
             cell.configureWith(cellData)
             return cell
         case [1,1]:
-            let phone = publicContactToShow?.getPhone() ?? CurrentUser.phone
+            let phone = publicContactToShow?.getPhone() ?? CurrentUser.getPhone()
             let cellTitle = "profile_phone".localized()
             let cellData = FieldCell.CellData(type: .phone, icon: #imageLiteral(resourceName: "icon-profile-phone"), title: cellTitle, value: phone)
             cell.configureWith(cellData)
@@ -163,8 +163,14 @@ class ProfileVC: UITableViewController {
             if let profileEditVC = ProfileEditVC.getInstance(), itIsCurrentUserProfile() {
                 navigationController?.pushViewController(profileEditVC, animated: true)
             }
-        case [1,0]: Browser.openURLWith(.mailUserEmail)
-        case [1,1]: Browser.openURLWith(.callUserPhone)
+        case [1,0]:
+            let email = publicContactToShow?.getEmail() ?? CurrentUser.email
+            Browser.emailTo(email)
+        case [1,1]:
+            let phone = publicContactToShow?.getPhone() ?? CurrentUser.getPhone()
+            if phone.lowercased() != "hidden", !phone.isEmpty {
+                Browser.callTo(phone)
+            }
         default:
             break
         }

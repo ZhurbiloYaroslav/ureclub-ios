@@ -221,6 +221,10 @@ extension NetworkManager {
         CurrentUser.id = userDataDict["id"] as? Int ?? 0
         CurrentUser.email = userDataDict["email"] as? String ?? ""
         CurrentUser.phone = userDataDict["phone"] as? String ?? ""
+        
+        let hidePhone = userDataDict["hide_phone"] as? Int ?? 0
+        CurrentUser.isPhoneHidded = Bool(truncating: hidePhone as NSNumber)
+        
         CurrentUser.firstName = userDataDict["first_name"] as? String ?? ""
         CurrentUser.lastName = userDataDict["last_name"] as? String ?? ""
         CurrentUser.textContent = userDataDict["description"] as? String ?? ""

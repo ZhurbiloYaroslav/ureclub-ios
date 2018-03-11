@@ -141,7 +141,7 @@ class EventsManager {
     
     func getHeaderTitleFor(_ section: Int) -> String {
         if eventsFilter.getEventViewType() == .list {
-            return "month_undefined".localized()
+            return ""
         }
         
         _ = getDictWithEventsByMonths()

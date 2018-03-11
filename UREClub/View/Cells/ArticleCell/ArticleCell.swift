@@ -49,7 +49,6 @@ class ArticleCell: UITableViewCell {
             
             dayLabel.text = eventEntity.date.getDayFromDate()
             monthLabel.text = eventEntity.date.getShirtStringWithMonthFromDate()
-            //dateLabel.text = eventEntity.date.getStringWithDate()
             timeLabel.text = eventEntity.date.getTimePeriod()
             addressLabel.text = eventEntity.location.getNameAndCity()
             
@@ -58,7 +57,6 @@ class ArticleCell: UITableViewCell {
             titleLabel.numberOfLines = 4
             dayLabel.text = newsEntity.getDayFromDate()
             monthLabel.text = newsEntity.getShirtStringWithMonthFromDate()
-            //dateLabel.text = newsEntity.getDate()
             
             timeStack.isHidden = true
             addressStack.isHidden = true

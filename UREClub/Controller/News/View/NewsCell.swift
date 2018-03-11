@@ -11,27 +11,34 @@ import SDWebImage
 
 class NewsCell: UITableViewCell {
     
-    @IBOutlet weak var newsImage: UIImageView!
+    @IBOutlet weak var articleImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var dayLabel: UILabel!
+    @IBOutlet weak var monthLabel: UILabel!
+    @IBOutlet weak var readMoreButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         setDefaultImage()
+        
     }
     
     func setDefaultImage() {
-        newsImage.image = #imageLiteral(resourceName: "image-placeHolder")
+        articleImage.image = #imageLiteral(resourceName: "image-placeHolder")
     }
     
     func updateCellWith(_ news: News) {
-        setDefaultImage()
-        if news.imageLinks.count > 0 {
-            newsImage.sd_setImage(with: URL(string: news.imageLinks[0]), placeholderImage: #imageLiteral(resourceName: "image-placeHolder"))
-        }
         
         titleLabel.text = news.title
-        dateLabel.text = news.getDate()
+        
+        if news.imageLinks.count > 0 {
+            articleImage.sd_setImage(with: URL(string: news.imageLinks[0]), placeholderImage: #imageLiteral(resourceName: "image-placeHolder"))
+        }
+        
+        titleLabel.numberOfLines = 4
+        dayLabel.text = news.getDayFromDate()
+        monthLabel.text = news.getShirtStringWithMonthFromDate()
     }
+
 }

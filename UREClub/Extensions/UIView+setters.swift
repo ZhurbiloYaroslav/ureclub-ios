@@ -14,6 +14,7 @@ extension UIView {
         layer.cornerRadius = radius
         layer.borderWidth = width ?? 1
         layer.borderColor = color?.cgColor
+        self.clipsToBounds = true
     }
     
     func setShadow(offset: CGSize, opacity: Float, radius: CGFloat, andColor color: UIColor?) {

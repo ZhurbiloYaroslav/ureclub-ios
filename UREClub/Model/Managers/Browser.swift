@@ -11,9 +11,9 @@ import Foundation
 
 class Browser {
     
-    static func openURLWith(_ urlAddress: UrlAdresses) {
+    static func openURLWith(_ urlAddress: String) {
         
-        if let url = URL(string: urlAddress.getAddress()), UIApplication.shared.canOpenURL(url){
+        if let url = URL(string: urlAddress), UIApplication.shared.canOpenURL(url){
             
             if #available(iOS 10.0, *) {
                 UIApplication.shared.open(url, options: [:], completionHandler: nil)
@@ -24,6 +24,20 @@ class Browser {
         } else {
             print("can't open")
         }
+    }
+    
+    static func openURLWith(_ urlAddress: UrlAdresses) {
+        openURLWith(urlAddress.getAddress())
+    }
+    
+    static func callTo(_ phone: String) {
+        let phoneURL = "tel://\(phone)"
+        openURLWith(phoneURL)
+    }
+    
+    static func emailTo(_ email: String) {
+        let phoneURL = "mailto:\(email)"
+        openURLWith(phoneURL)
     }
     
     enum UrlAdresses {
@@ -47,5 +61,6 @@ class Browser {
             }
         }
     }
+    
 }
 
