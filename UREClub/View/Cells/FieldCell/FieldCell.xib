@@ -37,7 +37,7 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ys8-Oh-wpt">
-                                <rect key="frame" x="65" y="14" width="280" height="79.5"/>
+                                <rect key="frame" x="65" y="29.5" width="280" height="48.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wPU-N8-hq9">
                                         <rect key="frame" x="0.0" y="0.0" width="280" height="17.5"/>
@@ -50,11 +50,6 @@
                                         <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Field text" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sx0-eN-Qgy">
-                                        <rect key="frame" x="0.0" y="58.5" width="280" height="21"/>
-                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no"/>
-                                    </textField>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -78,7 +73,6 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="cellField" destination="sx0-eN-Qgy" id="5Z6-tK-cKc"/>
                 <outlet property="cellImage" destination="m3N-Gl-jBQ" id="2sg-8m-93k"/>
                 <outlet property="cellText" destination="eX5-IQ-hX5" id="EhY-WY-ZU8"/>
                 <outlet property="cellTitle" destination="wPU-N8-hq9" id="2xC-0w-sxV"/>

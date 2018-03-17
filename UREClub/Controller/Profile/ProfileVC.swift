@@ -97,8 +97,6 @@ class ProfileVC: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "FieldCell", for: indexPath) as? FieldCell
             else { return UITableViewCell() }
         
-        hideCellImageIfItIsPersonalProfileIn(cell)
-        
         switch indexPath {
         case [0,0]:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileHeaderCell", for: indexPath) as? ProfileHeaderCell
@@ -108,7 +106,7 @@ class ProfileVC: UITableViewController {
         case [1,0]:
             let email = publicContactToShow?.getEmail() ?? CurrentUser.email
             let cellTitle = "profile_email".localized()
-            let cellData = FieldCell.CellData(type: .email, icon: #imageLiteral(resourceName: "icon-profile-email"), title: cellTitle, value: email)
+            let cellData = FieldCell.CellData(type: .address, icon: #imageLiteral(resourceName: "icon-profile-email"), title: cellTitle, value: email)
             cell.configureWith(cellData)
             return cell
         case [1,1]:
@@ -151,7 +149,7 @@ class ProfileVC: UITableViewController {
             break
         }
         
-        let headerView = getCustomHeaderViewWith(headerTitleText)
+        let headerView = UIView.getCustomHeaderViewWith(headerTitleText, forTableView: tableView)
         
         return headerView
         
@@ -192,10 +190,6 @@ class ProfileVC: UITableViewController {
 
 // Helper methods
 extension ProfileVC {
-    
-    func hideCellImageIfItIsPersonalProfileIn(_ cell: FieldCell) {
-        cell.cellImage.isHidden = publicContactToShow == nil ? true : false
-    }
     
     func itIsCurrentUserProfile() -> Bool {
         return publicContactToShow == nil

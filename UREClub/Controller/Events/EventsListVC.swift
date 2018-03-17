@@ -13,7 +13,7 @@ class EventsListVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var menuButton: UIBarButtonItem!
-    @IBOutlet weak var eventsPeriodControl: EventsSegmCont!
+    @IBOutlet weak var eventsPeriodControl: TopSegmentedContol!
     @IBOutlet weak var eventsListTypeControl: UISegmentedControl!
     
     var eventsManager = EventsManager.shared

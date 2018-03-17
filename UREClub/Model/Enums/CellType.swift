@@ -11,6 +11,7 @@ import Foundation
 enum CellType {
     case text
     case html
+    case address
     case nameFull
     case nameFirst
     case nameLast

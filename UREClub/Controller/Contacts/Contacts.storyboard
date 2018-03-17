@@ -6,44 +6,10 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Contacts-->
-        <scene sceneID="1L8-uR-bdH">
-            <objects>
-                <tableViewController storyboardIdentifier="ContactsVC" title="Contacts" id="wpi-SN-a3V" customClass="ContactsVC" customModule="UREClub" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Emq-14-aOh">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactsCell" id="rVy-Jv-mS7">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rVy-Jv-mS7" id="DHb-GM-6v3">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="wpi-SN-a3V" id="uUb-dq-XTL"/>
-                            <outlet property="delegate" destination="wpi-SN-a3V" id="FDm-jv-yO0"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Contacts" id="VTt-gh-dNy">
-                        <barButtonItem key="leftBarButtonItem" image="menu" id="gKO-4I-teT"/>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="menuButton" destination="gKO-4I-teT" id="woM-4x-btg"/>
-                        <segue destination="nKg-be-lI9" kind="show" identifier="ShowProfile" id="Pf9-v9-hSu"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Oij-oh-xq0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4326" y="3611"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="lMt-cF-SsS">
             <objects>
@@ -55,20 +21,62 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="wpi-SN-a3V" kind="relationship" relationship="rootViewController" id="oIT-TZ-4w1"/>
+                        <segue destination="pqD-GR-9uA" kind="relationship" relationship="rootViewController" id="1TE-qA-cJx"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DtM-Fu-h4x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3054" y="3612"/>
         </scene>
-        <!--ProfileVC-->
-        <scene sceneID="TOl-bv-m9E">
+        <!--Contacts-->
+        <scene sceneID="NRM-MZ-Rer">
             <objects>
-                <viewControllerPlaceholder storyboardName="Profile" referencedIdentifier="ProfileVC" id="nKg-be-lI9" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PeA-F7-f9T" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="pqD-GR-9uA" customClass="ContactsVC" customModule="UREClub" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7Nr-V5-0yd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="7Hz-fP-6Lu" customClass="TopSegmentedContol" customModule="UREClub" customModuleProvider="target">
+                                <rect key="frame" x="136" y="72" width="103" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="p8L-qo-1W0"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Team"/>
+                                    <segment title="Office"/>
+                                </segments>
+                                <connections>
+                                    <action selector="contactsTypeSwitcherChanged:" destination="pqD-GR-9uA" eventType="valueChanged" id="mNd-gU-0hX"/>
+                                </connections>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7Xg-uM-2Vm">
+                                <rect key="frame" x="0.0" y="110" width="375" height="557"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7Xg-uM-2Vm" firstAttribute="leading" secondItem="2eZ-fX-Gqv" secondAttribute="leading" id="2OW-0i-Hbf"/>
+                            <constraint firstItem="7Hz-fP-6Lu" firstAttribute="top" secondItem="2eZ-fX-Gqv" secondAttribute="top" constant="8" id="4Gs-9N-0BY"/>
+                            <constraint firstItem="7Hz-fP-6Lu" firstAttribute="centerX" secondItem="7Nr-V5-0yd" secondAttribute="centerX" id="qtg-59-UKm"/>
+                            <constraint firstItem="2eZ-fX-Gqv" firstAttribute="trailing" secondItem="7Xg-uM-2Vm" secondAttribute="trailing" id="tFY-ou-K3f"/>
+                            <constraint firstItem="7Xg-uM-2Vm" firstAttribute="top" secondItem="7Hz-fP-6Lu" secondAttribute="bottom" constant="8" id="tXr-XY-Req"/>
+                            <constraint firstItem="2eZ-fX-Gqv" firstAttribute="bottom" secondItem="7Xg-uM-2Vm" secondAttribute="bottom" id="zff-Mg-Van"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2eZ-fX-Gqv"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Contacts" id="aJ0-n2-amC">
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="gKO-4I-teT"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="contactsTabControl" destination="7Hz-fP-6Lu" id="KlH-hc-6oJ"/>
+                        <outlet property="menuButton" destination="gKO-4I-teT" id="mZt-Bj-EpS"/>
+                        <outlet property="tableView" destination="7Xg-uM-2Vm" id="DqF-ka-GpC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sde-J4-hZT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5086" y="3563"/>
+            <point key="canvasLocation" x="4436" y="3611"/>
         </scene>
     </scenes>
     <resources>

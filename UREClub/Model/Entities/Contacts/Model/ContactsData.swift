@@ -102,7 +102,9 @@ class ContactsData {
     
     func getContactsData() {
         networkManager.retrieveInfoForPath(.contacts) { errors in
-
+            DispatchQueue.main.async {
+                // TODO: Handle errors here
+            }
         }
     }
     

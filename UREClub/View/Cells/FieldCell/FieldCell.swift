@@ -19,7 +19,6 @@ class FieldCell: UITableViewCell {
     @IBOutlet weak var cellImage: UIImageView!
     @IBOutlet weak var cellTitle: UILabel!
     @IBOutlet weak var cellText: UILabel!
-    @IBOutlet weak var cellField: UITextField!
     @IBOutlet weak var separatorLine: UIView!
     
     var isUnderEditing: Bool = false
@@ -32,23 +31,21 @@ class FieldCell: UITableViewCell {
     
     func resetCellValues() {
         cellText.text = ""
-        cellField.text = ""
         cellText.isHidden = false
-        cellField.isHidden = true
     }
     
     func configureWith(_ genericCellData: GenericCellData) {
+        
+        cellImage.isHidden = true
         
         guard let cellData = genericCellData as? CellData else { return }
         
         cellImage.image = cellData.icon
         cellTitle.text = cellData.title
         cellText.text = cellData.value
-        cellField.text = cellData.value
         
         switch cellData.type {
         case .text:
-            cellImage.isHidden = true
             
             cellTitle.isHidden = true
             separatorLine.isHidden = true
@@ -59,8 +56,6 @@ class FieldCell: UITableViewCell {
             
         default:
             cellText.isHidden = isUnderEditing
-            cellField.isHidden = !isUnderEditing
-            cellField.isUserInteractionEnabled = isUnderEditing
         }
     }
     

@@ -1,5 +1,5 @@
 //
-//  EventsSegmCont.swift
+//  TopSegmentedContol.swift
 //  UREClub
 //
 //  Created by Yaroslav Zhurbilo on 19.12.17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EventsSegmCont: UISegmentedControl {
+class TopSegmentedContol: UISegmentedControl {
     
     override func awakeFromNib() {
         super.awakeFromNib()

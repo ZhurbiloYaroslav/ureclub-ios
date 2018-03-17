@@ -52,7 +52,6 @@
 		C43D1F7D201E843000CFC158 /* UIViewController+hideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43D1F7C201E843000CFC158 /* UIViewController+hideKeyboard.swift */; };
 		C44574601FDC18FB004A5305 /* NewsListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C445745F1FDC18FB004A5305 /* NewsListVC.swift */; };
 		C44574621FDC192C004A5305 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44574611FDC192C004A5305 /* SettingsVC.swift */; };
-		C44574641FDC1AED004A5305 /* ContactsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44574631FDC1AED004A5305 /* ContactsVC.swift */; };
 		C44574661FDC1B97004A5305 /* MembersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44574651FDC1B97004A5305 /* MembersVC.swift */; };
 		C44574681FDC1D18004A5305 /* MenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44574671FDC1D18004A5305 /* MenuManager.swift */; };
 		C460E4E52035905100408572 /* debugLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = C460E4E42035905100408572 /* debugLog.swift */; };
@@ -154,8 +153,12 @@
 		C4E521FC1FE90BD700C3DE2E /* FilterVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4E521FB1FE90BD700C3DE2E /* FilterVC.storyboard */; };
 		C4E521FE1FE90BFE00C3DE2E /* FilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E521FD1FE90BFE00C3DE2E /* FilterVC.swift */; };
 		C4E522001FE90D4A00C3DE2E /* UITableViewController+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E521FF1FE90D4A00C3DE2E /* UITableViewController+Style.swift */; };
-		C4E522021FE90EC700C3DE2E /* EventsSegmCont.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E522011FE90EC700C3DE2E /* EventsSegmCont.swift */; };
+		C4E522021FE90EC700C3DE2E /* TopSegmentedContol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E522011FE90EC700C3DE2E /* TopSegmentedContol.swift */; };
 		C4E522041FE914AD00C3DE2E /* TableViewCell+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E522031FE914AD00C3DE2E /* TableViewCell+Style.swift */; };
+		C4E97697205CFCEA0069ADB3 /* ContactsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E97696205CFCEA0069ADB3 /* ContactsVC.swift */; };
+		C4E976A2205D0E670069ADB3 /* AddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E976A0205D0E670069ADB3 /* AddressCell.swift */; };
+		C4E976A3205D0E670069ADB3 /* AddressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4E976A1205D0E670069ADB3 /* AddressCell.xib */; };
+		C4E976A5205D22190069ADB3 /* UIView+customHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E976A4205D22190069ADB3 /* UIView+customHeaderView.swift */; };
 		C4F087532020C8B200C3BDC6 /* FastInitialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F087522020C8B200C3BDC6 /* FastInitialization.swift */; };
 		C4F087552020CA7F00C3BDC6 /* ProfileEditVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4F087542020CA7F00C3BDC6 /* ProfileEditVC.storyboard */; };
 		C4F0875A2020D12400C3BDC6 /* ProfileButtonsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F087582020D12400C3BDC6 /* ProfileButtonsCell.swift */; };
@@ -219,7 +222,6 @@
 		C43D1F7C201E843000CFC158 /* UIViewController+hideKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+hideKeyboard.swift"; sourceTree = "<group>"; };
 		C445745F1FDC18FB004A5305 /* NewsListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListVC.swift; sourceTree = "<group>"; };
 		C44574611FDC192C004A5305 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
-		C44574631FDC1AED004A5305 /* ContactsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsVC.swift; sourceTree = "<group>"; };
 		C44574651FDC1B97004A5305 /* MembersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersVC.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		C44574671FDC1D18004A5305 /* MenuManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuManager.swift; sourceTree = "<group>"; };
 		C460E4E42035905100408572 /* debugLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = debugLog.swift; sourceTree = "<group>"; };
@@ -333,8 +335,12 @@
 		C4E521FB1FE90BD700C3DE2E /* FilterVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FilterVC.storyboard; sourceTree = "<group>"; };
 		C4E521FD1FE90BFE00C3DE2E /* FilterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterVC.swift; sourceTree = "<group>"; };
 		C4E521FF1FE90D4A00C3DE2E /* UITableViewController+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewController+Style.swift"; sourceTree = "<group>"; };
-		C4E522011FE90EC700C3DE2E /* EventsSegmCont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsSegmCont.swift; sourceTree = "<group>"; };
+		C4E522011FE90EC700C3DE2E /* TopSegmentedContol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopSegmentedContol.swift; sourceTree = "<group>"; };
 		C4E522031FE914AD00C3DE2E /* TableViewCell+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableViewCell+Style.swift"; sourceTree = "<group>"; };
+		C4E97696205CFCEA0069ADB3 /* ContactsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsVC.swift; sourceTree = "<group>"; };
+		C4E976A0205D0E670069ADB3 /* AddressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressCell.swift; sourceTree = "<group>"; };
+		C4E976A1205D0E670069ADB3 /* AddressCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressCell.xib; sourceTree = "<group>"; };
+		C4E976A4205D22190069ADB3 /* UIView+customHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+customHeaderView.swift"; sourceTree = "<group>"; };
 		C4F087522020C8B200C3BDC6 /* FastInitialization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastInitialization.swift; sourceTree = "<group>"; };
 		C4F087542020CA7F00C3BDC6 /* ProfileEditVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProfileEditVC.storyboard; sourceTree = "<group>"; };
 		C4F087582020D12400C3BDC6 /* ProfileButtonsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileButtonsCell.swift; sourceTree = "<group>"; };
@@ -530,6 +536,7 @@
 				C41DDD942038C3DA005B9939 /* String+isEqual.swift */,
 				C48B5D522047AD520091A960 /* Array+contains.swift */,
 				C4696B7D205551D000B791BC /* UIButton+setBackgroundColor.swift */,
+				C4E976A4205D22190069ADB3 /* UIView+customHeaderView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -726,7 +733,7 @@
 		C4662AEA1FEAC90A001848C8 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C4E522011FE90EC700C3DE2E /* EventsSegmCont.swift */,
+				C4E522011FE90EC700C3DE2E /* TopSegmentedContol.swift */,
 				C48D0DAD20129C81009347DE /* CalendarCell */,
 			);
 			path = View;
@@ -821,7 +828,7 @@
 			isa = PBXGroup;
 			children = (
 				C47FA74B1FE1D795003D393E /* Contacts.storyboard */,
-				C44574631FDC1AED004A5305 /* ContactsVC.swift */,
+				C4E97696205CFCEA0069ADB3 /* ContactsVC.swift */,
 				C4B8A5C02013BA1C00645E2E /* View */,
 			);
 			path = Contacts;
@@ -978,6 +985,8 @@
 			children = (
 				C4B8A5C12013BA3700645E2E /* ContactsCell.swift */,
 				C4B8A5C22013BA3700645E2E /* ContactsCell.xib */,
+				C4E976A0205D0E670069ADB3 /* AddressCell.swift */,
+				C4E976A1205D0E670069ADB3 /* AddressCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1276,6 +1285,7 @@
 				C4662AE21FEAAE38001848C8 /* Montserrat-ExtraLight.ttf in Resources */,
 				C4662AD41FEAAE38001848C8 /* Montserrat-ExtraBold.ttf in Resources */,
 				C4662AD51FEAAE38001848C8 /* Montserrat-SemiBoldItalic.ttf in Resources */,
+				C4E976A3205D0E670069ADB3 /* AddressCell.xib in Resources */,
 				C4C203E31FE2869C00272679 /* Codex.storyboard in Resources */,
 				C4662ADD1FEAAE38001848C8 /* Montserrat-Italic.ttf in Resources */,
 				C480166C201B7A6E005F2253 /* Language.strings in Resources */,
@@ -1345,18 +1355,18 @@
 				C4E07B162025D15700933FAA /* AboutCell.swift in Sources */,
 				C41CA38E1FDBFC7100AB0D2D /* String+localized.swift in Sources */,
 				C4E07B102025CD0A00933FAA /* AboutVC.swift in Sources */,
+				C4E976A2205D0E670069ADB3 /* AddressCell.swift in Sources */,
 				C480165D201B3E54005F2253 /* LanguageManager.swift in Sources */,
 				C430EBFC200E1265001E818B /* ImageSlideshowItem.swift in Sources */,
 				C460E4E52035905100408572 /* debugLog.swift in Sources */,
 				C463F88A1FF52D10001FBBC1 /* DefaultDataManager.swift in Sources */,
 				C4AA3CEE1FF66E90008B00B4 /* CellType.swift in Sources */,
-				C4E522021FE90EC700C3DE2E /* EventsSegmCont.swift in Sources */,
+				C4E522021FE90EC700C3DE2E /* TopSegmentedContol.swift in Sources */,
 				C430EBFB200E1265001E818B /* ImageSlideshow.swift in Sources */,
 				C4959EE3200F20AC0063D436 /* Contact.swift in Sources */,
 				C41CA3681FDBE3F000AB0D2D /* EventsListVC.swift in Sources */,
 				C48B5D532047AD520091A960 /* Array+contains.swift in Sources */,
 				C4DC777C200FC98200F3814F /* ContactsManager.swift in Sources */,
-				C44574641FDC1AED004A5305 /* ContactsVC.swift in Sources */,
 				C47BEE44201FE8C300688AEF /* PasswordEditVC.swift in Sources */,
 				C430EBDD200DEA34001E818B /* Formatter.swift in Sources */,
 				C4662AE41FEAB4F5001848C8 /* ArticleCell.swift in Sources */,
@@ -1402,6 +1412,8 @@
 				C44574681FDC1D18004A5305 /* MenuManager.swift in Sources */,
 				C460E4E7203590B600408572 /* UIViewController+fastInitialization.swift in Sources */,
 				C430EBFA200E1265001E818B /* FullScreenSlideshowViewController.swift in Sources */,
+				C4E976A5205D22190069ADB3 /* UIView+customHeaderView.swift in Sources */,
+				C4E97697205CFCEA0069ADB3 /* ContactsVC.swift in Sources */,
 				C4F0875A2020D12400C3BDC6 /* ProfileButtonsCell.swift in Sources */,
 				C41CA3881FDBED0100AB0D2D /* MenuVC.swift in Sources */,
 				C4959EE9200F292F0063D436 /* LogOutCell.swift in Sources */,

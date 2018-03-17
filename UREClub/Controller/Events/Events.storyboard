@@ -18,8 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="t10-b0-itj" customClass="EventsSegmCont" customModule="UREClub" customModuleProvider="target">
-                                <rect key="frame" x="87.5" y="69" width="200" height="31"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="t10-b0-itj" customClass="TopSegmentedContol" customModule="UREClub" customModuleProvider="target">
+                                <rect key="frame" x="87.5" y="72" width="200" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="7UH-dd-3FX"/>
                                     <constraint firstAttribute="width" constant="200" id="g64-Tp-qCm"/>
@@ -73,7 +73,7 @@
                                 </cells>
                             </collectionView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" estimatedRowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aK8-7C-p2j">
-                                <rect key="frame" x="0.0" y="104" width="375" height="523"/>
+                                <rect key="frame" x="0.0" y="110" width="375" height="517"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                             <segmentedControl opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ad6-JZ-r9v">
@@ -92,12 +92,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="t10-b0-itj" firstAttribute="top" secondItem="4aT-7h-cY8" secondAttribute="top" constant="5" id="1CQ-KN-GLY"/>
+                            <constraint firstItem="t10-b0-itj" firstAttribute="top" secondItem="4aT-7h-cY8" secondAttribute="top" constant="8" id="1CQ-KN-GLY"/>
                             <constraint firstItem="ad6-JZ-r9v" firstAttribute="leading" secondItem="4aT-7h-cY8" secondAttribute="leading" id="2BE-28-jz6"/>
                             <constraint firstItem="STU-SR-5Jf" firstAttribute="leading" secondItem="4aT-7h-cY8" secondAttribute="leading" id="5om-6p-SwQ"/>
                             <constraint firstItem="ad6-JZ-r9v" firstAttribute="trailing" secondItem="4aT-7h-cY8" secondAttribute="trailing" id="8Xo-mC-pEf"/>
                             <constraint firstItem="ad6-JZ-r9v" firstAttribute="top" secondItem="aK8-7C-p2j" secondAttribute="bottom" id="Jxw-pv-e82"/>
-                            <constraint firstItem="aK8-7C-p2j" firstAttribute="top" secondItem="t10-b0-itj" secondAttribute="bottom" constant="5" id="MW2-7v-qDH"/>
+                            <constraint firstItem="aK8-7C-p2j" firstAttribute="top" secondItem="t10-b0-itj" secondAttribute="bottom" constant="8" id="MW2-7v-qDH"/>
                             <constraint firstItem="4aT-7h-cY8" firstAttribute="bottom" secondItem="ad6-JZ-r9v" secondAttribute="bottom" id="ag7-CL-xCn"/>
                             <constraint firstItem="t10-b0-itj" firstAttribute="centerX" secondItem="QAS-fg-Wlu" secondAttribute="centerX" id="kQB-YN-Kyh"/>
                             <constraint firstItem="aK8-7C-p2j" firstAttribute="trailing" secondItem="4aT-7h-cY8" secondAttribute="trailing" id="rKV-OX-F2h"/>

@@ -97,7 +97,7 @@ extension SettingsVC {
             break
         }
         
-        let headerView = getCustomHeaderViewWith(headerTitleText)
+        let headerView = UIView.getCustomHeaderViewWith(headerTitleText, forTableView: tableView)
         
         return headerView
         

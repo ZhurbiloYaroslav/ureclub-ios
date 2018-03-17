@@ -79,7 +79,7 @@ extension FilterVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 
         let headerTitleText = filterManager.getTitleFor(section)
-        let headerView = UITableViewController().getCustomHeaderViewWith(headerTitleText)
+        let headerView = UIView.getCustomHeaderViewWith(headerTitleText, forTableView: tableView)
 
         return headerView
 
