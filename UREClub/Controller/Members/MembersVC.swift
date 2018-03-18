@@ -6,7 +6,7 @@
 //  Copyright © 2017 Yaroslav Zhurbilo. All rights reserved.
 //
 // TODO: Refactor cell folding with: https://github.com/jeantimex/ios-swift-collapsible-table-section
-                            // or:   https://www.appcoda.com/expandable-table-view/
+// or:   https://www.appcoda.com/expandable-table-view/
 
 import UIKit
 import SWRevealViewController
@@ -47,18 +47,17 @@ class MembersVC: UIViewController {
     @IBOutlet weak var memberTypeSwitcher: UISegmentedControl!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    fileprivate var tableViewCellCoordinator: [Int: IndexPath] = [:]
-    
     var contactsManager = ContactsManager(withFilterType: .members, andType: .person)
     
     var menuButton: UIBarButtonItem!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         contactsManager.contactsData.getContactsData()
         updateUIWithLocalizedText()
         
+        registerNibs()
         setTableStyle()
         setDefaultBackground()
         setDelegates()
@@ -88,6 +87,12 @@ class MembersVC: UIViewController {
         tableView.backgroundColor = Constants.DefaultColor.background
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableViewAutomaticDimension
+    }
+    
+    func registerNibs() {
+        for identifier in ["PersonCell"] {
+            tableView.register(UINib(nibName: identifier, bundle: nil), forCellReuseIdentifier: identifier)
+        }
     }
     
     func setDelegates() {
@@ -121,14 +126,16 @@ class MembersVC: UIViewController {
             navigationController?.pushViewController(filterVC, animated: true)
         }
     }
-
+    
     @IBAction func memberTypeSwitcherChanged(_ sender: UISegmentedControl) {
-
+        
         switch sender.selectedSegmentIndex {
         case 1:
             contactsManager.contactType = .company
+            tableView.setContentOffset(CGPoint.zero, animated: true)
         default:
             contactsManager.contactType = .person
+            tableView.setContentOffset(CGPoint.zero, animated: true)
         }
         searchBar.text = ""
         tableView.reloadData()
@@ -138,58 +145,50 @@ class MembersVC: UIViewController {
 // TableView methods
 extension MembersVC: UITableViewDelegate, UITableViewDataSource {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return contactsManager.getNumberOfSections()
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return contactsManager.getNumberOfTableCells()
+        return contactsManager.getNumberOfTableCellsFor(section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "PersonCell", for: indexPath) as? PersonCell
+            else { return UITableViewCell() }
+        
+        cell.updateCellWith(contactsManager.getPersonFor(indexPath))
+        
+        return cell
+        
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         switch contactsManager.contactType {
         case .company:
+            let companyView = UINib(nibName: "CompanyView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! CompanyView
+            let company = contactsManager.getCompanyFor(section)
+            let isCellOpened = contactsManager.isOpened(section)
+            companyView.updateWith(company, section: section, isOpen: isCellOpened)
             
-            let genericContact = contactsManager.getContactForCompanyTypeCell(indexPath)
+            // MARK: - Set delegates and values
+            companyView.delegate = self
+            companyView.collectionView.delegate = self
+            companyView.collectionView.dataSource = self
             
-            if let company = genericContact as? Company {
-                
-                guard let cell = tableView.dequeueReusableCell(withIdentifier: "CompanyCell", for: indexPath) as? CompanyCell
-                    else { return UITableViewCell() }
-                
-                cell.collectionView.delegate = self
-                cell.collectionView.dataSource = self
-                
-                let tag = 10000*(indexPath.section+1)+indexPath.row
-                cell.collectionView.tag = tag
-                tableViewCellCoordinator[tag] = indexPath
-                
-                cell.tag = CellTag.company.rawValue
-                cell.updateCellWith(company)
-                
-                return cell
-                
-            } else if let person = genericContact as? Person {
-                guard let cell = tableView.dequeueReusableCell(withIdentifier: "PersonCell", for: indexPath) as? PersonCell
-                    else { return UITableViewCell() }
-                
-                cell.tag = CellTag.person.rawValue
-                cell.updateCellWith(person)
-                
-                return cell
-                
-            } else {
-                return UITableViewCell()
-            }
-            
-        case .person:
-            
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "PersonCell", for: indexPath) as? PersonCell
-                else { return UITableViewCell() }
-            
-            cell.tag = CellTag.person.rawValue
-            cell.updateCellWith(contactsManager.getPersonFor(indexPath))
-            
-            return cell
+            return companyView
         default:
-            return UITableViewCell()
+            return nil
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        switch contactsManager.contactType {
+        case .company:
+            return 120
+        default:
+            return CGFloat.leastNormalMagnitude
         }
     }
     
@@ -200,34 +199,11 @@ extension MembersVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        guard let selectedCell = tableView.cellForRow(at: indexPath) else { return }
-        let tagForSelectedRow = selectedCell.tag
-        
-        switch tagForSelectedRow {
-        case CellTag.company.rawValue:
-            
-            switch contactsManager.openedCellIndexPath {
-            case nil:
-                contactsManager.openedCellIndexPath = indexPath
-            default:
-                contactsManager.openedCellIndexPath = nil
-            }
-            tableView.reloadData()
-            
-        case CellTag.person.rawValue:
-            if (tableView.cellForRow(at: indexPath) as? PersonCell) != nil {
-                if let profileVC = ProfileVC.getInstance() {
-                    let publicContactToShow = contactsManager.getPersonFor(indexPath)
-                    profileVC.publicContactToShow = publicContactToShow
-                    navigationController?.pushViewController(profileVC, animated: true)
-                }
-            }
-            
-        default:
-            break
+        if let profileVC = ProfileVC.getInstance() {
+            let publicContactToShow = contactsManager.getPersonFor(indexPath)
+            profileVC.publicContactToShow = publicContactToShow
+            navigationController?.pushViewController(profileVC, animated: true)
         }
-        
     }
     
 }
@@ -235,8 +211,8 @@ extension MembersVC: UITableViewDelegate, UITableViewDataSource {
 extension MembersVC: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let parentTableCellIndexPath = tableViewCellCoordinator[collectionView.tag] else { return 0 }
-        return contactsManager.getNumberOfCollectionCellsForTable(parentTableCellIndexPath)
+        let parentTableSection = collectionView.tag
+        return contactsManager.getNumberOfCollectionCellsForTable(parentTableSection)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -247,26 +223,12 @@ extension MembersVC: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        guard let cell = cell as? PersonCollectionCell
-            else { return }
-        guard let parentTableCellIndexPath = tableViewCellCoordinator[collectionView.tag] else { return }
-        
-        //hideCollectionViewIfCellIsOpened(collectionView, with: parentTableCellIndexPath)
-        
-        let person = contactsManager.getPersonFor(collectionIndexPath: indexPath, tableIndexPath: parentTableCellIndexPath)
+        guard let cell = cell as? PersonCollectionCell else { return }
+        let parentTableSection = collectionView.tag
+        let person = contactsManager.getPersonFor(collectionIndexPath: indexPath, section: parentTableSection)
         cell.updateCellWith(person)
     }
     
-    func hideCollectionViewIfCellIsOpened(_ collectionView: UICollectionView, with parentTableCellIndexPath: IndexPath ) {
-            
-        if let openedCellIndexPath = contactsManager.openedCellIndexPath, openedCellIndexPath == parentTableCellIndexPath {
-            collectionView.isHidden = true
-            print("hidden", parentTableCellIndexPath)
-        } else {
-            collectionView.isHidden = false
-            print("shown", parentTableCellIndexPath)
-        }
-    }
 }
 
 extension MembersVC: UISearchBarDelegate {
@@ -279,11 +241,30 @@ extension MembersVC: UISearchBarDelegate {
     
 }
 
-extension MembersVC {
+extension MembersVC: CompanyViewDelegate {
     
-    enum CellTag: Int {
-        case person = 1
-        case company = 2
+    func wasClosedSection(_ section: Int) {
+        self.contactsManager.closeSection(section)
+        let closedSectionRect = tableView.rectForHeader(inSection: section)
+        if contactsManager.areThereMembersInCompanyWith(section) {
+            UIView.transition(with: tableView, duration: 1, options: .transitionCrossDissolve, animations: {
+                self.tableView.reloadData()
+                self.tableView.scrollRectToVisible(closedSectionRect, animated: true)
+            }, completion: { result in
+            })
+        }
+    }
+    
+    func wasOpenedSection(_ section: Int) {
+        self.contactsManager.openSection(section)
+        let openedSectionRect = tableView.rectForHeader(inSection: section)
+        if contactsManager.areThereMembersInCompanyWith(section) {
+            UIView.transition(with: tableView, duration: 1, options: .transitionCrossDissolve, animations: {
+                self.tableView.reloadData()
+                self.tableView.scrollRectToVisible(openedSectionRect, animated: true)
+            }, completion: { result in
+            })
+        }
     }
     
 }

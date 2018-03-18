@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PersonCollectionCell" id="S1q-Si-D2w" customClass="PersonCollectionCell" customModule="UREClub" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-attend-person" translatesAutoresizingMaskIntoConstraints="NO" id="fbd-kv-IXZ">
+                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="dlv-3B-g4J"/>
+                            <constraint firstAttribute="height" constant="50" id="nTs-YH-wD9"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="fbd-kv-IXZ" firstAttribute="leading" secondItem="S1q-Si-D2w" secondAttribute="leading" id="CIo-8K-7mP"/>
+                <constraint firstItem="fbd-kv-IXZ" firstAttribute="top" secondItem="S1q-Si-D2w" secondAttribute="top" id="i8c-kg-ylz"/>
+                <constraint firstAttribute="bottom" secondItem="fbd-kv-IXZ" secondAttribute="bottom" id="xiK-LP-0ii"/>
+                <constraint firstAttribute="trailing" secondItem="fbd-kv-IXZ" secondAttribute="trailing" id="yOO-fB-YvD"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fM7-OY-eKz"/>
+            <size key="customSize" width="50" height="50"/>
+            <connections>
+                <outlet property="personImageView" destination="fbd-kv-IXZ" id="ydB-xl-hhb"/>
+            </connections>
+            <point key="canvasLocation" x="46" y="-31"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="icon-attend-person" width="50" height="50"/>
+    </resources>
+</document>

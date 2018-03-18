@@ -132,7 +132,7 @@ extension ContactsVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch viewType {
         case .team:
-            return contactsManager.getNumberOfTableCells()
+            return contactsManager.getNumberOfTableCellsFor(section)
         case .address:
             return getNumberOfRowsForAddressTypeIn(section)
         }

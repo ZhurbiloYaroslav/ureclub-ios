@@ -159,6 +159,11 @@
 		C4E976A2205D0E670069ADB3 /* AddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E976A0205D0E670069ADB3 /* AddressCell.swift */; };
 		C4E976A3205D0E670069ADB3 /* AddressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4E976A1205D0E670069ADB3 /* AddressCell.xib */; };
 		C4E976A5205D22190069ADB3 /* UIView+customHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E976A4205D22190069ADB3 /* UIView+customHeaderView.swift */; };
+		C4E976A8205D6D640069ADB3 /* CompanyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4E976A7205D6D640069ADB3 /* CompanyView.xib */; };
+		C4E976AA205D6D740069ADB3 /* CompanyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E976A9205D6D740069ADB3 /* CompanyView.swift */; };
+		C4E976AC205D711A0069ADB3 /* PersonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4E976AB205D71190069ADB3 /* PersonCell.xib */; };
+		C4E976B0205D7E730069ADB3 /* UIView+fromNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E976AF205D7E730069ADB3 /* UIView+fromNib.swift */; };
+		C4E976B2205E7C9C0069ADB3 /* PersonCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4E976B1205E7C9C0069ADB3 /* PersonCollectionCell.xib */; };
 		C4F087532020C8B200C3BDC6 /* FastInitialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F087522020C8B200C3BDC6 /* FastInitialization.swift */; };
 		C4F087552020CA7F00C3BDC6 /* ProfileEditVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4F087542020CA7F00C3BDC6 /* ProfileEditVC.storyboard */; };
 		C4F0875A2020D12400C3BDC6 /* ProfileButtonsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F087582020D12400C3BDC6 /* ProfileButtonsCell.swift */; };
@@ -341,6 +346,11 @@
 		C4E976A0205D0E670069ADB3 /* AddressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressCell.swift; sourceTree = "<group>"; };
 		C4E976A1205D0E670069ADB3 /* AddressCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressCell.xib; sourceTree = "<group>"; };
 		C4E976A4205D22190069ADB3 /* UIView+customHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+customHeaderView.swift"; sourceTree = "<group>"; };
+		C4E976A7205D6D640069ADB3 /* CompanyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompanyView.xib; sourceTree = "<group>"; };
+		C4E976A9205D6D740069ADB3 /* CompanyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyView.swift; sourceTree = "<group>"; };
+		C4E976AB205D71190069ADB3 /* PersonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonCell.xib; sourceTree = "<group>"; };
+		C4E976AF205D7E730069ADB3 /* UIView+fromNib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+fromNib.swift"; sourceTree = "<group>"; };
+		C4E976B1205E7C9C0069ADB3 /* PersonCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonCollectionCell.xib; sourceTree = "<group>"; };
 		C4F087522020C8B200C3BDC6 /* FastInitialization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastInitialization.swift; sourceTree = "<group>"; };
 		C4F087542020CA7F00C3BDC6 /* ProfileEditVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProfileEditVC.storyboard; sourceTree = "<group>"; };
 		C4F087582020D12400C3BDC6 /* ProfileButtonsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileButtonsCell.swift; sourceTree = "<group>"; };
@@ -537,6 +547,7 @@
 				C48B5D522047AD520091A960 /* Array+contains.swift */,
 				C4696B7D205551D000B791BC /* UIButton+setBackgroundColor.swift */,
 				C4E976A4205D22190069ADB3 /* UIView+customHeaderView.swift */,
+				C4E976AF205D7E730069ADB3 /* UIView+fromNib.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1037,6 +1048,7 @@
 		C4DC776D200FC36100F3814F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C4E976A6205D6D380069ADB3 /* CompanyView */,
 				C4DC777F200FE39900F3814F /* CompanyCell */,
 				C4DC7780200FE3A300F3814F /* PersonCell */,
 			);
@@ -1054,7 +1066,6 @@
 			isa = PBXGroup;
 			children = (
 				C4DC7774200FC46200F3814F /* CompanyCell.swift */,
-				C4DC777D200FDD1900F3814F /* PersonCollectionCell.swift */,
 			);
 			path = CompanyCell;
 			sourceTree = "<group>";
@@ -1063,6 +1074,7 @@
 			isa = PBXGroup;
 			children = (
 				C4DC776F200FC41B00F3814F /* PersonCell.swift */,
+				C4E976AB205D71190069ADB3 /* PersonCell.xib */,
 			);
 			path = PersonCell;
 			sourceTree = "<group>";
@@ -1102,6 +1114,17 @@
 				C4959EDF200F1DC20063D436 /* Model */,
 			);
 			path = Filter;
+			sourceTree = "<group>";
+		};
+		C4E976A6205D6D380069ADB3 /* CompanyView */ = {
+			isa = PBXGroup;
+			children = (
+				C4E976A7205D6D640069ADB3 /* CompanyView.xib */,
+				C4E976A9205D6D740069ADB3 /* CompanyView.swift */,
+				C4DC777D200FDD1900F3814F /* PersonCollectionCell.swift */,
+				C4E976B1205E7C9C0069ADB3 /* PersonCollectionCell.xib */,
+			);
+			path = CompanyView;
 			sourceTree = "<group>";
 		};
 		C4F087562020CA9300C3BDC6 /* ProfileEdit */ = {
@@ -1254,12 +1277,14 @@
 				C4662AD91FEAAE38001848C8 /* Montserrat-LightItalic.ttf in Resources */,
 				C47BEE48201FEA1400688AEF /* PasswordEdit.storyboard in Resources */,
 				C463F87D1FF50710001FBBC1 /* Localizable.strings in Resources */,
+				C4E976AC205D711A0069ADB3 /* PersonCell.xib in Resources */,
 				C40C84992002BF980011AF01 /* ChangeLanguageCell.xib in Resources */,
 				C4F4DB5E1FF5369500AA607C /* FieldCell.xib in Resources */,
 				C4662ADB1FEAAE38001848C8 /* Montserrat-Medium.ttf in Resources */,
 				C463F8851FF5108B001FBBC1 /* ProfileHeaderCell.xib in Resources */,
 				C4662AD61FEAAE38001848C8 /* Montserrat-Black.ttf in Resources */,
 				C41CA38A1FDBF29100AB0D2D /* Launch screen.jpg in Resources */,
+				C4E976A8205D6D640069ADB3 /* CompanyView.xib in Resources */,
 				C47FA74C1FE1D795003D393E /* Contacts.storyboard in Resources */,
 				C4662ADF1FEAAE38001848C8 /* Montserrat-ThinItalic.ttf in Resources */,
 				C4C203E91FE2938500272679 /* Main.storyboard in Resources */,
@@ -1288,6 +1313,7 @@
 				C4E976A3205D0E670069ADB3 /* AddressCell.xib in Resources */,
 				C4C203E31FE2869C00272679 /* Codex.storyboard in Resources */,
 				C4662ADD1FEAAE38001848C8 /* Montserrat-Italic.ttf in Resources */,
+				C4E976B2205E7C9C0069ADB3 /* PersonCollectionCell.xib in Resources */,
 				C480166C201B7A6E005F2253 /* Language.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1403,6 +1429,7 @@
 				C4662ABB1FEAA501001848C8 /* Event.swift in Sources */,
 				C4E522041FE914AD00C3DE2E /* TableViewCell+Style.swift in Sources */,
 				C4662AB71FEA98F7001848C8 /* NetworkManager.swift in Sources */,
+				C4E976B0205D7E730069ADB3 /* UIView+fromNib.swift in Sources */,
 				C4C203EF1FE2A5F700272679 /* Codex.swift in Sources */,
 				C4FA7D281FF7616300F03846 /* SettingsCells.swift in Sources */,
 				C43D1F76201DF7F600CFC158 /* ProfileEditVC.swift in Sources */,
@@ -1446,6 +1473,7 @@
 				C4B8A5C62013ED1000645E2E /* ContactsData.swift in Sources */,
 				C40C84922002B10D0011AF01 /* ChangePasswordCell.swift in Sources */,
 				C4C203E51FE2871500272679 /* CodexVC.swift in Sources */,
+				C4E976AA205D6D740069ADB3 /* CompanyView.swift in Sources */,
 				C40C84982002BF980011AF01 /* ChangeLanguageCell.swift in Sources */,
 				C4044B3B204456590062922D /* NewFilter.swift in Sources */,
 				C4B54B2F1FEEFA3C008D531E /* CurrentUser.swift in Sources */,
