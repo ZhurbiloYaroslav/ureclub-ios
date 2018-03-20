@@ -30,22 +30,15 @@ class ArticleDescVC: UIViewController {
     @IBOutlet weak var attendanceListContainer: UIView!
     @IBOutlet weak var seeWhoAttendButton: UIButton!
     
-    @IBAction func seeWhoAttendButtonPressed(_ sender: UIButton) {
-        if let membersVC = MembersVC.getInstance() {
-            membersVC.contactsManager.contactsData.setAttendanceParams(attendanceMembersID)
-            navigationController?.pushViewController(membersVC, animated: true)
-        }
-    }
-    
     @IBOutlet var slideshow: ImageSlideshow!
     
     var currentArticle: Article?
     
     let networkManager = NetworkManager()
     
-    var attendanceMembersID: [Int]?
+    var attendanceData: [[String: Any]]?
     
-    var currentUserAttendCurrentEvent: Bool = false
+    var currentUserBookingIdOnCurrentEvent: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,12 +63,37 @@ class ArticleDescVC: UIViewController {
         contentWebView.delegate = self
     }
     
-    // MARK: IBAction(s)
+    // MARK: - IBAction(s)
     @IBAction func goButtonPressed(_ sender: UIButton) {
-        guard let event = currentArticle as? Event else {
-            return
+        guard let event = currentArticle as? Event else { return }
+        if let bookingID = currentUserBookingIdOnCurrentEvent {
+            cancelBookingFor(bookingID)
+        } else {
+            performBookingFor(event)
         }
-        networkManager.getNonce { (nonce, error) in
+    }
+    
+    @IBAction func seeWhoAttendButtonPressed(_ sender: UIButton) {
+        if let membersVC = MembersVC.getInstance(), let attendanceData = attendanceData {
+            
+            var membersID = [Int]()
+            attendanceData.forEach { dictWithPersonAttendance in
+                guard let personID = dictWithPersonAttendance["person"] as? Int
+                    else { return }
+                membersID.append(personID)
+            }
+            membersVC.contactsManager.contactsData.setAttendanceParams(membersID)
+            navigationController?.pushViewController(membersVC, animated: true)
+        }
+    }
+}
+
+// MARK: - Booking and Decline attendance
+extension ArticleDescVC {
+    
+    func performBookingFor(_ event: Event) {
+        let declineAttendanceData = NetworkManager.NonceRequestData(nonceAction: .bookingAdd)
+        networkManager.getNonceWith(declineAttendanceData) { (nonce, error) in
             guard let nonce = nonce else {
                 return
             }
@@ -84,20 +102,47 @@ class ArticleDescVC: UIViewController {
                 event_id: event.getStringWithID(),
                 ticket_id: event.ticket.getStringWithID(),
                 amount: 1,
-                comment: "All is ok"
+                comment: ""
             )
             self.networkManager.bookEvent(bookEventRequestData, completionHandler: {
                 self.getAttendance()
-                let alertTitle = "Booking".localized()
-                Alert().presentAlertWith(title: alertTitle, andMessages: ["Message"]) { alertVC in
+                let alertTitle = "alert_booking_success_title".localized()
+                let alertMessage = ["alert_booking_success_message".localized()]
+                Alert().presentAlertWith(title: alertTitle, andMessages: alertMessage) { alertVC in
                     self.present(alertVC, animated: true, completion: nil)
                 }
             })
         }
     }
+    
+    func cancelBookingFor(_ bookingID: Int) {
+        let declineAttendanceData = NetworkManager.NonceRequestData(nonceAction: .bookingCancel)
+        networkManager.getNonceWith(declineAttendanceData) { (nonce, error) in
+            guard let nonce = nonce else {
+                return
+            }
+            let declineAttendanceData = NetworkManager.CancelBookingData(nonceAction: .bookingCancel, nonce: nonce, bookingID: bookingID)
+            self.networkManager.declineAttendance(declineAttendanceData) {
+                self.resetGoButtonStyle()
+                self.getAttendance()
+                let alertTitle = "alert_booking_decline_title".localized()
+                let alertMessage = ["alert_booking_decline_message".localized()]
+                Alert().presentAlertWith(title: alertTitle, andMessages: alertMessage) { alertVC in
+                    self.present(alertVC, animated: true, completion: nil)
+                }
+            }
+        }
+    }
+    
+    private func resetGoButtonStyle() {
+        self.goButton.setTitle("button_go_to_meeting".localized(), for: .normal)
+        self.goButton.setBackgroundColor(color: #colorLiteral(red: 0, green: 0.631372549, blue: 0.8509803922, alpha: 1), forState: .normal)
+        currentUserBookingIdOnCurrentEvent = nil
+    }
+    
 }
 
-// MARK: Methods related with updating UI
+// MARK: - Methods related with updating UI
 extension ArticleDescVC {
     
     func setupUI() {
@@ -119,13 +164,14 @@ extension ArticleDescVC {
     
     func updateUIWithLocalizedText() {
         
+        //navigationItem.title = " ".localized()
+        
         switch currentArticle {
         case let eventArticle where eventArticle is Event:
-            //navigationItem.title = "screen_eventDescription_title".localized()
+            goButton.setTitle("button_go_to_meeting".localized(), for: .normal)
             seeWhoAttendButton.setTitle("event_attend_seewho".localized(), for: .normal)
         case let newsArticle where newsArticle is News:
             break
-            //navigationItem.title = "screen_newsDescription_title".localized()
         default:
             break
         }
@@ -201,33 +247,40 @@ extension ArticleDescVC {
         NewNetworkManager().performRequest(.attendance(attendanceData)) { (resultData) in
             
             switch resultData {
-            case .withMembersID(let arrayWithMembersID):
-                self.configureUIDependOnArrayOfAttendanceMembers(arrayWithMembersID)
+            case .withAttendanceData(let arrayWithAttendanceData):
+                self.configureUIDependOnArrayOfAttendanceMembers(arrayWithAttendanceData)
             default:
-                break
+                self.enableGoButton()
             }
         }
     }
     
-    func configureUIDependOnArrayOfAttendanceMembers(_ arrayWithMembersID: [Int]) {
+    func configureUIDependOnArrayOfAttendanceMembers(_ arrayWithAttendanceData: [[String: Any]]) {
         
-        let arrayWithMembersIsNotEmpty = arrayWithMembersID.isEmpty == false
-        if arrayWithMembersIsNotEmpty {
-            self.attendanceMembersID = arrayWithMembersID
+        let arrayWithAttendanceDataIsNotEmpty = arrayWithAttendanceData.isEmpty == false
+        if arrayWithAttendanceDataIsNotEmpty {
+            self.attendanceData = arrayWithAttendanceData
             self.attendanceListContainer.isHidden = false
+        } else {
+            self.attendanceListContainer.isHidden = true
         }
         
-        arrayWithMembersID.forEach { (memberID) in
-            if CurrentUser.getID() == memberID {
-                let goButtonTitle = "i_am_going".localized()
-                self.goButton.setTitle(goButtonTitle, for: .normal)
+        arrayWithAttendanceData.forEach { dictWithAttendanceInfo in
+            if let personID = dictWithAttendanceInfo["person"] as? Int,
+                let bookingID = dictWithAttendanceInfo["booking"] as? Int,
+                personID == CurrentUser.getID() {
+                
+                self.goButton.setTitle("button_decline_meeting".localized(), for: .normal)
                 self.goButton.setBackgroundColor(color: #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1), forState: .normal)
-                currentUserAttendCurrentEvent = true
+                currentUserBookingIdOnCurrentEvent = bookingID
             }
         }
+        enableGoButton()
         
+    }
+    
+    private func enableGoButton() {
         self.goButton.isEnabled = true
-        
     }
     
 }

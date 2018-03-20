@@ -122,5 +122,22 @@
 "password_change_title" = "Change password";
 "password_change_success" = "Password was changed!";
 "server_password_reset_success" = "Your password was reset";
-"i_am_going" = "Decline";
+
+/*Fuzzy*/
+"button_decline_meeting" = "Decline";
 "profile_edit_description_title" = "About";
+"control_contacts_team" = "Team";
+"control_contacts_office" = "Office";
+"header_address" = "Address";
+"header_website" = "Web page";
+"ureclub_address" = "72 Verkhniy Val St.\nUkraine, Kyiv, 04070";
+"button_go_to_meeting" = "Go!";
+
+/*Fuzzy*/
+"alert_booking_success_title" = "Booking";
+"alert_booked_event_message" = "";
+"alert_booking_success_message" = "You have successfully registered for this event";
+
+/*Fuzzy*/
+"alert_booking_decline_message" = "You canceled the registration for this event";
+"alert_booking_decline_title" = "Сancellation";

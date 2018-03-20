@@ -20,10 +20,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Details-->
+        <!--Article DescVC-->
         <scene sceneID="C7Q-lI-HFm">
             <objects>
-                <viewController storyboardIdentifier="ArticleDescVC" title="Details" id="hpo-A6-tVV" customClass="ArticleDescVC" customModule="UREClub" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ArticleDescVC" id="hpo-A6-tVV" customClass="ArticleDescVC" customModule="UREClub" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XtJ-5B-SLT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -111,8 +111,9 @@ class NetworkManager: NSObject {
             case register
             case contacts
             case events
-            case bookEvent
             case nonce // Secure phrase to submit the event
+            case bookEvent
+            case declineAttendance
             case news
             case user
             case filter
@@ -127,8 +128,9 @@ class NetworkManager: NSObject {
                 case .register: resultAddress += ureclubRestPath + "register"
                 case .contacts: resultAddress += ureclubRestPath + "contacts"
                 case .events: resultAddress += ureclubRestPath + "events"
-                case .bookEvent: resultAddress += ureclubRestPath + "book-event"
                 case .nonce: resultAddress += ureclubRestPath + "nonce"
+                case .bookEvent: resultAddress += ureclubRestPath + "book-event"
+                case .declineAttendance: resultAddress += ureclubRestPath + "decline-attendance"
                 case .news: resultAddress += ureclubRestPath + "news"
                 case .user: resultAddress += ureclubRestPath + "user"
                 case .filter: resultAddress += ureclubRestPath + "filter"
@@ -454,9 +456,8 @@ extension NetworkManager {
 // MARK: Get nonce
 extension NetworkManager {
     
-    func getNonce(completionHandler: @escaping (_ nonce: String?, _ error: String?)->()) {
+    func getNonceWith(_ userData: NonceRequestData, completionHandler: @escaping (_ nonce: String?, _ error: String?)->()) {
         
-        let userData = NonceRequestData()
         guard let url = userData.getURL() else {
             completionHandler(nil, "Bad url")
             return
@@ -483,6 +484,8 @@ extension NetworkManager {
     
     struct NonceRequestData {
         
+        let nonceAction: NonceAction
+        
         private var currentPath: RequestAddress.ServerPath { return .nonce }
         private let pageAddress: String = RequestAddress.ServerPath.nonce.address()
         private let bearerToken = CurrentUser.getBearerToken()
@@ -490,7 +493,7 @@ extension NetworkManager {
         func getParams() -> Parameters {
             return [
                 "Authorization": bearerToken,
-                "nonce_action": "booking_add"
+                "nonce_action": nonceAction.text
             ]
         }
         
@@ -506,6 +509,13 @@ extension NetworkManager {
             return URL(string: result)
         }
         
+    }
+    
+    enum NonceAction: String {
+        case bookingAdd = "booking_add"
+        case bookingCancel = "booking_cancel"
+        
+        var text: String { return self.rawValue }
     }
     
 }
@@ -545,6 +555,54 @@ extension NetworkManager {
                 "booking_comment": comment,
                 "em_lang": "en_US",
                 "lang": "en"
+            ]
+        }
+        
+        func getHeaders() -> HTTPHeaders {
+            return [
+                "Authorization": bearerToken
+            ]
+        }
+        
+        func getURL() -> URL? {
+            var result = "\(pageAddress)"
+            result = result.replacingOccurrences(of: " ", with: "%20")
+            return URL(string: result)
+        }
+        
+    }
+    
+}
+
+// MARK: Decline attendance
+extension NetworkManager {
+    
+    func declineAttendance(_ userData: CancelBookingData, completionHandler: @escaping ()->()) {
+        
+        guard let url = userData.getURL() else { return }
+        let parameters = userData.getParams()
+        let headers = userData.getHeaders()
+        
+        Alamofire.request(url, method:.post, parameters:parameters, headers:headers).responseJSON { (response) in
+            completionHandler()
+        }
+    }
+    
+    struct CancelBookingData {
+        
+        let nonceAction: NonceAction
+        let nonce: String
+        let bookingID: Int
+        
+        private var currentPath: RequestAddress.ServerPath { return .nonce }
+        private let pageAddress: String = RequestAddress.ServerPath.declineAttendance.address()
+        private let bearerToken = CurrentUser.getBearerToken()
+        
+        func getParams() -> Parameters {
+            return [
+                "action": nonceAction.text,
+                "booking_id": bookingID,
+                "_wpnonce": nonce
             ]
         }
         

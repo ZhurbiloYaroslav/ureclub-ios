@@ -85,15 +85,12 @@ extension NewNetworkManager {
         
         let responseValue = makeDictionaryFrom(response)
         
-        guard let dictWithData = responseValue["data"] as? Dictionary<String, Any> else {
+        guard let arrayWithAttendanceData = responseValue["data"] as? [Dictionary<String, Any>] else {
             return ResultData.withErrors([NetworkError.badData])
         }
-        
-        guard let arrayWithMembersID = dictWithData["users"] as? [Int] else {
-            return ResultData.withErrors([NetworkError.undefined])
-        }
-        
-        return ResultData.withMembersID(arrayWithMembersID)
+        print("arrayWithAttendanceData", arrayWithAttendanceData)
+
+        return ResultData.withAttendanceData(arrayWithAttendanceData)
         
     }
     
@@ -224,7 +221,7 @@ extension NewNetworkManager {
     
     enum ResultData {
         case withErrors([NetworkError])
-        case withMembersID([Int]) // Attendance
+        case withAttendanceData([[String: Any]]) // Attendance
         case dictWithFilter([String: Any]) // Dictionary with Filter categories
         case dictWithUpdatedProfile([String: Any]) // Dictionary with Filter categories
     }

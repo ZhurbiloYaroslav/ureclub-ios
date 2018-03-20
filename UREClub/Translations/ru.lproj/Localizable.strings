@@ -74,7 +74,7 @@
 "month_12" = "December";
 "month_undefined" = "Undefined";
 "filter_section_year" = "Year";
-"filter_section_category" = "Type";
+"filter_section_category" = "Тип";
 "filter_section_sorting" = "Sorting";
 "filter_section_status" = "Status";
 "filter_section_starred" = "Starred";
@@ -82,7 +82,7 @@
 "filter_section_category_user" = "Occupation";
 "screen_filter_title" = "Filter";
 "event_attend_seewho" = "See who attend";
-"menu_item_logout" = "Log out";
+"menu_item_logout" = "Выйти";
 "screen_language_title" = "Choose Language";
 
 /*server_[server error]*/
@@ -118,10 +118,22 @@
 "password_change_title" = "Change password";
 "password_change_success" = "Password was changed!";
 "server_password_reset_success" = "Your password was reset";
-"i_am_going" = "Отменить";
+
+/*Fuzzy*/
+"button_decline_meeting" = "Отменить";
 "profile_edit_description_title" = "О приложении";
 "control_contacts_team" = "Команда";
 "control_contacts_office" = "Офис";
 "header_address" = "Адрес";
 "header_website" = "Сайт";
 "ureclub_address" = "ул. Верхний Вал 72\nУкраина, Киев, 04070";
+"button_go_to_meeting" = "Я иду";
+
+/*Fuzzy*/
+"alert_booking_success_title" = "Регистрация";
+"alert_booked_event_message" = "";
+"alert_booking_success_message" = "Вы успешно зарегистрировались на данное мероприятие";
+
+/*Fuzzy*/
+"alert_booking_decline_message" = "Вы отменили регистрацию на данное мероприятие";
+"alert_booking_decline_title" = "Отмена регистрации";
