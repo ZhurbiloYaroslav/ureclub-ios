@@ -50,6 +50,7 @@
 		C43D1F76201DF7F600CFC158 /* ProfileEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43D1F75201DF7F600CFC158 /* ProfileEditVC.swift */; };
 		C43D1F79201DFA4D00CFC158 /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C43D1F78201DFA4D00CFC158 /* Notifications.storyboard */; };
 		C43D1F7D201E843000CFC158 /* UIViewController+hideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43D1F7C201E843000CFC158 /* UIViewController+hideKeyboard.swift */; };
+		C43E9FAB206098D1008B8A13 /* String+capitalizingFirst.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43E9FAA206098D1008B8A13 /* String+capitalizingFirst.swift */; };
 		C44574601FDC18FB004A5305 /* NewsListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C445745F1FDC18FB004A5305 /* NewsListVC.swift */; };
 		C44574621FDC192C004A5305 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44574611FDC192C004A5305 /* SettingsVC.swift */; };
 		C44574661FDC1B97004A5305 /* MembersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44574651FDC1B97004A5305 /* MembersVC.swift */; };
@@ -225,6 +226,7 @@
 		C43D1F75201DF7F600CFC158 /* ProfileEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditVC.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		C43D1F78201DFA4D00CFC158 /* Notifications.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notifications.storyboard; sourceTree = "<group>"; };
 		C43D1F7C201E843000CFC158 /* UIViewController+hideKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+hideKeyboard.swift"; sourceTree = "<group>"; };
+		C43E9FAA206098D1008B8A13 /* String+capitalizingFirst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+capitalizingFirst.swift"; sourceTree = "<group>"; };
 		C445745F1FDC18FB004A5305 /* NewsListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListVC.swift; sourceTree = "<group>"; };
 		C44574611FDC192C004A5305 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		C44574651FDC1B97004A5305 /* MembersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersVC.swift; sourceTree = "<group>"; wrapsLines = 0; };
@@ -548,6 +550,7 @@
 				C4696B7D205551D000B791BC /* UIButton+setBackgroundColor.swift */,
 				C4E976A4205D22190069ADB3 /* UIView+customHeaderView.swift */,
 				C4E976AF205D7E730069ADB3 /* UIView+fromNib.swift */,
+				C43E9FAA206098D1008B8A13 /* String+capitalizingFirst.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1447,6 +1450,7 @@
 				C4DC7776200FC46200F3814F /* CompanyCell.swift in Sources */,
 				C4B54B311FEF01AC008D531E /* News.swift in Sources */,
 				C4F4DB5F1FF5369B00AA607C /* FieldCell.swift in Sources */,
+				C43E9FAB206098D1008B8A13 /* String+capitalizingFirst.swift in Sources */,
 				C41CA39A1FDC010700AB0D2D /* ProfileVC.swift in Sources */,
 				C4C203DF1FE27F2B00272679 /* NavBarVC.swift in Sources */,
 				C463F8741FF4FAD2001FBBC1 /* NetworkError.swift in Sources */,

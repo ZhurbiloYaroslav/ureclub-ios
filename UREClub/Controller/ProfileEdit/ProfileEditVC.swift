@@ -107,8 +107,13 @@ class ProfileEditVC: UIViewController {
             textField.textColor = darkGreyColor
             textField.selectedTitleColor = overcastBlueColor
             textField.selectedLineColor = overcastBlueColor
-            textField.titleFont = UIFont(name: "Montserrat-Regular", size: 17)!
+            textField.font = UIFont(name: "Montserrat-Regular", size: 17)!
+            textField.titleFont = UIFont(name: "Montserrat-Bold", size: 14)!
             textField.placeholderFont = UIFont(name: "Montserrat-Bold", size: 14)!
+            textField.titleLabel.font = UIFont(name: "Montserrat-Bold", size: 14)!
+            textField.titleFormatter = { title in
+                return title.lowercased().capitalizingFirstLetter()
+            }
         }
         
         userDescriptionTextView.layer.borderWidth = 1

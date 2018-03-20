@@ -19,7 +19,7 @@ class ArticleDescVC: UIViewController {
     
     // MARK: IBOutlets of Event only
     @IBOutlet weak var stackWithAddress: UIStackView!
-    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var addresButton: UIButton!
     
     @IBOutlet weak var stackWithTime: UIStackView!
     @IBOutlet weak var timePeriodLabel: UILabel!
@@ -86,6 +86,13 @@ class ArticleDescVC: UIViewController {
             navigationController?.pushViewController(membersVC, animated: true)
         }
     }
+    
+    @IBAction func addressButtonPressed(_ sender: UIButton) {
+        guard let currentEvent = currentArticle as? Event else { return }
+        let eventLocationLink = currentEvent.location.getGoogleMapsLink()
+        Browser.openURLWith(eventLocationLink)
+    }
+    
 }
 
 // MARK: - Booking and Decline attendance
@@ -188,7 +195,7 @@ extension ArticleDescVC {
             
         case let eventArticle as Event:
             
-            addressLabel.text = eventArticle.location.getNameAndCity()
+            addresButton.setTitle(eventArticle.location.getNameAndCity(), for: .normal)
             dateLabel.text = eventArticle.date.getStringWithDate()
             timePeriodLabel.text = eventArticle.date.getTimePeriod()
             if eventArticle.isRegistrationDisabled() {

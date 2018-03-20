@@ -45,7 +45,24 @@ struct Location {
         self.init(id: id, name: name, city: city, address: address, country: country, latitude: latitude, longitude: longitude)
     }
     
-    func getNameAndCity() -> String {
+    public func getNameAndCity() -> String {
         return name + ", " + city
+    }
+    
+    public func getGoogleMapsLink() -> String {
+        let baseLink = "http://maps.google.com/maps?&z=10"
+        let coordinates = "\(latitude)+\(longitude)"
+        var searchName: String {
+            let nameParts = name.components(separatedBy: [" ", "-", ",", "."])
+            return nameParts.joined(separator: "+")
+        }
+        let linkWithCoordAndName = "\(baseLink)&ll=\(coordinates)&q=\(searchName)"
+        let escapedLink = linkWithCoordAndName.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        print("escapedLink", escapedLink)
+        return escapedLink ?? "\(baseLink)&ll=\(coordinates)"
+    }
+    
+    public func getGoogleMapsURL() -> URL? {
+        return URL(string: getGoogleMapsLink())
     }
 }

@@ -8,12 +8,15 @@
 
 import UIKit
 
-class AddressCell: UITableViewCell {
+protocol AddressCellDelegate: class {
+    func didPressOnMap()
+}
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        
-    }
+class AddressCell: UITableViewCell {
     
+    weak var delegate: AddressCellDelegate?
+    
+    @IBAction func didPressOnCell(_ sender: UITapGestureRecognizer) {
+        delegate?.didPressOnMap()
+    }
 }

@@ -40,6 +40,15 @@ class Browser {
         openURLWith(phoneURL)
     }
     
+    static func openUREClubOnMap() {
+        let baseLink = "http://maps.google.com/maps?&z=10"
+        let coordinates = "\(50.4717454)+\(30.5212255)"
+        let searchName = "Ukrainian Real Estate Club"
+        let linkWithCoordAndName = "\(baseLink)&ll=\(coordinates)&q=\(searchName)"
+        let escapedLink = linkWithCoordAndName.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        openURLWith(escapedLink!)
+    }
+    
     enum UrlAdresses {
         case callUREClub6753
         case callUREClub5158

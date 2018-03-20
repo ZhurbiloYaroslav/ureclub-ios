@@ -174,32 +174,38 @@ extension ContactsVC: UITableViewDelegate, UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "AddressCell", for: indexPath) as? AddressCell
                 else { return UITableViewCell() }
             return cell
+            
         case [1,0]:
             let cellTitle = "header_address".localized()
             let address = "ureclub_address".localized()
             let cellData = FieldCell.CellData(type: .address, icon: UIImage(), title: cellTitle, value: address)
             cell.configureWith(cellData)
             return cell
+            
         case [1,1]:
             let cellTitle = "profile_phone".localized()
             let cellData = FieldCell.CellData(type: .phone, icon: UIImage(), title: cellTitle, value: "+380442276753")
             cell.configureWith(cellData)
             return cell
+            
         case [1,2]:
             let cellTitle = "profile_phone".localized()
             let cellData = FieldCell.CellData(type: .phone, icon: UIImage(), title: cellTitle, value: "+380443605158")
             cell.configureWith(cellData)
             return cell
+            
         case [1,3]:
             let cellTitle = "profile_email".localized()
             let cellData = FieldCell.CellData(type: .email, icon: UIImage(), title: cellTitle, value: "urec@gmail.com")
             cell.configureWith(cellData)
             return cell
+            
         case [1,4]:
             let cellTitle = "header_website".localized()
             let cellData = FieldCell.CellData(type: .email, icon: UIImage(), title: cellTitle, value: "urec@gmail.com")
             cell.configureWith(cellData)
             return cell
+            
         case [1,5]:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileButtonsCell", for: indexPath) as? ProfileButtonsCell
                 else { return UITableViewCell() }
@@ -222,7 +228,12 @@ extension ContactsVC: UITableViewDelegate, UITableViewDataSource {
                 navigationController?.pushViewController(profileVC, animated: true)
             }
         case .address:
-            print("Selected Address Cell")
+            switch indexPath {
+            case [0,0]:
+                Browser.openUREClubOnMap()
+            default:
+                break
+            }
         }
     }
     
