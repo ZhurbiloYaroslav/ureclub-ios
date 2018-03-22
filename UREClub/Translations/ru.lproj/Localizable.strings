@@ -93,22 +93,22 @@
 "server_invalid_email" = "Пользователя с таким email не существует";
 "server_error_undefined" = "Неизвестная ошибка соединения";
 "server_bad_connection" = "Вероятно, соединение с интернетом прервано";
-"password_reset_success" = "Password was sent on your Email";
+"password_reset_success" = "Password has been sent on your Email";
 "server_email_is_not_registered" = "Email is not registered";
 "server_empty_email" = "Email is empty";
 "auth_alert_password_reset_title" = "Reset password";
 "alert_button_ok" = "OK";
 "alert_button_send" = "Reset";
-"auth_alert_password_reset_message" = "Write your email to reset your password";
+"auth_alert_password_reset_message" = "Write your email to reset the password";
 "alert_button_cancel" = "Cancel";
-"password_reset_send_success" = "Password was sent to your email";
+"password_reset_send_success" = "Password has been sent to your email";
 "email_is_valid" = "Email is not valid";
 "about_app_section" = "О приложении";
 "about_app_title" = "О приложении";
 "screen_attendance_title" = "List of participants";
 "placeholder_password_current" = "Current password";
 "placeholder_password_new" = "New password";
-"placeholder_password_repeat" = "Repeat password";
+"placeholder_password_repeat" = "Confirm password";
 "button_password_change" = "Change password";
 "password_current_is_not_valid" = "Current password is not valid";
 "password_new_is_not_valid" = "New password is not valid";
@@ -116,8 +116,8 @@
 "passwords_not_equal" = "Passwords are not equal";
 "password_current_is_not_match" = "Current password doesn't match";
 "password_change_title" = "Change password";
-"password_change_success" = "Password was changed!";
-"server_password_reset_success" = "Your password was reset";
+"password_change_success" = "Your password has been changed";
+"server_password_reset_success" = "Your password has been reset";
 
 /*Fuzzy*/
 "button_decline_meeting" = "Отменить";
@@ -131,7 +131,7 @@
 
 /*Fuzzy*/
 "alert_booking_success_title" = "Регистрация";
-"alert_booked_event_message" = "";
+"alert_booked_event_message" = "You have been successfully registered for this event";
 "alert_booking_success_message" = "Вы успешно зарегистрировались на данное мероприятие";
 
 /*Fuzzy*/

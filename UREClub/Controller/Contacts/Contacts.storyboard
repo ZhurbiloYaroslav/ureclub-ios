@@ -37,8 +37,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="7Hz-fP-6Lu" customClass="TopSegmentedContol" customModule="UREClub" customModuleProvider="target">
-                                <rect key="frame" x="136" y="72" width="103" height="31"/>
+                                <rect key="frame" x="87.5" y="72" width="200" height="31"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="C3g-Mj-Geh"/>
                                     <constraint firstAttribute="height" constant="30" id="p8L-qo-1W0"/>
                                 </constraints>
                                 <segments>
