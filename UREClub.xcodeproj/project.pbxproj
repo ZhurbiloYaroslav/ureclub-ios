@@ -113,6 +113,8 @@
 		C4959EE3200F20AC0063D436 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4959EE2200F20AC0063D436 /* Contact.swift */; };
 		C4959EE9200F292F0063D436 /* LogOutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4959EE7200F292F0063D436 /* LogOutCell.swift */; };
 		C4959EEA200F292F0063D436 /* LogOutCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4959EE8200F292F0063D436 /* LogOutCell.xib */; };
+		C4987EB42066353200D740D1 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4987EB32066353200D740D1 /* NotificationService.swift */; };
+		C4987EB82066353200D740D1 /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C4987EB12066353200D740D1 /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C4AA29AC2005FA29009FE92C /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AA29AB2005FA29009FE92C /* Validator.swift */; };
 		C4AA29AE2005FA3F009FE92C /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AA29AD2005FA3F009FE92C /* Alert.swift */; };
 		C4AA3CEE1FF66E90008B00B4 /* CellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AA3CED1FF66E90008B00B4 /* CellType.swift */; };
@@ -175,11 +177,38 @@
 		C4FA7D281FF7616300F03846 /* SettingsCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FA7D271FF7616300F03846 /* SettingsCells.swift */; };
 		C4FA7D2A1FF7654100F03846 /* GenericCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FA7D291FF7654100F03846 /* GenericCell.swift */; };
 		C4FA7D2D1FF7712B00F03846 /* TableSectionNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FA7D2C1FF7712B00F03846 /* TableSectionNumber.swift */; };
+		EFF0B33465F59B2E07EA20BE /* Pods_OneSignalNotificationServiceExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C972F95364E06B74AC1A3D3 /* Pods_OneSignalNotificationServiceExtension.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		C4987EB62066353200D740D1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C41CA35A1FDBE3F000AB0D2D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C4987EB02066353200D740D1;
+			remoteInfo = OneSignalNotificationServiceExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C4987EBC2066353200D740D1 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				C4987EB82066353200D740D1 /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		0C972F95364E06B74AC1A3D3 /* Pods_OneSignalNotificationServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneSignalNotificationServiceExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B1637C256ED0A1500AE327F /* Pods-UREClub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UREClub.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UREClub/Pods-UREClub.debug.xcconfig"; sourceTree = "<group>"; };
 		6F00CDDC75090A238545BF8D /* Pods_UREClub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UREClub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		79F81508FF69194E23E53783 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		AE4E3DD1CDFA59C0049561D9 /* Pods-UREClub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UREClub.release.xcconfig"; path = "Pods/Target Support Files/Pods-UREClub/Pods-UREClub.release.xcconfig"; sourceTree = "<group>"; };
 		C4044B3A204456590062922D /* NewFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFilter.swift; sourceTree = "<group>"; };
 		C4044B3C204457A90062922D /* FilterItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterItems.swift; sourceTree = "<group>"; };
@@ -301,6 +330,9 @@
 		C4959EE2200F20AC0063D436 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		C4959EE7200F292F0063D436 /* LogOutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutCell.swift; sourceTree = "<group>"; };
 		C4959EE8200F292F0063D436 /* LogOutCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogOutCell.xib; sourceTree = "<group>"; };
+		C4987EB12066353200D740D1 /* OneSignalNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4987EB32066353200D740D1 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		C4987EB52066353200D740D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4AA29AB2005FA29009FE92C /* Validator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		C4AA29AD2005FA3F009FE92C /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		C4AA3CED1FF66E90008B00B4 /* CellType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellType.swift; sourceTree = "<group>"; };
@@ -365,6 +397,7 @@
 		C4FA7D271FF7616300F03846 /* SettingsCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCells.swift; sourceTree = "<group>"; };
 		C4FA7D291FF7654100F03846 /* GenericCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericCell.swift; sourceTree = "<group>"; };
 		C4FA7D2C1FF7712B00F03846 /* TableSectionNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableSectionNumber.swift; sourceTree = "<group>"; };
+		EBA591EDC7E34343DB4CA027 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -376,6 +409,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C4987EAE2066353200D740D1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFF0B33465F59B2E07EA20BE /* Pods_OneSignalNotificationServiceExtension.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -384,6 +425,8 @@
 			children = (
 				1B1637C256ED0A1500AE327F /* Pods-UREClub.debug.xcconfig */,
 				AE4E3DD1CDFA59C0049561D9 /* Pods-UREClub.release.xcconfig */,
+				79F81508FF69194E23E53783 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */,
+				EBA591EDC7E34343DB4CA027 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -438,6 +481,7 @@
 			isa = PBXGroup;
 			children = (
 				C41CA3641FDBE3F000AB0D2D /* UREClub */,
+				C4987EB22066353200D740D1 /* OneSignalNotificationServiceExtension */,
 				C41CA3631FDBE3F000AB0D2D /* Products */,
 				AC5A18E05BD7D025F7CBBBAF /* Pods */,
 				FD075F6F2AB0F20A8B6678B7 /* Frameworks */,
@@ -448,6 +492,7 @@
 			isa = PBXGroup;
 			children = (
 				C41CA3621FDBE3F000AB0D2D /* UREClub.app */,
+				C4987EB12066353200D740D1 /* OneSignalNotificationServiceExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -954,6 +999,15 @@
 			path = LogOutCell;
 			sourceTree = "<group>";
 		};
+		C4987EB22066353200D740D1 /* OneSignalNotificationServiceExtension */ = {
+			isa = PBXGroup;
+			children = (
+				C4987EB32066353200D740D1 /* NotificationService.swift */,
+				C4987EB52066353200D740D1 /* Info.plist */,
+			);
+			path = OneSignalNotificationServiceExtension;
+			sourceTree = "<group>";
+		};
 		C4AA3CEB1FF6672A008B00B4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -1196,6 +1250,7 @@
 			isa = PBXGroup;
 			children = (
 				6F00CDDC75090A238545BF8D /* Pods_UREClub.framework */,
+				0C972F95364E06B74AC1A3D3 /* Pods_OneSignalNotificationServiceExtension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1213,15 +1268,36 @@
 				C41CA3601FDBE3F000AB0D2D /* Resources */,
 				BEC7995719D9C41A1F3C95A0 /* [CP] Embed Pods Frameworks */,
 				81545BAB76EA284DD18ED921 /* [CP] Copy Pods Resources */,
+				C4987EBC2066353200D740D1 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				C4987EB72066353200D740D1 /* PBXTargetDependency */,
 			);
 			name = UREClub;
 			productName = UREClub;
 			productReference = C41CA3621FDBE3F000AB0D2D /* UREClub.app */;
 			productType = "com.apple.product-type.application";
+		};
+		C4987EB02066353200D740D1 /* OneSignalNotificationServiceExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C4987EBB2066353200D740D1 /* Build configuration list for PBXNativeTarget "OneSignalNotificationServiceExtension" */;
+			buildPhases = (
+				6A5E23CFF25790884F8DFF6B /* [CP] Check Pods Manifest.lock */,
+				C4987EAD2066353200D740D1 /* Sources */,
+				C4987EAE2066353200D740D1 /* Frameworks */,
+				C4987EAF2066353200D740D1 /* Resources */,
+				697CBADB3B31F1176048E36D /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OneSignalNotificationServiceExtension;
+			productName = OneSignalNotificationServiceExtension;
+			productReference = C4987EB12066353200D740D1 /* OneSignalNotificationServiceExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -1229,7 +1305,7 @@
 		C41CA35A1FDBE3F000AB0D2D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0910;
+				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = "Yaroslav Zhurbilo";
 				TargetAttributes = {
@@ -1241,6 +1317,10 @@
 								enabled = 1;
 							};
 						};
+					};
+					C4987EB02066353200D740D1 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -1260,6 +1340,7 @@
 			projectRoot = "";
 			targets = (
 				C41CA3611FDBE3F000AB0D2D /* UREClub */,
+				C4987EB02066353200D740D1 /* OneSignalNotificationServiceExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -1330,9 +1411,49 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C4987EAF2066353200D740D1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		697CBADB3B31F1176048E36D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6A5E23CFF25790884F8DFF6B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OneSignalNotificationServiceExtension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		81545BAB76EA284DD18ED921 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1354,13 +1475,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UREClub-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		BEC7995719D9C41A1F3C95A0 /* [CP] Embed Pods Frameworks */ = {
@@ -1369,9 +1493,26 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-UREClub/Pods-UREClub-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ALCameraViewController/ALCameraViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/INSPersistentContainer/INSPersistentContainer.framework",
+				"${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SWRevealViewController/SWRevealViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ALCameraViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/INSPersistentContainer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SWRevealViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSoup.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1497,7 +1638,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C4987EAD2066353200D740D1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4987EB42066353200D740D1 /* NotificationService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C4987EB72066353200D740D1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C4987EB02066353200D740D1 /* OneSignalNotificationServiceExtension */;
+			targetProxy = C4987EB62066353200D740D1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		C41CA3691FDBE3F000AB0D2D /* Menu.storyboard */ = {
@@ -1669,6 +1826,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1B1637C256ED0A1500AE327F /* Pods-UREClub.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = UREClub/UREClub.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -1687,6 +1845,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AE4E3DD1CDFA59C0049561D9 /* Pods-UREClub.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = UREClub/UREClub.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -1696,6 +1855,40 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ureclub.UREClub;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C4987EB92066353200D740D1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 79F81508FF69194E23E53783 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4PM46468DE;
+				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ureclub.UREClub.OneSignalNotificationServiceExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C4987EBA2066353200D740D1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EBA591EDC7E34343DB4CA027 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4PM46468DE;
+				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ureclub.UREClub.OneSignalNotificationServiceExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1718,6 +1911,15 @@
 			buildConfigurations = (
 				C41CA3781FDBE3F000AB0D2D /* Debug */,
 				C41CA3791FDBE3F000AB0D2D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C4987EBB2066353200D740D1 /* Build configuration list for PBXNativeTarget "OneSignalNotificationServiceExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C4987EB92066353200D740D1 /* Debug */,
+				C4987EBA2066353200D740D1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
