@@ -115,6 +115,7 @@
 		C4959EEA200F292F0063D436 /* LogOutCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4959EE8200F292F0063D436 /* LogOutCell.xib */; };
 		C4987EB42066353200D740D1 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4987EB32066353200D740D1 /* NotificationService.swift */; };
 		C4987EB82066353200D740D1 /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C4987EB12066353200D740D1 /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C4987EBE2066A66500D740D1 /* DataFromPushNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4987EBD2066A66500D740D1 /* DataFromPushNotification.swift */; };
 		C4AA29AC2005FA29009FE92C /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AA29AB2005FA29009FE92C /* Validator.swift */; };
 		C4AA29AE2005FA3F009FE92C /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AA29AD2005FA3F009FE92C /* Alert.swift */; };
 		C4AA3CEE1FF66E90008B00B4 /* CellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AA3CED1FF66E90008B00B4 /* CellType.swift */; };
@@ -218,15 +219,15 @@
 		C40C84962002BF980011AF01 /* ChangeLanguageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeLanguageCell.swift; sourceTree = "<group>"; };
 		C40C84972002BF980011AF01 /* ChangeLanguageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangeLanguageCell.xib; sourceTree = "<group>"; };
 		C41CA3621FDBE3F000AB0D2D /* UREClub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UREClub.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C41CA3651FDBE3F000AB0D2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C41CA3671FDBE3F000AB0D2D /* EventsListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsListVC.swift; sourceTree = "<group>"; };
+		C41CA3651FDBE3F000AB0D2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; wrapsLines = 0; };
+		C41CA3671FDBE3F000AB0D2D /* EventsListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsListVC.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		C41CA36A1FDBE3F000AB0D2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Menu.storyboard; sourceTree = "<group>"; };
 		C41CA36D1FDBE3F000AB0D2D /* UREClub.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UREClub.xcdatamodel; sourceTree = "<group>"; };
 		C41CA36F1FDBE3F000AB0D2D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C41CA3721FDBE3F000AB0D2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C41CA3741FDBE3F000AB0D2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C41CA3851FDBECC100AB0D2D /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
-		C41CA3871FDBED0100AB0D2D /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
+		C41CA3871FDBED0100AB0D2D /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		C41CA3891FDBF29100AB0D2D /* Launch screen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Launch screen.jpg"; sourceTree = "<group>"; };
 		C41CA38B1FDBF6DC00AB0D2D /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		C41CA38D1FDBFC7100AB0D2D /* String+localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+localized.swift"; sourceTree = "<group>"; };
@@ -333,6 +334,7 @@
 		C4987EB12066353200D740D1 /* OneSignalNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4987EB32066353200D740D1 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		C4987EB52066353200D740D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C4987EBD2066A66500D740D1 /* DataFromPushNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFromPushNotification.swift; sourceTree = "<group>"; };
 		C4AA29AB2005FA29009FE92C /* Validator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		C4AA29AD2005FA3F009FE92C /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		C4AA3CED1FF66E90008B00B4 /* CellType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellType.swift; sourceTree = "<group>"; };
@@ -746,6 +748,7 @@
 		C463F88F1FF5302B001FBBC1 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				C4987EBD2066A66500D740D1 /* DataFromPushNotification.swift */,
 				C4B54B2E1FEEFA3C008D531E /* CurrentUser.swift */,
 				C463F88B1FF52DC5001FBBC1 /* CurrentUserCompany.swift */,
 				C4D8D32C1FF2BC7F0003DA36 /* Article.swift */,
@@ -1570,6 +1573,7 @@
 				C44574601FDC18FB004A5305 /* NewsListVC.swift in Sources */,
 				C4B1D4872018A2B800779BE3 /* Ticket.swift in Sources */,
 				C41CA38C1FDBF6DC00AB0D2D /* MenuCell.swift in Sources */,
+				C4987EBE2066A66500D740D1 /* DataFromPushNotification.swift in Sources */,
 				C4801651201B307C005F2253 /* LanguageCell.swift in Sources */,
 				C41CA3861FDBECC100AB0D2D /* LoginVC.swift in Sources */,
 				C4B54B361FEF2A3B008D531E /* Array+uniq.swift in Sources */,

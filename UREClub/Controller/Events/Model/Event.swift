@@ -16,23 +16,24 @@ class Event: Article {
     var ticket: Ticket
     var location: Location
     
-    init(id: Int, title: String, textContent: String, htmlContent: String, categories: [Category],
+    init(postID: Int, id: Int, title: String, textContent: String, htmlContent: String, categories: [Category],
          date: EventDate, ticket: Ticket, location: Location) {
         
         self.date = date
         self.ticket = ticket
         self.location = location
         
-        super.init(id: id, title: title, textContent: textContent, htmlContent: htmlContent, categories: categories)
+        super.init(postID: postID, id: id, title: title, textContent: textContent, htmlContent: htmlContent, categories: categories)
     }
     
     convenience init() {
-        self.init(id: 0, title: "", textContent: "", htmlContent: "", categories: [Category](),
+        self.init(postID: 0, id: 0, title: "", textContent: "", htmlContent: "", categories: [Category](),
                   date: EventDate(), ticket: Ticket(id: 0), location: Location())
     }
     
     convenience init(withResult resultDictionary: [String: Any]) {
-                
+        
+        let postID = resultDictionary["post"] as? Int ?? 0
         let id = resultDictionary["id"] as? Int ?? 0
         let title = resultDictionary["title"] as? String  ?? ""
         let htmlContent = resultDictionary["content"] as? String  ?? ""
@@ -54,7 +55,7 @@ class Event: Article {
             categories.append(newCategory)
         })
                 
-        self.init(id: id, title: title, textContent: textContent, htmlContent: htmlContent, categories: categories,
+        self.init(postID: postID, id: id, title: title, textContent: textContent, htmlContent: htmlContent, categories: categories,
                   date: date, ticket: ticket, location: location)
     }
 }

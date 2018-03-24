@@ -187,6 +187,16 @@ class EventsManager {
         }
     }
     
+    func getEventByPostID(_ postID: Int) -> Event? {
+        var resultEvent: Event? = nil
+        arrayWithAllEvents.forEach { event in
+            if event.getPostID() == postID {
+                resultEvent = event
+            }
+        }
+        return resultEvent
+    }
+    
     func getArrayWithEvents(completionHandler: @escaping (_ errorMessages: [NetworkError]?)->()) {
         networkManager.retrieveInfoForPath(.events) { (errors) in
             completionHandler(errors)

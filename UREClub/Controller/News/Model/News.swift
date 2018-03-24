@@ -17,18 +17,19 @@ class News: Article {
         return Formatter.getOnlyDateFrom(dateString: date)
     }
     
-    init(id: Int, title: String, textContent: String, htmlContent: String, categories: [Category], date: String) {
+    init(postID: Int, id: Int, title: String, textContent: String, htmlContent: String, categories: [Category], date: String) {
         self.date = date
         
-        super.init(id: id, title: title, textContent: textContent, htmlContent: htmlContent, categories: categories)
+        super.init(postID: postID, id: id, title: title, textContent: textContent, htmlContent: htmlContent, categories: categories)
     }
     
     convenience init() {
-        self.init(id: 0, title: "", textContent: "", htmlContent: "", categories: [Category](), date: "")
+        self.init(postID: 0, id: 0, title: "", textContent: "", htmlContent: "", categories: [Category](), date: "")
     }
     
     convenience init(withResult resultDictionary: [String: Any]) {
-                
+        
+        let postID = resultDictionary["post"] as? Int ?? 0
         let id = resultDictionary["id"] as? Int ?? 0
         let dateString = resultDictionary["date"] as? String ?? ""
         let title = resultDictionary["title"] as? String  ?? ""
@@ -41,7 +42,7 @@ class News: Article {
             let newCategory = Category(withResult: dictWithCategory)
             categories.append(newCategory)
         }
-        self.init(id: id, title: title, textContent: textContent, htmlContent: htmlContent, categories: categories, date: dateString)
+        self.init(postID: postID, id: id, title: title, textContent: textContent, htmlContent: htmlContent, categories: categories, date: dateString)
     }
     
     func getDayFromDate() -> String {

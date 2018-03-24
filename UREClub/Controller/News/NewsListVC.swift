@@ -13,6 +13,7 @@ extension NewsListVC: NetworkManagerDelegate {
     func didLoad(arrayWithNews: [News]) {
         self.arrayWithNews = getSortedNewsFrom(arrayWithNews)
         tableView.reloadData()
+        presentNewsFromNotification()
     }
 }
 
@@ -21,10 +22,12 @@ class NewsListVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
-    var arrayWithNews = [News]()
-    var networkManager = NetworkManager()
+    public var dataFromNotification: DataFromPushNotification?
     
-    var newsFilter = Filter(withType: .news)
+    private var arrayWithNews = [News]()
+    private var networkManager = NetworkManager()
+    
+    private var newsFilter = Filter(withType: .news)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +49,28 @@ class NewsListVC: UIViewController {
         networkManager.retrieveInfoForPath(.news) { (errors) in
 
         }
+    }
+    
+    func presentNewsFromNotification() {
+        if let data = dataFromNotification, data.isNews,
+            let newsDescVC = ArticleDescVC.getInstance() {
+            newsDescVC.currentArticle = getNewsByPostID(data.postID)
+            print("---newsDescVC.currentArticle: ", newsDescVC.currentArticle)
+            navigationController?.pushViewController(newsDescVC, animated: true)
+        }
+    }
+    
+    func getNewsByPostID(_ postID: Int) -> News? {
+        print("---postID: ", postID)
+        var resultEvent: News? = nil
+        arrayWithNews.forEach { news in
+            if news.getPostID() == postID {
+                resultEvent = news
+                print("---resultEvent1: ", news.title)
+            }
+        }
+        print("---resultEvent2: ", resultEvent)
+        return resultEvent
     }
     
     func setDelegates() {

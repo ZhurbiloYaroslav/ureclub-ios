@@ -15,6 +15,7 @@ class MenuVC: UITableViewController {
         
         setCustomStyle()
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         

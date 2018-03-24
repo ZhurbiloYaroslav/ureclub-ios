@@ -16,11 +16,14 @@ class EventsListVC: UIViewController {
     @IBOutlet weak var eventsPeriodControl: TopSegmentedContol!
     @IBOutlet weak var eventsListTypeControl: UISegmentedControl!
     
-    var eventsManager = EventsManager.shared
+    public var dataFromNotification: DataFromPushNotification?
+    
+    private var eventsManager = EventsManager.shared
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        checkDataFromNotification()
         setupTableView()
         getArrayWithEvents()
         setDelegates()
@@ -28,6 +31,21 @@ class EventsListVC: UIViewController {
         setupLeftMenu()
         updateUIWithLocalizedText()
         setSwitcherStyle()
+    }
+    
+    private func checkDataFromNotification() {
+        guard let notificationData = dataFromNotification
+            else { return }
+        
+        if notificationData.postType == "news" {
+            let newsNavController = UIStoryboard(name: "News", bundle: nil).instantiateViewController(withIdentifier: "NewsNavBar") as? UINavigationController
+            print("data is news")
+            if newsNavController != nil && revealViewController() != nil {
+                revealViewController().setFront(newsNavController, animated: true)
+            }
+        } else if notificationData.postType == "event" {
+            print("data is event")
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -69,7 +87,18 @@ class EventsListVC: UIViewController {
         eventsManager.getArrayWithEvents { (errors) in
             if errors == nil {
                 self.tableView.reloadData()
+                self.presentEventFromNotification()
             }
+        }
+    }
+    
+    func presentEventFromNotification() {
+        if let data = dataFromNotification, data.isEvent,
+            let eventDescVC = ArticleDescVC.getInstance() {
+            print("---data.postID", data.postID)
+            eventDescVC.currentArticle = eventsManager.getEventByPostID(data.postID)
+            print("---currentArticle", eventDescVC.currentArticle?.title)
+            navigationController?.pushViewController(eventDescVC, animated: true)
         }
     }
     

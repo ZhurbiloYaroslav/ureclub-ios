@@ -115,17 +115,54 @@ extension AppDelegate {
     }
 }
 
+// Notifications Push Remote
 extension AppDelegate {
+    
     func setupPushNotificationsWith(_ launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {
-        let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: false]
         
-        // Replace 'YOUR_APP_ID' with your OneSignal App ID.
+        let notificationOpenedBlock: OSHandleNotificationActionBlock = { result in
+            guard let payload: OSNotificationPayload = result!.notification.payload
+                else { return }
+            guard let additionalData = payload.additionalData as? [String: Any]
+                else { return }
+            let articleData = DataFromPushNotification(withResult: additionalData)
+            
+            let revealVC = UIStoryboard(name: "Menu", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+            self.window?.rootViewController = revealVC
+            
+            print("---postType", articleData.postType)
+            if articleData.postType == "news" {
+                print("---test1")
+                let eventsNavController = UIStoryboard(name: "News", bundle: nil).instantiateViewController(withIdentifier: "NewsNavBar") as! UINavigationController
+                let eventsListVC = UIStoryboard(name: "News", bundle: nil).instantiateViewController(withIdentifier: "NewsListVC") as! NewsListVC
+                eventsListVC.dataFromNotification = articleData
+                eventsNavController.viewControllers = [eventsListVC]
+                revealVC.setFront(eventsNavController, animated: true)
+            } else {
+                print("---test2")
+                let eventsNavController = UIStoryboard(name: "Events", bundle: nil).instantiateViewController(withIdentifier: "EventsNavBar") as! UINavigationController
+                let eventsListVC = UIStoryboard(name: "Events", bundle: nil).instantiateViewController(withIdentifier: "EventsListVC") as! EventsListVC
+                eventsListVC.dataFromNotification = articleData
+                eventsNavController.viewControllers = [eventsListVC]
+                revealVC.setFront(eventsNavController, animated: true)
+            }
+            
+            self.window?.makeKeyAndVisible()
+            
+        }
+        
+        let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: false, kOSSettingsKeyInAppLaunchURL: false]
         OneSignal.initWithLaunchOptions(launchOptions,
                                         appId: "0f76fddd-eae8-4997-a323-24a52c726937",
-                                        handleNotificationAction: nil,
+                                        handleNotificationAction: notificationOpenedBlock,
                                         settings: onesignalInitSettings)
         
-        OneSignal.inFocusDisplayType = OSNotificationDisplayType.notification;
+        OneSignal.inFocusDisplayType = OSNotificationDisplayType.notification
+        
+        OneSignal.sendTag("first_name", value: CurrentUser.firstName)
+        OneSignal.sendTag("last_name", value: CurrentUser.lastName)
+        
+        OneSignal.setEmail(CurrentUser.email, withEmailAuthHashToken: CurrentUser.authToken)
         
         // Recommend moving the below line to prompt for push after informing the user about
         //   how your app will use them.
@@ -133,5 +170,6 @@ extension AppDelegate {
             print("User accepted notifications: \(accepted)")
         })
     }
+    
 }
 
