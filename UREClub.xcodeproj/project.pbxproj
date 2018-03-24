@@ -334,6 +334,8 @@
 		C4DC7774200FC46200F3814F /* CompanyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCell.swift; sourceTree = "<group>"; };
 		C4DC777B200FC98200F3814F /* ContactsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsManager.swift; sourceTree = "<group>"; };
 		C4DC777D200FDD1900F3814F /* PersonCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonCollectionCell.swift; sourceTree = "<group>"; };
+		C4DEAD052066264F00795C28 /* UREClub.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UREClub.entitlements; sourceTree = "<group>"; };
+		C4DEAD0820662C8200795C28 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C4E07B0D2025CD0900933FAA /* AboutVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AboutVC.storyboard; sourceTree = "<group>"; };
 		C4E07B0E2025CD0900933FAA /* AboutVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutVC.swift; sourceTree = "<group>"; };
 		C4E07B122025CDD500933FAA /* AboutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCell.swift; sourceTree = "<group>"; };
@@ -453,6 +455,7 @@
 		C41CA3641FDBE3F000AB0D2D /* UREClub */ = {
 			isa = PBXGroup;
 			children = (
+				C4DEAD052066264F00795C28 /* UREClub.entitlements */,
 				C4801672201B7AC0005F2253 /* Translations */,
 				C430EBDE200E124F001E818B /* Libraries */,
 				C41CA37F1FDBEB5900AB0D2D /* Extensions */,
@@ -526,6 +529,7 @@
 				C41CA3741FDBE3F000AB0D2D /* Info.plist */,
 				C41CA36C1FDBE3F000AB0D2D /* UREClub.xcdatamodeld */,
 				C41CA3801FDBEB6800AB0D2D /* Images */,
+				C4DEAD0820662C8200795C28 /* README.md */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1232,6 +1236,11 @@
 					C41CA3611FDBE3F000AB0D2D = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -1661,6 +1670,7 @@
 			baseConfigurationReference = 1B1637C256ED0A1500AE327F /* Pods-UREClub.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = UREClub/UREClub.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4PM46468DE;
 				INFOPLIST_FILE = "$(SRCROOT)/UREClub/Resources/Info.plist";
@@ -1678,6 +1688,7 @@
 			baseConfigurationReference = AE4E3DD1CDFA59C0049561D9 /* Pods-UREClub.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = UREClub/UREClub.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4PM46468DE;
 				INFOPLIST_FILE = "$(SRCROOT)/UREClub/Resources/Info.plist";
