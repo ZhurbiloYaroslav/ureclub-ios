@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import INSPersistentContainer
 import SWRevealViewController
+import OneSignal
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         chooseViewControllerToPresent()
+        setupPushNotificationsWith(launchOptions)
         return true
     }
 
@@ -110,6 +112,26 @@ extension AppDelegate {
         
         self.window?.makeKeyAndVisible()
         
+    }
+}
+
+extension AppDelegate {
+    func setupPushNotificationsWith(_ launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {
+        let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: false]
+        
+        // Replace 'YOUR_APP_ID' with your OneSignal App ID.
+        OneSignal.initWithLaunchOptions(launchOptions,
+                                        appId: "0f76fddd-eae8-4997-a323-24a52c726937",
+                                        handleNotificationAction: nil,
+                                        settings: onesignalInitSettings)
+        
+        OneSignal.inFocusDisplayType = OSNotificationDisplayType.notification;
+        
+        // Recommend moving the below line to prompt for push after informing the user about
+        //   how your app will use them.
+        OneSignal.promptForPushNotifications(userResponse: { accepted in
+            print("User accepted notifications: \(accepted)")
+        })
     }
 }
 
