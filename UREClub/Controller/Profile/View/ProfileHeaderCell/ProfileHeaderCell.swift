@@ -39,7 +39,7 @@ class ProfileHeaderCell: UITableViewCell {
             fullNameLabel.text = contact.firstName + " " + contact.lastName
             companyNameLabel.text = contact.company.name
             positionLabel.text = contact.position
-            periodLabel.text = contact.getDateSince()
+            periodLabel.text = contact.getStringWithSincePeriod()
             
             editProfileIcon.isHidden = true
             temporaryIcon.isHidden = true

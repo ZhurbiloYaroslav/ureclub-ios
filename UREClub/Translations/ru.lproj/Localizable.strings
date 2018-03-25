@@ -137,3 +137,6 @@
 /*Fuzzy*/
 "alert_booking_decline_message" = "Вы отменили регистрацию на данное мероприятие";
 "alert_booking_decline_title" = "Вы отменили регистрацию на данное мероприятие";
+"screen_profile_edit_title" = "Редактирование профиля";
+"months" = "месяцев";
+"years" = "лет";

@@ -35,7 +35,7 @@ class Contact: NSObject {
         self.dateSince = dateSince ?? ""
         self.textContent = "Some content"
         self.facebookLink = "https://www.facebook.com/"
-        self.linkedInLink = "https://www.linkedin.com/feed/"
+        self.linkedInLink = "" // "https://www.linkedin.com/feed/"
     }
     
     convenience init(id: Int, imageLink: String, type: String) {
@@ -89,9 +89,32 @@ extension Contact {
         return Formatter.getDateFrom(dateSince)
     }
     
-    public func getDateSince() -> String {
-        let resultDate = Formatter.getSinceMonthsFromTodayFor(getDateSince())
-        return String(describing: resultDate) + " months with UREClub"
+    public func getStringWithSincePeriod() -> String {
+        let sinceComponent = Formatter.getSinceComponentFromTodayFor(getDateSince())
+        let years = abs(sinceComponent.year ?? 0)
+        let months = abs(sinceComponent.month ?? 0)
+        var period = ""
+        if years > 0 {
+            var yearsString = ""
+            switch years {
+            case 1: yearsString = "year" // TODO: LCLZ
+            default: yearsString = "years".localized()
+            }
+            period += "\(years) " + yearsString
+        }
+        if months > 0 {
+            var monthsString = ""
+            switch months {
+            case 1: monthsString = "month" // TODO: LCLZ
+            default: monthsString = "months".localized()
+            }
+            period += " \(months) " + monthsString
+        }
+        if period.isEmpty {
+            return ""
+        } else {
+            return "\(period) with UREClub"
+        }
     }
     
     func getContactType() -> ContactType {

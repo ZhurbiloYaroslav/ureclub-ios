@@ -33,16 +33,15 @@ class Formatter {
         return dateFormatter.date(from: stringWithDate) ?? Date()
     }
     
-    static func getSinceMonthsFromTodayFor(_ date: Date) -> Int {
+    static func getSinceComponentFromTodayFor(_ date: Date) -> DateComponents {
         let calendar = NSCalendar.current
         
         // Replace the hour (time) of both dates with 00:00
         let todayDate = calendar.startOfDay(for: Date())
         let sinceDate = calendar.startOfDay(for: date)
         
-        let components = calendar.dateComponents([.month], from: todayDate, to: sinceDate)
-        let months = abs(components.month ?? 0)
-        return months
+        let components = calendar.dateComponents([.month, .year], from: todayDate, to: sinceDate)
+        return components
     }
     
     static func getOnlyDateFrom(dateString: String) -> String {

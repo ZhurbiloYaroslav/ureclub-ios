@@ -141,3 +141,6 @@
 /*Fuzzy*/
 "alert_booking_decline_message" = "You canceled the registration for this event";
 "alert_booking_decline_title" = "You just cancelled your participation at this event";
+"screen_profile_edit_title" = "Profile edit";
+"months" = "months";
+"years" = "years";

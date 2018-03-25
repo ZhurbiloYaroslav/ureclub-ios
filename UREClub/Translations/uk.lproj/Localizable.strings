@@ -133,3 +133,6 @@
 "alert_booking_success_message" = "Ви успішно зареєструвалися на цей захід";
 "alert_booking_decline_message" = "Ви відмінили реєстрацію на цей захід";
 "alert_booking_decline_title" = "Ви відмінили реєстрацію на цей захід";
+"screen_profile_edit_title" = "Редагування профілю";
+"months" = "місяців";
+"years" = "років";
