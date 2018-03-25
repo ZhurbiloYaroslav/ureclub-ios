@@ -15,17 +15,22 @@ class Person: Contact {
     var position: String
     
     convenience init(firstName: String, lastName: String, company: Company, position: String, dateSince: String,
+                     aboutText: String, facebookLink: String, linkedInLink: String,
                      id: Int, type: String, imageLink: String) {
         self.init(firstName: firstName, lastName: lastName, company: company, position: position, dateSince: dateSince,
+                  aboutText: aboutText, facebookLink: facebookLink, linkedInLink: linkedInLink,
                   id: id, type: type, imageLink: imageLink,
                   priority: nil, phone: nil, email: nil)
     }
     
     convenience init() {
-        self.init(firstName: "", lastName: "", company: Company(), position: "", dateSince: "", id: 0, type: "", imageLink: "", priority: nil, phone: nil, email: nil)
+        self.init(firstName: "", lastName: "", company: Company(), position: "", dateSince: "",
+                  aboutText: "", facebookLink: "", linkedInLink: "",
+                  id: 0, type: "", imageLink: "", priority: nil, phone: nil, email: nil)
     }
     
     init(firstName: String, lastName: String, company: Company, position: String, dateSince: String,
+         aboutText: String, facebookLink: String, linkedInLink: String,
          id: Int, type: String, imageLink: String,
          priority: Int?, phone: String?, email: String?) {
         self.firstName = firstName
@@ -33,7 +38,8 @@ class Person: Contact {
         self.company = company
         self.position = position
         
-        super.init(id: id, imageLink: imageLink, type: type, phone: phone, email: email, priority: priority, dateSince: dateSince)
+        super.init(id: id, imageLink: imageLink, type: type, aboutText: aboutText, facebookLink: facebookLink, linkedInLink: linkedInLink,
+                   phone: phone, email: email, priority: priority, dateSince: dateSince)
         
     }
     
@@ -44,6 +50,7 @@ class Person: Contact {
         let firstName = resultDictionary["firstName"] as? String ?? ""
         let lastName = resultDictionary["lastName"] as? String ?? ""
         let position = resultDictionary["position"] as? String ?? ""
+        let aboutText = resultDictionary["description"] as? String ?? ""
         let dateSince = resultDictionary["dateSince"] as? String ?? ""
         let phone = resultDictionary["phone"] as? String ?? ""
         let email = resultDictionary["email"] as? String ?? ""
@@ -51,6 +58,8 @@ class Person: Contact {
         
         let dictWithLinks = resultDictionary["links"] as? [String: Any]  ?? [String: Any]()
         let imageLink = dictWithLinks["image"] as? String ?? ""
+        let facebookLink = dictWithLinks["facebook"] as? String ?? ""
+        let linkedInLink = dictWithLinks["linkedIn"] as? String ?? ""
         
         let dictWithCompany = resultDictionary["company"] as? [String: Any]  ?? [String: Any]()
         let companyID = dictWithCompany["id"] as? Int ?? 0
@@ -59,6 +68,7 @@ class Person: Contact {
         let company = Company(name: companyName, id: companyID, type: "company", imageLink: companyImage)
         
         self.init(firstName: firstName, lastName: lastName, company: company, position: position, dateSince: dateSince,
+                  aboutText: aboutText, facebookLink: facebookLink, linkedInLink: linkedInLink,
                   id: id, type: type, imageLink: imageLink, priority: priority, phone: phone, email: email)
     }
     

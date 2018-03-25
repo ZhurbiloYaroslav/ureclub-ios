@@ -103,18 +103,25 @@ class ProfileVC: UITableViewController {
                 else { return UITableViewCell() }
             cell.updateCellWith(publicContactToShow)
             return cell
+            
         case [1,0]:
             let email = publicContactToShow?.getEmail() ?? CurrentUser.email
             let cellTitle = "profile_email".localized()
             let cellData = FieldCell.CellData(type: .address, icon: #imageLiteral(resourceName: "icon-profile-email"), title: cellTitle, value: email)
             cell.configureWith(cellData)
             return cell
+            
         case [1,1]:
             let phone = publicContactToShow?.getPhone() ?? CurrentUser.getPhone()
-            let cellTitle = "profile_phone".localized()
-            let cellData = FieldCell.CellData(type: .phone, icon: #imageLiteral(resourceName: "icon-profile-phone"), title: cellTitle, value: phone)
-            cell.configureWith(cellData)
-            return cell
+            if phone.trimmingCharacters(in: .whitespaces).isEmpty {
+                return UITableViewCell()
+            } else {
+                let cellTitle = "profile_phone".localized()
+                let cellData = FieldCell.CellData(type: .phone, icon: #imageLiteral(resourceName: "icon-profile-phone"), title: cellTitle, value: phone)
+                cell.configureWith(cellData)
+                return cell
+            }
+            
         case [1,2]:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileButtonsCell", for: indexPath) as? ProfileButtonsCell
                 else { return UITableViewCell() }
@@ -130,6 +137,7 @@ class ProfileVC: UITableViewController {
             let cellData = FieldCell.CellData(type: .text, icon: UIImage(), title: "", value: aboutText)
             cell.configureWith(cellData)
             return cell
+            
         default:
             return UITableViewCell()
         }

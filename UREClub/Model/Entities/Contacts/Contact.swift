@@ -19,12 +19,13 @@ class Contact: NSObject {
     private var email: String
     private let priority: Int
     private let dateSince: String
-    private let textContent: String
+    private let aboutText: String
     private let linkedInLink: String
     private let facebookLink: String
     fileprivate let type: String
     
-    init(id: Int, imageLink: String, type: String, phone: String?, email: String?, priority: Int?, dateSince: String?) {
+    init(id: Int, imageLink: String, type: String, aboutText: String, facebookLink: String, linkedInLink: String,
+         phone: String?, email: String?, priority: Int?, dateSince: String?) {
 
         self.id = id
         self.imageLink = imageLink
@@ -33,13 +34,14 @@ class Contact: NSObject {
         self.priority = priority ?? Constants.Contact.defaultPriority
         self.type = type
         self.dateSince = dateSince ?? ""
-        self.textContent = "Some content"
-        self.facebookLink = "https://www.facebook.com/"
-        self.linkedInLink = "" // "https://www.linkedin.com/feed/"
+        self.aboutText = aboutText
+        self.facebookLink = facebookLink
+        self.linkedInLink = linkedInLink
     }
     
-    convenience init(id: Int, imageLink: String, type: String) {
-        self.init(id: id, imageLink: imageLink, type: type, phone: nil, email: nil, priority: nil, dateSince: nil)
+    convenience init(id: Int, imageLink: String, type: String, aboutText: String, facebookLink: String, linkedInLink: String) {
+        self.init(id: id, imageLink: imageLink, type: type, aboutText: aboutText, facebookLink: facebookLink, linkedInLink: linkedInLink,
+                  phone: nil, email: nil, priority: nil, dateSince: nil)
     }
     
     enum ContactType {
@@ -66,7 +68,7 @@ class Contact: NSObject {
 extension Contact {
     
     public func getStringWithID() -> String {
-        return String(describing: id) ?? "0"
+        return "\(id)"
     }
     
     public func getID() -> Int {
@@ -123,7 +125,7 @@ extension Contact {
     }
     
     public func getTextContent() -> String {
-        return textContent
+        return aboutText
     }
     
     public func getFacebookLink() -> String {

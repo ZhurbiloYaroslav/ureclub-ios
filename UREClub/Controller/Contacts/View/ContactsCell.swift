@@ -38,6 +38,12 @@ class ContactsCell: UITableViewCell {
         positionLabel.text = person.position + atCompanyText
         emailButton.setTitle(person.getEmail(), for: .normal)
         phoneButton.setTitle(person.getPhone(), for: .normal)
+        showOrHideSocialButtons()
+    }
+    
+    private func showOrHideSocialButtons() {
+        linkedInButton.isHidden = currentPerson.linkedInkLinkIsEmpty()
+        facebookButton.isHidden = currentPerson.facebookLinkIsEmpty()
     }
     
     @IBAction func emailButtonPressed(_ sender: UIButton) {

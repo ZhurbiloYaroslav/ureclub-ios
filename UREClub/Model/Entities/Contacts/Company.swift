@@ -28,7 +28,8 @@ class Company: Contact {
          priority: Int?, phone: String?, email: String?, dateSince: String?) {
         
         self.name = name
-        super.init(id: id, imageLink: imageLink, type: type, phone: phone, email: email, priority: priority, dateSince: dateSince)
+        super.init(id: id, imageLink: imageLink, type: type, aboutText: "", facebookLink: "", linkedInLink: "",
+                   phone: phone, email: email, priority: priority, dateSince: dateSince)
     }
     
     convenience init(withResult resultDictionary: [String: Any]) {
