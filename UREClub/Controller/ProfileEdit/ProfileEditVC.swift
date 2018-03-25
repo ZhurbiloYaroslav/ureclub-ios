@@ -83,7 +83,7 @@ class ProfileEditVC: UIViewController {
     
     func updateUIWithLocalizedText() {
         
-        navigationItem.title = "screen_notifications_title".localized()
+        navigationItem.title = "" // "screen_profile_edit_title".localized()
         navigationItem.backBarButtonItem?.title = "navbar_button_back".localized()
         descriptionTitleLabel.text = "profile_edit_description_title".localized()
     }

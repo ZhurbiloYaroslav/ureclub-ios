@@ -128,7 +128,9 @@
             <connections>
                 <outlet property="contactImage" destination="8ib-bi-Bvo" id="L6k-fs-2tZ"/>
                 <outlet property="emailButton" destination="zSh-uK-pg9" id="toj-qI-vQZ"/>
+                <outlet property="facebookButton" destination="5iz-9B-fzm" id="s9n-DT-OlU"/>
                 <outlet property="fullNameLabel" destination="z5M-Fg-ABW" id="sYt-jZ-YNw"/>
+                <outlet property="linkedInButton" destination="xuj-zi-OGt" id="RbL-PO-13A"/>
                 <outlet property="phoneButton" destination="SGp-ao-aXB" id="4LO-ej-VTU"/>
                 <outlet property="positionLabel" destination="IJ9-EI-5Hb" id="evf-kP-SFr"/>
             </connections>

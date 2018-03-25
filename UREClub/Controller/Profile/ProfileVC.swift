@@ -119,12 +119,15 @@ class ProfileVC: UITableViewController {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileButtonsCell", for: indexPath) as? ProfileButtonsCell
                 else { return UITableViewCell() }
             
+            cell.facebookButton.isHidden = publicContactToShow?.facebookLinkIsEmpty() ?? CurrentUser.facebookLinkIsEmpty()
+            cell.linkedInButton.isHidden = publicContactToShow?.linkedInkLinkIsEmpty() ?? CurrentUser.linkedInLinkIsEmpty()
             cell.facebookButton.addTarget(self, action: #selector(ProfileVC.wasPressedFacebookButton(_:)), for: .touchUpInside)
             cell.linkedInButton.addTarget(self, action: #selector(ProfileVC.wasPressedLinkedInButton(_:)), for: .touchUpInside)
             return cell
             
         case [2,0]:
-            let cellData = FieldCell.CellData(type: .text, icon: UIImage(), title: "", value: CurrentUser.textContent)
+            let aboutText = publicContactToShow?.getTextContent() ?? CurrentUser.textContent
+            let cellData = FieldCell.CellData(type: .text, icon: UIImage(), title: "", value: aboutText)
             cell.configureWith(cellData)
             return cell
         default:
@@ -179,11 +182,13 @@ class ProfileVC: UITableViewController {
     }
     
     @objc func wasPressedFacebookButton(_ sender: UIButton) {
-        Browser.openURLWith(.surfUserFacebook)
+        let link = publicContactToShow?.getFacebookLink() ?? CurrentUser.facebookLink
+        Browser.openURLWith(link)
     }
     
     @objc func wasPressedLinkedInButton(_ sender: UIButton) {
-        Browser.openURLWith(.surfUserLinkedIn)
+        let link = publicContactToShow?.getLinkedInLink() ?? CurrentUser.linkedInLink
+        Browser.openURLWith(link)
     }
     
 }

@@ -35,7 +35,7 @@ class FilterVC: UIViewController {
     
     func updateUIWithLocalizedText() {
         
-        navigationItem.title = "screen_filter_title".localized()
+        navigationItem.title = "" // "screen_filter_title".localized()
         
     }
     

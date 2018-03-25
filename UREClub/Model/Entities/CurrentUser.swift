@@ -225,5 +225,17 @@ extension CurrentUser {
     static func getPhone() -> String {
         return phone
     }
+    
+    // MARK: - Check on Existing of Info
+    
+    static func facebookLinkIsEmpty() -> Bool {
+        let doesFacebookLinkEmpty = facebookLink.trimmingCharacters(in: .whitespaces).isEmpty
+        return doesFacebookLinkEmpty
+    }
+    
+    static func linkedInLinkIsEmpty() -> Bool {
+        let doesLinkedInLinkEmpty = linkedInLink.trimmingCharacters(in: .whitespaces).isEmpty
+        return doesLinkedInLinkEmpty
+    }
 }
 

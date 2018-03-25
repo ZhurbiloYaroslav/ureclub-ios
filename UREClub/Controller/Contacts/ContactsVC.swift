@@ -109,11 +109,11 @@ class ContactsVC: UIViewController {
     }
     
     @objc func wasPressedFacebookButton(_ sender: UIButton) {
-        Browser.openURLWith(.surfUserFacebook)
+        Browser.openURLWith(.surfUrecFacebook)
     }
     
     @objc func wasPressedLinkedInButton(_ sender: UIButton) {
-        Browser.openURLWith(.surfUserLinkedIn)
+        Browser.openURLWith(.surfUrecLinkedIn)
     }
 
 }
@@ -196,13 +196,13 @@ extension ContactsVC: UITableViewDelegate, UITableViewDataSource {
             
         case [1,3]:
             let cellTitle = "profile_email".localized()
-            let cellData = FieldCell.CellData(type: .email, icon: UIImage(), title: cellTitle, value: "urec@gmail.com")
+            let cellData = FieldCell.CellData(type: .email, icon: UIImage(), title: cellTitle, value: "info@ureclub.com")
             cell.configureWith(cellData)
             return cell
             
         case [1,4]:
             let cellTitle = "header_website".localized()
-            let cellData = FieldCell.CellData(type: .email, icon: UIImage(), title: cellTitle, value: "urec@gmail.com")
+            let cellData = FieldCell.CellData(type: .email, icon: UIImage(), title: cellTitle, value: "www.ureclub.com")
             cell.configureWith(cellData)
             return cell
             
@@ -210,8 +210,8 @@ extension ContactsVC: UITableViewDelegate, UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileButtonsCell", for: indexPath) as? ProfileButtonsCell
                 else { return UITableViewCell() }
             
-            cell.facebookButton.addTarget(self, action: #selector(ProfileVC.wasPressedFacebookButton(_:)), for: .touchUpInside)
-            cell.linkedInButton.addTarget(self, action: #selector(ProfileVC.wasPressedLinkedInButton(_:)), for: .touchUpInside)
+            cell.facebookButton.addTarget(self, action: #selector(ContactsVC.wasPressedFacebookButton(_:)), for: .touchUpInside)
+            cell.linkedInButton.addTarget(self, action: #selector(ContactsVC.wasPressedLinkedInButton(_:)), for: .touchUpInside)
             return cell
             
         default:
@@ -229,8 +229,18 @@ extension ContactsVC: UITableViewDelegate, UITableViewDataSource {
             }
         case .address:
             switch indexPath {
-            case [0,0]:
+            case [0,0]: // Map
                 Browser.openUREClubOnMap()
+            case [1,0]: // Address
+                Browser.openUREClubOnMap()
+            case [1,1]: // Phone
+                Browser.openURLWith(.callUREClub6753)
+            case [1,2]: // Phone 2
+                Browser.openURLWith(.callUREClub5158)
+            case [1,3]: // Email
+                Browser.openURLWith(.mailUREClubInfo)
+            case [1,4]: // Website
+                Browser.openURLWith(.surfUrecWebSite)
             default:
                 break
             }

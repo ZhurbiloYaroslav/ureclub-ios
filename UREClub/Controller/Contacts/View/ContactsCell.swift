@@ -15,6 +15,8 @@ class ContactsCell: UITableViewCell {
     @IBOutlet weak var positionLabel: UILabel!
     @IBOutlet weak var emailButton: UIButton!
     @IBOutlet weak var phoneButton: UIButton!
+    @IBOutlet weak var facebookButton: UIButton!
+    @IBOutlet weak var linkedInButton: UIButton!
     
     var currentPerson: Person!
     
@@ -39,19 +41,19 @@ class ContactsCell: UITableViewCell {
     }
     
     @IBAction func emailButtonPressed(_ sender: UIButton) {
-        Browser.openURLWith(.mailUserEmail)
+        Browser.emailTo(currentPerson.getEmail())
     }
     
     @IBAction func phoneButtonPressed(_ sender: UIButton) {
-        Browser.openURLWith(.callUserPhone)
+        Browser.emailTo(currentPerson.getPhone())
     }
     
     @IBAction func facebookButtonPressed(_ sender: UIButton) {
-        Browser.openURLWith(.surfUserFacebook)
+        Browser.openURLWith(currentPerson.getFacebookLink())
     }
     
     @IBAction func linkedInButtonPressed(_ sender: UIButton) {
-        Browser.openURLWith(.surfUserLinkedIn)
+        Browser.openURLWith(currentPerson.getLinkedInLink())
     }
     
 }

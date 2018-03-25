@@ -19,6 +19,9 @@ class Contact: NSObject {
     private var email: String
     private let priority: Int
     private let dateSince: String
+    private let textContent: String
+    private let linkedInLink: String
+    private let facebookLink: String
     fileprivate let type: String
     
     init(id: Int, imageLink: String, type: String, phone: String?, email: String?, priority: Int?, dateSince: String?) {
@@ -30,6 +33,9 @@ class Contact: NSObject {
         self.priority = priority ?? Constants.Contact.defaultPriority
         self.type = type
         self.dateSince = dateSince ?? ""
+        self.textContent = "Some content"
+        self.facebookLink = "https://www.facebook.com/"
+        self.linkedInLink = "https://www.linkedin.com/feed/"
     }
     
     convenience init(id: Int, imageLink: String, type: String) {
@@ -91,6 +97,30 @@ extension Contact {
     func getContactType() -> ContactType {
         let type = ContactType.getTypeForString(self.type)
         return type
+    }
+    
+    public func getTextContent() -> String {
+        return textContent
+    }
+    
+    public func getFacebookLink() -> String {
+        return facebookLink
+    }
+    
+    public func getLinkedInLink() -> String {
+        return linkedInLink
+    }
+    
+    // MARK: - Check on Existing of Info
+    
+    public func facebookLinkIsEmpty() -> Bool {
+        let doesFacebookLinkEmpty = facebookLink.trimmingCharacters(in: .whitespaces).isEmpty
+        return doesFacebookLinkEmpty
+    }
+    
+    public func linkedInkLinkIsEmpty() -> Bool {
+        let doesLinkedInLinkEmpty = linkedInLink.trimmingCharacters(in: .whitespaces).isEmpty
+        return doesLinkedInLinkEmpty
     }
     
 }

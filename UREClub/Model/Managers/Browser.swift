@@ -57,7 +57,9 @@ class Browser {
         case mailUserEmail
         case surfUserFacebook
         case surfUserLinkedIn
-        case urecWebSite
+        case surfUrecWebSite
+        case surfUrecFacebook
+        case surfUrecLinkedIn
         case soft4Status
         
         func getAddress() -> String {
@@ -69,7 +71,9 @@ class Browser {
             case .mailUserEmail: return "mailto:\(CurrentUser.email)"
             case .surfUserFacebook: return CurrentUser.facebookLink
             case .surfUserLinkedIn: return CurrentUser.linkedInLink
-            case .urecWebSite: return "https://ureclub.com"
+            case .surfUrecWebSite: return "https://ureclub.com"
+            case .surfUrecFacebook: return "https://www.facebook.com/Ukrainian.Real.Estate.Club/"
+            case .surfUrecLinkedIn: return "https://www.linkedin.com/company/ukrainian-real-estate-club/"
             case .soft4Status: return "https://soft4status.com"
             }
         }
