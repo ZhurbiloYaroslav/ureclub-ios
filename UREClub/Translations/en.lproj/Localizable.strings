@@ -140,4 +140,4 @@
 
 /*Fuzzy*/
 "alert_booking_decline_message" = "You canceled the registration for this event";
-"alert_booking_decline_title" = "Сancellation";
+"alert_booking_decline_title" = "You just cancelled your participation at this event";
