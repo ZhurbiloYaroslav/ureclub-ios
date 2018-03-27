@@ -209,6 +209,7 @@ extension ArticleDescVC {
             break
         }
         
+        addresButton.setRadius(5, withWidth: 1, andColor: UIColor.clear)
         goButton.setRadius(5, withWidth: 1, andColor: UIColor.clear)
         attendanceListContainer.setRadius(5, withWidth: 2, andColor: #colorLiteral(red: 0, green: 0.631372549, blue: 0.8509803922, alpha: 1))
         

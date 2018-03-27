@@ -51,7 +51,7 @@ class ContactsCell: UITableViewCell {
     }
     
     @IBAction func phoneButtonPressed(_ sender: UIButton) {
-        Browser.emailTo(currentPerson.getPhone())
+        Browser.callTo(currentPerson.getPhone())
     }
     
     @IBAction func facebookButtonPressed(_ sender: UIButton) {

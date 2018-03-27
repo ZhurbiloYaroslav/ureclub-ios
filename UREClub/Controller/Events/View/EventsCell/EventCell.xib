@@ -21,15 +21,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ArticleCell" rowHeight="239" id="kXP-rf-Jjp" userLabel="ArticleCell" customClass="ArticleCell" customModule="UREClub" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="234" height="239"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventCell" rowHeight="239" id="kXP-rf-Jjp" customClass="EventCell" customModule="UREClub" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="407" height="239"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kXP-rf-Jjp" id="sTN-Hy-7gf">
-                <rect key="frame" x="0.0" y="0.0" width="234" height="238.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="407" height="238.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="3bZ-34-Od6">
-                        <rect key="frame" x="0.0" y="0.0" width="219" height="0.0"/>
+                        <rect key="frame" x="0.0" y="5" width="0.0" height="0.0"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JoH-EV-ZXq">
                                 <subviews>
@@ -38,7 +38,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="47"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="BBx-CJ-CF1">
-                                                <rect key="frame" x="0.0" y="0.0" width="40" height="37"/>
+                                                <rect key="frame" x="0.0" y="5" width="40" height="37"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="21" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="enm-9e-7kF">
                                                         <rect key="frame" x="0.0" y="0.0" width="16.5" height="21"/>
@@ -47,7 +47,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MAR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5wG-WQ-tLp">
-                                                        <rect key="frame" x="0.0" y="0.0" width="31.5" height="16"/>
+                                                        <rect key="frame" x="0.0" y="21" width="31.5" height="16"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="13"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
@@ -77,79 +77,65 @@
                                     <constraint firstAttribute="bottom" secondItem="KGt-bs-wLf" secondAttribute="bottom" id="zfL-4g-k4A"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="gcV-vX-Bon">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="gcV-vX-Bon">
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Event title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vnk-pS-Ip6">
                                         <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="245" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dwo-SM-oV5" userLabel="Empty label">
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="wEE-4d-KJ7">
-                                        <rect key="frame" x="0.0" y="22.5" width="205" height="15"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="LC4-mj-wyM">
+                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="45"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-date" translatesAutoresizingMaskIntoConstraints="NO" id="LzD-a3-l9h">
-                                                <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="15" id="Iwd-GP-FfD"/>
-                                                    <constraint firstAttribute="height" constant="15" id="gYy-7j-cOe"/>
-                                                </constraints>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zqm-Fb-NOX">
-                                                <rect key="frame" x="20" y="0.0" width="185" height="15"/>
-                                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="12"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="LFA-RE-f6E">
-                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="15"/>
-                                        <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-time" translatesAutoresizingMaskIntoConstraints="NO" id="MeT-an-CTN">
-                                                <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="15" id="to1-z5-zeg"/>
-                                                    <constraint firstAttribute="height" constant="15" id="uZr-O2-Cpc"/>
-                                                </constraints>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aX4-P8-rq7">
+                                            <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="LFA-RE-f6E">
                                                 <rect key="frame" x="0.0" y="0.0" width="0.0" height="15"/>
-                                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="12"/>
-                                                <color key="textColor" red="0.0" green="0.63137254899999995" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="krq-y5-EbU" userLabel="Address stack">
-                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="15"/>
-                                        <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-location" translatesAutoresizingMaskIntoConstraints="NO" id="gKv-GO-IOD">
-                                                <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="15" id="OdR-Qk-4f2"/>
-                                                    <constraint firstAttribute="height" constant="15" id="WKh-BJ-l4y"/>
-                                                </constraints>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event address" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aff-sD-4J6">
-                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="15"/>
-                                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="12"/>
-                                                <color key="textColor" red="0.0" green="0.63137254899999995" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-time" translatesAutoresizingMaskIntoConstraints="NO" id="MeT-an-CTN">
+                                                        <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="15" id="to1-z5-zeg"/>
+                                                            <constraint firstAttribute="height" constant="15" id="uZr-O2-Cpc"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aX4-P8-rq7">
+                                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="15"/>
+                                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="12"/>
+                                                        <color key="textColor" red="0.0" green="0.63137254899999995" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="krq-y5-EbU" userLabel="Address stack">
+                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="25"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-location" translatesAutoresizingMaskIntoConstraints="NO" id="gKv-GO-IOD">
+                                                        <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="15" id="OdR-Qk-4f2"/>
+                                                            <constraint firstAttribute="height" constant="15" id="WKh-BJ-l4y"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jD8-no-cXD">
+                                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="25"/>
+                                                        <color key="backgroundColor" red="0.0" green="0.63137254899999995" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="25" id="UxN-Oj-u5I"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="12"/>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
+                                                        <state key="normal" title="Address">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="didPressLocationButton:" destination="kXP-rf-Jjp" eventType="touchUpInside" id="C1t-LQ-ocf"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <variation key="default">
-                                    <mask key="subviews">
-                                        <exclude reference="wEE-4d-KJ7"/>
-                                    </mask>
-                                </variation>
                             </stackView>
                         </subviews>
                     </stackView>
@@ -163,10 +149,9 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="addressLabel" destination="aff-sD-4J6" id="jRn-Tx-NCO"/>
+                <outlet property="addressLabel" destination="jD8-no-cXD" id="WoM-be-Rwb"/>
                 <outlet property="addressStack" destination="krq-y5-EbU" id="lNk-Lx-cSC"/>
                 <outlet property="articleImage" destination="KGt-bs-wLf" id="bRb-0v-0ne"/>
-                <outlet property="dateLabel" destination="zqm-Fb-NOX" id="lCo-1i-LhZ"/>
                 <outlet property="dayLabel" destination="enm-9e-7kF" id="Y4c-0i-C3Q"/>
                 <outlet property="geoImage" destination="gKv-GO-IOD" id="ZNA-nI-gnb"/>
                 <outlet property="monthLabel" destination="5wG-WQ-tLp" id="eVS-C1-odp"/>
@@ -174,11 +159,10 @@
                 <outlet property="timeStack" destination="LFA-RE-f6E" id="uJx-Uj-fSs"/>
                 <outlet property="titleLabel" destination="vnk-pS-Ip6" id="2TM-hZ-HVQ"/>
             </connections>
-            <point key="canvasLocation" x="-35" y="162.5"/>
+            <point key="canvasLocation" x="51.5" y="162.5"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="icon-date" width="25" height="26"/>
         <image name="icon-location" width="17" height="25"/>
         <image name="icon-time" width="25" height="25"/>
     </resources>

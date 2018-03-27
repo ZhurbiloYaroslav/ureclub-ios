@@ -108,7 +108,7 @@ class EventsListVC: UIViewController {
     }
     
     func registerNibs() {
-        tableView.register(UINib(nibName: "ArticleCell", bundle: nil), forCellReuseIdentifier: "ArticleCell")
+        tableView.register(UINib(nibName: "EventCell", bundle: nil), forCellReuseIdentifier: "EventCell")
         tableView.register(UINib(nibName: "CalendarCell", bundle: nil), forCellReuseIdentifier: "CalendarCell")
     }
     
@@ -169,10 +169,10 @@ extension EventsListVC: UITableViewDelegate, UITableViewDataSource {
             return cell
             
         case .list:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "ArticleCell", for: indexPath) as? ArticleCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath) as? EventCell
                 else { return UITableViewCell() }
-            let event = eventsManager.getEventFor(indexPath)
-            cell.updateCellWith(event)
+            cell.event = eventsManager.getEventFor(indexPath)
+            cell.delegate = self
             return cell
         }
     }
@@ -208,4 +208,10 @@ extension EventsListVC: UITableViewDelegate, UITableViewDataSource {
     //
     //    }
     
+}
+
+extension EventsListVC: EventCellDelegate {
+    func didPressLocationOnCellWithEvent(_ event: Event) {
+        Browser.openURLWith(event.location.getGoogleMapsLink())
+    }
 }
