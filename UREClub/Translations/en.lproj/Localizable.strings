@@ -141,3 +141,24 @@
 /*Fuzzy*/
 "alert_booking_decline_message" = "You canceled the registration for this event";
 "alert_booking_decline_title" = "You just cancelled your participation at this event";
+"screen_profile_edit_title" = "Profile edit";
+"months" = "months";
+"years" = "years";
+"filter_events_forums" = "Forums/Conferences";
+"filter_events_lunches" = "Business lunches";
+"filter_events_committees" = "Legal committees";
+"filter_events_international" = "International events";
+"filter_events_informal" = "Informal";
+"filter_members_residential" = "Residential";
+"filter_members_commercial" = "Commercial";
+"filter_members_architecture" = "Architecture";
+"filter_members_consulting" = "Consulting";
+"filter_members_legal" = "Legal";
+"filter_members_joined_recently" = "Recently joined";
+"filter_members_az" = "A-Z";
+"filter_members_za" = "Z-A";
+"filter_members_banking" = "Banking";
+"filter_members_funds_investment" = "Investment funds";
+"filter_members_brokerage" = "Brokerage";
+"filter_members_engineering" = "Engineering";
+"filter_members_property_management" = "Property management";

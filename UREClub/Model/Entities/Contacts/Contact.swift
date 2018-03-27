@@ -79,8 +79,10 @@ extension Contact {
         return email
     }
     
-    public func getPhone() -> String {
-        return phone
+    func getPhone() -> String {
+        let charactersToRemove = [" ", "(", ")", "-", "_"]
+        let trimmedPhone = phone.stringByRemovingAll(subStrings: charactersToRemove)
+        return trimmedPhone
     }
     
     public func getImageLink() -> String {

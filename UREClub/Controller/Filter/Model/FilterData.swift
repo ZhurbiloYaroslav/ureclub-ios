@@ -24,11 +24,11 @@ struct FilterData {
                 ),
                 Filter.FilterSection(title: "filter_section_category".localized(), type: .category, selection: .multiple, arrayWithItems:
                     [
-                        Filter.FilterSectionItem(id: [23,29,30], title: "Forums/Conferences"),
-                        Filter.FilterSectionItem(id: [24,32,33], title: "Business lunches"),
-                        Filter.FilterSectionItem(id: [25,38,39], title: "Legal committees"),
-                        Filter.FilterSectionItem(id: [26,36,37], title: "International events"),
-                        Filter.FilterSectionItem(id: [27,35,34], title: "Informal")
+                        Filter.FilterSectionItem(id: [23,29,30], title: "filter_events_forums".localized()),
+                        Filter.FilterSectionItem(id: [24,32,33], title: "filter_events_lunches".localized()),
+                        Filter.FilterSectionItem(id: [25,38,39], title: "filter_events_committees".localized()),
+                        Filter.FilterSectionItem(id: [26,36,37], title: "filter_events_international".localized()),
+                        Filter.FilterSectionItem(id: [27,35,34], title: "filter_events_informal".localized())
                     ]
                 )
             ]
@@ -36,18 +36,23 @@ struct FilterData {
             return [
                 Filter.FilterSection(title: "filter_section_sortby".localized(), type: .sort, selection: .single, arrayWithItems:
                     [
-                        Filter.FilterSectionItem(id: [0], title: "Recently joined"),
-                        Filter.FilterSectionItem(id: [0], title: "A-Z"),
-                        Filter.FilterSectionItem(id: [0], title: "Z-A")
+                        Filter.FilterSectionItem(id: [0], title: "filter_members_joined_recently".localized()),
+                        Filter.FilterSectionItem(id: [0], title: "filter_members_az".localized()),
+                        Filter.FilterSectionItem(id: [0], title: "filter_members_za".localized())
                     ]
                 ),
                 Filter.FilterSection(title: "filter_section_category_user".localized(), type: .category, selection: .multiple, arrayWithItems:
                     [
-                        Filter.FilterSectionItem(id: [42], title: "Residential"),
-                        Filter.FilterSectionItem(id: [43], title: "Commercial"),
-                        Filter.FilterSectionItem(id: [44], title: "Architecture"),
-                        Filter.FilterSectionItem(id: [45], title: "Consulting"),
-                        Filter.FilterSectionItem(id: [46], title: "Legal")
+                        Filter.FilterSectionItem(id: [42], title: "filter_members_residential".localized()),
+                        Filter.FilterSectionItem(id: [43], title: "filter_members_commercial".localized()),
+                        Filter.FilterSectionItem(id: [44], title: "filter_members_architecture".localized()),
+                        Filter.FilterSectionItem(id: [45], title: "filter_members_consulting".localized()),
+                        Filter.FilterSectionItem(id: [46], title: "filter_members_legal".localized()),
+                        Filter.FilterSectionItem(id: [49], title: "filter_members_banking".localized()),
+                        Filter.FilterSectionItem(id: [50], title: "filter_members_funds_investment".localized()),
+                        Filter.FilterSectionItem(id: [47], title: "filter_members_brokerage".localized()),
+                        Filter.FilterSectionItem(id: [48], title: "filter_members_engineering".localized()),
+                        Filter.FilterSectionItem(id: [71], title: "filter_members_property_management".localized())
                     ]
                 )
             ]

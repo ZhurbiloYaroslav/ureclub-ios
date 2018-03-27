@@ -223,7 +223,9 @@ extension CurrentUser {
     }
     
     static func getPhone() -> String {
-        return phone
+        let charactersToRemove = [" ", "(", ")", "-", "_"]
+        let trimmedPhone = phone.stringByRemovingAll(subStrings: charactersToRemove)
+        return trimmedPhone
     }
     
     // MARK: - Check on Existing of Info

@@ -10,6 +10,7 @@ import UIKit
 
 class FilterVC: UIViewController {
 
+    @IBOutlet weak var doneButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     
     var filterManager = FilterManager(withFilter: Filter(withType: .events))
@@ -36,7 +37,7 @@ class FilterVC: UIViewController {
     func updateUIWithLocalizedText() {
         
         navigationItem.title = "" // "screen_filter_title".localized()
-        
+        doneButton.title = "button_done".localized()
     }
     
     @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {

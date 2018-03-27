@@ -89,6 +89,7 @@
 		C4662AE41FEAB4F5001848C8 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4662AE31FEAB4F5001848C8 /* EventCell.swift */; };
 		C4662AE81FEAC8EC001848C8 /* ArticleDescVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4662AE71FEAC8EC001848C8 /* ArticleDescVC.swift */; };
 		C4696B7E205551D000B791BC /* UIButton+setBackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4696B7D205551D000B791BC /* UIButton+setBackgroundColor.swift */; };
+		C46C614E206B045500587C32 /* String+stringByRemovingAll.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C614D206B045500587C32 /* String+stringByRemovingAll.swift */; };
 		C47BEE44201FE8C300688AEF /* PasswordEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47BEE43201FE8C300688AEF /* PasswordEditVC.swift */; };
 		C47BEE48201FEA1400688AEF /* PasswordEdit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C47BEE47201FEA1400688AEF /* PasswordEdit.storyboard */; };
 		C47FA7391FE1D2FB003D393E /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C47FA7371FE1D2FB003D393E /* Auth.storyboard */; };
@@ -298,6 +299,7 @@
 		C4662AE31FEAB4F5001848C8 /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		C4662AE71FEAC8EC001848C8 /* ArticleDescVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDescVC.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		C4696B7D205551D000B791BC /* UIButton+setBackgroundColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+setBackgroundColor.swift"; sourceTree = "<group>"; };
+		C46C614D206B045500587C32 /* String+stringByRemovingAll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+stringByRemovingAll.swift"; sourceTree = "<group>"; };
 		C47BEE43201FE8C300688AEF /* PasswordEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordEditVC.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		C47BEE47201FEA1400688AEF /* PasswordEdit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PasswordEdit.storyboard; sourceTree = "<group>"; };
 		C47FA7381FE1D2FB003D393E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Auth.storyboard; sourceTree = "<group>"; };
@@ -602,6 +604,7 @@
 				C4E976A4205D22190069ADB3 /* UIView+customHeaderView.swift */,
 				C4E976AF205D7E730069ADB3 /* UIView+fromNib.swift */,
 				C43E9FAA206098D1008B8A13 /* String+capitalizingFirst.swift */,
+				C46C614D206B045500587C32 /* String+stringByRemovingAll.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1637,6 +1640,7 @@
 				C4E976AA205D6D740069ADB3 /* CompanyView.swift in Sources */,
 				C40C84982002BF980011AF01 /* ChangeLanguageCell.swift in Sources */,
 				C4044B3B204456590062922D /* NewFilter.swift in Sources */,
+				C46C614E206B045500587C32 /* String+stringByRemovingAll.swift in Sources */,
 				C4B54B2F1FEEFA3C008D531E /* CurrentUser.swift in Sources */,
 				C48D0DAB20129C79009347DE /* CalendarCell.swift in Sources */,
 				C44574621FDC192C004A5305 /* SettingsVC.swift in Sources */,
