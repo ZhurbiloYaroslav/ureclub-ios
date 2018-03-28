@@ -53,23 +53,20 @@ class NewsListVC: UIViewController {
     
     func presentNewsFromNotification() {
         if let data = dataFromNotification, data.isNews,
-            let newsDescVC = ArticleDescVC.getInstance() {
-            newsDescVC.currentArticle = getNewsByPostID(data.postID)
-            print("---newsDescVC.currentArticle: ", newsDescVC.currentArticle)
+            let newsDescVC = ArticleDescVC.getInstance(),
+            let currentNews = getNewsByPostID(data.postIDs) {
+            newsDescVC.currentArticle = currentNews
             navigationController?.pushViewController(newsDescVC, animated: true)
         }
     }
     
-    func getNewsByPostID(_ postID: Int) -> News? {
-        print("---postID: ", postID)
+    func getNewsByPostID(_ postIDs: [Int]) -> News? {
         var resultEvent: News? = nil
         arrayWithNews.forEach { news in
-            if news.getPostID() == postID {
+            if postIDs.contains(news.getPostID()) {
                 resultEvent = news
-                print("---resultEvent1: ", news.title)
             }
         }
-        print("---resultEvent2: ", resultEvent)
         return resultEvent
     }
     

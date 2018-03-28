@@ -94,10 +94,9 @@ class EventsListVC: UIViewController {
     
     func presentEventFromNotification() {
         if let data = dataFromNotification, data.isEvent,
-            let eventDescVC = ArticleDescVC.getInstance() {
-            print("---data.postID", data.postID)
-            eventDescVC.currentArticle = eventsManager.getEventByPostID(data.postID)
-            print("---currentArticle", eventDescVC.currentArticle?.title)
+            let eventDescVC = ArticleDescVC.getInstance(),
+            let currentEvent = eventsManager.getEventByPostID(data.postIDs) {
+            eventDescVC.currentArticle = currentEvent
             navigationController?.pushViewController(eventDescVC, animated: true)
         }
     }

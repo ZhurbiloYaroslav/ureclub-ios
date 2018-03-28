@@ -159,3 +159,6 @@
 "filter_members_engineering" = "Инжиниринг";
 "filter_members_property_management" = "Управляющие компании";
 "button_done" = "Готово";
+"control_members_people" = "Люди";
+"control_members_companies" = "Компании";
+"screen_password_edit_title" = "Редактирование пароля";

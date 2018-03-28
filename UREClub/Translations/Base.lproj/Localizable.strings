@@ -163,3 +163,6 @@
 "filter_members_engineering" = "Engineering";
 "filter_members_property_management" = "Property management";
 "button_done" = "Done";
+"control_members_people" = "People";
+"control_members_companies" = "Companies";
+"screen_password_edit_title" = "Password Edit";

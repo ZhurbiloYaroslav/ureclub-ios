@@ -37,10 +37,11 @@ class FilterVC: UIViewController {
     func updateUIWithLocalizedText() {
         
         navigationItem.title = "" // "screen_filter_title".localized()
-        doneButton.title = "button_done".localized()
+        let doneButton = UIBarButtonItem(title: "button_done".localized(), style: .plain, target: self, action: #selector(doneButtonPressed))
+        navigationItem.rightBarButtonItem = doneButton
     }
     
-    @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
+    @objc func doneButtonPressed(_ sender: UIBarButtonItem) {
         performFilter()
     }
     

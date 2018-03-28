@@ -378,7 +378,7 @@
 		C4E07B132025CDD500933FAA /* AboutCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutCell.xib; sourceTree = "<group>"; };
 		C4E521F71FE9027B00C3DE2E /* UISegmentedControl+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISegmentedControl+Style.swift"; sourceTree = "<group>"; };
 		C4E521FB1FE90BD700C3DE2E /* FilterVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FilterVC.storyboard; sourceTree = "<group>"; };
-		C4E521FD1FE90BFE00C3DE2E /* FilterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterVC.swift; sourceTree = "<group>"; };
+		C4E521FD1FE90BFE00C3DE2E /* FilterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterVC.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		C4E521FF1FE90D4A00C3DE2E /* UITableViewController+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewController+Style.swift"; sourceTree = "<group>"; };
 		C4E522011FE90EC700C3DE2E /* TopSegmentedContol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopSegmentedContol.swift; sourceTree = "<group>"; };
 		C4E522031FE914AD00C3DE2E /* TableViewCell+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableViewCell+Style.swift"; sourceTree = "<group>"; };

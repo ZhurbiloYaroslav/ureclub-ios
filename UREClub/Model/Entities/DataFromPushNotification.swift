@@ -9,7 +9,7 @@
 import Foundation
 
 struct DataFromPushNotification {
-    public let postID: Int
+    public let postIDs: [Int]
     public let postType: String
     
     public var isNews: Bool {
@@ -22,7 +22,7 @@ struct DataFromPushNotification {
     
     init(withResult additionalData: [String: Any]) {
         
-        self.postID = additionalData["postID"] as? Int ?? 0
+        self.postIDs = additionalData["postIDs"] as? [Int] ?? [Int]()
         self.postType = additionalData["postType"] as? String ?? ""
     }
 }

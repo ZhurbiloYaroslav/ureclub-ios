@@ -187,10 +187,10 @@ class EventsManager {
         }
     }
     
-    func getEventByPostID(_ postID: Int) -> Event? {
+    func getEventByPostID(_ postIDs: [Int]) -> Event? {
         var resultEvent: Event? = nil
         arrayWithAllEvents.forEach { event in
-            if event.getPostID() == postID {
+            if postIDs.contains(event.getPostID()) {
                 resultEvent = event
             }
         }

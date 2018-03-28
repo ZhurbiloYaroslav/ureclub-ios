@@ -130,16 +130,13 @@ extension AppDelegate {
             let revealVC = UIStoryboard(name: "Menu", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
             self.window?.rootViewController = revealVC
             
-            print("---postType", articleData.postType)
             if articleData.postType == "news" {
-                print("---test1")
                 let eventsNavController = UIStoryboard(name: "News", bundle: nil).instantiateViewController(withIdentifier: "NewsNavBar") as! UINavigationController
                 let eventsListVC = UIStoryboard(name: "News", bundle: nil).instantiateViewController(withIdentifier: "NewsListVC") as! NewsListVC
                 eventsListVC.dataFromNotification = articleData
                 eventsNavController.viewControllers = [eventsListVC]
                 revealVC.setFront(eventsNavController, animated: true)
             } else {
-                print("---test2")
                 let eventsNavController = UIStoryboard(name: "Events", bundle: nil).instantiateViewController(withIdentifier: "EventsNavBar") as! UINavigationController
                 let eventsListVC = UIStoryboard(name: "Events", bundle: nil).instantiateViewController(withIdentifier: "EventsListVC") as! EventsListVC
                 eventsListVC.dataFromNotification = articleData

@@ -155,3 +155,6 @@
 "filter_members_engineering" = "Інженерія";
 "filter_members_property_management" = "Керуючі компанії";
 "button_done" = "Готово";
+"control_members_people" = "Люди";
+"control_members_companies" = "Компанії";
+"screen_password_edit_title" = "Редагування паролю";

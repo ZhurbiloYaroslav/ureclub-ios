@@ -46,6 +46,9 @@ class PasswordEditVC: UIViewController {
     }
     
     func updateUIWithLocalizedText() {
+        
+        navigationItem.title = "screen_password_edit_title".localized()
+        
         currentPasswordField.placeholder = "enter_password".localized()
         newPasswordField.placeholder = "enter_password".localized()
         repeatPasswordField.placeholder = "enter_password".localized()

@@ -118,6 +118,9 @@ class MembersVC: UIViewController {
         
         navigationItem.title = "screen_members_title".localized()
         
+        memberTypeSwitcher.setTitle("control_members_people".localized(), forSegmentAt: 0)
+        memberTypeSwitcher.setTitle("control_members_companies".localized(), forSegmentAt: 1)
+        
     }
     
     @IBAction func filterButtonPressed(_ sender: UIBarButtonItem) {
