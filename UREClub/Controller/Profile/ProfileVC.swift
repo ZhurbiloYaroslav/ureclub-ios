@@ -70,6 +70,8 @@ class ProfileVC: UITableViewController {
     
     func updateUIWithLocalizedText() {
         
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+
     }
     
     @IBAction func notificationsButtonPressed(_ sender: UIBarButtonItem) {

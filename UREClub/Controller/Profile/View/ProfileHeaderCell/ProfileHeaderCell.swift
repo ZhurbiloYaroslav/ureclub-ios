@@ -39,7 +39,7 @@ class ProfileHeaderCell: UITableViewCell {
             fullNameLabel.text = contact.firstName + " " + contact.lastName
             companyNameLabel.text = contact.company.name
             positionLabel.text = contact.position
-            periodLabel.text = contact.getStringWithSincePeriod()
+            periodLabel.text = getStringWithPeriodFor(contact)
             
             editProfileIcon.isHidden = true
             temporaryIcon.isHidden = true
@@ -49,6 +49,15 @@ class ProfileHeaderCell: UITableViewCell {
             companyNameLabel.text = CurrentUser.company.companyName
             positionLabel.text = CurrentUser.company.position
             periodLabel.text = CurrentUser.company.date
+        }
+    }
+    
+    func getStringWithPeriodFor(_ person: Person) -> String {
+        switch person.getContactType() {
+        case .worker:
+            return "UREC Team"
+        default:
+            return person.getStringWithSincePeriod()
         }
     }
 }

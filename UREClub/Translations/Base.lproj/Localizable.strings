@@ -166,3 +166,9 @@
 "control_members_people" = "People";
 "control_members_companies" = "Companies";
 "screen_password_edit_title" = "Password Edit";
+"placeholder_first_name" = "First name";
+"placeholder_last_name" = "Last name";
+"placeholder_position" = "Position";
+"placeholder_phone" = "Phone";
+"button_save" = "Save";
+"profile_edit_hide_phone" = "Hide phone from public";

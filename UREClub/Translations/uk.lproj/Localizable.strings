@@ -79,7 +79,7 @@
 "filter_section_status" = "Статус";
 "filter_section_starred" = "Відмінити";
 "filter_section_sortby" = "Сортувати за";
-"filter_section_category_user" = "Посада";
+"filter_section_category_user" = "Сфера діяльності";
 "screen_filter_title" = "Фільтр";
 "event_attend_seewho" = "Список відвідувачів";
 "menu_item_logout" = "Вийти";
@@ -158,3 +158,9 @@
 "control_members_people" = "Люди";
 "control_members_companies" = "Компанії";
 "screen_password_edit_title" = "Редагування паролю";
+"placeholder_first_name" = "Ім'я";
+"placeholder_last_name" = "Прізвище";
+"placeholder_position" = "Посада";
+"placeholder_phone" = "Телефон";
+"button_save" = "Зберегти";
+"profile_edit_hide_phone" = "Не показувати телефон";

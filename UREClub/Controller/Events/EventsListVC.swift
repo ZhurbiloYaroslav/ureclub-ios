@@ -18,7 +18,7 @@ class EventsListVC: UIViewController {
     
     public var dataFromNotification: DataFromPushNotification?
     
-    private var eventsManager = EventsManager.shared
+    private var eventsManager = EventsManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -16,9 +16,7 @@ extension EventsManager: NetworkManagerDelegate {
 
 class EventsManager {
     
-    public static var shared = EventsManager()
-    
-    public var eventsFilter = EventsFilter.shared
+    public var eventsFilter = EventsFilter()
     
     private var arrayWithAllEvents = [Event]()
     private var networkManager = NetworkManager()
@@ -77,7 +75,7 @@ class EventsManager {
         }
         
         let eventsFilteredWithYearAndCategories = eventsFilteredWithYear.filter() { event in
-            guard let chosenCategories = eventsFilter.chosenCategories else {
+            guard let chosenCategories = eventsFilter.chosenCategories, !chosenCategories.isEmpty else {
                 return true
             }
             let doesEventMatchToSelectedCategories = chosenCategories.containsAnythingFrom(array: event.getArrayWithAllCategoriesIds())

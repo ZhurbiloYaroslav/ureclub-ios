@@ -321,11 +321,7 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="drE-qG-2Mf">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="k83-gc-Bfi" userLabel="Save">
-                            <connections>
-                                <action selector="saveButtonPressed:" destination="s3k-Kb-bQ5" id="3wn-dV-YOz"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="k83-gc-Bfi" userLabel="Save"/>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <size key="freeformSize" width="375" height="700"/>
@@ -334,6 +330,7 @@
                         <outlet property="emailField" destination="BE4-qw-zZt" id="t2s-cJ-cYF"/>
                         <outlet property="facebookField" destination="e1v-ho-e85" id="9MJ-qS-qhp"/>
                         <outlet property="firstNameField" destination="mA2-Qa-mH1" id="CSm-xo-cu3"/>
+                        <outlet property="hidePhoneLabel" destination="Lsi-Sp-9DM" id="w0h-aC-8Ga"/>
                         <outlet property="hidePhoneSwitcher" destination="sAe-gD-MMr" id="PNe-CM-QqP"/>
                         <outlet property="lastNameField" destination="5YR-sn-dCp" id="kKM-ah-KSS"/>
                         <outlet property="linkedInField" destination="ZXi-gY-ucD" id="qTk-PL-GzF"/>

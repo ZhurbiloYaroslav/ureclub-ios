@@ -130,6 +130,7 @@ extension NewsListVC: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCell", for: indexPath) as? NewsCell
             else { return UITableViewCell() }
         let news = arrayWithNews[indexPath.row]
+        cell.delegate = self
         cell.updateCellWith(news)
         return cell
     }
@@ -141,5 +142,14 @@ extension NewsListVC: UITableViewDelegate, UITableViewDataSource {
             navigationController?.pushViewController(articleDescVC, animated: true)
         }
         
+    }
+}
+
+extension NewsListVC: NewsCellDelegate {
+    func didPressReadMoreFor(_ news: News) {
+        if let articleDescVC = ArticleDescVC.getInstance() {
+            articleDescVC.currentArticle = news
+            navigationController?.pushViewController(articleDescVC, animated: true)
+        }
     }
 }

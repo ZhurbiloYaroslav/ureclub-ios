@@ -9,13 +9,21 @@
 import UIKit
 import SDWebImage
 
+protocol NewsCellDelegate: class {
+    func didPressReadMoreFor(_ news: News)
+}
+
 class NewsCell: UITableViewCell {
+    
+    weak var delegate: NewsCellDelegate?
     
     @IBOutlet weak var articleImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dayLabel: UILabel!
     @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var readMoreButton: UIButton!
+    
+    var currentNews: News!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,6 +38,8 @@ class NewsCell: UITableViewCell {
     
     func updateCellWith(_ news: News) {
         
+        self.currentNews = news
+        
         titleLabel.text = news.title
         
         if news.imageLinks.count > 0 {
@@ -40,5 +50,9 @@ class NewsCell: UITableViewCell {
         dayLabel.text = news.getDayFromDate()
         monthLabel.text = news.getShirtStringWithMonthFromDate()
     }
-
+    
+    @IBAction func didPressReadMoreButton(_ sender: UIButton) {
+        delegate?.didPressReadMoreFor(currentNews)
+    }
+    
 }

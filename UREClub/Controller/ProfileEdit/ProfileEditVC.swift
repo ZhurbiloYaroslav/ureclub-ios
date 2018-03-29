@@ -27,6 +27,7 @@ class ProfileEditVC: UIViewController {
     @IBOutlet weak var positionField: SkyFloatingLabelTextField!
     @IBOutlet weak var emailField: SkyFloatingLabelTextField!
     @IBOutlet weak var phoneField: SkyFloatingLabelTextField!
+    @IBOutlet weak var hidePhoneLabel: UILabel!
     @IBOutlet weak var hidePhoneSwitcher: UISwitch!
     @IBOutlet weak var facebookField: SkyFloatingLabelTextField!
     @IBOutlet weak var linkedInField: SkyFloatingLabelTextField!
@@ -84,8 +85,28 @@ class ProfileEditVC: UIViewController {
     func updateUIWithLocalizedText() {
         
         navigationItem.title = "" // "screen_profile_edit_title".localized()
+        let doneButton = UIBarButtonItem(title: "button_save".localized(), style: .plain, target: self, action: #selector(saveButtonPressed))
+        navigationItem.rightBarButtonItem = doneButton
         navigationItem.backBarButtonItem?.title = "navbar_button_back".localized()
+        
+        firstNameField.title = "placeholder_first_name".localized()
+        firstNameField.placeholder = "placeholder_first_name".localized()
+        
+        lastNameField.title = "placeholder_last_name".localized()
+        lastNameField.placeholder = "placeholder_last_name".localized()
+        
+        positionField.title = "placeholder_position".localized()
+        positionField.placeholder = "placeholder_position".localized()
+        
+        emailField.title = "placeholder_email".localized()
+        emailField.placeholder = "placeholder_email".localized()
+        
+        phoneField.title = "placeholder_phone".localized()
+        phoneField.placeholder = "placeholder_phone".localized()
+        
+        hidePhoneLabel.text = "profile_edit_hide_phone".localized()
         descriptionTitleLabel.text = "profile_edit_description_title".localized()
+        
     }
     
     func setUIElementsStyle() {
@@ -136,7 +157,7 @@ class ProfileEditVC: UIViewController {
         
     }
     
-    @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
+    @objc func saveButtonPressed(_ sender: UIBarButtonItem) {
         updateProfileData()
     }
     

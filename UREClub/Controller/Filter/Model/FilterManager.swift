@@ -12,8 +12,8 @@ class FilterManager {
     
     var currentFilter: Filter!
     
-    init(withFilter filter: Filter) {
-        self.currentFilter = filter
+    init(withType type: Filter.FilterType) {
+        self.currentFilter = Filter(withType: type)
     }
     
     func getNumberOfSections() -> Int {

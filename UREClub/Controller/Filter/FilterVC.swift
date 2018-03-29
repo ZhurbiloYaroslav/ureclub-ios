@@ -13,7 +13,7 @@ class FilterVC: UIViewController {
     @IBOutlet weak var doneButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     
-    var filterManager = FilterManager(withFilter: Filter(withType: .events))
+    var filterManager = FilterManager(withType: .events)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +32,7 @@ class FilterVC: UIViewController {
         super.viewWillAppear(animated)
         
         navigationController?.setDefaultStyle()
+        tableView.reloadData()
     }
     
     func updateUIWithLocalizedText() {

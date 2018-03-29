@@ -9,9 +9,7 @@
 import Foundation
 
 class EventsFilter: Filter {
-    
-    public static var shared = EventsFilter()
-    
+        
     private var currentEventPeriod = EventPeriod.upcoming
     private var currentEventViewType = EventViewType.calendar
     
