@@ -43,20 +43,6 @@ class FieldCell: UITableViewCell {
         cellImage.image = cellData.icon
         cellTitle.text = cellData.title
         cellText.text = cellData.value
-        
-        switch cellData.type {
-        case .text:
-            
-            cellTitle.isHidden = true
-            separatorLine.isHidden = true
-            
-            cellText.textColor = UIColor.darkGray
-            cellText.numberOfLines = 0
-            cellText.isHidden = isUnderEditing
-            
-        default:
-            cellText.isHidden = isUnderEditing
-        }
     }
     
     struct CellData: GenericCellData {

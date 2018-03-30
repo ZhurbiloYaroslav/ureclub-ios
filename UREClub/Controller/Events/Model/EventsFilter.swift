@@ -11,7 +11,7 @@ import Foundation
 class EventsFilter: Filter {
         
     private var currentEventPeriod = EventPeriod.upcoming
-    private var currentEventViewType = EventViewType.calendar
+    private var currentEventViewType = EventViewType.list
     
     init() {
         super.init(withType: .events)
@@ -60,12 +60,21 @@ extension EventsFilter {
         case calendar
         case list
         
+        var getSelectedIndex: Int {
+            switch self {
+            case .calendar:
+                return 1
+            default:
+                return 0
+            }
+        }
+        
         static func getTypeForInt(_ value: Int) -> EventViewType {
             switch value {
             case 0:
-                return .calendar
-            default:
                 return .list
+            default:
+                return .calendar
             }
         }
     }

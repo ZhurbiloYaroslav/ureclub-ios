@@ -170,3 +170,7 @@
 "placeholder_last_name" = "Last name";
 "placeholder_position" = "Position";
 "placeholder_phone" = "Phone";
+"button_save" = "Save";
+"profile_edit_hide_phone" = "Hide phone from public";
+"phone_is_not_valid" = "Phone is not valid";
+"alert_profile_edit_error_title" = "";

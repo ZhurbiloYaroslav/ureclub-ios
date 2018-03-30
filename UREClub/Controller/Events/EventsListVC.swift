@@ -33,6 +33,14 @@ class EventsListVC: UIViewController {
         setSwitcherStyle()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        eventsListTypeControl.selectedSegmentIndex = eventsManager.eventsFilter.getEventViewType().getSelectedIndex
+        
+        tableView.reloadData()
+    }
+    
     private func checkDataFromNotification() {
         guard let notificationData = dataFromNotification
             else { return }
@@ -46,12 +54,6 @@ class EventsListVC: UIViewController {
         } else if notificationData.postType == "event" {
             print("data is event")
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        tableView.reloadData()
     }
     
     func setSwitcherStyle() {
@@ -131,8 +133,8 @@ class EventsListVC: UIViewController {
         eventsPeriodControl.setTitle("control_event_upcoming".localized(), forSegmentAt: 0)
         eventsPeriodControl.setTitle("control_event_past".localized(), forSegmentAt: 1)
         
-        eventsListTypeControl.setTitle("control_event_calendar".localized(), forSegmentAt: 0)
-        eventsListTypeControl.setTitle("control_event_list".localized(), forSegmentAt: 1)
+        eventsListTypeControl.setTitle("control_event_list".localized(), forSegmentAt: 0)
+        eventsListTypeControl.setTitle("control_event_calendar".localized(), forSegmentAt: 1)
         
     }
     

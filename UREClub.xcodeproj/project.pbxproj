@@ -55,6 +55,8 @@
 		C44574621FDC192C004A5305 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44574611FDC192C004A5305 /* SettingsVC.swift */; };
 		C44574661FDC1B97004A5305 /* MembersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44574651FDC1B97004A5305 /* MembersVC.swift */; };
 		C44574681FDC1D18004A5305 /* MenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44574671FDC1D18004A5305 /* MenuManager.swift */; };
+		C45550D4206DBFEC00471B90 /* ProfileAboutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45550D2206DBFEC00471B90 /* ProfileAboutCell.swift */; };
+		C45550D5206DBFEC00471B90 /* ProfileAboutCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C45550D3206DBFEC00471B90 /* ProfileAboutCell.xib */; };
 		C460E4E52035905100408572 /* debugLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = C460E4E42035905100408572 /* debugLog.swift */; };
 		C460E4E7203590B600408572 /* UIViewController+fastInitialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = C460E4E6203590B500408572 /* UIViewController+fastInitialization.swift */; };
 		C463F8741FF4FAD2001FBBC1 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C463F8731FF4FAD2001FBBC1 /* NetworkError.swift */; };
@@ -113,7 +115,6 @@
 		C4959EE1200F1DDB0063D436 /* FilterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4959EE0200F1DDB0063D436 /* FilterManager.swift */; };
 		C4959EE3200F20AC0063D436 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4959EE2200F20AC0063D436 /* Contact.swift */; };
 		C4959EE9200F292F0063D436 /* LogOutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4959EE7200F292F0063D436 /* LogOutCell.swift */; };
-		C4959EEA200F292F0063D436 /* LogOutCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4959EE8200F292F0063D436 /* LogOutCell.xib */; };
 		C4987EB42066353200D740D1 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4987EB32066353200D740D1 /* NotificationService.swift */; };
 		C4987EB82066353200D740D1 /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C4987EB12066353200D740D1 /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C4987EBE2066A66500D740D1 /* DataFromPushNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4987EBD2066A66500D740D1 /* DataFromPushNotification.swift */; };
@@ -262,6 +263,8 @@
 		C44574611FDC192C004A5305 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		C44574651FDC1B97004A5305 /* MembersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersVC.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		C44574671FDC1D18004A5305 /* MenuManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuManager.swift; sourceTree = "<group>"; };
+		C45550D2206DBFEC00471B90 /* ProfileAboutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAboutCell.swift; sourceTree = "<group>"; };
+		C45550D3206DBFEC00471B90 /* ProfileAboutCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileAboutCell.xib; sourceTree = "<group>"; };
 		C460E4E42035905100408572 /* debugLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = debugLog.swift; sourceTree = "<group>"; };
 		C460E4E6203590B500408572 /* UIViewController+fastInitialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+fastInitialization.swift"; sourceTree = "<group>"; };
 		C463F8731FF4FAD2001FBBC1 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
@@ -332,7 +335,6 @@
 		C4959EE0200F1DDB0063D436 /* FilterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterManager.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		C4959EE2200F20AC0063D436 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		C4959EE7200F292F0063D436 /* LogOutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutCell.swift; sourceTree = "<group>"; };
-		C4959EE8200F292F0063D436 /* LogOutCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogOutCell.xib; sourceTree = "<group>"; };
 		C4987EB12066353200D740D1 /* OneSignalNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4987EB32066353200D740D1 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		C4987EB52066353200D740D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -722,6 +724,15 @@
 			path = Notifications;
 			sourceTree = "<group>";
 		};
+		C45550D1206DBFBE00471B90 /* ProfileAboutCell */ = {
+			isa = PBXGroup;
+			children = (
+				C45550D2206DBFEC00471B90 /* ProfileAboutCell.swift */,
+				C45550D3206DBFEC00471B90 /* ProfileAboutCell.xib */,
+			);
+			path = ProfileAboutCell;
+			sourceTree = "<group>";
+		};
 		C460E4E32035904000408572 /* Functions */ = {
 			isa = PBXGroup;
 			children = (
@@ -733,6 +744,8 @@
 		C463F8811FF5104A001FBBC1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C4F4DB5B1FF5359B00AA607C /* FieldCell */,
+				C45550D1206DBFBE00471B90 /* ProfileAboutCell */,
 				C463F8861FF51095001FBBC1 /* ProfileHeaderCell */,
 				C4F087572020D0F700C3BDC6 /* ProfileButtonsCell */,
 			);
@@ -984,7 +997,7 @@
 			isa = PBXGroup;
 			children = (
 				C41CA38B1FDBF6DC00AB0D2D /* MenuCell.swift */,
-				C4959EE6200F28F50063D436 /* LogOutCell */,
+				C4959EE7200F292F0063D436 /* LogOutCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -995,15 +1008,6 @@
 				C4C203EC1FE2959300272679 /* Menu.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		C4959EE6200F28F50063D436 /* LogOutCell */ = {
-			isa = PBXGroup;
-			children = (
-				C4959EE7200F292F0063D436 /* LogOutCell.swift */,
-				C4959EE8200F292F0063D436 /* LogOutCell.xib */,
-			);
-			path = LogOutCell;
 			sourceTree = "<group>";
 		};
 		C4987EB22066353200D740D1 /* OneSignalNotificationServiceExtension */ = {
@@ -1036,7 +1040,6 @@
 			isa = PBXGroup;
 			children = (
 				C4E522031FE914AD00C3DE2E /* TableViewCell+Style.swift */,
-				C4F4DB5B1FF5359B00AA607C /* FieldCell */,
 				C4FA7D2B1FF7659D00F03846 /* Protocols */,
 			);
 			path = Cells;
@@ -1364,7 +1367,6 @@
 				C40C84932002B10D0011AF01 /* ChangePasswordCell.xib in Resources */,
 				C4E07B172025D15F00933FAA /* AboutCell.xib in Resources */,
 				C4662AD11FEAAE38001848C8 /* Montserrat-ExtraBoldItalic.ttf in Resources */,
-				C4959EEA200F292F0063D436 /* LogOutCell.xib in Resources */,
 				C41CA3731FDBE3F000AB0D2D /* LaunchScreen.storyboard in Resources */,
 				C4662AD71FEAAE38001848C8 /* Montserrat-BlackItalic.ttf in Resources */,
 				C4F0875B2020D12400C3BDC6 /* ProfileButtonsCell.xib in Resources */,
@@ -1403,6 +1405,7 @@
 				C47FA7441FE1D60B003D393E /* Profile.storyboard in Resources */,
 				C4662AD21FEAAE38001848C8 /* Montserrat-ExtraLightItalic.ttf in Resources */,
 				C430EBF6200E1265001E818B /* ic_cross_white@2x.png in Resources */,
+				C45550D5206DBFEC00471B90 /* ProfileAboutCell.xib in Resources */,
 				C4662ADE1FEAAE38001848C8 /* Montserrat-SemiBold.ttf in Resources */,
 				C41CA36B1FDBE3F000AB0D2D /* Menu.storyboard in Resources */,
 				C4C82EEF2020BD2400EA4962 /* ArticleDescVC.storyboard in Resources */,
@@ -1596,6 +1599,7 @@
 				C4C203EF1FE2A5F700272679 /* Codex.swift in Sources */,
 				C4FA7D281FF7616300F03846 /* SettingsCells.swift in Sources */,
 				C43D1F76201DF7F600CFC158 /* ProfileEditVC.swift in Sources */,
+				C45550D4206DBFEC00471B90 /* ProfileAboutCell.swift in Sources */,
 				C435FD1220109D5200D90CE8 /* Company.swift in Sources */,
 				C4B8A5B72013434400645E2E /* Filter.swift in Sources */,
 				C41CA3901FDBFC9B00AB0D2D /* UserDefaultsManager.swift in Sources */,

@@ -45,10 +45,20 @@ class Validator {
         return simplePassword.evaluate(with: password)
     }
     
-    static func isPhoneValid(_ phoneString: String?) -> Bool {
-        let phonePatternRegEx = "(?:\\d{2}\\D*){0,2}\\d{4,5}\\D*\\d{4}"
-        
-        let phonePattern = NSPredicate(format: "SELF MATCHES %@", phonePatternRegEx)
-        return phonePattern.evaluate(with: phoneString)
+    static func isPhoneValid(_ phoneNumber: String?) -> Bool {
+        guard let phoneNumber = phoneNumber else { return false }
+        let charcterSet  = NSCharacterSet(charactersIn: "+0123456789").inverted
+        let inputString = phoneNumber.components(separatedBy: charcterSet)
+        let filtered = inputString.joined(separator: "")
+        let doesPhoneMatch = phoneNumber == filtered
+        let isLengthNormal = (phoneNumber.count > 9) && (phoneNumber.count < 15)
+        return doesPhoneMatch && isLengthNormal
     }
+    
+//    static func isPhoneValid(_ phoneString: String?) -> Bool {
+//        let phonePatternRegEx = "(?:\\d{2}\\D*){0,2}\\d{4,5}\\D*\\d{4}"
+//
+//        let phonePattern = NSPredicate(format: "SELF MATCHES %@", phonePatternRegEx)
+//        return phonePattern.evaluate(with: phoneString)
+//    }
 }

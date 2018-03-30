@@ -82,8 +82,8 @@
                                     <constraint firstAttribute="height" constant="40" id="cTG-Yh-qPd"/>
                                 </constraints>
                                 <segments>
-                                    <segment title="Calendar"/>
                                     <segment title="List"/>
+                                    <segment title="Calendar"/>
                                 </segments>
                                 <connections>
                                     <action selector="eventViewTypeSwitcherChanged:" destination="PXF-jZ-SOU" eventType="valueChanged" id="iee-q0-3p7"/>

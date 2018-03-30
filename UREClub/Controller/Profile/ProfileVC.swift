@@ -62,7 +62,7 @@ class ProfileVC: UITableViewController {
     }
     
     func registerCustomCells() {
-        let customCellsIdFromNibs = ["ProfileHeaderCell", "FieldCell", "ProfileButtonsCell"]
+        let customCellsIdFromNibs = ["ProfileHeaderCell", "FieldCell", "ProfileButtonsCell", "ProfileAboutCell"]
         for cellID in customCellsIdFromNibs {
             tableView.register(UINib(nibName: cellID, bundle: nil), forCellReuseIdentifier: cellID)
         }
@@ -135,9 +135,9 @@ class ProfileVC: UITableViewController {
             return cell
             
         case [2,0]:
-            let aboutText = publicContactToShow?.getTextContent() ?? CurrentUser.textContent
-            let cellData = FieldCell.CellData(type: .text, icon: UIImage(), title: "", value: aboutText)
-            cell.configureWith(cellData)
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileAboutCell", for: indexPath) as? ProfileAboutCell
+                else { return UITableViewCell() }
+            cell.aboutLabel.text = publicContactToShow?.getTextContent() ?? CurrentUser.textContent
             return cell
             
         default:

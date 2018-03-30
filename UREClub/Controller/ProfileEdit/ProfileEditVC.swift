@@ -79,6 +79,7 @@ class ProfileEditVC: UIViewController {
         userDescriptionTextView.delegate = self
         for textField in arrayWithTextFields {
             textField.delegate = self
+            textField.addTarget(self, action: #selector(self.textFieldChanged(_:)), for: .editingChanged)
         }
     }
     
@@ -158,7 +159,32 @@ class ProfileEditVC: UIViewController {
     }
     
     @objc func saveButtonPressed(_ sender: UIBarButtonItem) {
-        updateProfileData()
+        if doesRequiredFieldsCorrect() {
+            updateProfileData()
+        }
+    }
+    
+    private func doesRequiredFieldsCorrect() -> Bool {
+        var errorMessages = [String]()
+        
+        if let unwrappedEmail = emailField.text, Validator.isEmailValid(unwrappedEmail) {
+        } else {
+            errorMessages.append("email_is_not_valid".localized())
+        }
+        
+        if let unwrappedPhone = phoneField.text, Validator.isPhoneValid(unwrappedPhone) {
+        } else {
+            errorMessages.append("phone_is_not_valid".localized())
+        }
+        
+        if errorMessages.count > 0 {
+            let alertTitle = ""
+            Alert().presentAlertWith(title: alertTitle, andMessages: errorMessages, completionHandler: { (alertContoller) in
+                self.present(alertContoller, animated: true, completion: nil)
+            })
+            return false
+        }
+        return true
     }
     
     @IBAction func changeImageButtonPressed(_ sender: UIButton) {
@@ -251,6 +277,36 @@ extension ProfileEditVC {
 // MARK: - Methods, that helps hide Keyboard
 extension ProfileEditVC: UITextFieldDelegate, UITextViewDelegate, UIScrollViewDelegate {
     
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
+        activeTextField = nil
+    }
+    
+    @objc func textFieldChanged(_ textField: UITextField) {
+        guard let skyTextField = textField as? SkyFloatingLabelTextField
+            else { return }
+        validateTextField(skyTextField)
+    }
+    
+    func validateTextField(_ textField: SkyFloatingLabelTextField) {
+        switch textField.tag {
+        case 1:
+            if Validator.isEmailValid(textField.text) {
+                textField.errorMessage = ""
+            } else {
+                textField.errorMessage = "email_is_not_valid".localized()
+            }
+        case 2:
+            if Validator.isPhoneValid(textField.text) {
+                textField.errorMessage = ""
+            } else {
+                textField.errorMessage = "phone_is_not_valid".localized()
+            }
+        default:
+            break
+        }
+    }
+    
     func textViewDidBeginEditing(_ textView: UITextView) {
         activeTextField = textView
     }
@@ -261,10 +317,6 @@ extension ProfileEditVC: UITextFieldDelegate, UITextViewDelegate, UIScrollViewDe
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         activeTextField = textField
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        activeTextField = nil
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

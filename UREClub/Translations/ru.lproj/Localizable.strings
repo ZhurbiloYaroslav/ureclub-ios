@@ -168,3 +168,5 @@
 "placeholder_phone" = "Телефон";
 "button_save" = "Сохранить";
 "profile_edit_hide_phone" = "Спрятать телефон";
+"phone_is_not_valid" = "Телефон не правильный";
+"alert_profile_edit_error_title" = "";
