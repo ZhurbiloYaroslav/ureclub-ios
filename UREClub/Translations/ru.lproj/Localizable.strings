@@ -121,7 +121,7 @@
 
 /*Fuzzy*/
 "button_decline_meeting" = "Отменить";
-"profile_edit_description_title" = "О приложении";
+"profile_edit_description_title" = "О себе";
 "control_contacts_team" = "Команда";
 "control_contacts_office" = "Офис";
 "header_address" = "Адрес";

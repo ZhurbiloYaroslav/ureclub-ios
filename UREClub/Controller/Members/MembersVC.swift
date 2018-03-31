@@ -63,6 +63,7 @@ class MembersVC: UIViewController {
         setDelegates()
         setupAsAttendanceView()
         setSwitcherStyle()
+        setupSearchBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -76,6 +77,10 @@ class MembersVC: UIViewController {
         super.viewWillDisappear(animated)
         
         navigationController?.makeTransparent()
+    }
+    
+    func setupSearchBar() {
+        searchBar.enablesReturnKeyAutomatically = false
     }
     
     func setSwitcherStyle() {
