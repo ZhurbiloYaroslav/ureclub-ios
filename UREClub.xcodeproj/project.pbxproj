@@ -23,7 +23,6 @@
 		C41CA3731FDBE3F000AB0D2D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C41CA3711FDBE3F000AB0D2D /* LaunchScreen.storyboard */; };
 		C41CA3861FDBECC100AB0D2D /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41CA3851FDBECC100AB0D2D /* LoginVC.swift */; };
 		C41CA3881FDBED0100AB0D2D /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41CA3871FDBED0100AB0D2D /* MenuVC.swift */; };
-		C41CA38A1FDBF29100AB0D2D /* Launch screen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C41CA3891FDBF29100AB0D2D /* Launch screen.jpg */; };
 		C41CA38C1FDBF6DC00AB0D2D /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41CA38B1FDBF6DC00AB0D2D /* MenuCell.swift */; };
 		C41CA38E1FDBFC7100AB0D2D /* String+localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41CA38D1FDBFC7100AB0D2D /* String+localized.swift */; };
 		C41CA3901FDBFC9B00AB0D2D /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41CA38F1FDBFC9B00AB0D2D /* UserDefaultsManager.swift */; };
@@ -230,7 +229,6 @@
 		C41CA3741FDBE3F000AB0D2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C41CA3851FDBECC100AB0D2D /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		C41CA3871FDBED0100AB0D2D /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; wrapsLines = 0; };
-		C41CA3891FDBF29100AB0D2D /* Launch screen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Launch screen.jpg"; sourceTree = "<group>"; };
 		C41CA38B1FDBF6DC00AB0D2D /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		C41CA38D1FDBFC7100AB0D2D /* String+localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+localized.swift"; sourceTree = "<group>"; };
 		C41CA38F1FDBFC9B00AB0D2D /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
@@ -579,7 +577,6 @@
 				C41CA36F1FDBE3F000AB0D2D /* Assets.xcassets */,
 				C41CA3741FDBE3F000AB0D2D /* Info.plist */,
 				C41CA36C1FDBE3F000AB0D2D /* UREClub.xcdatamodeld */,
-				C41CA3801FDBEB6800AB0D2D /* Images */,
 				C4DEAD0820662C8200795C28 /* README.md */,
 			);
 			path = Resources;
@@ -609,14 +606,6 @@
 				C46C614D206B045500587C32 /* String+stringByRemovingAll.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		C41CA3801FDBEB6800AB0D2D /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				C41CA3891FDBF29100AB0D2D /* Launch screen.jpg */,
-			);
-			path = Images;
 			sourceTree = "<group>";
 		};
 		C41CA3831FDBEB9600AB0D2D /* Constants */ = {
@@ -1387,7 +1376,6 @@
 				C4662ADB1FEAAE38001848C8 /* Montserrat-Medium.ttf in Resources */,
 				C463F8851FF5108B001FBBC1 /* ProfileHeaderCell.xib in Resources */,
 				C4662AD61FEAAE38001848C8 /* Montserrat-Black.ttf in Resources */,
-				C41CA38A1FDBF29100AB0D2D /* Launch screen.jpg in Resources */,
 				C4E976A8205D6D640069ADB3 /* CompanyView.xib in Resources */,
 				C47FA74C1FE1D795003D393E /* Contacts.storyboard in Resources */,
 				C4662ADF1FEAAE38001848C8 /* Montserrat-ThinItalic.ttf in Resources */,

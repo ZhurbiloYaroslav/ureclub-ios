@@ -207,7 +207,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="background-login" width="356" height="653"/>
+        <image name="background-login" width="924" height="1356"/>
         <image name="logo-ureclub" width="250" height="252"/>
     </resources>
 </document>
