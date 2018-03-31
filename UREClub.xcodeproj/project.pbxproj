@@ -871,7 +871,6 @@
 				C47FA7491FE1D75C003D393E /* Members.storyboard */,
 				C44574651FDC1B97004A5305 /* MembersVC.swift */,
 				C4DC776D200FC36100F3814F /* View */,
-				C4DC776E200FC36B00F3814F /* Model */,
 			);
 			path = Members;
 			sourceTree = "<group>";
@@ -1112,13 +1111,6 @@
 				C4DC7780200FE3A300F3814F /* PersonCell */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		C4DC776E200FC36B00F3814F /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		C4DC777F200FE39900F3814F /* CompanyCell */ = {

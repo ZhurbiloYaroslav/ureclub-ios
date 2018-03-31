@@ -40,7 +40,7 @@ class ContactsManager {
     public func getNumberOfSections() -> Int {
         switch contactType {
         case .company:
-            return contactsData.getFilteredArrayWithCompanies().count
+            return contactsData.getFilteredAndSortedArrayWithCompanies().count
         default:
             return 1
         }
@@ -106,14 +106,14 @@ class ContactsManager {
     }
     
     public func getCompanyFor(_ section: Int) -> Company {
-        let filteredArrayWithCompanies = contactsData.getFilteredArrayWithCompanies()
+        let filteredArrayWithCompanies = contactsData.getFilteredAndSortedArrayWithCompanies()
         return filteredArrayWithCompanies[section]
     }
     
     // TODO: Figure out here!!!
     public func getContactForCompanyTypeCell(_ indexPath: IndexPath) -> Contact {
         var result = [Contact]()
-        let arrayWithCompanies = contactsData.getFilteredArrayWithCompanies()
+        let arrayWithCompanies = contactsData.getFilteredAndSortedArrayWithCompanies()
         
         if isOpened(indexPath.section) {
             

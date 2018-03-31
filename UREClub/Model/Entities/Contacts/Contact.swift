@@ -31,6 +31,7 @@ class Contact: NSObject {
         self.imageLink = imageLink
         self.phone = phone ?? ""
         self.email = email ?? ""
+        self.categories = [Category]()
         self.priority = priority ?? Constants.Contact.defaultPriority
         self.type = type
         self.dateSince = dateSince ?? ""
@@ -148,6 +149,12 @@ extension Contact {
     public func linkedInkLinkIsEmpty() -> Bool {
         let doesLinkedInLinkEmpty = linkedInLink.trimmingCharacters(in: .whitespaces).isEmpty
         return doesLinkedInLinkEmpty
+    }
+    
+    public func getArrayWithAllCategoriesIds() -> [Int] {
+        var result = [Int]()
+        categories.forEach { result.append($0.id) }
+        return result
     }
     
 }

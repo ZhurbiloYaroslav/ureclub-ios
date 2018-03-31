@@ -24,6 +24,7 @@ class Filter {
     
     var searchString: String
     var chosenYear: Int?
+    var chosenSorting: Int?
     var chosenCategories: [Int]?
     
     // MARK: -
@@ -34,15 +35,28 @@ class Filter {
         self.searchString = ""
         self.arrayWithSections = filterData.getArrayWithSectionsDependsOn(type)
         self.contactsIDToPresentOnly = nil
+        
+        setSortingForType(type)
     }
     
-    var isInSearch: Bool {
+    public var isInSearch: Bool {
         let isNotInSearch = searchString.isEmpty == false
         return isNotInSearch
     }
     
-    var lowerCasedSearchString: String {
+    public var lowerCasedSearchString: String {
         return searchString.lowercased()
+    }
+    
+    public func setSortingForType(_ type: FilterType) {
+        switch type {
+        case .members: chosenSorting = 0
+        default: break
+        }
+    }
+    
+    public func getSortingType() -> SortingType {
+        return SortingType.getTypeBy(chosenSorting)
     }
     
 }
@@ -56,6 +70,21 @@ extension Filter {
         case news
         case members
         case contacts
+    }
+    
+    enum SortingType {
+        case az
+        case za
+        case recently
+        
+        static func getTypeBy(_ value: Int?) -> SortingType {
+            guard let value = value else { return .az }
+            switch value {
+            case 1: return .za
+            case 2: return .recently
+            default: return .az
+            }
+        }
     }
     
     struct FilterSection {
@@ -154,6 +183,7 @@ protocol GenericFilter {
     var type: Filter.FilterType { get set }
     var filterData: FilterData { get set }
     var chosenYear: Int? { get set }
+    var chosenSorting: Int? { get set }
     var chosenCategories: [Int]? { get set }
     var arrayWithSections: [Filter.FilterSection] { get set }
     func getFilter() -> Self

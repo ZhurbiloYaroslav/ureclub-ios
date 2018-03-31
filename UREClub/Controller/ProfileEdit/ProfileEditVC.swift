@@ -119,13 +119,12 @@ class ProfileEditVC: UIViewController {
         let shadowOffset = CGSize(width: 0, height: 1)
         profileImageEditButtonContainer.setShadow(offset: shadowOffset, opacity: 0.5, radius: 5, andColor: UIColor.black)
         
-        let lightGreyColor = UIColor(red: 197/255, green: 205/255, blue: 205/255, alpha: 1.0)
+        let lightGreyColor = UIColor(red:0.88, green:0.88, blue:0.88, alpha:1.0)
         let darkGreyColor = UIColor(red: 52/255, green: 42/255, blue: 61/255, alpha: 1.0)
         let overcastBlueColor = UIColor(red: 0, green: 187/255, blue: 204/255, alpha: 1.0)
         
         for textField in arrayWithTextFields {
             textField.lineColor = lightGreyColor
-            textField.lineColor = darkGreyColor
             textField.textColor = darkGreyColor
             textField.selectedTitleColor = overcastBlueColor
             textField.selectedLineColor = overcastBlueColor
@@ -139,7 +138,7 @@ class ProfileEditVC: UIViewController {
         }
         
         userDescriptionTextView.layer.borderWidth = 1
-        userDescriptionTextView.layer.borderColor = UIColor.gray.cgColor
+        userDescriptionTextView.layer.borderColor = lightGreyColor.cgColor
     }
     
     func updateUIWithValues() {

@@ -48,6 +48,10 @@ class FilterManager {
             if let chosenYear = currentFilter.chosenYear, currentFilterItem.id.contains(chosenYear) {
                 return UITableViewCellAccessoryType.checkmark
             }
+        case .sort:
+            if let chosenSorting = currentFilter.chosenSorting, currentFilterItem.id.contains(chosenSorting) {
+                return UITableViewCellAccessoryType.checkmark
+            }
         default:
             debugLog("Was chosen undefined Filter Type")
         }
@@ -83,6 +87,17 @@ class FilterManager {
                 currentFilter.chosenYear = nil
             } else {
                 currentFilter.chosenYear = currentFilterItem.id[0]
+            }
+            
+        case .sort:
+            guard let chosenSorting = currentFilter.chosenSorting else {
+                currentFilter.chosenSorting = currentFilterItem.id[0]
+                return
+            }
+            if currentFilterItem.id.contains(chosenSorting) {
+                currentFilter.chosenSorting = nil
+            } else {
+                currentFilter.chosenSorting = currentFilterItem.id[0]
             }
             
         default:

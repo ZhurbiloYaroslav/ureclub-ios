@@ -43,7 +43,7 @@ class ContactsData {
         getContactsData()
     }
     
-    func getFilteredArrayWithCompanies() -> [Company] {
+    func getFilteredAndSortedArrayWithCompanies() -> [Company] {
         var arrayWithResult = [Company]()
         let searchString = contactsFilter.lowerCasedSearchString
         if contactsFilter.isInSearch {
@@ -55,7 +55,25 @@ class ContactsData {
         } else {
             arrayWithResult = arrayWithCompanies
         }
-        return arrayWithResult
+        return getSortedArrayWithCompanies(arrayWithResult)
+    }
+    
+    func getSortedArrayWithCompanies(_ arrayWithCompanies: [Company]) -> [Company] {
+        switch contactsFilter.type {
+        case .members:
+            return arrayWithCompanies.sorted { company1, company2 in
+                switch contactsFilter.getSortingType() {
+                case .az:
+                    return company1.name < company2.name
+                case .za:
+                    return company1.name > company2.name
+                case .recently:
+                    return company1.getDateSince() > company2.getDateSince()
+                }
+            }
+            
+        default: return arrayWithCompanies
+        }
     }
     
     var dictWithPersonsByCompanyID: [String: [Person]] {
@@ -114,22 +132,48 @@ class ContactsData {
 extension ContactsData {
     
     func getArrayWithContactsFor(types: [Contact.ContactType]) -> [GenericContact] {
-        var filteredArrayWithContacts = arrayWithPersons.filter { person in types.contains(person.getContactType())}
-        switch types {
-        case let person where person.contains(.person):
-            filteredArrayWithContacts = getFilteredArrayWithPersons(filteredArrayWithContacts)
-        default:
-            break
-        }
-        let sortedArrayWithContacts = filteredArrayWithContacts.sorted { $0.getPriority() < $1.getPriority() }
-        return sortedArrayWithContacts
+        let filteredArrayWithContacts = arrayWithPersons.filter { person in types.contains(person.getContactType())}
+        return getFilteredArrayWithPersons(filteredArrayWithContacts)
     }
     
     func getFilteredArrayWithPersons(_ arrayWithPersons: [Person]) -> [Person] {
-        var result = [Person]()
-        result = filterWithSearch(arrayWithPersons)
-        result = filterWithAttendanceList(result)
+        let personsFilteredWithSearch = filterWithSearch(arrayWithPersons)
+        let personsFilteredWithAttendance = filterWithAttendanceList(personsFilteredWithSearch)
+        let sortedPersons = sortPersons(personsFilteredWithAttendance)
+        let result = getPersonsFilteredWithCategoryFrom(sortedPersons)
         return result
+    }
+    
+    func sortPersons(_ arrayWithPersons: [Person]) -> [Person] {
+        switch contactsFilter.type {
+        case .members:
+            return arrayWithPersons.sorted { person1, person2 in
+                switch contactsFilter.getSortingType() {
+                case .az:
+                    return person1.fullName < person2.fullName
+                case .za:
+                    return person1.fullName > person2.fullName
+                case .recently:
+                    return person1.getDateSince() > person2.getDateSince()
+                }
+            }
+
+        case .contacts:
+            return arrayWithPersons.sorted { $0.getPriority() < $1.getPriority() }
+            
+        default: return arrayWithPersons
+        }
+    }
+    
+    func getPersonsFilteredWithCategoryFrom(_ sourceArrayWithPersons: [Person]) -> [Person] {
+        return sourceArrayWithPersons.filter() { person in
+            guard let chosenCategories = contactsFilter.chosenCategories, !chosenCategories.isEmpty else {
+                return true
+            }
+            let doesEventMatchToSelectedCategories = chosenCategories.containsAnythingFrom(array: person.getArrayWithAllCategoriesIds())
+            
+            return doesEventMatchToSelectedCategories
+        }
     }
     
     func filterWithSearch(_ arrayWithPersons: [Person]) -> [Person] {

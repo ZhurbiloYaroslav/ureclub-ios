@@ -36,9 +36,9 @@ struct FilterData {
             return [
                 Filter.FilterSection(title: "filter_section_sortby".localized(), type: .sort, selection: .single, arrayWithItems:
                     [
-                        Filter.FilterSectionItem(id: [0], title: "filter_members_joined_recently".localized()),
                         Filter.FilterSectionItem(id: [0], title: "filter_members_az".localized()),
-                        Filter.FilterSectionItem(id: [0], title: "filter_members_za".localized())
+                        Filter.FilterSectionItem(id: [1], title: "filter_members_za".localized()),
+                        Filter.FilterSectionItem(id: [2], title: "filter_members_joined_recently".localized())
                     ]
                 ),
                 Filter.FilterSection(title: "filter_section_category_user".localized(), type: .category, selection: .multiple, arrayWithItems:
