@@ -58,6 +58,34 @@ public class ConfirmViewController: UIViewController, UIScrollViewDelegate {
 	public override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
 		return UIStatusBarAnimation.slide
 	}
+    
+    //YZ
+    private func setupOverlayGestures() {
+        let gestureRecognizers = [
+            UIPinchGestureRecognizer(target: self, action: #selector(ConfirmViewController.handleOverlayGestures(_:))),
+            UIPanGestureRecognizer(target: self, action: #selector(ConfirmViewController.handleOverlayGestures(_:)))
+        ]
+        cropOverlay.isUserInteractionEnabled = true
+        for recognizer in gestureRecognizers {
+            cropOverlay.addGestureRecognizer(recognizer)
+        }
+    }
+    
+    @objc private func handleOverlayGestures(_ recognizer: UIGestureRecognizer) {
+        switch recognizer {
+        case let recognizer as UIPinchGestureRecognizer:
+            scrollView.transform = scrollView.transform.scaledBy(x: recognizer.scale, y: recognizer.scale)
+            recognizer.scale = 1
+        case let recognizer as UIPanGestureRecognizer:
+            let translation = recognizer.translation(in: self.scrollView)
+            scrollView.center = CGPoint(x:scrollView.center.x + translation.x,
+                                        y:scrollView.center.y + translation.y)
+            recognizer.setTranslation(CGPoint.zero, in: self.scrollView)
+        default:
+            break
+        }
+    }
+    //YZ
 	
 	public override func viewDidLoad() {
 		super.viewDidLoad()
@@ -95,6 +123,7 @@ public class ConfirmViewController: UIViewController, UIScrollViewDelegate {
 			hideSpinner(spinner)
 			enable()
 		}
+        setupOverlayGestures() //YZ
 	}
 	
 	public override func viewWillLayoutSubviews() {
