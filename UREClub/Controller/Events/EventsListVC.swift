@@ -187,27 +187,25 @@ extension EventsListVC: UITableViewDelegate, UITableViewDataSource {
         
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return eventsManager.getHeaderTitleFor(section)
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        switch eventsManager.eventsFilter.getEventViewType() {
+        case .calendar:
+            let headerTitleText = eventsManager.getHeaderTitleFor(section)
+            let headerView = UIView.getCustomHeaderViewWith(headerTitleText, forTableView: tableView    )
+            headerView.backgroundColor = UIColor(red:0.72, green:0.82, blue:0.84, alpha:1.0)
+            
+            return headerView
+        case .list:
+            return nil
+        }
     }
     
-    //    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-    //
-    //        let headerTitleText = eventsManager.getHeaderTitleFor(section)
-    //
-    //        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 36))
-    //        headerView.backgroundColor = Constants.Color.tableSectionsBackground
-    //
-    //        let headerTitleLabel = UILabel(frame: CGRect(x: 16, y: 0, width: tableView.frame.size.width, height: 36))
-    //        headerTitleLabel.text = headerTitleText
-    //        headerTitleLabel.font = UIFont(name: "Montserrat-Medium", size: 18)
-    //        headerTitleLabel.textColor = Constants.Color.tableSectionsTitle
-    //
-    //        headerView.addSubview(headerTitleLabel)
-    //
-    //        return headerView
-    //
-    //    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        switch eventsManager.eventsFilter.getEventViewType() {
+        case .calendar: return 36
+        case .list: return CGFloat.leastNonzeroMagnitude
+        }
+    }
     
 }
 
