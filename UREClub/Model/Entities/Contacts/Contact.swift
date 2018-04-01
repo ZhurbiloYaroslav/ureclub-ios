@@ -92,6 +92,17 @@ extension Contact {
         return Formatter.getDateFrom(dateSince)
     }
     
+    public func doesJoinedRecently() -> Bool {
+        let calendar = NSCalendar.current
+        let todayDate = calendar.startOfDay(for: Date())
+        let sinceDate = calendar.startOfDay(for: getDateSince())
+        let components = calendar.dateComponents([.day], from: todayDate, to: sinceDate)
+        
+        let daysIsMember = abs(components.day ?? 0)
+        let maximudDaysThatAreRecently = 90
+        return maximudDaysThatAreRecently > daysIsMember && daysIsMember > 0
+    }
+    
     public func getStringWithSincePeriod() -> String {
         let sinceComponent = Formatter.getSinceComponentFromTodayFor(getDateSince())
         let years = abs(sinceComponent.year ?? 0)

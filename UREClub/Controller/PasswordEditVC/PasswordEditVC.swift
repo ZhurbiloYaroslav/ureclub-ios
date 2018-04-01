@@ -49,9 +49,9 @@ class PasswordEditVC: UIViewController {
         
         navigationItem.title = "screen_password_edit_title".localized()
         
-        currentPasswordField.placeholder = "enter_password".localized()
-        newPasswordField.placeholder = "enter_password".localized()
-        repeatPasswordField.placeholder = "enter_password".localized()
+        currentPasswordField.placeholder = "placeholder_password_current".localized()
+        newPasswordField.placeholder = "placeholder_password_new".localized()
+        repeatPasswordField.placeholder = "placeholder_password_repeat".localized()
         
         changePasswordButton.setTitle("button_password_change".localized(), for: .normal)
         restorePasswordButton.setTitle("button_password_restore".localized(), for: .normal)

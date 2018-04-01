@@ -73,21 +73,6 @@ class ContactsManager {
         return getNumberOfTableCellsThatContainsCompany(section) > 0
     }
     
-    /*
-    private func getNumberOfPersonCellsFor(_ section: Int) -> Int {
-        if isOpened(section) {
-            let company = getCompanyFor(section)
-            let companyID = company.getStringWithID()
-            if let dictWithPersonsOfCurrentCompany = contactsData.dictWithPersonsByCompanyID[companyID] {
-                return dictWithPersonsOfCurrentCompany.count
-            }
-            return result
-        } else {
-            return 0
-        }
-    }
-    */
-    
     public func getPersonFor(_ indexPath: IndexPath) -> Person {
         switch contactType {
         case .company:

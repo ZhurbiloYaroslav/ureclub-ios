@@ -61,14 +61,18 @@ class ContactsData {
     func getSortedArrayWithCompanies(_ arrayWithCompanies: [Company]) -> [Company] {
         switch contactsFilter.type {
         case .members:
-            return arrayWithCompanies.sorted { company1, company2 in
-                switch contactsFilter.getSortingType() {
-                case .az:
+            switch contactsFilter.getSortingType() {
+            case .az:
+                return arrayWithCompanies.sorted { company1, company2 in
                     return company1.name < company2.name
-                case .za:
+                }
+            case .za:
+                return arrayWithCompanies.sorted { company1, company2 in
                     return company1.name > company2.name
-                case .recently:
-                    return company1.getDateSince() > company2.getDateSince()
+                }
+            case .recently:
+                return arrayWithCompanies.filter { company in
+                    return company.doesJoinedRecently()
                 }
             }
             
@@ -147,14 +151,18 @@ extension ContactsData {
     func sortPersons(_ arrayWithPersons: [Person]) -> [Person] {
         switch contactsFilter.type {
         case .members:
-            return arrayWithPersons.sorted { person1, person2 in
-                switch contactsFilter.getSortingType() {
-                case .az:
+            switch contactsFilter.getSortingType() {
+            case .az:
+                return arrayWithPersons.sorted { person1, person2 in
                     return person1.fullName < person2.fullName
-                case .za:
+                }
+            case .za:
+                return arrayWithPersons.sorted { person1, person2 in
                     return person1.fullName > person2.fullName
-                case .recently:
-                    return person1.getDateSince() > person2.getDateSince()
+                }
+            case .recently:
+                return arrayWithPersons.filter { person in
+                    return person.doesJoinedRecently()
                 }
             }
 
