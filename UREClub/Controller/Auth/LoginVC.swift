@@ -8,6 +8,7 @@
 
 import UIKit
 import SkyFloatingLabelTextField
+import SWRevealViewController
 
 class LoginVC: UIViewController {
     
@@ -91,8 +92,17 @@ class LoginVC: UIViewController {
                 })
             } else {
                 CurrentUser.password = loginData.password
-                self.performSegue(withIdentifier: "EnterFromLogin", sender: nil)
+                self.moveToMainScreen()
             }
+        }
+    }
+    
+    private func moveToMainScreen() {
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate,
+            let window = appDelegate.window,
+            let overviewVC = UIStoryboard(name: "Menu", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as? SWRevealViewController {
+            window.rootViewController = overviewVC
+            window.makeKeyAndVisible()
         }
     }
     
