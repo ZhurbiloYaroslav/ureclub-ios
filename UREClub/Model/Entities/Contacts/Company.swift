@@ -16,7 +16,7 @@ class Company: Contact {
     }
     
     convenience init(name: String, id: Int, type: String, imageLink: String) {
-        self.init(name: name, id: id, type: type, imageLink: imageLink,
+        self.init(name: name, id: id, type: type, imageLink: imageLink, categories: [Category](),
                   priority: nil, phone: nil, email: nil, dateSince: nil)
     }
     
@@ -24,11 +24,11 @@ class Company: Contact {
         self.init(name: "", id: 0, type: "", imageLink: "")
     }
     
-    init(name: String, id: Int, type: String, imageLink: String,
+    init(name: String, id: Int, type: String, imageLink: String, categories: [Category],
          priority: Int?, phone: String?, email: String?, dateSince: String?) {
         
         self.name = name
-        super.init(id: id, imageLink: imageLink, type: type, aboutText: "", facebookLink: "", linkedInLink: "",
+        super.init(id: id, imageLink: imageLink, type: type, aboutText: "", facebookLink: "", linkedInLink: "",  categories: [Category](),
                    phone: phone, email: email, priority: priority, dateSince: dateSince)
     }
     
@@ -42,9 +42,17 @@ class Company: Contact {
         let priority = resultDictionary["priority"] as? Int ?? Constants.Contact.defaultPriority
         let dateSince = resultDictionary["dateSince"] as? String ?? ""
         
+        var categories = [Category]()
+        let arrayWithCategories = resultDictionary["categories"] as? [Int] ?? [Int]()
+        arrayWithCategories.forEach({ categoryID in
+            let newCategory = Category(id: categoryID)
+            categories.append(newCategory)
+        })
+        
         let dictWithLinks = resultDictionary["links"] as? [String: Any]  ?? [String: Any]()
         let imageLink = dictWithLinks["image"] as? String ?? ""
         
-        self.init(name: name, id: id, type: type, imageLink: imageLink, priority: priority, phone: phone, email: email, dateSince: dateSince)
+        self.init(name: name, id: id, type: type, imageLink: imageLink, categories: categories,
+                  priority: priority, phone: phone, email: email, dateSince: dateSince)
     }
 }

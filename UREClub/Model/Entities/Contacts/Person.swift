@@ -15,22 +15,22 @@ class Person: Contact {
     var position: String
     
     convenience init(firstName: String, lastName: String, company: Company, position: String, dateSince: String,
-                     aboutText: String, facebookLink: String, linkedInLink: String,
+                     aboutText: String, facebookLink: String, linkedInLink: String, categories: [Category],
                      id: Int, type: String, imageLink: String) {
         self.init(firstName: firstName, lastName: lastName, company: company, position: position, dateSince: dateSince,
-                  aboutText: aboutText, facebookLink: facebookLink, linkedInLink: linkedInLink,
+                  aboutText: aboutText, facebookLink: facebookLink, linkedInLink: linkedInLink, categories: categories,
                   id: id, type: type, imageLink: imageLink,
                   priority: nil, phone: nil, email: nil)
     }
     
     convenience init() {
         self.init(firstName: "", lastName: "", company: Company(), position: "", dateSince: "",
-                  aboutText: "", facebookLink: "", linkedInLink: "",
+                  aboutText: "", facebookLink: "", linkedInLink: "", categories: [Category](),
                   id: 0, type: "", imageLink: "", priority: nil, phone: nil, email: nil)
     }
     
     init(firstName: String, lastName: String, company: Company, position: String, dateSince: String,
-         aboutText: String, facebookLink: String, linkedInLink: String,
+         aboutText: String, facebookLink: String, linkedInLink: String, categories: [Category],
          id: Int, type: String, imageLink: String,
          priority: Int?, phone: String?, email: String?) {
         self.firstName = firstName
@@ -39,7 +39,7 @@ class Person: Contact {
         self.position = position
         
         super.init(id: id, imageLink: imageLink, type: type, aboutText: aboutText, facebookLink: facebookLink, linkedInLink: linkedInLink,
-                   phone: phone, email: email, priority: priority, dateSince: dateSince)
+                    categories: categories, phone: phone, email: email, priority: priority, dateSince: dateSince)
         
     }
     
@@ -67,8 +67,15 @@ class Person: Contact {
         let companyImage = "https://www.edukation.com.ua/upload_page/705/untitled_1_1453563195.jpg"
         let company = Company(name: companyName, id: companyID, type: "company", imageLink: companyImage)
         
+        var categories = [Category]()
+        let arrayWithCategories = resultDictionary["categories"] as? [Int] ?? [Int]()
+        arrayWithCategories.forEach({ categoryID in
+            let newCategory = Category(id: categoryID)
+            categories.append(newCategory)
+        })
+        
         self.init(firstName: firstName, lastName: lastName, company: company, position: position, dateSince: dateSince,
-                  aboutText: aboutText, facebookLink: facebookLink, linkedInLink: linkedInLink,
+                  aboutText: aboutText, facebookLink: facebookLink, linkedInLink: linkedInLink, categories: categories,
                   id: id, type: type, imageLink: imageLink, priority: priority, phone: phone, email: email)
     }
     

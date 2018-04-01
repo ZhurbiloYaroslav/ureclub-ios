@@ -10,9 +10,6 @@ import Foundation
 
 class Contact: NSObject {
     
-    // TODO: Implement Array With Categories
-    var categories: [Category]!
-    
     private let id: Int
     private var imageLink: String
     private var phone: String
@@ -22,16 +19,17 @@ class Contact: NSObject {
     private let aboutText: String
     private let linkedInLink: String
     private let facebookLink: String
+    private let categories: [Category]
     fileprivate let type: String
     
     init(id: Int, imageLink: String, type: String, aboutText: String, facebookLink: String, linkedInLink: String,
-         phone: String?, email: String?, priority: Int?, dateSince: String?) {
+         categories: [Category], phone: String?, email: String?, priority: Int?, dateSince: String?) {
 
         self.id = id
         self.imageLink = imageLink
         self.phone = phone ?? ""
         self.email = email ?? ""
-        self.categories = [Category]()
+        self.categories = categories
         self.priority = priority ?? Constants.Contact.defaultPriority
         self.type = type
         self.dateSince = dateSince ?? ""
@@ -42,7 +40,7 @@ class Contact: NSObject {
     
     convenience init(id: Int, imageLink: String, type: String, aboutText: String, facebookLink: String, linkedInLink: String) {
         self.init(id: id, imageLink: imageLink, type: type, aboutText: aboutText, facebookLink: facebookLink, linkedInLink: linkedInLink,
-                  phone: nil, email: nil, priority: nil, dateSince: nil)
+                  categories: [Category](), phone: nil, email: nil, priority: nil, dateSince: nil)
     }
     
     enum ContactType {
