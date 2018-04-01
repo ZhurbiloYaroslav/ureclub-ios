@@ -18,9 +18,9 @@ class LanguageManager {
     }
     
     let arrayWithLanguages: [Language] = [
-        .english,
+        .ukrainian,
         .russian,
-        .ukrainian
+        .english
     ]
     
     func getNumberOfCells() -> Int {
