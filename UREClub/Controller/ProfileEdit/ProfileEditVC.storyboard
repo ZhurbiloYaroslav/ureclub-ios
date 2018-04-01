@@ -51,6 +51,13 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yJS-cA-pee">
                                                         <rect key="frame" x="91" y="91" width="32" height="32"/>
                                                         <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QvR-aB-xqA">
+                                                                <rect key="frame" x="0.0" y="0.0" width="32" height="32"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                <connections>
+                                                                    <action selector="changeImageButtonPressed:" destination="s3k-Kb-bQ5" eventType="touchUpInside" id="nrF-bg-pEY"/>
+                                                                </connections>
+                                                            </button>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-profile-edit" translatesAutoresizingMaskIntoConstraints="NO" id="ejX-xv-V73">
                                                                 <rect key="frame" x="8" y="8" width="16" height="16"/>
                                                                 <color key="backgroundColor" red="0.99610227346420288" green="0.99589234590530396" blue="0.99216681718826294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -60,11 +67,15 @@
                                                                 </constraints>
                                                             </imageView>
                                                         </subviews>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <constraints>
                                                             <constraint firstItem="ejX-xv-V73" firstAttribute="centerY" secondItem="yJS-cA-pee" secondAttribute="centerY" id="7rN-Ji-CLZ"/>
+                                                            <constraint firstAttribute="bottom" secondItem="QvR-aB-xqA" secondAttribute="bottom" id="HDE-OF-Ac8"/>
+                                                            <constraint firstAttribute="trailing" secondItem="QvR-aB-xqA" secondAttribute="trailing" id="bLc-Z3-BjR"/>
                                                             <constraint firstAttribute="width" constant="32" id="eb0-Mo-D2w"/>
                                                             <constraint firstAttribute="height" constant="32" id="hHJ-j7-lrk"/>
+                                                            <constraint firstItem="QvR-aB-xqA" firstAttribute="leading" secondItem="yJS-cA-pee" secondAttribute="leading" id="joG-Em-ngL"/>
+                                                            <constraint firstItem="QvR-aB-xqA" firstAttribute="top" secondItem="yJS-cA-pee" secondAttribute="top" id="sbm-qo-6Wt"/>
                                                             <constraint firstItem="ejX-xv-V73" firstAttribute="centerX" secondItem="yJS-cA-pee" secondAttribute="centerX" id="wzZ-kM-aTq"/>
                                                         </constraints>
                                                     </view>
@@ -336,6 +347,7 @@
                         <outlet property="linkedInField" destination="ZXi-gY-ucD" id="qTk-PL-GzF"/>
                         <outlet property="phoneField" destination="eb3-iI-6kn" id="4z1-s5-tUi"/>
                         <outlet property="positionField" destination="aR9-TU-0ZA" id="GvY-B4-wE9"/>
+                        <outlet property="profileImageChangeButton" destination="QvR-aB-xqA" id="aqQ-oD-iNp"/>
                         <outlet property="profileImageEditButtonContainer" destination="yJS-cA-pee" id="kcd-LQ-EMa"/>
                         <outlet property="profileImageEditButtonImage" destination="ejX-xv-V73" id="HNP-tF-Qub"/>
                         <outlet property="profileImageView" destination="DIA-KC-gJL" id="DUT-MO-CEb"/>

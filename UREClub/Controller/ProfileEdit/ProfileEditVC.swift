@@ -21,6 +21,7 @@ class ProfileEditVC: UIViewController {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var profileImageEditButtonContainer: UIView!
     @IBOutlet weak var profileImageEditButtonImage: UIImageView!
+    @IBOutlet weak var profileImageChangeButton: UIButton!
     
     @IBOutlet weak var firstNameField: SkyFloatingLabelTextField!
     @IBOutlet weak var lastNameField: SkyFloatingLabelTextField!
@@ -55,6 +56,7 @@ class ProfileEditVC: UIViewController {
         setUIElementsStyle()
         updateUIWithValues()
         updateUIWithLocalizedText()
+        setupEditImageButton()
         
         hideKeyboardWhenTappedAround()
         registerForKeyboardNotifications()
@@ -139,6 +141,18 @@ class ProfileEditVC: UIViewController {
         
         userDescriptionTextView.layer.borderWidth = 1
         userDescriptionTextView.layer.borderColor = lightGreyColor.cgColor
+    }
+    
+    func setupEditImageButton() {
+        profileImageEditButtonContainer.backgroundColor = UIColor.white
+        profileImageEditButtonContainer.layer.shadowColor = UIColor.black.cgColor
+        profileImageEditButtonContainer.layer.shadowOffset = CGSize.zero
+        profileImageEditButtonContainer.layer.masksToBounds = false
+        profileImageEditButtonContainer.layer.shadowRadius = 5.0
+        profileImageEditButtonContainer.layer.shadowOpacity = 0.8
+        profileImageEditButtonContainer.layer.cornerRadius = profileImageEditButtonContainer.frame.width / 2
+        profileImageEditButtonContainer.layer.borderColor = UIColor.white.cgColor
+        profileImageEditButtonContainer.layer.borderWidth = 1.0
     }
     
     func updateUIWithValues() {
