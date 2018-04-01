@@ -25,6 +25,7 @@ class Formatter {
         case mmm = "MMM"
         case yy = "yy"
         case yyyy = "yyyy"
+        case weekDay = "E"
     }
     
     static func getDateFrom(_ stringWithDate: String) -> Date {

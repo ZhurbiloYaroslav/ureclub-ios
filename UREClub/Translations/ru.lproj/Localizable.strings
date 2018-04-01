@@ -170,3 +170,10 @@
 "profile_edit_hide_phone" = "Спрятать телефон";
 "phone_is_not_valid" = "Телефон не правильный";
 "alert_profile_edit_error_title" = "";
+"week_day_sun" = "ВС";
+"week_day_mon" = "ПН";
+"week_day_tue" = "ВТ";
+"week_day_wed" = "СР";
+"week_day_thu" = "ЧТ";
+"week_day_fri" = "ПТ";
+"week_day_sat" = "СБ";

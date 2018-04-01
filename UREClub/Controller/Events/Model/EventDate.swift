@@ -65,6 +65,10 @@ struct EventDate {
         return Formatter.getStringFrom(getDateOfBegining(), withFormat: .dd)
     }
     
+    func getDayOfTheWeekFromDate() -> String {
+        return getDateOfBegining().dayOfTheWeek
+    }
+    
     func getMonthFromDate() -> String {
         let stringWithMonth = Formatter.getStringFrom(getDateOfBegining(), withFormat: .mm)
         if let month = Int(stringWithMonth) {

@@ -174,3 +174,10 @@
 "profile_edit_hide_phone" = "Hide phone from public";
 "phone_is_not_valid" = "Phone is not valid";
 "alert_profile_edit_error_title" = "";
+"week_day_sun" = "SUN";
+"week_day_mon" = "MON";
+"week_day_tue" = "TUE";
+"week_day_wed" = "WED";
+"week_day_thu" = "THU";
+"week_day_fri" = "FRI";
+"week_day_sat" = "SAT";
