@@ -37,13 +37,19 @@ class EventsManager {
     
     func getEventsFilteredWithUpcomingAndPast(_ sourceArrayWithEvents: [Event]) -> [Event] {
         var result = [Event]()
+       
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd-MM-yyyy HH:mm"
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        let dateThreshold = formatter.date(from: Formatter.getStringFrom(Date(), withFormat: .ddMMyyyyHHmm))!
+        
         result = sourceArrayWithEvents.filter() { event in
             switch eventsFilter.getEventPeriod() {
             case .upcoming:
-                let isDateOfEventInPast = Date() < event.date.getDateOfBegining()
+                let isDateOfEventInPast = dateThreshold <= event.date.getFullDateOfEnd()
                 return isDateOfEventInPast
             case .past:
-                let isDateOfEventInFuture = Date() > event.date.getDateOfBegining()
+                let isDateOfEventInFuture = dateThreshold >= event.date.getFullDateOfBegining()
                 return isDateOfEventInFuture
             }
         }

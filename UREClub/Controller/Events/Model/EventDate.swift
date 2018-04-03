@@ -45,6 +45,22 @@ struct EventDate {
         return Formatter.getDateFrom(stringWithEventDate)
     }
     
+    func getFullDateOfBegining() -> Date {
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        return formatter.date(from: "\(dateBeg) \(timeBeg)") ?? getDateOfBegining()
+    }
+    
+    func getFullDateOfEnd() -> Date {
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        return formatter.date(from: "\(dateBeg) \(timeEnd)") ?? getDateOfBegining()
+    }
+    
     func getDateOfEnd() -> Date {
         let stringWithEventDate = dateBeg
         return Formatter.getDateFrom(stringWithEventDate)

@@ -327,7 +327,7 @@
 		C4801673201B7B81005F2253 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = Translations/ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C4801674201B7B8A005F2253 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Translations/en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C48B5D522047AD520091A960 /* Array+contains.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+contains.swift"; sourceTree = "<group>"; };
-		C48D0DA42012817E009347DE /* EventsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsManager.swift; sourceTree = "<group>"; wrapsLines = 0; };
+		C48D0DA42012817E009347DE /* EventsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsManager.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		C48D0DA62012889F009347DE /* EventsFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsFilter.swift; sourceTree = "<group>"; };
 		C48D0DA920129C79009347DE /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		C48D0DAA20129C79009347DE /* CalendarCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarCell.xib; sourceTree = "<group>"; };

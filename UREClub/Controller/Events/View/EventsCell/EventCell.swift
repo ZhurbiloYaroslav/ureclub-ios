@@ -45,7 +45,7 @@ class EventCell: UITableViewCell {
             }
             
             dayLabel.text = event.date.getDayFromDate()
-            monthLabel.text = event.date.getShirtStringWithMonthFromDate()
+            monthLabel.text = event.date.getDayOfTheWeekFromDate()
             timeLabel.text = event.date.getTimePeriod()
             addressLabel.setTitle(event.location.getNameAndCity(), for: .normal)
             addressLabel.setRadius(8, withWidth: 1, andColor: UIColor.clear)
