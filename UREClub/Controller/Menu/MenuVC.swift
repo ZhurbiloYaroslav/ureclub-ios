@@ -46,6 +46,7 @@ class MenuVC: UITableViewController {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as? LogOutCell else {
                 return UITableViewCell()
             }
+            cell.delegate = self
             cell.updateCellWith(indexPath: indexPath)
             return cell
         default:
@@ -61,9 +62,7 @@ class MenuVC: UITableViewController {
         
         switch menuItem.segue {
         case "LogOut":
-            CurrentUser.logOut {
-                self.performSegue(withIdentifier: menuItem.segue, sender: nil)
-            }
+            break
         default:
             performSegue(withIdentifier: menuItem.segue, sender: nil)
         }
@@ -84,9 +83,49 @@ class MenuVC: UITableViewController {
         }
     }
     
+    // MARK: - Logout methods
+    func showAlertBeforeLogOutFor(_ menuItem: Menu.Item) {
+        let alertTitle = "alert_logout_title".localized()
+        let alertMessage = "alert_logout_message".localized()
+        let alertController = UIAlertController(title: alertTitle,
+                                                message: alertMessage,
+                                                preferredStyle: .alert
+        )
+        let cancelAction = UIAlertAction(title: "alert_button_cancel".localized(), style: .default)
+        let okAction = UIAlertAction(title: "alert_logout_button_ok".localized(), style: .default) { (alertAction) in
+            self.performLogOutFor(menuItem)
+        }
+        alertController.addAction(cancelAction)
+        alertController.addAction(okAction)
+        
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    func performLogOutFor(_ menuItem: Menu.Item) {
+        CurrentUser.logOut {
+            self.performSegue(withIdentifier: menuItem.segue, sender: nil)
+        }
+    }
+    
     func setCustomStyle() {
         self.view.backgroundColor = Constants.Color.coalLight
     }
     
+}
+
+extension MenuVC: LogOutCellDelegate {
+    func didTapOnProfileIcon() {
+        moveToProfile()
+    }
+    
+    func didTapOnCell() {
+        let menuItem = Menu().items.last!
+        showAlertBeforeLogOutFor(menuItem)
+    }
+    
+    func moveToProfile() {
+        let menuItem = Menu().items.first! // Profile segue
+        self.performSegue(withIdentifier: menuItem.segue, sender: nil)
+    }
 }
 

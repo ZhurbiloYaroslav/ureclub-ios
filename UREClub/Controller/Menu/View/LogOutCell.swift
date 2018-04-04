@@ -9,11 +9,18 @@
 import UIKit
 import SDWebImage
 
+protocol LogOutCellDelegate: class {
+    func didTapOnProfileIcon()
+    func didTapOnCell()
+}
+
 class LogOutCell: UITableViewCell {
 
     @IBOutlet weak var logOutLabel: UILabel!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
+    
+    weak var delegate: LogOutCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,6 +39,14 @@ class LogOutCell: UITableViewCell {
         
         profileImage.setRadius(25, withWidth: 1, andColor: UIColor.clear)
         profileImage.sd_setImage(with: URL(string: CurrentUser.linkImage), placeholderImage: UIImage(named: "icon-placeholder-person"))
+    }
+    
+    @IBAction func didTapOnProfileIcon(_ sender: UIButton) {
+        delegate?.didTapOnProfileIcon()
+    }
+    
+    @IBAction func didTapOnCell(_ sender: UIButton) {
+        delegate?.didTapOnCell()
     }
     
 }

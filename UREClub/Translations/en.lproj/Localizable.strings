@@ -181,3 +181,6 @@
 "week_day_thu" = "THU";
 "week_day_fri" = "FRI";
 "week_day_sat" = "SAT";
+"alert_logout_title" = "Log out";
+"alert_logout_message" = "Do you really want to log out?";
+"alert_logout_button_ok" = "Log out";

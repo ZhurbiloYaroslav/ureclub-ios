@@ -173,3 +173,6 @@
 "week_day_thu" = "ЧТ";
 "week_day_fri" = "ПТ";
 "week_day_sat" = "СБ";
+"alert_logout_title" = "Вихід";
+"alert_logout_message" = "Ви бажаете вийти з додатку?";
+"alert_logout_button_ok" = "Вийти";

@@ -116,19 +116,19 @@
                                             </subviews>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="tRf-Cu-YxZ">
-                                            <rect key="frame" x="15" y="25" width="345" height="50"/>
+                                            <rect key="frame" x="15" y="25" width="330" height="50"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="guf-5M-haJ">
-                                                    <rect key="frame" x="0.0" y="1.5" width="295" height="47"/>
+                                                    <rect key="frame" x="0.0" y="1.5" width="280" height="47"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YCZ-z0-a2t">
-                                                            <rect key="frame" x="0.0" y="0.0" width="295" height="22"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="280" height="22"/>
                                                             <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="18"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Mn-ET-LNX">
-                                                            <rect key="frame" x="0.0" y="27" width="295" height="20"/>
+                                                            <rect key="frame" x="0.0" y="27" width="280" height="20"/>
                                                             <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="16"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -136,7 +136,8 @@
                                                     </subviews>
                                                 </stackView>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4iB-YF-xCW">
-                                                    <rect key="frame" x="295" y="0.0" width="50" height="50"/>
+                                                    <rect key="frame" x="280" y="0.0" width="50" height="50"/>
+                                                    <gestureRecognizers/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="50" id="F8O-Ie-xog"/>
                                                         <constraint firstAttribute="height" constant="50" id="PzK-ci-uFM"/>
@@ -144,17 +145,38 @@
                                                 </imageView>
                                             </subviews>
                                         </stackView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2cb-6m-QeC" userLabel="Log Out Action">
+                                            <rect key="frame" x="0.0" y="2" width="255" height="98"/>
+                                            <connections>
+                                                <action selector="didTapOnCell:" destination="idi-7l-vZA" eventType="touchUpInside" id="etQ-GD-X0P"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fnV-Xa-JnB" userLabel="Profile Action">
+                                            <rect key="frame" x="265" y="0.0" width="110" height="100"/>
+                                            <connections>
+                                                <action selector="didTapOnProfileIcon:" destination="idi-7l-vZA" eventType="touchUpInside" id="eKb-bd-Dp2"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="tRf-Cu-YxZ" secondAttribute="trailing" constant="15" id="4ev-4V-Adi"/>
+                                        <constraint firstAttribute="trailing" secondItem="tRf-Cu-YxZ" secondAttribute="trailing" constant="30" id="4ev-4V-Adi"/>
+                                        <constraint firstItem="fnV-Xa-JnB" firstAttribute="width" secondItem="4iB-YF-xCW" secondAttribute="width" constant="60" id="7eg-30-mda"/>
                                         <constraint firstAttribute="trailing" secondItem="vGa-1z-l7G" secondAttribute="trailing" constant="15" id="95s-fF-4xs"/>
+                                        <constraint firstAttribute="trailing" secondItem="fnV-Xa-JnB" secondAttribute="trailing" id="9TK-oO-m3x"/>
+                                        <constraint firstItem="fnV-Xa-JnB" firstAttribute="centerY" secondItem="WKm-jb-Eey" secondAttribute="centerY" id="LdV-7o-AEL"/>
+                                        <constraint firstItem="fnV-Xa-JnB" firstAttribute="leading" secondItem="2cb-6m-QeC" secondAttribute="trailing" constant="10" id="QyV-Mt-QF0"/>
                                         <constraint firstItem="tRf-Cu-YxZ" firstAttribute="leading" secondItem="WKm-jb-Eey" secondAttribute="leading" constant="15" id="Sq1-4b-9Uw"/>
+                                        <constraint firstItem="fnV-Xa-JnB" firstAttribute="height" secondItem="WKm-jb-Eey" secondAttribute="height" id="YkO-Hw-KZy"/>
+                                        <constraint firstItem="2cb-6m-QeC" firstAttribute="leading" secondItem="WKm-jb-Eey" secondAttribute="leading" id="cRm-kc-9fy"/>
                                         <constraint firstItem="vGa-1z-l7G" firstAttribute="top" secondItem="WKm-jb-Eey" secondAttribute="top" id="nGc-fo-keV"/>
                                         <constraint firstItem="vGa-1z-l7G" firstAttribute="leading" secondItem="WKm-jb-Eey" secondAttribute="leading" constant="15" id="oK4-8a-ks6"/>
+                                        <constraint firstItem="2cb-6m-QeC" firstAttribute="top" secondItem="vGa-1z-l7G" secondAttribute="bottom" id="owh-Bq-353"/>
                                         <constraint firstItem="tRf-Cu-YxZ" firstAttribute="centerY" secondItem="WKm-jb-Eey" secondAttribute="centerY" id="tbt-7g-iNE"/>
+                                        <constraint firstAttribute="bottom" secondItem="2cb-6m-QeC" secondAttribute="bottom" id="wyR-c7-dWl"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
                                 <connections>
                                     <outlet property="logOutLabel" destination="YCZ-z0-a2t" id="gG0-XH-1W5"/>
                                     <outlet property="profileImage" destination="4iB-YF-xCW" id="5ap-Dc-6G2"/>
