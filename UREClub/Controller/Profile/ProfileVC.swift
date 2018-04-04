@@ -115,11 +115,13 @@ class ProfileVC: UITableViewController {
             
         case [1,1]:
             let phone = publicContactToShow?.getPhone() ?? CurrentUser.getPhone()
-            if phone.trimmingCharacters(in: .whitespaces).isEmpty {
-                return UITableViewCell()
+            if !phone.doesShow {
+                let defaultCell = UITableViewCell()
+                defaultCell.selectionStyle = .none
+                return defaultCell
             } else {
                 let cellTitle = "profile_phone".localized()
-                let cellData = FieldCell.CellData(type: .phone, icon: #imageLiteral(resourceName: "icon-profile-phone"), title: cellTitle, value: phone)
+                let cellData = FieldCell.CellData(type: .phone, icon: #imageLiteral(resourceName: "icon-profile-phone"), title: cellTitle, value: phone.getNumber())
                 cell.configureWith(cellData)
                 return cell
             }
@@ -179,8 +181,8 @@ class ProfileVC: UITableViewController {
             Browser.emailTo(email)
         case [1,1]:
             let phone = publicContactToShow?.getPhone() ?? CurrentUser.getPhone()
-            if phone.lowercased() != "hidden", !phone.isEmpty {
-                Browser.callTo(phone)
+            if phone.doesShow {
+                Browser.callTo(phone.getNumber())
             }
         default:
             break

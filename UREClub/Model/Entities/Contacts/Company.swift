@@ -25,7 +25,7 @@ class Company: Contact {
     }
     
     init(name: String, id: Int, type: String, imageLink: String, categories: [Category],
-         priority: Int?, phone: String?, email: String?, dateSince: String?) {
+         priority: Int?, phone: Phone?, email: String?, dateSince: String?) {
         
         self.name = name
         super.init(id: id, imageLink: imageLink, type: type, aboutText: "", facebookLink: "", linkedInLink: "",  categories: [Category](),
@@ -37,10 +37,12 @@ class Company: Contact {
         let id = resultDictionary["id"] as? Int ?? 0
         let type = resultDictionary["type"] as? String ?? "company"
         let name = resultDictionary["name"] as? String ?? ""
-        let phone = resultDictionary["phone"] as? String ?? ""
         let email = resultDictionary["email"] as? String ?? ""
         let priority = resultDictionary["priority"] as? Int ?? Constants.Contact.defaultPriority
         let dateSince = resultDictionary["dateSince"] as? String ?? ""
+        
+        let dictWithPhone = resultDictionary["phones"] as? [String: Any] ?? [String: Any]()
+        let phone = Phone(dictWithPhone)
         
         var categories = [Category]()
         let arrayWithCategories = resultDictionary["categories"] as? [Int] ?? [Int]()

@@ -37,7 +37,7 @@ class ContactsCell: UITableViewCell {
         let atCompanyText = (person.company.name.count > 0) ? " At " + person.company.name : ""
         positionLabel.text = person.position + atCompanyText
         emailButton.setTitle(person.getEmail(), for: .normal)
-        phoneButton.setTitle(person.getPhone(), for: .normal)
+        phoneButton.setTitle(person.getPhoneNumber(), for: .normal)
         showOrHideSocialButtons()
     }
     
@@ -51,7 +51,7 @@ class ContactsCell: UITableViewCell {
     }
     
     @IBAction func phoneButtonPressed(_ sender: UIButton) {
-        Browser.callTo(currentPerson.getPhone())
+        Browser.callTo(currentPerson.getPhoneNumber())
     }
     
     @IBAction func facebookButtonPressed(_ sender: UIButton) {

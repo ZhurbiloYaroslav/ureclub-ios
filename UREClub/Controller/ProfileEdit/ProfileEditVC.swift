@@ -163,7 +163,7 @@ class ProfileEditVC: UIViewController {
         lastNameField.text = CurrentUser.lastName
         positionField.text = CurrentUser.company.position
         emailField.text = CurrentUser.email
-        phoneField.text = CurrentUser.phone
+        phoneField.text = CurrentUser.phone.getNumber()
         hidePhoneSwitcher.isOn = CurrentUser.isPhoneHidded
         facebookField.text = CurrentUser.facebookLink
         linkedInField.text = CurrentUser.linkedInLink
@@ -261,7 +261,7 @@ extension ProfileEditVC {
             let lastname = data["lastname"] as? String,
             let position = data["position"] as? String,
             let email = data["email"] as? String,
-            let phone = data["phone"] as? String,
+            let phoneNumber = data["phone"] as? String,
             let hidePhone = data["hide_phone"] as? Int,
             let facebook = data["facebook"] as? String,
             let linkedin = data["linkedin"] as? String,
@@ -271,8 +271,8 @@ extension ProfileEditVC {
             CurrentUser.lastName = lastname
             CurrentUser.company.position = position
             CurrentUser.email = email
-            CurrentUser.phone = phone
-            CurrentUser.isPhoneHidded = Bool(truncating: hidePhone as NSNumber)
+            let phoneIsHidden = Bool(truncating: hidePhone as NSNumber)
+            CurrentUser.phone = Phone(number: phoneNumber, isHidden: phoneIsHidden)
             CurrentUser.facebookLink = facebook
             CurrentUser.linkedInLink = linkedin
             CurrentUser.textContent = description

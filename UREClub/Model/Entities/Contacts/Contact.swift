@@ -12,7 +12,7 @@ class Contact: NSObject {
     
     private let id: Int
     private var imageLink: String
-    private var phone: String
+    private var phone: Phone
     private var email: String
     private let priority: Int
     private let dateSince: String
@@ -23,11 +23,11 @@ class Contact: NSObject {
     fileprivate let type: String
     
     init(id: Int, imageLink: String, type: String, aboutText: String, facebookLink: String, linkedInLink: String,
-         categories: [Category], phone: String?, email: String?, priority: Int?, dateSince: String?) {
+         categories: [Category], phone: Phone?, email: String?, priority: Int?, dateSince: String?) {
 
         self.id = id
         self.imageLink = imageLink
-        self.phone = phone ?? ""
+        self.phone = phone ?? Phone()
         self.email = email ?? ""
         self.categories = categories
         self.priority = priority ?? Constants.Contact.defaultPriority
@@ -78,10 +78,12 @@ extension Contact {
         return email
     }
     
-    func getPhone() -> String {
-        let charactersToRemove = [" ", "(", ")", "-", "_"]
-        let trimmedPhone = phone.stringByRemovingAll(subStrings: charactersToRemove)
-        return trimmedPhone
+    func getPhone() -> Phone {
+        return phone
+    }
+    
+    func getPhoneNumber() -> String {
+        return phone.getNumber()
     }
     
     public func getImageLink() -> String {

@@ -63,7 +63,6 @@
 		C463F8841FF5108B001FBBC1 /* ProfileHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C463F8821FF5108B001FBBC1 /* ProfileHeaderCell.swift */; };
 		C463F8851FF5108B001FBBC1 /* ProfileHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C463F8831FF5108B001FBBC1 /* ProfileHeaderCell.xib */; };
 		C463F8881FF5228E001FBBC1 /* NotificationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C463F8871FF5228E001FBBC1 /* NotificationsVC.swift */; };
-		C463F88A1FF52D10001FBBC1 /* DefaultDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C463F8891FF52D10001FBBC1 /* DefaultDataManager.swift */; };
 		C463F88C1FF52DC5001FBBC1 /* CurrentUserCompany.swift in Sources */ = {isa = PBXBuildFile; fileRef = C463F88B1FF52DC5001FBBC1 /* CurrentUserCompany.swift */; };
 		C4662AB71FEA98F7001848C8 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4662AB61FEA98F7001848C8 /* NetworkManager.swift */; };
 		C4662AB91FEAA251001848C8 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4662AB81FEAA251001848C8 /* Location.swift */; };
@@ -89,6 +88,7 @@
 		C4662AE21FEAAE38001848C8 /* Montserrat-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C4662AD01FEAAE36001848C8 /* Montserrat-ExtraLight.ttf */; };
 		C4662AE41FEAB4F5001848C8 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4662AE31FEAB4F5001848C8 /* EventCell.swift */; };
 		C4662AE81FEAC8EC001848C8 /* ArticleDescVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4662AE71FEAC8EC001848C8 /* ArticleDescVC.swift */; };
+		C467F04D20757FE70010991B /* Phone.swift in Sources */ = {isa = PBXBuildFile; fileRef = C467F04C20757FE70010991B /* Phone.swift */; };
 		C4696B7E205551D000B791BC /* UIButton+setBackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4696B7D205551D000B791BC /* UIButton+setBackgroundColor.swift */; };
 		C46C614E206B045500587C32 /* String+stringByRemovingAll.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C614D206B045500587C32 /* String+stringByRemovingAll.swift */; };
 		C47BEE44201FE8C300688AEF /* PasswordEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47BEE43201FE8C300688AEF /* PasswordEditVC.swift */; };
@@ -274,7 +274,6 @@
 		C463F8821FF5108B001FBBC1 /* ProfileHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderCell.swift; sourceTree = "<group>"; };
 		C463F8831FF5108B001FBBC1 /* ProfileHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileHeaderCell.xib; sourceTree = "<group>"; };
 		C463F8871FF5228E001FBBC1 /* NotificationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsVC.swift; sourceTree = "<group>"; };
-		C463F8891FF52D10001FBBC1 /* DefaultDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDataManager.swift; sourceTree = "<group>"; };
 		C463F88B1FF52DC5001FBBC1 /* CurrentUserCompany.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserCompany.swift; sourceTree = "<group>"; };
 		C4662AB61FEA98F7001848C8 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		C4662AB81FEAA251001848C8 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
@@ -300,6 +299,7 @@
 		C4662AD01FEAAE36001848C8 /* Montserrat-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraLight.ttf"; sourceTree = "<group>"; };
 		C4662AE31FEAB4F5001848C8 /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		C4662AE71FEAC8EC001848C8 /* ArticleDescVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDescVC.swift; sourceTree = "<group>"; wrapsLines = 0; };
+		C467F04C20757FE70010991B /* Phone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Phone.swift; sourceTree = "<group>"; };
 		C4696B7D205551D000B791BC /* UIButton+setBackgroundColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+setBackgroundColor.swift"; sourceTree = "<group>"; };
 		C46C614D206B045500587C32 /* String+stringByRemovingAll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+stringByRemovingAll.swift"; sourceTree = "<group>"; };
 		C47BEE43201FE8C300688AEF /* PasswordEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordEditVC.swift; sourceTree = "<group>"; wrapsLines = 0; };
@@ -761,6 +761,7 @@
 				C463F88B1FF52DC5001FBBC1 /* CurrentUserCompany.swift */,
 				C4D8D32C1FF2BC7F0003DA36 /* Article.swift */,
 				C4F62CBB200D1BE90082DFBC /* Category.swift */,
+				C467F04C20757FE70010991B /* Phone.swift */,
 				C435FD1020109ACF00D90CE8 /* Contacts */,
 			);
 			path = Entities;
@@ -1205,7 +1206,6 @@
 				C409AA982039A49D0094CB17 /* Network */,
 				C41CA38F1FDBFC9B00AB0D2D /* UserDefaultsManager.swift */,
 				C41CA3951FDBFDBD00AB0D2D /* Browser.swift */,
-				C463F8891FF52D10001FBBC1 /* DefaultDataManager.swift */,
 				C4AA29AB2005FA29009FE92C /* Validator.swift */,
 				C4AA29AD2005FA3F009FE92C /* Alert.swift */,
 				C430EBDC200DEA34001E818B /* Formatter.swift */,
@@ -1533,7 +1533,6 @@
 				C480165D201B3E54005F2253 /* LanguageManager.swift in Sources */,
 				C430EBFC200E1265001E818B /* ImageSlideshowItem.swift in Sources */,
 				C460E4E52035905100408572 /* debugLog.swift in Sources */,
-				C463F88A1FF52D10001FBBC1 /* DefaultDataManager.swift in Sources */,
 				C4AA3CEE1FF66E90008B00B4 /* CellType.swift in Sources */,
 				C4E522021FE90EC700C3DE2E /* TopSegmentedContol.swift in Sources */,
 				C430EBFB200E1265001E818B /* ImageSlideshow.swift in Sources */,
@@ -1633,6 +1632,7 @@
 				C48D0DAB20129C79009347DE /* CalendarCell.swift in Sources */,
 				C44574621FDC192C004A5305 /* SettingsVC.swift in Sources */,
 				C430EBFF200E1265001E818B /* UIImageView+Tools.swift in Sources */,
+				C467F04D20757FE70010991B /* Phone.swift in Sources */,
 				C409AA9720399FDB0094CB17 /* NewNetworkManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

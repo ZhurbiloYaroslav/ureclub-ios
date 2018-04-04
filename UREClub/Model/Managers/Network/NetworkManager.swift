@@ -222,10 +222,11 @@ extension NetworkManager {
 
         CurrentUser.id = userDataDict["id"] as? Int ?? 0
         CurrentUser.email = userDataDict["email"] as? String ?? ""
-        CurrentUser.phone = userDataDict["phone"] as? String ?? ""
         
+        let phoneNumber = userDataDict["phone"] as? String ?? ""
         let hidePhone = userDataDict["hide_phone"] as? Int ?? 0
-        CurrentUser.isPhoneHidded = Bool(truncating: hidePhone as NSNumber)
+        let phoneIsHidden = Bool(truncating: hidePhone as NSNumber)
+        CurrentUser.phone = Phone(number: phoneNumber, isHidden: phoneIsHidden)
         
         CurrentUser.firstName = userDataDict["first_name"] as? String ?? ""
         CurrentUser.lastName = userDataDict["last_name"] as? String ?? ""

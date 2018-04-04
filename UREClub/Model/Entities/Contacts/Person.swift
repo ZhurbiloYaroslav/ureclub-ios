@@ -31,8 +31,7 @@ class Person: Contact {
     
     init(firstName: String, lastName: String, company: Company, position: String, dateSince: String,
          aboutText: String, facebookLink: String, linkedInLink: String, categories: [Category],
-         id: Int, type: String, imageLink: String,
-         priority: Int?, phone: String?, email: String?) {
+         id: Int, type: String, imageLink: String, priority: Int?, phone: Phone?, email: String?) {
         self.firstName = firstName
         self.lastName = lastName
         self.company = company
@@ -52,7 +51,6 @@ class Person: Contact {
         let position = resultDictionary["position"] as? String ?? ""
         let aboutText = resultDictionary["description"] as? String ?? ""
         let dateSince = resultDictionary["dateSince"] as? String ?? ""
-        let phone = resultDictionary["phone"] as? String ?? ""
         let email = resultDictionary["email"] as? String ?? ""
         let priority = resultDictionary["priority"] as? Int ?? 0
         
@@ -60,6 +58,9 @@ class Person: Contact {
         let imageLink = dictWithLinks["image"] as? String ?? ""
         let facebookLink = dictWithLinks["facebook"] as? String ?? ""
         let linkedInLink = dictWithLinks["linkedIn"] as? String ?? ""
+        
+        let dictWithPhone = resultDictionary["phones"] as? [String: Any] ?? [String: Any]()
+        let phone = Phone(dictWithPhone)
         
         let dictWithCompany = resultDictionary["company"] as? [String: Any]  ?? [String: Any]()
         let companyID = dictWithCompany["id"] as? Int ?? 0

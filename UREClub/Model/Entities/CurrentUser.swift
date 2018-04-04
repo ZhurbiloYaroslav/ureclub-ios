@@ -53,7 +53,7 @@ class CurrentUser {
         company = CurrentUserCompany()
         email = ""
         password = ""
-        phone = ""
+        phone = Phone()
         authToken = ""
     }
 }
@@ -187,31 +187,38 @@ extension CurrentUser {
         }
     }
     
+    static fileprivate let kUserDefKey_CurrentUserPassword = "currentUserPassword"
     static var password: String {
         get {
-            return self.keychainManager.get("currentUserPassword") ?? ""
+            return self.keychainManager.get(kUserDefKey_CurrentUserPassword) ?? ""
         }
         set {
-            self.keychainManager.set(newValue, forKey: "currentUserPassword")
+            self.keychainManager.set(newValue, forKey: kUserDefKey_CurrentUserPassword)
         }
     }
     
-    static var phone: String {
+    static fileprivate let kUserDefKey_CurrentUserPhone = "currentUserPhone"
+    static fileprivate let kUserDefKey_PhoneIsHidden = "currentUserPhoneIsHidden"
+    static var phone: Phone {
         get {
-            return defaults.object(forKey: "currentUserPhone") as? String ?? ""
+            let number = defaults.object(forKey: kUserDefKey_CurrentUserPhone) as? String ?? ""
+            let hidden = defaults.object(forKey: kUserDefKey_PhoneIsHidden) as? Bool ?? false
+            return Phone(number: number, isHidden: hidden)
         }
         set {
-            defaults.set(newValue, forKey: "currentUserPhone")
+            defaults.set(newValue.getNumber(), forKey: kUserDefKey_CurrentUserPhone)
+            defaults.set(newValue.isHidden, forKey: kUserDefKey_PhoneIsHidden)
             defaults.synchronize()
         }
     }
     
+    static fileprivate let kUserDefKey_CurrentUserToken = "currentUserAuthenticationToken"
     static var authToken: String {
         get {
-            return defaults.object(forKey: "currentUserAuthenticationToken") as? String ?? ""
+            return defaults.object(forKey: kUserDefKey_CurrentUserToken) as? String ?? ""
         }
         set {
-            defaults.set(newValue, forKey: "currentUserAuthenticationToken")
+            defaults.set(newValue, forKey: kUserDefKey_CurrentUserToken)
             defaults.synchronize()
         }
     }
@@ -222,10 +229,8 @@ extension CurrentUser {
         return Int(id) ?? 0
     }
     
-    static func getPhone() -> String {
-        let charactersToRemove = [" ", "(", ")", "-", "_"]
-        let trimmedPhone = phone.stringByRemovingAll(subStrings: charactersToRemove)
-        return trimmedPhone
+    static func getPhone() -> Phone {
+        return phone
     }
     
     // MARK: - Check on Existing of Info
