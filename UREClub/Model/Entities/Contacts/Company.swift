@@ -28,7 +28,7 @@ class Company: Contact {
          priority: Int?, phone: Phone?, email: String?, dateSince: String?) {
         
         self.name = name
-        super.init(id: id, imageLink: imageLink, type: type, aboutText: "", facebookLink: "", linkedInLink: "",  categories: [Category](),
+        super.init(id: id, imageLink: imageLink, type: type, aboutText: "", facebookLink: "", linkedInLink: "",  categories: categories,
                    phone: phone, email: email, priority: priority, dateSince: dateSince)
     }
     

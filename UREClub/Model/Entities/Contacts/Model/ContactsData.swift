@@ -44,18 +44,35 @@ class ContactsData {
     }
     
     func getFilteredAndSortedArrayWithCompanies() -> [Company] {
-        var arrayWithResult = [Company]()
-        let searchString = contactsFilter.lowerCasedSearchString
+        let companiesFilteredWithSearch = getCompaniesFilteredWithSearchFrom()
+        let companiesFilteredWithCategories = getCompaniesFilteredWithCategoryFrom(companiesFilteredWithSearch)
+        return getSortedArrayWithCompanies(companiesFilteredWithCategories)
+    }
+    
+    func getCompaniesFilteredWithSearchFrom() -> [Company] {
         if contactsFilter.isInSearch {
-            arrayWithResult = arrayWithCompanies.filter { company in
+            let searchString = contactsFilter.lowerCasedSearchString
+            let arrayWithResult = arrayWithCompanies.filter { company in
                 let companyName = company.lowerCasedName
                 let isNameOfCompanyMatch = companyName.contains(searchString)
                 return isNameOfCompanyMatch
             }
+            return arrayWithResult
+            
         } else {
-            arrayWithResult = arrayWithCompanies
+            return arrayWithCompanies
         }
-        return getSortedArrayWithCompanies(arrayWithResult)
+    }
+    
+    func getCompaniesFilteredWithCategoryFrom(_ sourceArrayWithCompanies: [Company]) -> [Company] {
+        return sourceArrayWithCompanies.filter() { company in
+            guard let chosenCategories = contactsFilter.chosenCategories, !chosenCategories.isEmpty else {
+                return true
+            }
+            let doesCompanyMatchToSelectedCategories = chosenCategories.containsAnythingFrom(array: company.getArrayWithAllCategoriesIds())
+            
+            return doesCompanyMatchToSelectedCategories
+        }
     }
     
     func getSortedArrayWithCompanies(_ arrayWithCompanies: [Company]) -> [Company] {
@@ -178,9 +195,9 @@ extension ContactsData {
             guard let chosenCategories = contactsFilter.chosenCategories, !chosenCategories.isEmpty else {
                 return true
             }
-            let doesEventMatchToSelectedCategories = chosenCategories.containsAnythingFrom(array: person.getArrayWithAllCategoriesIds())
+            let doesPersonMatchToSelectedCategories = chosenCategories.containsAnythingFrom(array: person.getArrayWithAllCategoriesIds())
             
-            return doesEventMatchToSelectedCategories
+            return doesPersonMatchToSelectedCategories
         }
     }
     
