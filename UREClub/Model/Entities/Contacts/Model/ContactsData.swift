@@ -190,9 +190,11 @@ extension ContactsData {
             let filteredPersonsWithSearch = arrayWithPersons.filter { person in
                 let firstName = person.firstName.lowercased()
                 let lastName = person.lastName.lowercased()
+                let companyName = person.company.name.lowercased()
+                let isCompanyNameMatch = companyName.contains(searchString)
                 let isFirstNameMatch = firstName.contains(searchString)
                 let isLastNameMatch = lastName.contains(searchString)
-                let isPersonMatchWithSearch = isFirstNameMatch || isLastNameMatch
+                let isPersonMatchWithSearch = isFirstNameMatch || isLastNameMatch || isCompanyNameMatch
                 return isPersonMatchWithSearch
             }
             return filteredPersonsWithSearch
