@@ -74,13 +74,20 @@ public class ConfirmViewController: UIViewController, UIScrollViewDelegate {
     @objc private func handleOverlayGestures(_ recognizer: UIGestureRecognizer) {
         switch recognizer {
         case let recognizer as UIPinchGestureRecognizer:
-            scrollView.transform = scrollView.transform.scaledBy(x: recognizer.scale, y: recognizer.scale)
+            if recognizer.scale > 1 {
+                scrollView.setZoomScale(scrollView.zoomScale + 0.01, animated: true)
+            } else {
+                scrollView.setZoomScale(scrollView.zoomScale - 0.01, animated: true)
+            }
+            centerScrollViewContents()
             recognizer.scale = 1
+            
         case let recognizer as UIPanGestureRecognizer:
             let translation = recognizer.translation(in: self.scrollView)
-            scrollView.center = CGPoint(x:scrollView.center.x + translation.x,
-                                        y:scrollView.center.y + translation.y)
+            imageView.center = CGPoint(x:imageView.center.x + translation.x,
+                                        y:imageView.center.y + translation.y)
             recognizer.setTranslation(CGPoint.zero, in: self.scrollView)
+            
         default:
             break
         }

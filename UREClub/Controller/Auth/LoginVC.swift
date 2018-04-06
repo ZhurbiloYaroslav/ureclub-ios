@@ -37,12 +37,18 @@ class LoginVC: UIViewController {
         updateUIWithLocalizedText()
         hideKeyboardWhenTappedAround()
         registerForKeyboardNotifications()
+        //setPredefinedEmailAndPassword()
     }
     
     func initializeDelegates() {
         for textField in arrayWithTextFields {
             textField.delegate = self
         }
+    }
+    
+    private func setPredefinedEmailAndPassword() {
+        emailField.text = "4872439@gmail.com"
+        passwordField.text = "123456"
     }
     
     func updateUIWithLocalizedText() {
