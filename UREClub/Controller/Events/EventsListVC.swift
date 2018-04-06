@@ -86,7 +86,9 @@ class EventsListVC: UIViewController {
     }
     
     func getArrayWithEvents() {
+        let spinner = UIViewController.displaySpinner(onView: view)
         eventsManager.getArrayWithEvents { (errors) in
+            UIViewController.removeSpinner(spinner: spinner)
             if errors == nil {
                 self.tableView.reloadData()
                 self.presentEventFromNotification()
@@ -136,6 +138,23 @@ class EventsListVC: UIViewController {
         eventsListTypeControl.setTitle("control_event_list".localized(), forSegmentAt: 0)
         eventsListTypeControl.setTitle("control_event_calendar".localized(), forSegmentAt: 1)
         
+    }
+    
+    func showSpinner() -> UIActivityIndicatorView {
+        let spinner = UIActivityIndicatorView()
+        spinner.activityIndicatorViewStyle = .white
+        spinner.center = view.center
+        spinner.startAnimating()
+        
+        view.addSubview(spinner)
+        view.bringSubview(toFront: spinner)
+        
+        return spinner
+    }
+    
+    func hideSpinner(_ spinner: UIActivityIndicatorView) {
+        spinner.stopAnimating()
+        spinner.removeFromSuperview()
     }
     
     @IBAction func filterButtonPressed(_ sender: UIBarButtonItem) {

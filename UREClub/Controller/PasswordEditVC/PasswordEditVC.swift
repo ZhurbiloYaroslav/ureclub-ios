@@ -189,7 +189,6 @@ extension PasswordEditVC {
         guard let newPasswordText = newPasswordField.text else { return false }
         guard let repeatPasswordText = repeatPasswordField.text else { return false }
         
-        print("---touch")
         if Validator.isPasswordValid(currentPasswordText) {
             currentPasswordField.errorMessage = ""
         } else if currentPasswordText.isEmpty {

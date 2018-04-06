@@ -58,7 +58,6 @@ struct Location {
         }
         let linkWithCoordAndName = "\(baseLink)&ll=\(coordinates)&q=\(searchName)"
         let escapedLink = linkWithCoordAndName.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-        print("escapedLink", escapedLink)
         return escapedLink ?? "\(baseLink)&ll=\(coordinates)"
     }
     

@@ -46,8 +46,9 @@ class NewsListVC: UIViewController {
     }
     
     func getArrayWithNews() {
+        let spinner = UIViewController.displaySpinner(onView: view)
         networkManager.retrieveInfoForPath(.news) { (errors) in
-
+            UIViewController.removeSpinner(spinner: spinner)
         }
     }
     

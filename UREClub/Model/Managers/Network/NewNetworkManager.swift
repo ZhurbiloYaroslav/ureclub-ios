@@ -88,7 +88,6 @@ extension NewNetworkManager {
         guard let arrayWithAttendanceData = responseValue["data"] as? [Dictionary<String, Any>] else {
             return ResultData.withErrors([NetworkError.badData])
         }
-        print("arrayWithAttendanceData", arrayWithAttendanceData)
 
         return ResultData.withAttendanceData(arrayWithAttendanceData)
         

@@ -54,6 +54,7 @@
 		C44574621FDC192C004A5305 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44574611FDC192C004A5305 /* SettingsVC.swift */; };
 		C44574661FDC1B97004A5305 /* MembersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44574651FDC1B97004A5305 /* MembersVC.swift */; };
 		C44574681FDC1D18004A5305 /* MenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44574671FDC1D18004A5305 /* MenuManager.swift */; };
+		C45367692076FCA500D30815 /* UIViewController+spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45367682076FCA500D30815 /* UIViewController+spinner.swift */; };
 		C45550D4206DBFEC00471B90 /* ProfileAboutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45550D2206DBFEC00471B90 /* ProfileAboutCell.swift */; };
 		C45550D5206DBFEC00471B90 /* ProfileAboutCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C45550D3206DBFEC00471B90 /* ProfileAboutCell.xib */; };
 		C460E4E52035905100408572 /* debugLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = C460E4E42035905100408572 /* debugLog.swift */; };
@@ -262,6 +263,7 @@
 		C44574611FDC192C004A5305 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		C44574651FDC1B97004A5305 /* MembersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersVC.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		C44574671FDC1D18004A5305 /* MenuManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuManager.swift; sourceTree = "<group>"; };
+		C45367682076FCA500D30815 /* UIViewController+spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+spinner.swift"; sourceTree = "<group>"; };
 		C45550D2206DBFEC00471B90 /* ProfileAboutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAboutCell.swift; sourceTree = "<group>"; };
 		C45550D3206DBFEC00471B90 /* ProfileAboutCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileAboutCell.xib; sourceTree = "<group>"; };
 		C460E4E42035905100408572 /* debugLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = debugLog.swift; sourceTree = "<group>"; };
@@ -562,7 +564,7 @@
 		C41CA37C1FDBEB1800AB0D2D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C460E4E32035904000408572 /* Functions */,
+				C453676A2076FFE700D30815 /* Utils */,
 				C41CA3831FDBEB9600AB0D2D /* Constants */,
 				C463F88F1FF5302B001FBBC1 /* Entities */,
 				C40C848F2002AFF10011AF01 /* Enums */,
@@ -607,6 +609,7 @@
 				C43E9FAA206098D1008B8A13 /* String+capitalizingFirst.swift */,
 				C46C614D206B045500587C32 /* String+stringByRemovingAll.swift */,
 				C4C3BAAF2070F32200BF099A /* Date+dayOfTheWeek.swift */,
+				C45367682076FCA500D30815 /* UIViewController+spinner.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -716,6 +719,14 @@
 			path = Notifications;
 			sourceTree = "<group>";
 		};
+		C453676A2076FFE700D30815 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C460E4E42035905100408572 /* debugLog.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		C45550D1206DBFBE00471B90 /* ProfileAboutCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -723,14 +734,6 @@
 				C45550D3206DBFEC00471B90 /* ProfileAboutCell.xib */,
 			);
 			path = ProfileAboutCell;
-			sourceTree = "<group>";
-		};
-		C460E4E32035904000408572 /* Functions */ = {
-			isa = PBXGroup;
-			children = (
-				C460E4E42035905100408572 /* debugLog.swift */,
-			);
-			path = Functions;
 			sourceTree = "<group>";
 		};
 		C463F8811FF5104A001FBBC1 /* View */ = {
@@ -1607,6 +1610,7 @@
 				C4662ABD1FEAA57E001848C8 /* EventDate.swift in Sources */,
 				C4E522001FE90D4A00C3DE2E /* UITableViewController+Style.swift in Sources */,
 				C4FA7D2A1FF7654100F03846 /* GenericCell.swift in Sources */,
+				C45367692076FCA500D30815 /* UIViewController+spinner.swift in Sources */,
 				C4F62CBC200D1BE90082DFBC /* Category.swift in Sources */,
 				C435FD0F20109ABC00D90CE8 /* Person.swift in Sources */,
 				C4B8A5C32013BA3700645E2E /* ContactsCell.swift in Sources */,
