@@ -33,6 +33,7 @@ class LoginVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        initWithLastUsedEmailAndPassword()
         setUIElementsStyle()
         initializeDelegates()
         updateUIWithLocalizedText()
@@ -41,7 +42,7 @@ class LoginVC: UIViewController {
         //setPredefinedEmailAndPassword()
     }
     
-    func initializeDelegates() {
+    private func initializeDelegates() {
         for textField in arrayWithTextFields {
             textField.delegate = self
         }
@@ -52,7 +53,7 @@ class LoginVC: UIViewController {
         passwordField.text = "123456"
     }
     
-    func updateUIWithLocalizedText() {
+    private func updateUIWithLocalizedText() {
         emailField.placeholder = "enter_email".localized()
         passwordField.placeholder = "enter_password".localized()
         
@@ -108,9 +109,20 @@ class LoginVC: UIViewController {
                 })
             } else {
                 CurrentUser.password = loginData.password
+                self.saveLastUsed(email, andPassword: password)
                 self.moveToMainScreen()
             }
         }
+    }
+    
+    private func initWithLastUsedEmailAndPassword() {
+        emailField.text = UserDefaultsManager().lastUsedEmail
+        passwordField.text = UserDefaultsManager().lastUsedPassword
+    }
+    
+    private func saveLastUsed(_ email: String, andPassword password: String) {
+        UserDefaultsManager().lastUsedEmail = email
+        UserDefaultsManager().lastUsedPassword = password
     }
     
     private func moveToMainScreen() {

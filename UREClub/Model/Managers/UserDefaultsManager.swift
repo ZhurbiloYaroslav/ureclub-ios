@@ -24,3 +24,25 @@ class UserDefaultsManager {
         
     }
 }
+
+// MARK: - Save the last used email and password
+extension UserDefaultsManager {
+    
+    var lastUsedEmail: String {
+        get {
+            return self.options["lastUsedEmail"] ?? ""
+        }
+        set {
+            self.options["lastUsedEmail"] = newValue
+        }
+    }
+    
+    var lastUsedPassword: String {
+        get {
+            return self.options["lastUsedPassword"] ?? ""
+        }
+        set {
+            self.options["lastUsedPassword"] = newValue
+        }
+    }
+}
