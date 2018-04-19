@@ -98,7 +98,7 @@
 "server_empty_email" = "Введіть ваш email";
 "auth_alert_password_reset_title" = "Скинути пароль";
 "alert_button_ok" = "Ок";
-"alert_button_send" = "Синути";
+"alert_button_send" = "Скинути";
 "auth_alert_password_reset_message" = "Вкажіть ваш email для скидання паролю";
 "alert_button_cancel" = "Відмінити";
 "password_reset_send_success" = "Пароль відправлено на ваш email";
