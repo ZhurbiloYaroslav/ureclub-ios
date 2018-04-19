@@ -19,6 +19,7 @@ class LoginVC: UIViewController {
     @IBOutlet weak var passwordField: SkyFloatingLabelTextField!
     
     //Buttons
+    @IBOutlet weak var togglePasswordButton: UIButton!
     @IBOutlet weak var logInButton: UIButton!
     @IBOutlet weak var callUsButton: UIButton!
     @IBOutlet weak var restorePasswordButton: UIButton!
@@ -57,6 +58,15 @@ class LoginVC: UIViewController {
         
         logInButton.setTitle("button_log_in".localized(), for: .normal)
         restorePasswordButton.setTitle("button_password_restore".localized(), for: .normal)
+    }
+    @IBAction func togglePasswordVisibility(_ sender: UIButton) {
+        if passwordField.isSecureTextEntry {
+            passwordField.isSecureTextEntry = false
+            togglePasswordButton.setImage(UIImage(named: "icon-password-visible"), for: .normal)
+        } else {
+            passwordField.isSecureTextEntry = true
+            togglePasswordButton.setImage(UIImage(named: "icon-password-hide"), for: .normal)
+        }
     }
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {

@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="AvenirNext.ttc">
-            <string>AvenirNext-Medium</string>
-        </array>
         <array key="Montserrat-Regular.ttf">
             <string>Montserrat-Regular</string>
         </array>
@@ -101,30 +98,57 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="zRO-G0-gOV">
                                         <rect key="frame" x="0.0" y="84" width="375" height="54"/>
                                         <subviews>
-                                            <textField opaque="NO" tag="2" contentMode="scaleToFill" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VxO-wp-3qD" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x3R-EV-QIb" userLabel="PasswordContainer">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                                <subviews>
+                                                    <textField opaque="NO" tag="2" contentMode="scaleToFill" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VxO-wp-3qD" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="MIa-6g-vg5"/>
+                                                        </constraints>
+                                                        <color key="textColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Password"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="Password"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Password"/>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
+                                                                <real key="value" value="0.0"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="selectedLineHeight">
+                                                                <real key="value" value="0.0"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="resetStateForTextFieldOnValueChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="6EU-vN-weq"/>
+                                                            <action selector="resetStateForTextFieldOnValueChanged:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="OJJ-WA-JcT"/>
+                                                        </connections>
+                                                    </textField>
+                                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cmc-Nb-mF6">
+                                                        <rect key="frame" x="315" y="10.5" width="40" height="30"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="40" id="Rls-WA-H0j"/>
+                                                            <constraint firstAttribute="height" constant="30" id="pMm-iw-st0"/>
+                                                        </constraints>
+                                                        <color key="tintColor" red="0.81176470590000005" green="0.92156862750000001" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <state key="normal" image="icon-password-hide"/>
+                                                        <connections>
+                                                            <action selector="togglePasswordVisibility:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XXO-IW-xZI"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="MIa-6g-vg5"/>
+                                                    <constraint firstItem="cmc-Nb-mF6" firstAttribute="centerY" secondItem="x3R-EV-QIb" secondAttribute="centerY" id="Cjj-of-3aG"/>
+                                                    <constraint firstAttribute="bottom" secondItem="VxO-wp-3qD" secondAttribute="bottom" id="QHR-h9-euB"/>
+                                                    <constraint firstItem="VxO-wp-3qD" firstAttribute="top" secondItem="x3R-EV-QIb" secondAttribute="top" id="TZx-4V-Dbv"/>
+                                                    <constraint firstItem="VxO-wp-3qD" firstAttribute="leading" secondItem="x3R-EV-QIb" secondAttribute="leading" id="Tzb-13-V6s"/>
+                                                    <constraint firstAttribute="trailing" secondItem="VxO-wp-3qD" secondAttribute="trailing" id="ace-qi-X1a"/>
+                                                    <constraint firstAttribute="trailing" secondItem="cmc-Nb-mF6" secondAttribute="trailing" constant="20" id="o8g-8e-2WP"/>
                                                 </constraints>
-                                                <color key="textColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Password"/>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="Password"/>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Password"/>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
-                                                        <real key="value" value="0.0"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="selectedLineHeight">
-                                                        <real key="value" value="0.0"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="resetStateForTextFieldOnValueChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="6EU-vN-weq"/>
-                                                    <action selector="resetStateForTextFieldOnValueChanged:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="OJJ-WA-JcT"/>
-                                                </connections>
-                                            </textField>
+                                            </view>
                                             <view contentMode="scaleToFill" verticalHuggingPriority="249" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" translatesAutoresizingMaskIntoConstraints="NO" id="yZX-6Y-Sjx">
                                                 <rect key="frame" x="0.0" y="53" width="375" height="1"/>
                                                 <color key="backgroundColor" red="0.81176470590000005" green="0.92156862750000001" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -190,6 +214,7 @@
                         <outlet property="logoBackgroundView" destination="RxY-iJ-V9j" id="5is-Vm-cDq"/>
                         <outlet property="passwordField" destination="VxO-wp-3qD" id="RM8-5e-iOU"/>
                         <outlet property="restorePasswordButton" destination="PLr-ps-Vqf" id="amT-RK-rW5"/>
+                        <outlet property="togglePasswordButton" destination="cmc-Nb-mF6" id="vIf-FO-vMw"/>
                         <segue destination="5Fi-dc-FuT" kind="show" identifier="EnterFromLogin" id="FYp-VU-Dzf"/>
                     </connections>
                 </viewController>
@@ -207,7 +232,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="background-login" width="924" height="1356"/>
+        <image name="background-login" width="356" height="653"/>
+        <image name="icon-password-hide" width="23" height="21"/>
         <image name="logo-ureclub" width="250" height="252"/>
     </resources>
 </document>
