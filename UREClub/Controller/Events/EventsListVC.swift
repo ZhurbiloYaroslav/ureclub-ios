@@ -23,7 +23,6 @@ class EventsListVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        checkDataFromNotification()
         setupTableView()
         getArrayWithEvents()
         setDelegates()
@@ -39,21 +38,6 @@ class EventsListVC: UIViewController {
         eventsListTypeControl.selectedSegmentIndex = eventsManager.eventsFilter.getEventViewType().getSelectedIndex
         
         tableView.reloadData()
-    }
-    
-    private func checkDataFromNotification() {
-        guard let notificationData = dataFromNotification
-            else { return }
-        
-        if notificationData.postType == "news" {
-            let newsNavController = UIStoryboard(name: "News", bundle: nil).instantiateViewController(withIdentifier: "NewsNavBar") as? UINavigationController
-            print("data is news")
-            if newsNavController != nil && revealViewController() != nil {
-                revealViewController().setFront(newsNavController, animated: true)
-            }
-        } else if notificationData.postType == "event" {
-            print("data is event")
-        }
     }
     
     func setSwitcherStyle() {
@@ -85,7 +69,7 @@ class EventsListVC: UIViewController {
         tableView.reloadData()
     }
     
-    func getArrayWithEvents() {
+    private func getArrayWithEvents() {
         let spinner = UIViewController.displaySpinner(onView: view)
         eventsManager.getArrayWithEvents { (errors) in
             UIViewController.removeSpinner(spinner: spinner)
@@ -96,7 +80,7 @@ class EventsListVC: UIViewController {
         }
     }
     
-    func presentEventFromNotification() {
+    private func presentEventFromNotification() {
         if let data = dataFromNotification, data.isEvent,
             let eventDescVC = ArticleDescVC.getInstance(),
             let currentEvent = eventsManager.getEventByPostID(data.postIDs) {
@@ -105,17 +89,17 @@ class EventsListVC: UIViewController {
         }
     }
     
-    func setDelegates() {
+    private func setDelegates() {
         tableView.delegate = self
         tableView.dataSource = self
     }
     
-    func registerNibs() {
+    private func registerNibs() {
         tableView.register(UINib(nibName: "EventCell", bundle: nil), forCellReuseIdentifier: "EventCell")
         tableView.register(UINib(nibName: "CalendarCell", bundle: nil), forCellReuseIdentifier: "CalendarCell")
     }
     
-    func setupLeftMenu() {
+    private func setupLeftMenu() {
         if revealViewController() != nil {
             
             self.revealViewController().rearViewRevealWidth = self.view.frame.width - 64
@@ -128,7 +112,7 @@ class EventsListVC: UIViewController {
         }
     }
     
-    func updateUIWithLocalizedText() {
+    private func updateUIWithLocalizedText() {
         
         navigationItem.title = "screen_events_title".localized()
         
@@ -140,7 +124,7 @@ class EventsListVC: UIViewController {
         
     }
     
-    func showSpinner() -> UIActivityIndicatorView {
+    private func showSpinner() -> UIActivityIndicatorView {
         let spinner = UIActivityIndicatorView()
         spinner.activityIndicatorViewStyle = .white
         spinner.center = view.center
@@ -152,7 +136,7 @@ class EventsListVC: UIViewController {
         return spinner
     }
     
-    func hideSpinner(_ spinner: UIActivityIndicatorView) {
+    private func hideSpinner(_ spinner: UIActivityIndicatorView) {
         spinner.stopAnimating()
         spinner.removeFromSuperview()
     }

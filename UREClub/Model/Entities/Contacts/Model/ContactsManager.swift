@@ -135,6 +135,17 @@ class ContactsManager {
         return resultPerson
     }
     
+    public func getPersonByID(_ memberIDs: Int) -> Person? {
+        var resultPerson: Person? = nil
+        let arrayWithPersons = contactsData.arrayWithPersons
+        arrayWithPersons.forEach { member in
+            if memberIDs == member.getID() {
+                resultPerson = member
+            }
+        }
+        return resultPerson
+    }
+    
     public func getArrayWithPersonsFor(_ companyID: String) -> [Person] {
         var resultArrayWithPersons = [Person]()
         guard let arrayWithPersons = contactsData.getArrayWithContactsFor(types: [.person]) as? [Person]

@@ -136,6 +136,12 @@ extension AppDelegate {
                 eventsListVC.dataFromNotification = articleData
                 eventsNavController.viewControllers = [eventsListVC]
                 revealVC.setFront(eventsNavController, animated: true)
+            } else if articleData.postType == "member" {
+                let eventsNavController = UIStoryboard(name: "Members", bundle: nil).instantiateViewController(withIdentifier: "MembersNavBar") as! UINavigationController
+                let eventsListVC = UIStoryboard(name: "Members", bundle: nil).instantiateViewController(withIdentifier: "MembersVC") as! MembersVC
+                eventsListVC.dataFromNotification = articleData
+                eventsNavController.viewControllers = [eventsListVC]
+                revealVC.setFront(eventsNavController, animated: true)
             } else {
                 let eventsNavController = UIStoryboard(name: "Events", bundle: nil).instantiateViewController(withIdentifier: "EventsNavBar") as! UINavigationController
                 let eventsListVC = UIStoryboard(name: "Events", bundle: nil).instantiateViewController(withIdentifier: "EventsListVC") as! EventsListVC

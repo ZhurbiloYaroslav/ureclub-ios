@@ -10,6 +10,7 @@ import Foundation
 
 struct DataFromPushNotification {
     public let postIDs: [Int]
+    public let memberID: Int
     public let postType: String
     
     public var isNews: Bool {
@@ -20,9 +21,16 @@ struct DataFromPushNotification {
         return postType == "event"
     }
     
+    public var isMember: Bool {
+        return postType == "member"
+    }
+    
     init(withResult additionalData: [String: Any]) {
         
         self.postIDs = additionalData["postIDs"] as? [Int] ?? [Int]()
         self.postType = additionalData["postType"] as? String ?? ""
+        
+        let memberIDString = additionalData["memberID"] as? String ?? "0"
+        self.memberID = Int(memberIDString) ?? 0
     }
 }

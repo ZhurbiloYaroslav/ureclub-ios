@@ -13,7 +13,13 @@ import SWRevealViewController
 
 extension MembersVC: ContactsDataDelegate {
     func didReceiveContacts() {
+        
+        if let spinner = spinner {
+            UIViewController.removeSpinner(spinner: spinner)
+        }
+        
         self.tableView.reloadData()
+        self.presentMemberFromNotification()
     }
 }
 
@@ -47,14 +53,19 @@ class MembersVC: UIViewController {
     @IBOutlet weak var memberTypeSwitcher: UISegmentedControl!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    var contactsManager = ContactsManager(withFilterType: .members, andType: .person)
+    public var dataFromNotification: DataFromPushNotification?
     
-    var menuButton: UIBarButtonItem!
+    public var contactsManager = ContactsManager(withFilterType: .members, andType: .person)
+    
+    private var menuButton: UIBarButtonItem!
+    fileprivate var spinner: UIView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         contactsManager.contactsData.getContactsData()
+        spinner = UIViewController.displaySpinner(onView: view)
+        
         updateUIWithLocalizedText()
         
         registerNibs()
@@ -69,8 +80,8 @@ class MembersVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        contactsManager.contactsData.getContactsData()
         navigationController?.setDefaultStyle()
+        tableView.reloadData()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -83,24 +94,24 @@ class MembersVC: UIViewController {
         searchBar.enablesReturnKeyAutomatically = false
     }
     
-    func setSwitcherStyle() {
+    private func setSwitcherStyle() {
         let attr = NSDictionary(object: UIFont(name: "Montserrat-Medium", size: 14)!, forKey: NSAttributedStringKey.font as NSCopying)
         memberTypeSwitcher.setTitleTextAttributes(attr as [NSObject : AnyObject], for: .normal)
     }
     
-    func setTableStyle() {
+    private func setTableStyle() {
         tableView.backgroundColor = Constants.DefaultColor.background
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableViewAutomaticDimension
     }
     
-    func registerNibs() {
+    private func registerNibs() {
         for identifier in ["PersonCell"] {
             tableView.register(UINib(nibName: identifier, bundle: nil), forCellReuseIdentifier: identifier)
         }
     }
     
-    func setDelegates() {
+    private func setDelegates() {
         tableView.delegate = self
         tableView.dataSource = self
         searchBar.delegate = self
@@ -108,7 +119,7 @@ class MembersVC: UIViewController {
         contactsManager.contactsData.delegate = self
     }
     
-    func setupLeftMenu() {
+    private func setupLeftMenu() {
         if revealViewController() != nil {
             
             self.revealViewController().rearViewRevealWidth = self.view.frame.width - 64
@@ -119,7 +130,7 @@ class MembersVC: UIViewController {
         }
     }
     
-    func updateUIWithLocalizedText() {
+    private func updateUIWithLocalizedText() {
         
         navigationItem.title = "screen_members_title".localized()
         
@@ -147,6 +158,19 @@ class MembersVC: UIViewController {
         }
         searchBar.text = ""
         tableView.reloadData()
+    }
+}
+
+// Methods related with Notifications
+extension MembersVC {
+    
+    fileprivate func presentMemberFromNotification() {
+        if let data = dataFromNotification, data.isMember,
+            let profileVC = ProfileVC.getInstance(),
+            let currentMember = contactsManager.getPersonByID(data.memberID) {
+            profileVC.publicContactToShow = currentMember
+            navigationController?.pushViewController(profileVC, animated: true)
+        }
     }
 }
 

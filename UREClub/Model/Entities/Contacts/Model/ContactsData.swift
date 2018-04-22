@@ -40,7 +40,6 @@ class ContactsData {
     
     init() {
         networkManager.delegate = self
-        getContactsData()
     }
     
     func getFilteredAndSortedArrayWithCompanies() -> [Company] {
