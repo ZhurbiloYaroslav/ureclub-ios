@@ -181,6 +181,7 @@
 		C4FA7D281FF7616300F03846 /* SettingsCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FA7D271FF7616300F03846 /* SettingsCells.swift */; };
 		C4FA7D2A1FF7654100F03846 /* GenericCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FA7D291FF7654100F03846 /* GenericCell.swift */; };
 		C4FA7D2D1FF7712B00F03846 /* TableSectionNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FA7D2C1FF7712B00F03846 /* TableSectionNumber.swift */; };
+		C4FC9C77208FCBD300A70452 /* String+formattedPhoneNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FC9C76208FCBD300A70452 /* String+formattedPhoneNumber.swift */; };
 		EFF0B33465F59B2E07EA20BE /* Pods_OneSignalNotificationServiceExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C972F95364E06B74AC1A3D3 /* Pods_OneSignalNotificationServiceExtension.framework */; };
 /* End PBXBuildFile section */
 
@@ -405,6 +406,7 @@
 		C4FA7D271FF7616300F03846 /* SettingsCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCells.swift; sourceTree = "<group>"; };
 		C4FA7D291FF7654100F03846 /* GenericCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericCell.swift; sourceTree = "<group>"; };
 		C4FA7D2C1FF7712B00F03846 /* TableSectionNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableSectionNumber.swift; sourceTree = "<group>"; };
+		C4FC9C76208FCBD300A70452 /* String+formattedPhoneNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+formattedPhoneNumber.swift"; sourceTree = "<group>"; };
 		EBA591EDC7E34343DB4CA027 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -610,6 +612,7 @@
 				C46C614D206B045500587C32 /* String+stringByRemovingAll.swift */,
 				C4C3BAAF2070F32200BF099A /* Date+dayOfTheWeek.swift */,
 				C45367682076FCA500D30815 /* UIViewController+spinner.swift */,
+				C4FC9C76208FCBD300A70452 /* String+formattedPhoneNumber.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1625,6 +1628,7 @@
 				C4C203ED1FE2959300272679 /* Menu.swift in Sources */,
 				C41DDD952038C3DA005B9939 /* String+isEqual.swift in Sources */,
 				C4AA29AC2005FA29009FE92C /* Validator.swift in Sources */,
+				C4FC9C77208FCBD300A70452 /* String+formattedPhoneNumber.swift in Sources */,
 				C4B8A5C62013ED1000645E2E /* ContactsData.swift in Sources */,
 				C40C84922002B10D0011AF01 /* ChangePasswordCell.swift in Sources */,
 				C4C203E51FE2871500272679 /* CodexVC.swift in Sources */,
