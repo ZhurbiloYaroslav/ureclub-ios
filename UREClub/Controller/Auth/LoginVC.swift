@@ -60,6 +60,7 @@ class LoginVC: UIViewController {
         logInButton.setTitle("button_log_in".localized(), for: .normal)
         restorePasswordButton.setTitle("button_password_restore".localized(), for: .normal)
     }
+    
     @IBAction func togglePasswordVisibility(_ sender: UIButton) {
         if passwordField.isSecureTextEntry {
             passwordField.isSecureTextEntry = false
@@ -101,6 +102,7 @@ class LoginVC: UIViewController {
             password: password
         )
         
+        let spinner = UIViewController.displaySpinner(onView: view)
         NetworkManager().loginWith(loginData) { errorMessages in
             if let errorMessages = errorMessages {
                 let alertTitle = "auth_alert_error_title".localized()
@@ -108,6 +110,7 @@ class LoginVC: UIViewController {
                     self.present(alertVC, animated: true, completion: nil)
                 })
             } else {
+                UIViewController.removeSpinner(spinner: spinner)
                 CurrentUser.password = loginData.password
                 self.saveLastUsed(email, andPassword: password)
                 self.moveToMainScreen()

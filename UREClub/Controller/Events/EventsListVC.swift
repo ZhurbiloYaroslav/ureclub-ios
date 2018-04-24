@@ -124,23 +124,6 @@ class EventsListVC: UIViewController {
         
     }
     
-    private func showSpinner() -> UIActivityIndicatorView {
-        let spinner = UIActivityIndicatorView()
-        spinner.activityIndicatorViewStyle = .white
-        spinner.center = view.center
-        spinner.startAnimating()
-        
-        view.addSubview(spinner)
-        view.bringSubview(toFront: spinner)
-        
-        return spinner
-    }
-    
-    private func hideSpinner(_ spinner: UIActivityIndicatorView) {
-        spinner.stopAnimating()
-        spinner.removeFromSuperview()
-    }
-    
     @IBAction func filterButtonPressed(_ sender: UIBarButtonItem) {
         if let filterVC = FilterVC.getInstance() {
             filterVC.filterManager.currentFilter = eventsManager.eventsFilter

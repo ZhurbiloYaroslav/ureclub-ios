@@ -11,6 +11,11 @@ import SWRevealViewController
 
 extension ContactsVC: ContactsDataDelegate {
     func didReceiveContacts() {
+        
+        if let spinner = spinner {
+            UIViewController.removeSpinner(spinner: spinner)
+        }
+        
         self.tableView.reloadData()
     }
 }
@@ -23,9 +28,13 @@ class ContactsVC: UIViewController {
     
     fileprivate var contactsManager = ContactsManager(withFilterType: .contacts, andType: .worker)
     fileprivate var viewType: ContactsViewType = .team
+    fileprivate var spinner: UIView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        contactsManager.contactsData.getContactsData()
+        spinner = UIViewController.displaySpinner(onView: view)
         
         setDelegates()
         setupLeftMenu()
@@ -40,7 +49,6 @@ class ContactsVC: UIViewController {
         super.viewWillAppear(animated)
         
         navigationController?.setDefaultStyle()
-        contactsManager.contactsData.getContactsData()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
