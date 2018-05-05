@@ -47,7 +47,10 @@ class Article: NSObject {
             let els: Elements = try SwiftSoup.parse(htmlContent).select("img")
             for link: Element in els.array(){
                 let linkSrc: String = try link.attr("src")
-                arrayWithImageLinks.append(linkSrc)
+                let escapedLink = linkSrc.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+                if let escapedLink = escapedLink {
+                    arrayWithImageLinks.append(escapedLink)
+                }
             }
             arrayWithImageLinks.uniqInPlace()
             
@@ -89,21 +92,31 @@ class Article: NSObject {
 
 extension Article {
     
-    func getID() -> Int {
+    public func getID() -> Int {
         return recordID
     }
     
-    func getPostID() -> Int {
+    public func getPostID() -> Int {
         return postID
     }
     
-    func getStringWithID() -> String {
+    public func getStringWithID() -> String {
         return String(describing: recordID)
     }
     
-    func getArrayWithAllCategoriesIds() -> [Int] {
+    public func getArrayWithAllCategoriesIds() -> [Int] {
         var result = [Int]()
         categories.forEach { result.append($0.id) }
+        return result
+    }
+    
+    public func getArrayWithImageURL() -> [URL] {
+        var result = [URL]()
+        for imageLinkString in imageLinks {
+            if let imageURL = URL(string: imageLinkString) {
+                result.append(imageURL)
+            }
+        }
         return result
     }
 }
