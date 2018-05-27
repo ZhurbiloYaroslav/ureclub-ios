@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A575E5EF19AB2E5627FF560A /* Pods_UREClub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F00CDDC75090A238545BF8D /* Pods_UREClub.framework */; };
+		C401758420BAD2F500B181EC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C401758320BAD2F400B181EC /* GoogleService-Info.plist */; };
 		C4044B3B204456590062922D /* NewFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4044B3A204456590062922D /* NewFilter.swift */; };
 		C4044B3D204457A90062922D /* FilterItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4044B3C204457A90062922D /* FilterItems.swift */; };
 		C409AA9720399FDB0094CB17 /* NewNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C409AA9620399FDB0094CB17 /* NewNetworkManager.swift */; };
@@ -216,6 +217,7 @@
 		6F00CDDC75090A238545BF8D /* Pods_UREClub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UREClub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79F81508FF69194E23E53783 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		AE4E3DD1CDFA59C0049561D9 /* Pods-UREClub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UREClub.release.xcconfig"; path = "Pods/Target Support Files/Pods-UREClub/Pods-UREClub.release.xcconfig"; sourceTree = "<group>"; };
+		C401758320BAD2F400B181EC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C4044B3A204456590062922D /* NewFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFilter.swift; sourceTree = "<group>"; };
 		C4044B3C204457A90062922D /* FilterItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterItems.swift; sourceTree = "<group>"; };
 		C409AA9620399FDB0094CB17 /* NewNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewNetworkManager.swift; sourceTree = "<group>"; };
@@ -584,6 +586,7 @@
 				C4C203F21FE2AA3F00272679 /* Fonts */,
 				C41CA36F1FDBE3F000AB0D2D /* Assets.xcassets */,
 				C41CA3741FDBE3F000AB0D2D /* Info.plist */,
+				C401758320BAD2F400B181EC /* GoogleService-Info.plist */,
 				C41CA36C1FDBE3F000AB0D2D /* UREClub.xcdatamodeld */,
 				C4DEAD0820662C8200795C28 /* README.md */,
 			);
@@ -1388,6 +1391,7 @@
 				C4662AE01FEAAE38001848C8 /* Montserrat-BoldItalic.ttf in Resources */,
 				C4D8D3311FF2CC000003DA36 /* EventCell.xib in Resources */,
 				C430EBF7200E1265001E818B /* ic_cross_white@3x.png in Resources */,
+				C401758420BAD2F500B181EC /* GoogleService-Info.plist in Resources */,
 				C47FA7481FE1D712003D393E /* News.storyboard in Resources */,
 				C4662ADA1FEAAE38001848C8 /* Montserrat-Light.ttf in Resources */,
 				C4E07B0F2025CD0A00933FAA /* AboutVC.storyboard in Resources */,
