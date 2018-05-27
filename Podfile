@@ -20,6 +20,8 @@ target 'UREClub' do
   pod 'ALCameraViewController'
 
   pod 'OneSignal', '>= 2.6.2', '< 3.0'
+  
+  pod 'Firebase/Core'
 
 end
 
