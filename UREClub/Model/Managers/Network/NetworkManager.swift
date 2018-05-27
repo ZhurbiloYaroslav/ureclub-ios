@@ -142,7 +142,7 @@ class NetworkManager: NSObject {
             }
         }
         fileprivate enum Server: String {
-            case production = ""
+            case production = "http://ureclub.soft4status.com/"
             case test = "http://urec.1gb.ua/"
         }
     }

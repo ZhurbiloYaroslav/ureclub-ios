@@ -20,7 +20,7 @@ extension NewNetworkManager {
         
         var baseAddress: String {
             switch self {
-            case .production: return ""
+            case .production: return "http://ureclub.soft4status.com/"
             case .development: return "http://urec.1gb.ua/"
             }
         }
