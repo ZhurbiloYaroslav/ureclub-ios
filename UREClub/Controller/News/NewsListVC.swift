@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 import SWRevealViewController
 
 extension NewsListVC: NetworkManagerDelegate {
@@ -43,6 +44,17 @@ class NewsListVC: UIViewController {
         registerNibs()
         setupLeftMenu()
         updateUIWithLocalizedText()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setCurrentScreenAnalytics()
+    }
+    
+    private func setCurrentScreenAnalytics() {
+        let kScreenName = "News-List"
+        let screenClass = classForCoder.description()
+        Analytics.setScreenName(kScreenName, screenClass: screenClass)
     }
     
     func getArrayWithNews() {

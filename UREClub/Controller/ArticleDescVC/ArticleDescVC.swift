@@ -8,6 +8,7 @@
 
 import UIKit
 import SDWebImage
+import Firebase
 
 class ArticleDescVC: UIViewController {
     
@@ -57,6 +58,27 @@ class ArticleDescVC: UIViewController {
         super.viewWillAppear(animated)
         
         navigationController?.setDefaultStyle()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setCurrentScreenAnalytics()
+        analyticsTrackSelectedArticle(currentArticle)
+    }
+    
+    private func analyticsTrackSelectedArticle(_ article: Article?) {
+        guard let article = article else { return }
+        Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
+            AnalyticsParameterItemID: "id-\(article.getID())",
+            AnalyticsParameterItemName: article.title,
+            AnalyticsParameterContentType: "cont"
+            ])
+    }
+    
+    private func setCurrentScreenAnalytics() {
+        let kScreenName = "Article-Description"
+        let screenClass = classForCoder.description()
+        Analytics.setScreenName(kScreenName, screenClass: screenClass)
     }
     
     func setDelegates() {

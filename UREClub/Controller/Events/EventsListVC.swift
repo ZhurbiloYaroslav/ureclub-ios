@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 import SWRevealViewController
 
 class EventsListVC: UIViewController {
@@ -41,8 +42,15 @@ class EventsListVC: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        setCurrentScreenAnalytics()
         PushNotificationsManager.handlePushNotifications()
         PushNotificationsManager.saveTagInfo()
+    }
+    
+    private func setCurrentScreenAnalytics() {
+        let kScreenName = "Events-List"
+        let screenClass = classForCoder.description()
+        Analytics.setScreenName(kScreenName, screenClass: screenClass)
     }
     
     func setSwitcherStyle() {
