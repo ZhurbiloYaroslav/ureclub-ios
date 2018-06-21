@@ -19,6 +19,7 @@ extension Date {
                           "week_day_sat".localized()
         ]
         let dow = Calendar.current.component(.weekday, from: self)
-        return dayStrings[dow]
+        let correctIndex = dow - 1
+        return dayStrings[correctIndex]
     }
 }
