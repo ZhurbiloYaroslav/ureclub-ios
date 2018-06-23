@@ -91,6 +91,7 @@ class LoginVC: UIViewController {
         
         if errorMessages.count > 0 {
             let alertTitle = "auth_alert_error_title".localized()
+            AnalyticsManager.userFailedToLoginWithMessage(errorMessages)
             Alert().presentAlertWith(title: alertTitle, andMessages: errorMessages, completionHandler: { (alertContoller) in
                 self.present(alertContoller, animated: true, completion: nil)
             })
@@ -106,10 +107,12 @@ class LoginVC: UIViewController {
         NetworkManager().loginWith(loginData) { errorMessages in
             if let errorMessages = errorMessages {
                 let alertTitle = "auth_alert_error_title".localized()
+                UIViewController.removeSpinner(spinner: spinner)
                 Alert().presentAlertWith(title: alertTitle, andMessages: errorMessages, completionHandler: { (alertVC) in
                     self.present(alertVC, animated: true, completion: nil)
                 })
             } else {
+                AnalyticsManager.loggedInUserWithEmail(loginData.username)
                 UIViewController.removeSpinner(spinner: spinner)
                 CurrentUser.password = loginData.password
                 self.saveLastUsed(email, andPassword: password)

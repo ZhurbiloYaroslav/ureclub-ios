@@ -63,16 +63,7 @@ class ArticleDescVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         setCurrentScreenAnalytics()
-        analyticsTrackSelectedArticle(currentArticle)
-    }
-    
-    private func analyticsTrackSelectedArticle(_ article: Article?) {
-        guard let article = article else { return }
-        Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
-            AnalyticsParameterItemID: "id-\(article.getID())",
-            AnalyticsParameterItemName: article.title,
-            AnalyticsParameterContentType: "cont"
-            ])
+        AnalyticsManager.trackSelectedArticle(currentArticle)
     }
     
     private func setCurrentScreenAnalytics() {

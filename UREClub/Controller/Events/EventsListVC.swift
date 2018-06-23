@@ -43,6 +43,7 @@ class EventsListVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         setCurrentScreenAnalytics()
+        AnalyticsManager.saveUserInfo()
         PushNotificationsManager.handlePushNotifications()
         PushNotificationsManager.saveTagInfo()
     }

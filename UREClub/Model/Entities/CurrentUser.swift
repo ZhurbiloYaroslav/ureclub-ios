@@ -226,7 +226,11 @@ extension CurrentUser {
 
 extension CurrentUser {
     static func getID() -> Int {
-        return Int(id) ?? 0
+        return Int(id)
+    }
+    
+    static func getStringWithID() -> String {
+        return String(id)
     }
     
     static func getPhone() -> Phone {

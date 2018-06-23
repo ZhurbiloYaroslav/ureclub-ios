@@ -19,6 +19,7 @@ class Formatter {
     
     enum DateType: String {
         case ddMMyyyy = "dd-MM-yyyy"
+        case yyyyMMdd = "yyyy-MM-dd"
         case HHmm = "HH:mm"
         case dd = "dd"
         case mm = "MM"
