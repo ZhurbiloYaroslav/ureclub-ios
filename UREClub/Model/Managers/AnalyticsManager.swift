@@ -19,6 +19,7 @@ class AnalyticsManager {
     
     private static let kAnalyticsKeyUserType = "urec_user_type"
     private static let kAnalyticsKeyUserEmail = "urec_user_email"
+    private static let kAnalyticsKeyUserLang = "urec_user_lang"
     private static let kAnalyticsKeyUserLastName = "urec_user_last_name"
     private static let kAnalyticsKeyUserFullName = "urec_user_full_name"
     private static let kAnalyticsKeyUserCompanyID = "urec_user_company_id"
@@ -59,10 +60,10 @@ class AnalyticsManager {
         Analytics.setUserProperty(CurrentUser.firstName, forName: kAnalyticsKeyUserFirstName)
         Analytics.setUserProperty(CurrentUser.lastName, forName: kAnalyticsKeyUserLastName)
         Analytics.setUserProperty(CurrentUser.fullName, forName: kAnalyticsKeyUserFullName)
-        
         Analytics.setUserProperty(CurrentUser.email, forName: kAnalyticsKeyUserEmail)
         
-        if CurrentUser.company.companyId == "null" {
+        let currentUserIsMember = CurrentUser.company.companyId != "null"
+        if currentUserIsMember {
             Analytics.setUserProperty(kStringUserTypeMember, forName: kAnalyticsKeyUserType)
             Analytics.setUserProperty(CurrentUser.company.companyId, forName: kAnalyticsKeyUserCompanyID)
             Analytics.setUserProperty(CurrentUser.company.companyName, forName: kAnalyticsKeyUserCompanyName)
@@ -70,6 +71,7 @@ class AnalyticsManager {
             Analytics.setUserProperty(kStringUserTypeWorker, forName: kAnalyticsKeyUserType)
         }
         
+        Analytics.setUserProperty(LanguageManager().currentLanguage.getCode(), forName: kAnalyticsKeyUserLang)
         Analytics.setUserProperty(Formatter.getStringFrom(Date(), withFormat: .yyyyMMdd), forName: kAnalyticsKeyUserLastLoginDate)
     }
     
