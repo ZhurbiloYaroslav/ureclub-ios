@@ -16,10 +16,11 @@ struct FilterData {
             return [
                 Filter.FilterSection(title: "filter_section_year".localized(), type: .year, selection: .single, arrayWithItems:
                     [
+                        Filter.FilterSectionItem(id: [2019], title: "2019"),
                         Filter.FilterSectionItem(id: [2018], title: "2018"),
                         Filter.FilterSectionItem(id: [2017], title: "2017"),
                         Filter.FilterSectionItem(id: [2016], title: "2016"),
-                        Filter.FilterSectionItem(id: [2015], title: "2015")
+                        Filter.FilterSectionItem(id: [2015], title: "2015"),
                     ]
                 ),
                 Filter.FilterSection(title: "filter_section_category".localized(), type: .category, selection: .multiple, arrayWithItems:
@@ -43,16 +44,17 @@ struct FilterData {
                 ),
                 Filter.FilterSection(title: "filter_section_category_user".localized(), type: .category, selection: .multiple, arrayWithItems:
                     [
-                        Filter.FilterSectionItem(id: [42], title: "filter_members_residential".localized()),
-                        Filter.FilterSectionItem(id: [43], title: "filter_members_commercial".localized()),
                         Filter.FilterSectionItem(id: [44], title: "filter_members_architecture".localized()),
-                        Filter.FilterSectionItem(id: [45], title: "filter_members_consulting".localized()),
-                        Filter.FilterSectionItem(id: [46], title: "filter_members_legal".localized()),
                         Filter.FilterSectionItem(id: [49], title: "filter_members_banking".localized()),
-                        Filter.FilterSectionItem(id: [50], title: "filter_members_funds_investment".localized()),
                         Filter.FilterSectionItem(id: [47], title: "filter_members_brokerage".localized()),
+                        Filter.FilterSectionItem(id: [73], title: "filter_members_business_centre".localized()),
+                        Filter.FilterSectionItem(id: [43], title: "filter_members_commercial".localized()),
+                        Filter.FilterSectionItem(id: [45], title: "filter_members_consulting".localized()),
                         Filter.FilterSectionItem(id: [48], title: "filter_members_engineering".localized()),
-                        Filter.FilterSectionItem(id: [71], title: "filter_members_property_management".localized())
+                        Filter.FilterSectionItem(id: [50], title: "filter_members_funds_investment".localized()),
+                        Filter.FilterSectionItem(id: [46], title: "filter_members_legal".localized()),
+                        Filter.FilterSectionItem(id: [71], title: "filter_members_property_management".localized()),
+                        Filter.FilterSectionItem(id: [42], title: "filter_members_residential".localized()),
                     ]
                 )
             ]
