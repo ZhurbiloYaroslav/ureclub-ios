@@ -98,7 +98,7 @@
 "server_empty_email" = "Введите ваш email";
 "auth_alert_password_reset_title" = "Сбросить пароль";
 "alert_button_ok" = "Подтверждено";
-"alert_button_send" = "Ваш пароль сброшен";
+"alert_button_send" = "Сбросить";
 "auth_alert_password_reset_message" = "Напишите ваш email для сброса текущего пароля";
 "alert_button_cancel" = "Отменить";
 "password_reset_send_success" = "Пароль отправлен на ваш email адрес";
