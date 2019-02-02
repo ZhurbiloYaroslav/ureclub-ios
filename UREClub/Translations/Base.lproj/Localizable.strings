@@ -130,7 +130,7 @@
 "control_contacts_office" = "Office";
 "header_address" = "Address";
 "header_website" = "Web page";
-"ureclub_address" = "72 Verkhniy Val St.\nUkraine, Kyiv, 04070";
+"ureclub_address" = "Yaroslaviv Val St, 21-G";
 "button_go_to_meeting" = "Go";
 
 /*Fuzzy*/
@@ -184,3 +184,4 @@
 "alert_logout_title" = "Log out";
 "alert_logout_message" = "Do you really want to log out?";
 "alert_logout_button_ok" = "Log out";
+"button_readmore" = "Read more";

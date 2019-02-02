@@ -141,7 +141,7 @@ class LoginVC: UIViewController {
     }
     
     @IBAction func callButtonPressed(_ sender: UIButton) {
-        Browser.openURLWith(.callUREClub6753)
+        Browser.openURLWith(.callUREClubPhone1)
     }
     
     @IBAction func emailButtonPressed(_ sender: UIButton) {

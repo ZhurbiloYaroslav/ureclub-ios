@@ -126,7 +126,7 @@
 "control_contacts_office" = "Офіс";
 "header_address" = "Адреса";
 "header_website" = "Сайт";
-"ureclub_address" = "вул. Верхній Вал 72, Україна, Київ, 04070";
+"ureclub_address" = "ул. Ярославів Вал, 21-Г";
 "button_go_to_meeting" = "Відвідати";
 "alert_booking_success_title" = "Ресєтрація";
 "alert_booked_event_message" = "Ви успішно зареєструвалися на цей захід";
@@ -176,3 +176,5 @@
 "alert_logout_title" = "Вихід";
 "alert_logout_message" = "Ви бажаете вийти з додатку?";
 "alert_logout_button_ok" = "Вийти";
+"button_readmore" = "Детальніше";
+

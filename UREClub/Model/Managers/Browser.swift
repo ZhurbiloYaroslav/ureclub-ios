@@ -42,16 +42,17 @@ class Browser {
     
     static func openUREClubOnMap() {
         let baseLink = "http://maps.google.com/maps?&z=10"
-        let coordinates = "\(50.4717454)+\(30.5212255)"
-        let searchName = "Ukrainian Real Estate Club"
+        let coordinates = "\(50.4523322)+\(30.5061668)"
+        // let searchName = "Ukrainian Real Estate Club"
+        let searchName = "вулиця Ярославів Вал, 21Г, Київ"
         let linkWithCoordAndName = "\(baseLink)&ll=\(coordinates)&q=\(searchName)"
         let escapedLink = linkWithCoordAndName.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         openURLWith(escapedLink!)
     }
     
     enum UrlAdresses {
-        case callUREClub6753
-        case callUREClub5158
+        case callUREClubPhone1
+        case callUREClubPhone2
         case mailUREClubInfo
         case callUserPhone
         case mailUserEmail
@@ -64,8 +65,8 @@ class Browser {
         
         func getAddress() -> String {
             switch self {
-            case .callUREClub6753: return "tel://+380442276753"
-            case .callUREClub5158: return "tel://+380443605158"
+            case .callUREClubPhone1: return "tel://+380995081187"
+            case .callUREClubPhone2: return "tel://+380676567681"
             case .mailUREClubInfo: return "mailto:info@ureclub.com"
             case .callUserPhone: return "tel://\(CurrentUser.phone)"
             case .mailUserEmail: return "mailto:\(CurrentUser.email)"

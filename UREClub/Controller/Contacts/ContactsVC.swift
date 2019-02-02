@@ -192,13 +192,13 @@ extension ContactsVC: UITableViewDelegate, UITableViewDataSource {
             
         case [1,1]:
             let cellTitle = "profile_phone".localized()
-            let cellData = FieldCell.CellData(type: .phone, icon: UIImage(), title: cellTitle, value: "+380442276753")
+            let cellData = FieldCell.CellData(type: .phone, icon: UIImage(), title: cellTitle, value: "(099) 508 11 87")
             cell.configureWith(cellData)
             return cell
             
         case [1,2]:
             let cellTitle = "profile_phone".localized()
-            let cellData = FieldCell.CellData(type: .phone, icon: UIImage(), title: cellTitle, value: "+380443605158")
+            let cellData = FieldCell.CellData(type: .phone, icon: UIImage(), title: cellTitle, value: "(067) 656 76 81")
             cell.configureWith(cellData)
             return cell
             
@@ -242,9 +242,9 @@ extension ContactsVC: UITableViewDelegate, UITableViewDataSource {
             case [1,0]: // Address
                 Browser.openUREClubOnMap()
             case [1,1]: // Phone
-                Browser.openURLWith(.callUREClub6753)
+                Browser.openURLWith(.callUREClubPhone1)
             case [1,2]: // Phone 2
-                Browser.openURLWith(.callUREClub5158)
+                Browser.openURLWith(.callUREClubPhone2)
             case [1,3]: // Email
                 Browser.openURLWith(.mailUREClubInfo)
             case [1,4]: // Website

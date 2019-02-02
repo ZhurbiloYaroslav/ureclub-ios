@@ -126,7 +126,7 @@
 "control_contacts_office" = "Офис";
 "header_address" = "Адрес";
 "header_website" = "Сайт";
-"ureclub_address" = "ул. Верхний Вал 72\nУкраина, Киев, 04070";
+"ureclub_address" = "ул. Ярославов Вал, 21-Г";
 "button_go_to_meeting" = "Я иду";
 
 /*Fuzzy*/
@@ -180,3 +180,5 @@
 "alert_logout_title" = "Выход";
 "alert_logout_message" = "Вы действительно хотите выйти?";
 "alert_logout_button_ok" = "Выйти";
+"button_readmore" = "Детальнее";
+
