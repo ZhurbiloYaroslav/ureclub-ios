@@ -13,7 +13,7 @@ class CodexCell: UITableViewCell {
     @IBOutlet weak var codexItemTextLabel: UILabel!
     
     func updateCellWith(_ indexPath: IndexPath) {
-        codexItemTextLabel.text = Codex().items[indexPath.row]
+        codexItemTextLabel.text = Codex().items[indexPath.row].localized()
     }
     
     override func awakeFromNib() {
